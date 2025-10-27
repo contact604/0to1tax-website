@@ -374,7 +374,14 @@
     
     <script src="js/main.js"></script>
     
+    <!-- Markdown 파싱을 위한 라이브러리 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
     <script>
+        // ===== Netlify CMS (GitHub + Markdown) 방식 =====
+        
+        let allPosts = [];
+        let filteredPosts = [];
         let currentCategory = 'all';
         let currentPage = 1;
         const postsPerPage = 10;
@@ -385,122 +392,187 @@
             menu.classList.toggle('hidden');
         });
         
-        // Filter by Category
-        function filterByCategory(category) {
-            currentCategory = category;
-            currentPage = 1;
-            
-            // Update active button
-            document.querySelectorAll('.category-filter').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            loadPosts();
-        }
-        
-        // Search
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            currentPage = 1;
-            loadPosts(searchTerm);
-        });
-        
-        // Load Posts
-        async function loadPosts(searchTerm = '') {
+        // GitHub에서 블로그 포스트 목록 가져오기
+        async function loadBlogPosts() {
             try {
-                let url = `tables/blog_posts?sort=-created_at&limit=100`;
-                const response = await fetch(url);
-                const data = await response.json();
+                // GitHub API - _posts 폴더의 파일 목록
+                const response = await fetch('https://api.github.com/repos/contact604/0to1tax-website/contents/_posts');
                 
-                let filteredPosts = data.data || [];
-                
-                // Filter by category
-                if (currentCategory !== 'all') {
-                    filteredPosts = filteredPosts.filter(post => post.category === currentCategory);
+                if (!response.ok) {
+                    throw new Error('GitHub API 응답 실패');
                 }
                 
-                // Filter by search term
-                if (searchTerm) {
-                    filteredPosts = filteredPosts.filter(post => 
-                        post.title.toLowerCase().includes(searchTerm) ||
-                        post.content.toLowerCase().includes(searchTerm) ||
-                        (post.tags && post.tags.some(tag => tag.toLowerCase().includes(searchTerm)))
-                    );
+                const files = await response.json();
+                
+                // .md 파일만 필터링 (.gitkeep 제외)
+                const markdownFiles = files.filter(file => file.name.endsWith('.md'));
+                
+                if (markdownFiles.length === 0) {
+                    throw new Error('블로그 포스트가 없습니다');
                 }
                 
-                // Update count
-                document.getElementById('totalCount').textContent = filteredPosts.length;
+                // 각 파일의 내용 가져오기
+                const posts = await Promise.all(
+                    markdownFiles.map(async (file) => {
+                        const contentResponse = await fetch(file.download_url);
+                        const content = await contentResponse.text();
+                        return parseMarkdownPost(content, file.name);
+                    })
+                );
                 
-                // Pagination
-                const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
-                const startIndex = (currentPage - 1) * postsPerPage;
-                const endIndex = startIndex + postsPerPage;
-                const postsToShow = filteredPosts.slice(startIndex, endIndex);
+                // null 제거 및 날짜순 정렬 (최신순)
+                allPosts = posts.filter(post => post !== null).sort((a, b) => new Date(b.date) - new Date(a.date));
+                filteredPosts = [...allPosts];
                 
-                // Display posts
-                const articlesList = document.getElementById('articlesList');
-                
-                if (postsToShow.length > 0) {
-                    articlesList.innerHTML = postsToShow.map(post => {
-                        const excerpt = post.content.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
-                        const categoryColors = {
-                            '세무': 'bg-cosmic-blue',
-                            '회계': 'bg-stellar-purple',
-                            '스타트업': 'bg-rocket-orange',
-                            '기타': 'bg-gray-500'
-                        };
-                        const categoryColor = categoryColors[post.category] || 'bg-gray-500';
-                        
-                        return `
-                            <article class="article-card card-cosmic rounded-xl p-6">
-                                <div class="flex justify-between items-start mb-3">
-                                    <span class="text-xs px-3 py-1 rounded-full ${categoryColor} bg-opacity-30 text-white font-semibold">${post.category}</span>
-                                    <span class="text-xs text-gray-500">${new Date(post.created_at).toLocaleDateString('ko-KR')}</span>
-                                </div>
-                                <h3 class="text-xl font-bold text-white mb-2 hover:text-cosmic-blue transition">
-                                    <a href="blog-detail.html?id=${post.id}">${post.title}</a>
-                                </h3>
-                                <p class="text-gray-400 mb-4 leading-relaxed">${excerpt}</p>
-                                ${post.tags && post.tags.length > 0 ? `
-                                    <div class="flex flex-wrap gap-2 mb-4">
-                                        ${post.tags.map(tag => `<span class="text-xs px-3 py-1 bg-deep-space bg-opacity-60 text-cosmic-blue rounded-full">#${tag}</span>`).join('')}
-                                    </div>
-                                ` : ''}
-                                <a href="blog-detail.html?id=${post.id}" class="text-cosmic-blue hover:text-stellar-purple font-semibold text-sm transition inline-flex items-center">
-                                    자세히 보기 <i class="fas fa-arrow-right ml-2"></i>
-                                </a>
-                            </article>
-                        `;
-                    }).join('');
-                    
-                    // Pagination
-                    renderPagination(totalPages);
-                } else {
-                    articlesList.innerHTML = `
-                        <div class="card-cosmic rounded-xl p-12 text-center">
-                            <i class="fas fa-search text-6xl text-gray-600 mb-4"></i>
-                            <p class="text-gray-400 text-lg">검색 결과가 없습니다</p>
-                        </div>
-                    `;
-                    document.getElementById('pagination').innerHTML = '';
-                }
-                
-                // Load popular tags
-                loadPopularTags(data.data || []);
+                // 게시글 렌더링
+                renderPosts();
                 
             } catch (error) {
-                console.error('Failed to load posts:', error);
-                document.getElementById('articlesList').innerHTML = `
-                    <div class="card-cosmic rounded-xl p-12 text-center">
-                        <i class="fas fa-exclamation-triangle text-6xl text-gray-600 mb-4"></i>
-                        <p class="text-gray-400 text-lg">게시글을 불러오는데 실패했습니다</p>
-                    </div>
-                `;
+                console.error('블로그 포스트 로딩 실패:', error);
+                showError();
             }
         }
         
-        // Render Pagination
+        // Markdown 파일 파싱 (Front Matter + 본문)
+        function parseMarkdownPost(content, filename) {
+            // Front Matter 추출 (---)
+            const frontMatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
+            const match = content.match(frontMatterRegex);
+            
+            if (!match) {
+                console.error('Invalid markdown format:', filename);
+                return null;
+            }
+            
+            const frontMatter = match[1];
+            const body = match[2];
+            
+            // Front Matter 파싱
+            const metadata = {};
+            const lines = frontMatter.split('\n');
+            let currentKey = null;
+            
+            lines.forEach(line => {
+                // 배열 항목 처리
+                if (line.startsWith('  - ')) {
+                    const arrayValue = line.replace('  - ', '').trim();
+                    if (currentKey && metadata[currentKey]) {
+                        metadata[currentKey].push(arrayValue);
+                    }
+                } else if (line.includes(':')) {
+                    // 키:값 쌍
+                    const colonIndex = line.indexOf(':');
+                    const key = line.substring(0, colonIndex).trim();
+                    const value = line.substring(colonIndex + 1).trim();
+                    
+                    // 배열 타입 (tags)
+                    if (key === 'tags') {
+                        metadata[key] = [];
+                        currentKey = key;
+                    } else {
+                        // 따옴표 제거
+                        metadata[key] = value.replace(/^["']|["']$/g, '');
+                        currentKey = null;
+                    }
+                }
+            });
+            
+            // 파일명에서 slug 추출
+            const slug = filename.replace('.md', '');
+            
+            // excerpt 생성 (본문 첫 150자 또는 메타데이터의 excerpt)
+            const plainBody = body.replace(/#{1,6}\s/g, '').replace(/\*\*/g, '').replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1');
+            const autoExcerpt = plainBody.substring(0, 150).trim() + '...';
+            
+            return {
+                slug,
+                title: metadata.title || 'Untitled',
+                date: metadata.date || new Date().toISOString(),
+                author: metadata.author || 'Zero to one TAX',
+                category: metadata.category || '기타',
+                tags: metadata.tags || [],
+                thumbnail: metadata.thumbnail || '',
+                excerpt: metadata.excerpt || autoExcerpt,
+                body: body,
+                published: metadata.published !== 'false'
+            };
+        }
+        
+        // 게시글 렌더링
+        function renderPosts() {
+            // 공개된 글만 필터링
+            const publishedPosts = filteredPosts.filter(post => post.published);
+            
+            // 총 개수 업데이트
+            document.getElementById('totalCount').textContent = publishedPosts.length;
+            
+            // 페이지네이션
+            const totalPages = Math.ceil(publishedPosts.length / postsPerPage);
+            const startIndex = (currentPage - 1) * postsPerPage;
+            const endIndex = startIndex + postsPerPage;
+            const postsToShow = publishedPosts.slice(startIndex, endIndex);
+            
+            // 게시글 목록 렌더링
+            const articlesList = document.getElementById('articlesList');
+            
+            if (postsToShow.length > 0) {
+                articlesList.innerHTML = postsToShow.map(post => {
+                    const categoryColors = {
+                        '세무': 'bg-cosmic-blue',
+                        '회계': 'bg-stellar-purple',
+                        '스타트업': 'bg-rocket-orange',
+                        '기타': 'bg-gray-500'
+                    };
+                    const categoryColor = categoryColors[post.category] || 'bg-gray-500';
+                    
+                    return `
+                        <article class="article-card card-cosmic rounded-xl p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-xs px-3 py-1 rounded-full ${categoryColor} bg-opacity-30 text-white font-semibold">${post.category}</span>
+                                <span class="text-xs text-gray-500">${formatDate(post.date)}</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2 hover:text-cosmic-blue transition">
+                                <a href="blog-detail.html?slug=${post.slug}">${post.title}</a>
+                            </h3>
+                            <p class="text-gray-400 mb-4 leading-relaxed">${post.excerpt}</p>
+                            ${post.tags && post.tags.length > 0 ? `
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    ${post.tags.map(tag => `<span class="text-xs px-3 py-1 bg-deep-space bg-opacity-60 text-cosmic-blue rounded-full">#${tag}</span>`).join('')}
+                                </div>
+                            ` : ''}
+                            <a href="blog-detail.html?slug=${post.slug}" class="text-cosmic-blue hover:text-stellar-purple font-semibold text-sm transition inline-flex items-center">
+                                자세히 보기 <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </article>
+                    `;
+                }).join('');
+                
+                // 페이지네이션 렌더링
+                renderPagination(totalPages);
+            } else {
+                articlesList.innerHTML = `
+                    <div class="card-cosmic rounded-xl p-12 text-center">
+                        <i class="fas fa-search text-6xl text-gray-600 mb-4"></i>
+                        <p class="text-gray-400 text-lg">검색 결과가 없습니다</p>
+                    </div>
+                `;
+                document.getElementById('pagination').innerHTML = '';
+            }
+            
+            // 인기 태그 렌더링
+            loadPopularTags();
+        }
+        
+        // 날짜 포맷팅
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}.${month}.${day}`;
+        }
+        
+        // 페이지네이션 렌더링
         function renderPagination(totalPages) {
             const pagination = document.getElementById('pagination');
             
@@ -533,18 +605,59 @@
             pagination.innerHTML = paginationHTML;
         }
         
-        // Change Page
+        // 페이지 변경
         function changePage(page) {
             currentPage = page;
-            loadPosts();
+            renderPosts();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         
-        // Load Popular Tags
-        function loadPopularTags(posts) {
+        // 카테고리 필터
+        function filterByCategory(category) {
+            currentCategory = category;
+            currentPage = 1;
+            
+            // Update active button
+            document.querySelectorAll('.category-filter').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // 필터링
+            filterPosts();
+        }
+        
+        // 검색
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            currentPage = 1;
+            filterPosts(searchTerm);
+        });
+        
+        // 포스트 필터링
+        function filterPosts(searchTerm = '') {
+            filteredPosts = allPosts.filter(post => {
+                // 카테고리 필터
+                const categoryMatch = currentCategory === 'all' || post.category === currentCategory;
+                
+                // 검색어 필터
+                const searchMatch = searchTerm === '' || 
+                    post.title.toLowerCase().includes(searchTerm) ||
+                    post.excerpt.toLowerCase().includes(searchTerm) ||
+                    post.body.toLowerCase().includes(searchTerm) ||
+                    post.tags.some(tag => tag.toLowerCase().includes(searchTerm));
+                
+                return categoryMatch && searchMatch && post.published;
+            });
+            
+            renderPosts();
+        }
+        
+        // 인기 태그 로드
+        function loadPopularTags() {
             const tagsCount = {};
-            posts.forEach(post => {
-                if (post.tags) {
+            allPosts.forEach(post => {
+                if (post.tags && post.published) {
                     post.tags.forEach(tag => {
                         tagsCount[tag] = (tagsCount[tag] || 0) + 1;
                     });
@@ -568,15 +681,28 @@
             }
         }
         
-        // Search by Tag
+        // 태그로 검색
         function searchByTag(tag) {
             document.getElementById('searchInput').value = tag;
-            loadPosts(tag);
+            filterPosts(tag);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         
-        // Initialize
-        loadPosts();
+        // 에러 표시
+        function showError() {
+            document.getElementById('articlesList').innerHTML = `
+                <div class="card-cosmic rounded-xl p-12 text-center">
+                    <i class="fas fa-exclamation-triangle text-6xl text-gray-600 mb-4"></i>
+                    <p class="text-gray-400 text-lg mb-4">게시글을 불러오는데 실패했습니다</p>
+                    <p class="text-gray-500 text-sm">GitHub 저장소의 _posts 폴더를 확인해주세요</p>
+                </div>
+            `;
+            document.getElementById('totalCount').textContent = '0';
+        }
+        
+        // 페이지 로드 시 실행
+        loadBlogPosts();
     </script>
+
 </body>
 </html>

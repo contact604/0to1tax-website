@@ -1,78 +1,109 @@
-// Mobile Menu Toggle
-document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    mobileMenu.classList.toggle('hidden');
-});
-
-// Smooth Scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href !== '#') {
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-                const offset = 80; // Navigation height
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                // Close mobile menu if open
-                document.getElementById('mobileMenu').classList.add('hidden');
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+    
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const offset = 80; // Navigation height
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
             }
-        }
+        });
     });
+    
+    // Close modal when clicking outside
+    const consultModal = document.getElementById('consultModal');
+    if (consultModal) {
+        consultModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeConsultModal();
+            }
+        });
+    }
+    
+    // Consultation Form Submit (Netlify Forms)
+    const consultForm = document.getElementById('consultForm');
+    if (consultForm) {
+        consultForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('consultForm').classList.add('hidden');
+                    document.getElementById('consultSuccess').classList.remove('hidden');
+                } else {
+                    alert('신청 중 오류가 발생했습니다. 다시 시도해주세요.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('신청 중 오류가 발생했습니다. 다시 시도해주세요.');
+            }
+        });
+    }
+    
+    // Load Blog Posts
+    loadBlogPosts();
 });
 
-// Modal Functions
+// Modal Functions (Global scope for onclick handlers)
 window.openConsultModal = function() {
-    document.getElementById('consultModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
+    const modal = document.getElementById('consultModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
 }
 
 window.closeConsultModal = function() {
-    document.getElementById('consultModal').classList.remove('active');
-    document.body.style.overflow = 'auto';
-    // Reset form
-    document.getElementById('consultForm').reset();
-    document.getElementById('consultForm').classList.remove('hidden');
-    document.getElementById('consultSuccess').classList.add('hidden');
-}
-
-// Close modal when clicking outside
-document.getElementById('consultModal').addEventListener('click', function(e) {
-    if (e.target === this) {
-        closeConsultModal();
-    }
-});
-
-// Consultation Form Submit (Netlify Forms)
-document.getElementById('consultForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const form = e.target;
-    const formData = new FormData(form);
-    
-    try {
-        const response = await fetch('/', {
-            method: 'POST',
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString()
-        });
-        
-        if (response.ok) {
-            // Show success message
-            document.getElementById('consultForm').classList.add('hidden');
-            document.getElementById('consultSuccess').classList.remove('hidden');
-        } else {
-            alert('신청 중 오류가 발생했습니다. 다시 시도해주세요.');
+    const modal = document.getElementById('consultModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        // Reset form
+        const form = document.getElementById('consultForm');
+        const success = document.getElementById('consultSuccess');
+        if (form) {
+            form.reset();
+            form.classList.remove('hidden');
         }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('신청 중 오류가 발생했습니다. 다시 시도해주세요.');
+        if (success) {
+            success.classList.add('hidden');
+        }
     }
-});
+}
 
 // Load Blog Posts (최신 3개)
 async function loadBlogPosts() {
@@ -87,6 +118,8 @@ async function loadBlogPosts() {
         const markdownFiles = files.filter(file => file.name.endsWith('.md'));
         
         const blogPostsList = document.getElementById('blogPostsList');
+        
+        if (!blogPostsList) return;
         
         if (markdownFiles.length === 0) {
             blogPostsList.innerHTML = `
@@ -109,7 +142,7 @@ async function loadBlogPosts() {
         
         // Filter published posts and sort by date
         const publishedPosts = posts
-            .filter(post => post.published)
+            .filter(post => post && post.published)
             .sort((a, b) => new Date(b.date) - new Date(a.date));
         
         if (publishedPosts.length === 0) {
@@ -158,11 +191,14 @@ async function loadBlogPosts() {
         
     } catch (error) {
         console.error('Error loading blog posts:', error);
-        document.getElementById('blogPostsList').innerHTML = `
-            <div class="col-span-full text-center text-gray-500 py-12">
-                <p class="text-xl">글을 불러오는 중 오류가 발생했습니다.</p>
-            </div>
-        `;
+        const blogPostsList = document.getElementById('blogPostsList');
+        if (blogPostsList) {
+            blogPostsList.innerHTML = `
+                <div class="col-span-full text-center text-gray-500 py-12">
+                    <p class="text-xl">글을 불러오는 중 오류가 발생했습니다.</p>
+                </div>
+            `;
+        }
     }
 }
 
@@ -210,8 +246,3 @@ function parseMarkdownPost(content, filename) {
         filename: filename
     };
 }
-
-// Initialize
-document.addEventListener('DOMContentLoaded', function() {
-    loadBlogPosts();
-});

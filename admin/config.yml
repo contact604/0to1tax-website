@@ -1,0 +1,43 @@
+# Netlify CMS 설정 파일
+# Zero to one TAX - 블로그 관리 시스템
+
+# Backend 설정 (GitHub 연동)
+backend:
+  name: github
+  repo: contact604/0to1tax-website
+  branch: main
+  
+# 미디어 파일 저장 위치
+media_folder: "images/blog"  # 업로드된 이미지 저장 위치
+public_folder: "/images/blog"  # 웹사이트에서 접근할 경로
+
+# 로컬 개발 모드 (선택사항)
+# local_backend: true
+
+# 한국어 설정
+locale: 'ko'
+
+# 컬렉션 설정 (블로그 게시글)
+collections:
+  - name: "blog"  # 내부 이름
+    label: "블로그"  # CMS에 표시될 이름
+    folder: "_posts"  # 블로그 글이 저장될 폴더
+    create: true  # 새 글 작성 가능
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"  # 파일명 형식
+    editor:
+      preview: true  # 미리보기 활성화
+    fields:  # 블로그 글 필드 정의
+      - {label: "제목", name: "title", widget: "string", required: true}
+      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", dateFormat: "YYYY-MM-DD", timeFormat: "HH:mm", required: true}
+      - {label: "작성자", name: "author", widget: "string", default: "Zero to one TAX"}
+      - {label: "카테고리", name: "category", widget: "select", options: ["세무", "회계", "스타트업", "기타"], required: true}
+      - {label: "태그", name: "tags", widget: "list", required: false, hint: "Enter 키로 태그 추가"}
+      - {label: "썸네일 이미지", name: "thumbnail", widget: "image", required: false, hint: "선택사항 - 블로그 목록에 표시될 이미지"}
+      - {label: "요약", name: "excerpt", widget: "text", required: false, hint: "선택사항 - 블로그 목록에 표시될 짧은 요약"}
+      - {label: "본문", name: "body", widget: "markdown", required: true}
+      - {label: "공개", name: "published", widget: "boolean", default: true, hint: "비공개로 설정하면 웹사이트에 표시되지 않습니다"}
+
+# 사이트 설정
+site_url: https://0to1tax.com
+display_url: https://0to1tax.com
+logo_url: /favicon.svg

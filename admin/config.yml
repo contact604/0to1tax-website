@@ -3,8 +3,7 @@
 
 # Backend 설정 (GitHub 연동)
 backend:
-  name: github
-  repo: contact604/0to1tax-website
+  name: git-gateway
   branch: main
   
 # 미디어 파일 저장 위치

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="cosmicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F97316;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="50" cy="50" r="48" fill="url(#cosmicGradient)"/>
+  
+  <!-- Rocket -->
+  <g transform="translate(50, 50)">
+    <!-- Rocket Body -->
+    <path d="M 0,-25 L 8,-10 L 8,15 L 0,20 L -8,15 L -8,-10 Z" fill="white"/>
+    
+    <!-- Window -->
+    <circle cx="0" cy="-5" r="5" fill="#3B82F6"/>
+    
+    <!-- Flames -->
+    <path d="M -5,20 L -3,28 L 0,22 L 3,28 L 5,20 Z" fill="#F97316"/>
+    <path d="M -3,22 L -1,30 L 0,24 L 1,30 L 3,22 Z" fill="#FBBF24"/>
+    
+    <!-- Wings -->
+    <path d="M -8,-5 L -15,5 L -8,10 Z" fill="#94A3B8"/>
+    <path d="M 8,-5 L 15,5 L 8,10 Z" fill="#94A3B8"/>
+  </g>
+</svg>

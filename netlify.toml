@@ -1,0 +1,67 @@
+# Netlify 배포 설정 파일
+# Zero to one TAX - 스타트업 세무회계 전문
+
+[build]
+  # 정적 사이트이므로 빌드 명령 불필요
+  publish = "."
+  
+[build.environment]
+  NODE_VERSION = "18"
+
+# 리디렉션 설정
+[[redirects]]
+  from = "/blog"
+  to = "/taxz1log.html"
+  status = 301
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/blog-detail.html"
+  status = 200
+
+# 404 페이지 설정
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# 헤더 설정 - 보안 및 성능 최적화
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML 파일은 짧은 캐시
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

@@ -1,0 +1,22 @@
+{
+    "name": "Zero to one TAX",
+    "short_name": "Z1 TAX",
+    "description": "스타트업 성장 세무회계 전문 - ZERO에서 ONE까지 함께합니다",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#0F172A",
+    "background_color": "#0F172A",
+    "display": "standalone",
+    "start_url": "/",
+    "scope": "/"
+}

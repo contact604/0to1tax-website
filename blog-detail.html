@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zero to one TAX 블로그">
+    <title id="pageTitle">Zero to one TAX 블로그</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        }
+        
+        /* Cosmic Theme Colors */
+        :root {
+            --deep-space: #0F172A;
+            --space-light: #1E293B;
+            --cosmic-blue: #3B82F6;
+            --stellar-purple: #8B5CF6;
+            --rocket-orange: #F97316;
+        }
+        
+        body {
+            background: linear-gradient(to bottom, var(--deep-space) 0%, var(--space-light) 100%);
+            min-height: 100vh;
+        }
+        
+        .gradient-cosmic {
+            background: linear-gradient(135deg, var(--stellar-purple) 0%, var(--cosmic-blue) 50%, var(--rocket-orange) 100%);
+        }
+        
+        .text-gradient-cosmic {
+            background: linear-gradient(135deg, var(--stellar-purple) 0%, var(--cosmic-blue) 50%, var(--rocket-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-cosmic {
+            backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .card-cosmic {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .glow-effect {
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.5);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Content Body Styles */
+        .content-body {
+            line-height: 1.8;
+            font-size: 1.125rem;
+            color: #E2E8F0;
+        }
+        
+        .content-body h1, .content-body h2, .content-body h3 {
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+        }
+        
+        .content-body h1 { 
+            font-size: 2rem;
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .content-body h2 { 
+            font-size: 1.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .content-body h3 { 
+            font-size: 1.5rem;
+            color: var(--cosmic-blue);
+        }
+        
+        .content-body p {
+            margin-bottom: 1.5rem;
+            color: #CBD5E1;
+        }
+        
+        .content-body ul, .content-body ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-body li {
+            margin-bottom: 0.75rem;
+            color: #CBD5E1;
+        }
+        
+        .content-body strong {
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+        
+        .content-body a {
+            color: var(--cosmic-blue);
+            text-decoration: underline;
+        }
+        
+        .content-body a:hover {
+            color: var(--stellar-purple);
+        }
+        
+        .content-body blockquote {
+            border-left: 4px solid var(--cosmic-blue);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            background: rgba(59, 130, 246, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+        
+        .content-body code {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
+            color: var(--rocket-orange);
+            font-family: monospace;
+        }
+        
+        .content-body pre {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        .content-body img {
+            border-radius: 1rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .stars-bg {
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, white, transparent),
+                radial-gradient(2px 2px at 60% 70%, white, transparent),
+                radial-gradient(1px 1px at 50% 50%, white, transparent),
+                radial-gradient(1px 1px at 80% 10%, white, transparent),
+                radial-gradient(2px 2px at 90% 60%, white, transparent);
+            background-size: 200% 200%;
+            animation: twinkle 5s ease-in-out infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-space': '#0F172A',
+                        'space-light': '#1E293B',
+                        'cosmic-blue': '#3B82F6',
+                        'stellar-purple': '#8B5CF6',
+                        'rocket-orange': '#F97316',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="nav-cosmic shadow-lg fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="text-3xl">🚀</div>
+                    <div class="flex flex-col leading-tight">
+                        <span class="text-xl font-bold text-white">Zero to one</span>
+                        <span class="text-sm font-bold text-gradient-cosmic">TAX</span>
+                    </div>
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html#home" class="text-gray-300 hover:text-white transition font-medium">홈</a>
+                    <a href="index.html#services" class="text-gray-300 hover:text-white transition font-medium">서비스</a>
+                    <a href="taxz1log.html" class="text-cosmic-blue font-semibold">블로그</a>
+                    <a href="index.html" onclick="event.preventDefault(); window.location.href='index.html'; setTimeout(() => openConsultModal(), 500);" class="gradient-cosmic text-white px-6 py-2.5 rounded-full hover:shadow-xl transition font-medium">
+                        🚀 무료 상담
+                    </a>
+                </div>
+                
+                <button id="mobileMenuBtn" class="lg:hidden text-white hover:text-cosmic-blue">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="mobileMenu" class="hidden lg:hidden pb-4 space-y-3">
+                <a href="index.html#home" class="block text-gray-300 hover:text-white transition font-medium py-2">홈</a>
+                <a href="index.html#services" class="block text-gray-300 hover:text-white transition font-medium py-2">서비스</a>
+                <a href="taxz1log.html" class="block text-cosmic-blue font-semibold py-2">블로그</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Loading -->
+    <div id="loading" class="pt-32 pb-20">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center py-20">
+                <div class="inline-block w-16 h-16 border-4 border-cosmic-blue border-t-transparent rounded-full animate-spin mb-4"></div>
+                <p class="text-gray-300 text-lg">로딩 중...</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Article Content -->
+    <article id="articleContent" class="hidden pt-32 pb-20">
+        <div class="container mx-auto px-4 lg:px-8">
+            <!-- Back Button -->
+            <a href="taxz1log.html" class="inline-flex items-center text-cosmic-blue hover:text-stellar-purple transition mb-8 font-medium max-w-7xl mx-auto">
+                <i class="fas fa-arrow-left mr-2"></i> 목록으로
+            </a>
+            
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-12 gap-8">
+                    
+                    <!-- Main Content (Left) -->
+                    <div class="lg:col-span-8">
+                        <!-- Article Header -->
+                        <div class="card-cosmic rounded-2xl p-8 mb-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span id="articleCategory" class="px-4 py-1.5 rounded-full text-sm font-semibold bg-cosmic-blue bg-opacity-30 text-cosmic-blue">
+                                    카테고리
+                                </span>
+                                <span id="articleDate" class="text-gray-400 text-sm">
+                                    2024년 1월 1일
+                                </span>
+                            </div>
+                            
+                            <h1 id="articleTitle" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 glow-effect">
+                                게시글 제목
+                            </h1>
+                            
+                            <div class="flex items-center justify-between pt-4 border-t border-cosmic-blue border-opacity-20">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-full bg-gradient-cosmic flex items-center justify-center">
+                                        <i class="fas fa-user text-white"></i>
+                                    </div>
+                                    <div>
+                                        <div id="articleAuthor" class="text-white font-semibold">작성자</div>
+                                        <div class="text-gray-400 text-sm">Zero to one TAX</div>
+                                    </div>
+                                </div>
+                                
+                                <div id="articleTags" class="flex flex-wrap gap-2">
+                                    <!-- Tags will be inserted here -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article Body -->
+                        <div class="card-cosmic rounded-2xl p-8 mb-8">
+                            <div id="articleBody" class="content-body">
+                                <!-- Content will be loaded here -->
+                            </div>
+                        </div>
+                        
+                        <!-- Related Articles -->
+                        <div class="card-cosmic rounded-2xl p-8">
+                            <h3 class="text-2xl font-bold text-white mb-6 glow-effect">
+                                <i class="fas fa-book-open mr-2 text-cosmic-blue"></i>관련 글
+                            </h3>
+                            <div id="relatedArticles" class="space-y-4">
+                                <!-- Related articles will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Table of Contents (Right Sidebar) -->
+                    <div class="lg:col-span-4 hidden lg:block">
+                        <div class="sticky top-24">
+                            <div class="card-cosmic rounded-2xl p-6 mb-6">
+                                <h3 class="text-lg font-bold text-white mb-4 flex items-center">
+                                    <i class="fas fa-list-ul mr-2 text-cosmic-blue"></i>
+                                    목차
+                                </h3>
+                                <nav id="tableOfContents" class="space-y-2 text-sm">
+                                    <!-- TOC will be generated here -->
+                                </nav>
+                            </div>
+                            
+                            <!-- Consult CTA -->
+                            <div class="card-cosmic rounded-2xl p-6 text-center">
+                                <div class="text-4xl mb-3">🤔</div>
+                                <h4 class="text-white font-bold mb-2">궁금한 점이 있으신가요?</h4>
+                                <p class="text-gray-400 text-sm mb-4">전문가 상담을 받아보세요</p>
+                                <a href="index.html" onclick="event.preventDefault(); window.location.href='index.html'; setTimeout(() => openConsultModal(), 500);" class="gradient-cosmic text-white px-6 py-2.5 rounded-full inline-block hover:shadow-xl transition font-semibold text-sm">
+                                    <i class="fas fa-comment-dots mr-2"></i>무료 상담하기
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </article>
+    
+    <!-- Error -->
+    <div id="error" class="hidden pt-32 pb-20">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="max-w-4xl mx-auto card-cosmic rounded-2xl p-12 text-center">
+                <i class="fas fa-exclamation-triangle text-6xl text-rocket-orange mb-6"></i>
+                <h2 class="text-2xl font-bold text-white mb-4">게시글을 찾을 수 없습니다</h2>
+                <p class="text-gray-400 mb-8">요청하신 게시글이 존재하지 않거나 삭제되었습니다.</p>
+                <a href="taxz1log.html" class="gradient-cosmic text-white px-8 py-3 rounded-full inline-block hover:shadow-xl transition font-semibold">
+                    <i class="fas fa-list mr-2"></i>목록으로 돌아가기
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating Consult Button -->
+    <a href="index.html" onclick="event.preventDefault(); window.location.href='index.html'; setTimeout(() => openConsultModal(), 500);" class="floating-btn gradient-cosmic text-white w-16 h-16 rounded-full flex items-center justify-center hover:shadow-2xl transition">
+        <i class="fas fa-comment-dots text-2xl"></i>
+    </a>
+    
+    <!-- Footer -->
+    <footer class="bg-deep-space border-t border-cosmic-blue border-opacity-20 py-12">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <div class="text-3xl">🚀</div>
+                    <div class="flex flex-col leading-tight">
+                        <span class="text-xl font-bold text-white">Zero to one</span>
+                        <span class="text-sm font-bold text-gradient-cosmic">TAX</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 mb-2">스타트업 성장 세무회계 전문</p>
+                <p class="text-sm text-gray-500">© 2024 Zero to one TAX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Get Post ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('id');
+        
+        if (!postId) {
+            showError();
+        } else {
+            loadPost(postId);
+        }
+        
+        // Load Post
+        async function loadPost(id) {
+            try {
+                const response = await fetch(`tables/blog_posts/${id}`);
+                
+                if (!response.ok) {
+                    throw new Error('Post not found');
+                }
+                
+                const post = await response.json();
+                
+                // Update page title
+                document.getElementById('pageTitle').textContent = `${post.title} - Zero to one TAX 블로그`;
+                
+                // Update meta description
+                const metaDesc = document.querySelector('meta[name="description"]');
+                if (metaDesc) {
+                    const excerpt = post.content.replace(/<[^>]*>/g, '').substring(0, 150);
+                    metaDesc.setAttribute('content', excerpt);
+                }
+                
+                // Display post
+                document.getElementById('articleTitle').textContent = post.title;
+                document.getElementById('articleCategory').textContent = post.category;
+                document.getElementById('articleDate').textContent = new Date(post.created_at).toLocaleDateString('ko-KR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                document.getElementById('articleAuthor').textContent = post.author || '관리자';
+                document.getElementById('articleBody').innerHTML = post.content;
+                
+                // Category colors
+                const categoryColors = {
+                    '세무': 'bg-cosmic-blue',
+                    '회계': 'bg-stellar-purple',
+                    '스타트업': 'bg-rocket-orange',
+                    '기타': 'bg-gray-500'
+                };
+                const categoryColor = categoryColors[post.category] || 'bg-gray-500';
+                document.getElementById('articleCategory').className = `px-4 py-1.5 rounded-full text-sm font-semibold ${categoryColor} bg-opacity-30 text-white`;
+                
+                // Display tags
+                if (post.tags && post.tags.length > 0) {
+                    document.getElementById('articleTags').innerHTML = post.tags.map(tag => 
+                        `<span class="px-3 py-1 bg-deep-space bg-opacity-60 text-cosmic-blue rounded-full text-sm">#${tag}</span>`
+                    ).join('');
+                }
+                
+                // Load related articles
+                loadRelatedArticles(post.category, post.id);
+                
+                // Show content
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('articleContent').classList.remove('hidden');
+                
+                // Generate Table of Contents after content is displayed
+                setTimeout(() => {
+                    generateTableOfContents();
+                }, 100);
+                
+            } catch (error) {
+                console.error('Failed to load post:', error);
+                showError();
+            }
+        }
+        
+        // Load Related Articles
+        async function loadRelatedArticles(category, currentPostId) {
+            try {
+                const response = await fetch(`tables/blog_posts?limit=100&sort=-created_at`);
+                const data = await response.json();
+                
+                let relatedPosts = (data.data || [])
+                    .filter(post => post.category === category && post.id !== currentPostId)
+                    .slice(0, 3);
+                
+                const relatedArticlesContainer = document.getElementById('relatedArticles');
+                
+                if (relatedPosts.length > 0) {
+                    relatedArticlesContainer.innerHTML = relatedPosts.map(post => {
+                        const categoryColors = {
+                            '세무': 'bg-cosmic-blue',
+                            '회계': 'bg-stellar-purple',
+                            '스타트업': 'bg-rocket-orange',
+                            '기타': 'bg-gray-500'
+                        };
+                        const categoryColor = categoryColors[post.category] || 'bg-gray-500';
+                        
+                        return `
+                            <a href="blog-detail.html?id=${post.id}" class="block p-4 bg-deep-space bg-opacity-40 rounded-xl border border-cosmic-blue border-opacity-20 hover:border-opacity-50 transition group">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="text-xs px-3 py-1 rounded-full ${categoryColor} bg-opacity-30 text-white font-semibold">${post.category}</span>
+                                    <span class="text-xs text-gray-500">${new Date(post.created_at).toLocaleDateString('ko-KR')}</span>
+                                </div>
+                                <h4 class="text-lg font-semibold text-white group-hover:text-cosmic-blue transition">${post.title}</h4>
+                            </a>
+                        `;
+                    }).join('');
+                } else {
+                    relatedArticlesContainer.innerHTML = '<p class="text-gray-400 text-center py-4">관련 글이 없습니다</p>';
+                }
+            } catch (error) {
+                console.error('Failed to load related articles:', error);
+            }
+        }
+        
+        // Generate Table of Contents
+        function generateTableOfContents() {
+            const articleBody = document.getElementById('articleBody');
+            const tocContainer = document.getElementById('tableOfContents');
+            
+            // Find all h2 and h3 headings
+            const headings = articleBody.querySelectorAll('h2, h3');
+            
+            if (headings.length === 0) {
+                tocContainer.innerHTML = '<p class="text-gray-400 text-sm">목차가 없습니다</p>';
+                return;
+            }
+            
+            // Generate IDs for headings if they don't have one
+            headings.forEach((heading, index) => {
+                if (!heading.id) {
+                    heading.id = `heading-${index}`;
+                }
+            });
+            
+            // Generate TOC HTML
+            let tocHTML = '<ul class="space-y-2">';
+            headings.forEach((heading, index) => {
+                const level = heading.tagName === 'H2' ? 'font-semibold' : 'pl-4 text-xs';
+                const text = heading.textContent;
+                tocHTML += `
+                    <li>
+                        <a href="#${heading.id}" 
+                           class="toc-link block py-1.5 px-3 rounded-lg text-gray-300 hover:text-white hover:bg-cosmic-blue hover:bg-opacity-20 transition ${level}"
+                           data-target="${heading.id}">
+                            ${heading.tagName === 'H3' ? '└ ' : ''}${text}
+                        </a>
+                    </li>
+                `;
+            });
+            tocHTML += '</ul>';
+            
+            tocContainer.innerHTML = tocHTML;
+            
+            // Add click event for smooth scrolling
+            document.querySelectorAll('.toc-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('data-target');
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        const offset = 100; // Account for fixed header
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - offset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Highlight active section on scroll
+            window.addEventListener('scroll', highlightActiveTocSection);
+        }
+        
+        // Highlight active TOC section
+        function highlightActiveTocSection() {
+            const headings = document.querySelectorAll('#articleBody h2, #articleBody h3');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            
+            let currentActiveId = null;
+            
+            headings.forEach(heading => {
+                const rect = heading.getBoundingClientRect();
+                if (rect.top <= 150 && rect.bottom >= 0) {
+                    currentActiveId = heading.id;
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                if (link.getAttribute('data-target') === currentActiveId) {
+                    link.classList.add('bg-cosmic-blue', 'bg-opacity-30', 'text-white', 'font-semibold');
+                    link.classList.remove('text-gray-300');
+                } else {
+                    link.classList.remove('bg-cosmic-blue', 'bg-opacity-30', 'text-white', 'font-semibold');
+                    link.classList.add('text-gray-300');
+                }
+            });
+        }
+        
+        // Show Error
+        function showError() {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('error').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

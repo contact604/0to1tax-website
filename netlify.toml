@@ -11,7 +11,7 @@
 # 리디렉션 설정
 [[redirects]]
   from = "/blog"
-  to = "/taxz1log.html"
+  to = "/0to1log.html"
   status = 301
 
 [[redirects]]

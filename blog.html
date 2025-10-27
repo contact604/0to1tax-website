@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Z1 회계법인 블로그 - 세무·회계 지식과 스타트업 인사이트">
+    <title>Z1로그 - Z1 회계법인</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-2px);
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#667eea',
+                        secondary: '#764ba2',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation -->
+    <nav class="nav-blur shadow-sm fixed w-full top-0 z-50 border-b border-gray-100">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="text-3xl font-bold">
+                        <span class="text-gray-800">tax</span><span style="color: #2563EB;">Z1</span>
+                    </div>
+                    <div class="hidden sm:block text-xs text-gray-500 border-l border-gray-300 pl-3">
+                        zero to one
+                    </div>
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html#home" class="text-gray-600 hover:text-primary transition font-medium">홈</a>
+                    <a href="index.html#services" class="text-gray-600 hover:text-primary transition font-medium">서비스</a>
+                    <a href="index.html#pricing" class="text-gray-600 hover:text-primary transition font-medium">가격</a>
+                    <a href="blog.html" class="text-primary font-semibold">Z1로그</a>
+                    <button onclick="openConsultModal()" class="gradient-bg text-white px-6 py-2.5 rounded-full hover:shadow-lg transition font-medium">
+                        무료 상담
+                    </button>
+                </div>
+                
+                <button id="mobileMenuBtn" class="lg:hidden text-gray-700 hover:text-primary">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="mobileMenu" class="hidden lg:hidden pb-4 space-y-3">
+                <a href="index.html#home" class="block text-gray-600 hover:text-primary transition font-medium py-2">홈</a>
+                <a href="index.html#services" class="block text-gray-600 hover:text-primary transition font-medium py-2">서비스</a>
+                <a href="index.html#pricing" class="block text-gray-600 hover:text-primary transition font-medium py-2">가격</a>
+                <a href="blog.html" class="block text-primary font-semibold py-2">Z1로그</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero -->
+    <section class="pt-32 pb-16 bg-white">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+                    <span style="background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">taxZ1로그</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-600">
+                    스타트업 성장을 위한 세무·회계 인사이트
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Filters -->
+    <section class="py-8 bg-gray-50 sticky top-20 z-40 border-b border-gray-200">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex flex-wrap gap-3 justify-center">
+                <button onclick="filterPosts('all')" class="filter-btn active px-6 py-2.5 rounded-full font-semibold transition shadow-sm">
+                    전체
+                </button>
+                <button onclick="filterPosts('세무')" class="filter-btn px-6 py-2.5 rounded-full font-semibold transition bg-white hover:bg-gray-50 shadow-sm">
+                    세무
+                </button>
+                <button onclick="filterPosts('회계')" class="filter-btn px-6 py-2.5 rounded-full font-semibold transition bg-white hover:bg-gray-50 shadow-sm">
+                    회계
+                </button>
+                <button onclick="filterPosts('스타트업')" class="filter-btn px-6 py-2.5 rounded-full font-semibold transition bg-white hover:bg-gray-50 shadow-sm">
+                    스타트업
+                </button>
+                <button onclick="filterPosts('기타')" class="filter-btn px-6 py-2.5 rounded-full font-semibold transition bg-white hover:bg-gray-50 shadow-sm">
+                    기타
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Blog Posts -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div id="blogPostsList" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Posts will be loaded here -->
+            </div>
+            
+            <!-- Pagination -->
+            <div id="pagination" class="mt-12 flex justify-center gap-2 flex-wrap">
+                <!-- Pagination buttons will be loaded here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">Z1</span>
+                        </div>
+                        <span class="text-white text-xl font-bold">Z1 회계법인</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">데이터기반 스타트업 전문가</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">서비스</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#services" class="hover:text-white transition">재무분석</a></li>
+                        <li><a href="index.html#services" class="hover:text-white transition">세무·회계</a></li>
+                        <li><a href="index.html#services" class="hover:text-white transition">성장 지원</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">정보</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#pricing" class="hover:text-white transition">가격안내</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition">Z1로그</a></li>
+                        <li><a href="admin.html" class="hover:text-white transition">관리자</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">연락처</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            contact@z1.com
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            02-1234-5678
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>&copy; 2024 Z1 회계법인. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Floating Button -->
+    <button onclick="openConsultModal()" class="floating-btn gradient-bg text-white px-6 py-4 rounded-full font-semibold shadow-2xl">
+        <i class="fas fa-comments mr-2"></i> 상담예약
+    </button>
+    
+    <!-- Consultation Modal -->
+    <div id="consultModal" class="modal">
+        <div class="modal-content bg-white rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">무료 상담 신청</h3>
+                <button onclick="closeConsultModal()" class="text-gray-400 hover:text-gray-600 transition">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            
+            <form id="consultForm" class="space-y-4" name="consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="consultation">
+                <p class="hidden">
+                    <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                </p>
+                
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">이름 *</label>
+                    <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition">
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">이메일 *</label>
+                    <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition">
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">연락처 *</label>
+                    <input type="tel" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition">
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">회사명</label>
+                    <input type="text" name="company" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition">
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">상담 내용</label>
+                    <textarea name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition"></textarea>
+                </div>
+                
+                <button type="submit" class="w-full gradient-bg text-white py-3 rounded-xl font-semibold hover:shadow-lg transition">
+                    상담 신청하기
+                </button>
+            </form>
+            
+            <div id="consultSuccess" class="hidden text-center">
+                <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-white text-2xl"></i>
+                </div>
+                <h4 class="text-2xl font-bold text-gray-900 mb-2">신청 완료!</h4>
+                <p class="text-gray-600 mb-6">빠른 시일 내에 연락드리겠습니다.</p>
+                <button onclick="closeConsultModal()" class="gradient-bg text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition">
+                    확인
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/blog.js"></script>
+</body>
+</html>

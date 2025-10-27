@@ -8,14 +8,17 @@
 
 ## 🚀 Netlify CMS 블로그 시스템 완성! (최신!)
 
-### 📝 블로그 관리 (NEW!)
+### 📝 블로그 관리 (NEW! - 완전히 재구축됨)
 
-**Netlify CMS 설치 완료!** WordPress처럼 쉽게 블로그 관리!
+**✅ Netlify CMS 완전 통합!** WordPress처럼 쉽게 블로그 관리!
 
-1. **⚡ [⚡_Netlify_CMS_빠른_시작.md](⚡_Netlify_CMS_빠른_시작.md)** ← 15분 안에 시작! ⭐
-2. **📝 [📝_Netlify_CMS_완벽_가이드.md](📝_Netlify_CMS_완벽_가이드.md)** ← 완벽한 사용 가이드
+**⚠️ 중요: GitHub에 `admin/`, `_posts/` 폴더를 업로드해야 작동합니다!**
 
-**관리자 페이지**: `https://0to1tax.com/admin`
+1. **🎉 [🎉_Netlify_CMS_완벽_작동_가이드.md](🎉_Netlify_CMS_완벽_작동_가이드.md)** ← **필수! GitHub 업로드 방법** ⭐
+2. **⚡ [⚡_Netlify_CMS_빠른_시작.md](⚡_Netlify_CMS_빠른_시작.md)** ← 15분 안에 시작!
+3. **📝 [📝_Netlify_CMS_완벽_가이드.md](📝_Netlify_CMS_완벽_가이드.md)** ← 완벽한 사용 가이드
+
+**관리자 페이지**: `https://0to1tax.com/admin` 또는 `https://0to1tax.netlify.app/admin`
 
 ### ⚡ 배포 시작하기
 
@@ -94,19 +97,22 @@ Zero to one TAX는 스타트업을 위한 전문 세무·회계 서비스입니�
 - FAQ: 5가지 주요 질문
 - Location: 오시는 길 (지도 포함)
 
-### 2. 블로그 시스템
-- **taxz1log.html**: 블로그 목록 페이지
+### 2. 블로그 시스템 (Netlify CMS)
+- **0to1log.html**: 블로그 목록 페이지
+  - GitHub API로 Markdown 파일 읽기
   - 카테고리 필터링 (세무, 회계, 스타트업, 기타)
   - 실시간 검색
   - 페이지네이션
   - 인기 태그
 - **blog-detail.html**: 블로그 상세 페이지
+  - Marked.js로 Markdown → HTML 변환
   - 목차 자동 생성 (TOC)
   - 스크롤 하이라이트
   - 관련 글 추천
-- **admin.html**: 관리자 페이지
-  - Rich Text Editor (Quill)
-  - Markdown Editor (Marked.js)
+- **admin/**: Netlify CMS 관리자 페이지
+  - WordPress처럼 쉬운 글쓰기
+  - GitHub에 Markdown으로 저장
+  - 이미지 업로드 지원
   - 실시간 미리보기
 
 ### 3. 14단계 성장 여정
@@ -124,9 +130,10 @@ Zero to one TAX는 스타트업을 위한 전문 세무·회계 서비스입니�
 - Font Awesome 6.4.0
 - Google Fonts (Inter)
 
-### 에디터 & 라이브러리
-- Quill.js 1.3.6 (Rich Text Editor)
-- Marked.js (Markdown Parser)
+### CMS & 라이브러리
+- **Netlify CMS 2.0** (Git-based CMS)
+- **Marked.js** (Markdown → HTML Parser)
+- **GitHub API** (Markdown 파일 읽기)
 
 ### SEO & 최적화
 - Open Graph Meta Tags
@@ -146,27 +153,35 @@ Zero to one TAX는 스타트업을 위한 전문 세무·회계 서비스입니�
 ```
 Zero to one TAX/
 ├── index.html                      # 메인 랜딩 페이지
-├── taxz1log.html                  # 블로그 목록
-├── blog-detail.html               # 블로그 상세
-├── admin.html                     # 관리자 페이지
+├── 0to1log.html                   # 블로그 목록 (Netlify CMS 연동) ✅
+├── blog-detail.html               # 블로그 상세 (Markdown 렌더링) ✅
 ├── 404.html                       # 404 에러 페이지
 ├── robots.txt                     # 검색엔진 크롤링 설정
 ├── sitemap.xml                    # 사이트맵
 ├── .htaccess                      # 서버 설정
-├── .gitignore                     # Git 제외 파일 ⭐ 신규!
-├── netlify.toml                   # Netlify 배포 설정 ⭐ 신규!
+├── .gitignore                     # Git 제외 파일 ⭐
+├── netlify.toml                   # Netlify 배포 설정 ⭐
+│
+├── admin/                         # Netlify CMS 관리자 ⭐ 신규!
+│   ├── index.html                 # CMS 인터페이스
+│   └── config.yml                 # CMS 설정 (GitHub 연동)
+│
+├── _posts/                        # 블로그 Markdown 파일 ⭐ 신규!
+│   ├── .gitkeep                   # 폴더 유지용
+│   └── 2024-10-27-welcome.md     # 예제 블로그 포스트
+│
+├── images/
+│   └── blog/                      # 블로그 이미지 ⭐ 신규!
+│       └── .gitkeep               # 폴더 유지용
 │
 ├── favicon.svg                    # 파비콘 (SVG) ✅
 ├── android-chrome-512x512.png     # Android 아이콘 512x512 ✅
 ├── site.webmanifest               # PWA 매니페스트
 │
 ├── og-image.jpg                   # Open Graph 이미지 (1200×630px, 17KB) ✅
-├── og-image-maker.html            # OG 이미지 에디터 (텍스트 수정 가능)
-├── og-image-template.html         # OG 이미지 생성 템플릿 (대체)
+├── og-image-maker.html            # OG 이미지 에디터
 ├── tracking-scripts.html          # 추적 스크립트 모음
 ├── kakao-chat-widget.html         # 카카오톡 채팅 가이드
-├── SETUP_GUIDE.md                 # 배포 후 설정 가이드
-├── DEPLOYMENT_CHECKLIST.md        # 배포 체크리스트
 │
 ├── css/
 │   └── style.css                 # 커스텀 CSS
@@ -175,44 +190,46 @@ Zero to one TAX/
 └── README.md                      # 프로젝트 문서
 ```
 
-## 🗄️ 데이터베이스 스키마
+## 📝 블로그 데이터 구조 (Netlify CMS)
 
-### consultations (상담문의)
-```javascript
-{
-  id: string,           // UUID
-  name: string,         // 이름
-  email: string,        // 이메일
-  phone: string,        // 전화번호
-  company: string,      // 회사명 (선택)
-  message: string,      // 문의 내용
-  created_at: number    // 생성 시간
-}
+### Markdown Front Matter
+```yaml
+---
+title: "게시글 제목"
+date: 2024-10-27 10:00:00
+author: "Zero to one TAX"
+category: "세무"  # 세무, 회계, 스타트업, 기타
+tags:
+  - 법인세
+  - 절세
+thumbnail: "/images/blog/thumbnail.jpg"  # 선택사항
+excerpt: "게시글 요약"  # 선택사항
+published: true  # 공개 여부
+---
+
+# 게시글 본문 (Markdown)
+
+내용...
 ```
 
-### blog_posts (블로그)
-```javascript
-{
-  id: string,           // UUID
-  title: string,        // 제목
-  content: string,      // 내용 (HTML)
-  category: string,     // 카테고리 (세무, 회계, 스타트업, 기타)
-  tags: array,          // 태그 배열
-  author: string,       // 작성자
-  created_at: number,   // 생성 시간
-  updated_at: number    // 수정 시간
-}
+### 저장 위치
+- **GitHub**: `_posts/2024-10-27-제목.md`
+- **이미지**: `images/blog/파일명.jpg`
+
+## 🔌 블로그 시스템 작동 원리
+
 ```
-
-## 🔌 RESTful Table API
-
-### 엔드포인트
-```javascript
-// 게시글 목록 조회
-GET /tables/blog_posts?sort=-created_at&limit=100
-
-// 게시글 상세 조회
-GET /tables/blog_posts/{id}
+1. 관리자가 CMS에서 글 작성
+   ↓
+2. Netlify CMS가 GitHub에 Markdown 저장
+   ↓
+3. GitHub Webhook → Netlify 자동 배포
+   ↓
+4. 사용자 웹사이트 접속
+   ↓
+5. JavaScript가 GitHub API로 Markdown 읽기
+   ↓
+6. Marked.js로 HTML 변환 → 화면 표시
 
 // 게시글 작성
 POST /tables/blog_posts

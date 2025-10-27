@@ -652,7 +652,7 @@
                     <a href="#home" class="text-gray-300 hover:text-stellar-purple transition font-medium">홈</a>
                     <a href="#services" class="text-gray-300 hover:text-stellar-purple transition font-medium">Missions</a>
                     <a href="#pricing" class="text-gray-300 hover:text-stellar-purple transition font-medium">Launch Plans</a>
-                    <a href="taxz1log.html" class="text-gray-300 hover:text-stellar-purple transition font-medium">블로그</a>
+                    <a href="0to1log.html" class="text-gray-300 hover:text-stellar-purple transition font-medium">블로그</a>
                     <button onclick="openConsultModal()" class="gradient-cosmic text-white px-6 py-2.5 rounded-full hover:shadow-lg transition font-medium glow-effect">
                         🚀 문의하기
                     </button>
@@ -670,7 +670,7 @@
                 <a href="#home" class="block text-gray-300 hover:text-stellar-purple transition font-medium py-2">홈</a>
                 <a href="#services" class="block text-gray-300 hover:text-stellar-purple transition font-medium py-2">Missions</a>
                 <a href="#pricing" class="block text-gray-300 hover:text-stellar-purple transition font-medium py-2">Launch Plans</a>
-                <a href="taxz1log.html" class="block text-gray-300 hover:text-stellar-purple transition font-medium py-2">블로그</a>
+                <a href="0to1log.html" class="block text-gray-300 hover:text-stellar-purple transition font-medium py-2">블로그</a>
                 <button onclick="openConsultModal()" class="w-full gradient-cosmic text-white px-6 py-3 rounded-full hover:shadow-lg transition font-medium glow-effect">
                     🚀 문의하기
                 </button>
@@ -1170,7 +1170,7 @@
             </div>
             
             <div class="text-center mt-12">
-                <a href="taxz1log.html" class="inline-block gradient-cosmic text-white px-10 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition glow-effect">
+                <a href="0to1log.html" class="inline-block gradient-cosmic text-white px-10 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition glow-effect">
                     🚀 성장 가이드 모두 보기
                     <i class="fas fa-rocket ml-2"></i>
                 </a>
@@ -1614,7 +1614,7 @@
                     <h4 class="text-white font-semibold mb-4">정보</h4>
                     <ul class="space-y-2 text-sm">
                         <li><a href="#pricing" class="hover:text-white transition">가격안내</a></li>
-                        <li><a href="taxz1log.html" class="hover:text-white transition">블로그</a></li>
+                        <li><a href="0to1log.html" class="hover:text-white transition">블로그</a></li>
                         <li><a href="admin.html" class="hover:text-white transition">관리자</a></li>
                     </ul>
                 </div>
@@ -1670,6 +1670,14 @@
             </div>
             
             <form id="consultForm" class="space-y-4" name="consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <!-- Netlify Forms Required Fields -->
+                <input type="hidden" name="form-name" value="consultation">
+                
+                <!-- Honeypot for spam protection -->
+                <p class="hidden">
+                    <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                </p>
+                
                 <div>
                     <label class="block text-gray-700 font-semibold mb-2">이름 *</label>
                     <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-cosmic-blue transition">

@@ -8,6 +8,8 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- Markdown 파싱 라이브러리 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
@@ -380,120 +382,214 @@
         });
         
         // Get Post ID from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const postId = urlParams.get('id');
+// ===== Netlify CMS (GitHub + Markdown) 방식 =====
         
-        if (!postId) {
+        let allPosts = [];
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const postSlug = urlParams.get('slug');
+        
+        if (!postSlug) {
             showError();
         } else {
-            loadPost(postId);
+            loadBlogPosts().then(() => {
+                displayPost(postSlug);
+            });
         }
         
-        // Load Post
-        async function loadPost(id) {
+        // GitHub에서 블로그 포스트 목록 가져오기
+        async function loadBlogPosts() {
             try {
-                const response = await fetch(`tables/blog_posts/${id}`);
+                const response = await fetch('https://api.github.com/repos/contact604/0to1tax-website/contents/_posts');
                 
                 if (!response.ok) {
-                    throw new Error('Post not found');
+                    throw new Error('GitHub API 응답 실패');
                 }
                 
-                const post = await response.json();
+                const files = await response.json();
+                const markdownFiles = files.filter(file => file.name.endsWith('.md'));
                 
-                // Update page title
-                document.getElementById('pageTitle').textContent = `${post.title} - Zero to one TAX 블로그`;
-                
-                // Update meta description
-                const metaDesc = document.querySelector('meta[name="description"]');
-                if (metaDesc) {
-                    const excerpt = post.content.replace(/<[^>]*>/g, '').substring(0, 150);
-                    metaDesc.setAttribute('content', excerpt);
+                if (markdownFiles.length === 0) {
+                    throw new Error('블로그 포스트가 없습니다');
                 }
                 
-                // Display post
-                document.getElementById('articleTitle').textContent = post.title;
-                document.getElementById('articleCategory').textContent = post.category;
-                document.getElementById('articleDate').textContent = new Date(post.created_at).toLocaleDateString('ko-KR', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-                document.getElementById('articleAuthor').textContent = post.author || '관리자';
-                document.getElementById('articleBody').innerHTML = post.content;
+                const posts = await Promise.all(
+                    markdownFiles.map(async (file) => {
+                        const contentResponse = await fetch(file.download_url);
+                        const content = await contentResponse.text();
+                        return parseMarkdownPost(content, file.name);
+                    })
+                );
                 
-                // Category colors
-                const categoryColors = {
-                    '세무': 'bg-cosmic-blue',
-                    '회계': 'bg-stellar-purple',
-                    '스타트업': 'bg-rocket-orange',
-                    '기타': 'bg-gray-500'
-                };
-                const categoryColor = categoryColors[post.category] || 'bg-gray-500';
-                document.getElementById('articleCategory').className = `px-4 py-1.5 rounded-full text-sm font-semibold ${categoryColor} bg-opacity-30 text-white`;
-                
-                // Display tags
-                if (post.tags && post.tags.length > 0) {
-                    document.getElementById('articleTags').innerHTML = post.tags.map(tag => 
-                        `<span class="px-3 py-1 bg-deep-space bg-opacity-60 text-cosmic-blue rounded-full text-sm">#${tag}</span>`
-                    ).join('');
-                }
-                
-                // Load related articles
-                loadRelatedArticles(post.category, post.id);
-                
-                // Show content
-                document.getElementById('loading').classList.add('hidden');
-                document.getElementById('articleContent').classList.remove('hidden');
-                
-                // Generate Table of Contents after content is displayed
-                setTimeout(() => {
-                    generateTableOfContents();
-                }, 100);
+                allPosts = posts.filter(post => post !== null).sort((a, b) => new Date(b.date) - new Date(a.date));
                 
             } catch (error) {
-                console.error('Failed to load post:', error);
-                showError();
+                console.error('블로그 포스트 로딩 실패:', error);
+                throw error;
             }
+        }
+        
+        // Markdown 파일 파싱
+        function parseMarkdownPost(content, filename) {
+            const frontMatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
+            const match = content.match(frontMatterRegex);
+            
+            if (!match) {
+                console.error('Invalid markdown format:', filename);
+                return null;
+            }
+            
+            const frontMatter = match[1];
+            const body = match[2];
+            
+            const metadata = {};
+            const lines = frontMatter.split('\n');
+            let currentKey = null;
+            
+            lines.forEach(line => {
+                if (line.startsWith('  - ')) {
+                    const arrayValue = line.replace('  - ', '').trim();
+                    if (currentKey && metadata[currentKey]) {
+                        metadata[currentKey].push(arrayValue);
+                    }
+                } else if (line.includes(':')) {
+                    const colonIndex = line.indexOf(':');
+                    const key = line.substring(0, colonIndex).trim();
+                    const value = line.substring(colonIndex + 1).trim();
+                    
+                    if (key === 'tags') {
+                        metadata[key] = [];
+                        currentKey = key;
+                    } else {
+                        metadata[key] = value.replace(/^["']|["']$/g, '');
+                        currentKey = null;
+                    }
+                }
+            });
+            
+            const slug = filename.replace('.md', '');
+            
+            return {
+                slug,
+                title: metadata.title || 'Untitled',
+                date: metadata.date || new Date().toISOString(),
+                author: metadata.author || 'Zero to one TAX',
+                category: metadata.category || '기타',
+                tags: metadata.tags || [],
+                thumbnail: metadata.thumbnail || '',
+                excerpt: metadata.excerpt || '',
+                body: body,
+                published: metadata.published !== 'false'
+            };
+        }
+        
+        // 게시글 표시
+        function displayPost(slug) {
+            const post = allPosts.find(p => p.slug === slug);
+            
+            if (!post || !post.published) {
+                showError();
+                return;
+            }
+            
+            // Update page title
+            document.getElementById('pageTitle').textContent = `${post.title} - Zero to one TAX 블로그`;
+            
+            // Update meta description
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.setAttribute('content', post.excerpt || post.title);
+            }
+            
+            // Display post
+            document.getElementById('articleTitle').textContent = post.title;
+            document.getElementById('articleCategory').textContent = post.category;
+            document.getElementById('articleDate').textContent = formatDate(post.date);
+            document.getElementById('articleAuthor').textContent = post.author;
+            
+            // Markdown을 HTML로 변환
+            const htmlContent = marked.parse(post.body);
+            document.getElementById('articleBody').innerHTML = htmlContent;
+            
+            // Category colors
+            const categoryColors = {
+                '세무': 'bg-cosmic-blue',
+                '회계': 'bg-stellar-purple',
+                '스타트업': 'bg-rocket-orange',
+                '기타': 'bg-gray-500'
+            };
+            const categoryColor = categoryColors[post.category] || 'bg-gray-500';
+            document.getElementById('articleCategory').className = `px-4 py-1.5 rounded-full text-sm font-semibold ${categoryColor} bg-opacity-30 text-white`;
+            
+            // Display tags
+            if (post.tags && post.tags.length > 0) {
+                document.getElementById('articleTags').innerHTML = post.tags.map(tag => 
+                    `<span class="px-3 py-1 bg-deep-space bg-opacity-60 text-cosmic-blue rounded-full text-sm">#${tag}</span>`
+                ).join('');
+            }
+            
+            // Load related articles
+            loadRelatedArticles(post.category, post.slug);
+            
+            // Show content
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('articleContent').classList.remove('hidden');
+            
+            // Generate Table of Contents after content is displayed
+            setTimeout(() => {
+                generateTableOfContents();
+            }, 100);
+        }
+        
+        // 날짜 포맷팅
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const year = date.getFullYear();
+            const month = date.toLocaleDateString('ko-KR', { month: 'long' });
+            const day = date.getDate();
+            return `${year}년 ${month} ${day}일`;
         }
         
         // Load Related Articles
-        async function loadRelatedArticles(category, currentPostId) {
-            try {
-                const response = await fetch(`tables/blog_posts?limit=100&sort=-created_at`);
-                const data = await response.json();
-                
-                let relatedPosts = (data.data || [])
-                    .filter(post => post.category === category && post.id !== currentPostId)
-                    .slice(0, 3);
-                
-                const relatedArticlesContainer = document.getElementById('relatedArticles');
-                
-                if (relatedPosts.length > 0) {
-                    relatedArticlesContainer.innerHTML = relatedPosts.map(post => {
-                        const categoryColors = {
-                            '세무': 'bg-cosmic-blue',
-                            '회계': 'bg-stellar-purple',
-                            '스타트업': 'bg-rocket-orange',
-                            '기타': 'bg-gray-500'
-                        };
-                        const categoryColor = categoryColors[post.category] || 'bg-gray-500';
-                        
-                        return `
-                            <a href="blog-detail.html?id=${post.id}" class="block p-4 bg-deep-space bg-opacity-40 rounded-xl border border-cosmic-blue border-opacity-20 hover:border-opacity-50 transition group">
-                                <div class="flex justify-between items-start mb-2">
-                                    <span class="text-xs px-3 py-1 rounded-full ${categoryColor} bg-opacity-30 text-white font-semibold">${post.category}</span>
-                                    <span class="text-xs text-gray-500">${new Date(post.created_at).toLocaleDateString('ko-KR')}</span>
-                                </div>
-                                <h4 class="text-lg font-semibold text-white group-hover:text-cosmic-blue transition">${post.title}</h4>
-                            </a>
-                        `;
-                    }).join('');
-                } else {
-                    relatedArticlesContainer.innerHTML = '<p class="text-gray-400 text-center py-4">관련 글이 없습니다</p>';
-                }
-            } catch (error) {
-                console.error('Failed to load related articles:', error);
+        function loadRelatedArticles(category, currentSlug) {
+            let relatedPosts = allPosts
+                .filter(post => post.category === category && post.slug !== currentSlug && post.published)
+                .slice(0, 3);
+            
+            const relatedArticlesContainer = document.getElementById('relatedArticles');
+            
+            if (relatedPosts.length > 0) {
+                relatedArticlesContainer.innerHTML = relatedPosts.map(post => {
+                    const categoryColors = {
+                        '세무': 'bg-cosmic-blue',
+                        '회계': 'bg-stellar-purple',
+                        '스타트업': 'bg-rocket-orange',
+                        '기타': 'bg-gray-500'
+                    };
+                    const categoryColor = categoryColors[post.category] || 'bg-gray-500';
+                    
+                    return `
+                        <a href="blog-detail.html?slug=${post.slug}" class="block p-4 bg-deep-space bg-opacity-40 rounded-xl border border-cosmic-blue border-opacity-20 hover:border-opacity-50 transition group">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="text-xs px-3 py-1 rounded-full ${categoryColor} bg-opacity-30 text-white font-semibold">${post.category}</span>
+                                <span class="text-xs text-gray-500">${formatDateShort(post.date)}</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white group-hover:text-cosmic-blue transition">${post.title}</h4>
+                        </a>
+                    `;
+                }).join('');
+            } else {
+                relatedArticlesContainer.innerHTML = '<p class="text-gray-400 text-center py-4">관련 글이 없습니다</p>';
             }
+        }
+        
+        // 짧은 날짜 포맷
+        function formatDateShort(dateString) {
+            const date = new Date(dateString);
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}.${month}.${day}`;
         }
         
         // Generate Table of Contents
@@ -589,5 +685,6 @@
             document.getElementById('error').classList.remove('hidden');
         }
     </script>
+
 </body>
 </html>

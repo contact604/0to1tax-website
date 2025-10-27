@@ -26,12 +26,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Modal Functions
-function openConsultModal() {
+window.openConsultModal = function() {
     document.getElementById('consultModal').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
-function closeConsultModal() {
+window.closeConsultModal = function() {
     document.getElementById('consultModal').classList.remove('active');
     document.body.style.overflow = 'auto';
     // Reset form

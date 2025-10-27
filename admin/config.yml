@@ -28,7 +28,7 @@ collections:
       preview: true  # 미리보기 활성화
     fields:  # 블로그 글 필드 정의
       - {label: "제목", name: "title", widget: "string", required: true}
-      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", dateFormat: "YYYY-MM-DD", timeFormat: "HH:mm", required: true}
+      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", date_format: "YYYY-MM-DD", time_format: "HH:mm", required: true}
       - {label: "작성자", name: "author", widget: "string", default: "Zero to one TAX"}
       - {label: "카테고리", name: "category", widget: "select", options: ["세무", "회계", "스타트업", "기타"], required: true}
       - {label: "태그", name: "tags", widget: "list", required: false, hint: "Enter 키로 태그 추가"}

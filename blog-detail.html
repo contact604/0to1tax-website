@@ -2,8 +2,10 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="Zero to one TAX 블로그">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title id="pageTitle">Zero to one TAX 블로그</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -409,6 +411,37 @@
         button, a, .clickable {
             -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
             touch-action: manipulation;
+            cursor: pointer;
+        }
+        
+        /* Kakao Browser Notice */
+        .kakao-notice {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--cosmic-blue), var(--stellar-purple));
+            color: white;
+            padding: 0.75rem 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+            z-index: 10000;
+            display: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .kakao-notice.show {
+            display: block;
+        }
+        
+        .kakao-notice button {
+            background: white;
+            color: var(--cosmic-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            border: none;
         }
         
         #mobileMenuBtn {
@@ -538,6 +571,12 @@
 </head>
 <body>
     
+    <!-- Kakao Browser Notice -->
+    <div id="kakaoNotice" class="kakao-notice">
+        <span>⚠️ 일부 기능이 제한될 수 있습니다.</span>
+        <button onclick="openInBrowser()">외부 브라우저로 열기</button>
+    </div>
+    
     <!-- Navigation -->
     <nav class="nav-cosmic shadow-lg fixed w-full top-0 z-50">
         <div class="container mx-auto px-4 lg:px-8">
@@ -559,7 +598,7 @@
                     </button>
                 </div>
                 
-                <button id="mobileMenuBtn" class="lg:hidden text-white hover:text-cosmic-blue p-2 -mr-2 touch-manipulation" type="button" aria-label="메뉴 열기">
+                <button id="mobileMenuBtn" class="lg:hidden text-white hover:text-cosmic-blue p-2 -mr-2 touch-manipulation" type="button" aria-label="메뉴 열기" onclick="document.getElementById('mobileMenu').classList.toggle('hidden'); return false;">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -780,6 +819,27 @@
     <script>
         // ===== Global Functions (Must be defined first) =====
         
+        // Open in external browser
+        window.openInBrowser = function() {
+            const url = window.location.href;
+            // Try to open in default browser
+            if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+                // iOS
+                window.location.href = 'x-web-search://?https://www.google.com/url?q=' + encodeURIComponent(url);
+            } else {
+                // Android or copy URL
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(url).then(function() {
+                        alert('링크가 복사되었습니다. 브라우저에 붙여넣어 주세요.');
+                    }).catch(function() {
+                        prompt('이 링크를 복사하여 브라우저에서 열어주세요:', url);
+                    });
+                } else {
+                    prompt('이 링크를 복사하여 브라우저에서 열어주세요:', url);
+                }
+            }
+        }
+        
         // Modal Functions
         window.openConsultModal = function() {
             console.log('Opening modal...');
@@ -814,8 +874,21 @@
         }
         
         // ===== Initialize on DOM Ready =====
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM loaded, initializing...');
+        function initializeApp() {
+            console.log('Initializing app...');
+            console.log('User Agent:', navigator.userAgent);
+            
+            // Check if Kakao in-app browser
+            const isKakao = /KAKAOTALK/i.test(navigator.userAgent);
+            if (isKakao) {
+                console.log('Kakao in-app browser detected');
+                const notice = document.getElementById('kakaoNotice');
+                if (notice) {
+                    notice.classList.add('show');
+                    // Adjust body padding to account for notice
+                    document.body.style.paddingTop = '45px';
+                }
+            }
             
             // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -824,20 +897,31 @@
             if (mobileMenuBtn && mobileMenu) {
                 console.log('Mobile menu found, setting up...');
                 
-                // Toggle menu (both click and touch)
+                // Toggle menu (multiple event types for compatibility)
                 function toggleMenu(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
+                    if (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
                     const isHidden = mobileMenu.classList.contains('hidden');
                     mobileMenu.classList.toggle('hidden');
                     console.log('Mobile menu toggled:', !isHidden ? 'opened' : 'closed');
                 }
                 
-                mobileMenuBtn.addEventListener('click', toggleMenu);
-                mobileMenuBtn.addEventListener('touchstart', function(e) {
+                // Add multiple event listeners for maximum compatibility
+                mobileMenuBtn.addEventListener('click', toggleMenu, false);
+                mobileMenuBtn.addEventListener('touchend', function(e) {
                     e.preventDefault();
+                    e.stopPropagation();
                     toggleMenu(e);
-                }, { passive: false });
+                }, false);
+                
+                // Fallback: Direct onclick
+                mobileMenuBtn.onclick = function(e) {
+                    console.log('onclick fired');
+                    toggleMenu(e);
+                    return false;
+                };
                 
                 // Close menu when clicking menu items
                 const menuLinks = mobileMenu.querySelectorAll('a, button');
@@ -908,7 +992,26 @@
                 console.log('Form submit handler added');
             }
             
+            window.appInitialized = true;
             console.log('Initialization complete');
+        }
+        
+        // Initialize immediately and on DOMContentLoaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeApp);
+        } else {
+            // DOM already loaded
+            initializeApp();
+        }
+        
+        // Fallback for older browsers or Kakao webview
+        window.addEventListener('load', function() {
+            console.log('Window loaded, checking initialization...');
+            // Re-initialize if needed
+            if (!window.appInitialized) {
+                console.log('Re-initializing on window load');
+                initializeApp();
+            }
         });
         
         // Get Post ID from URL

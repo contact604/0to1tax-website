@@ -2,7 +2,7 @@
 
 **🚀 ZERO에서 ONE까지, 대형 회계법인 출신 전문가와 함께하세요**
 
-![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.9-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
+![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.10-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
 
 ---
 
@@ -350,7 +350,20 @@ GET /tables/consultations?sort=-created_at&limit=100
 
 ## 📊 버전 히스토리
 
-### Version 6.9 (2025-10-30) ⭐ NEW!
+### Version 6.10 (2025-10-30) ⭐ NEW!
+**🎨 UI 최적화 - 플로팅 버튼 제거**
+- **전체 페이지 플로팅 버튼 제거**
+  - ✅ index.html - 상담/카카오톡 플로팅 버튼 제거
+  - ✅ 0to1log.html - 플로팅 버튼 제거
+  - ✅ blog-detail.html - 플로팅 버튼 제거
+  - ✅ blog.html - 플로팅 버튼 제거
+  
+- **더 깔끔한 UI**
+  - 화면 하단 플로팅 버튼들 제거
+  - 모달 창은 네비게이션 및 페이지 내 버튼으로 접근 가능
+  - 사용자 경험 개선
+
+### Version 6.9 (2025-10-30)
 **✅ 전체 사이트 모바일 최적화 완료 - 카카오톡 완전 호환**
 - **모든 페이지 Pure CSS 모바일 메뉴 전환**
   - ✅ index.html - 메인 랜딩 페이지

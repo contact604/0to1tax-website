@@ -2,7 +2,7 @@
 
 **🚀 ZERO에서 ONE까지, 대형 회계법인 출신 전문가와 함께하세요**
 
-![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.5-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
+![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.7-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
 
 ---
 
@@ -349,6 +349,58 @@ GET /tables/consultations?sort=-created_at&limit=100
 ---
 
 ## 📊 버전 히스토리
+
+### Version 6.7 (2025-10-30)
+**🔧 순수 CSS 모바일 메뉴로 전환 (JavaScript 독립)**
+- **Pure CSS Checkbox Toggle**
+  - JavaScript 없이 작동하는 모바일 메뉴
+  - `<input type="checkbox">` + `<label>` 방식
+  - CSS :checked 선택자로 제어
+  - max-height transition 애니메이션
+  
+- **카카오톡 완전 호환**
+  - JavaScript 이벤트 리스너 불필요
+  - HTML/CSS만으로 동작
+  - 모든 브라우저/웹뷰에서 작동 보장
+  
+- **폴백 강화**
+  - onclick 속성에 존재 여부 체크 추가
+  - `window.openConsultModal && window.openConsultModal()`
+  - 함수 없어도 에러 발생 안 함
+  
+- **터치 최적화 유지**
+  - 44x44px 최소 터치 영역
+  - tap-highlight-color 유지
+  - touch-action: manipulation
+
+### Version 6.6 (2025-10-30)
+**🔧 카카오톡 인앱 브라우저 호환성 개선**
+- **카카오톡 웹뷰 이슈 해결**
+  - 카카오톡 인앱 브라우저 자동 감지
+  - User Agent 확인 및 로깅
+  - 외부 브라우저로 열기 안내 배너 추가
+  - 링크 복사 기능 (클립보드 API 사용)
+  
+- **초기화 로직 개선**
+  - document.readyState 체크
+  - DOMContentLoaded + window.load 이중 초기화
+  - 초기화 완료 플래그 (appInitialized)
+  - 다중 이벤트 리스너 (click, touchend, onclick)
+  
+- **폴백 메커니즘 강화**
+  - 인라인 onclick 속성 추가 (최종 폴백)
+  - 여러 이벤트 타입 동시 지원
+  - 이벤트 리스너 실패 시 대체 방법
+  
+- **메타 태그 최적화**
+  - viewport 설정 개선 (maximum-scale)
+  - format-detection 추가
+  - X-UA-Compatible 추가
+  
+- **사용자 경험 개선**
+  - 카카오 환경 시각적 알림
+  - 외부 브라우저 전환 가이드
+  - iOS/Android 별도 처리
 
 ### Version 6.5 (2025-10-30)
 **🔧 모바일 터치 인터랙션 완전 재구축**

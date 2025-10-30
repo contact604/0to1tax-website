@@ -459,6 +459,33 @@
             user-select: none;
         }
         
+        /* Pure CSS Mobile Menu */
+        .mobile-menu-checkbox {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-menu-checkbox:checked ~ .container .mobile-menu {
+            max-height: 500px;
+        }
+        
+        .mobile-menu-btn {
+            min-width: 44px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
+        }
+        
         @media (max-width: 768px) {
             .content-body .name-card {
                 padding: 1.25rem;
@@ -579,6 +606,7 @@
     
     <!-- Navigation -->
     <nav class="nav-cosmic shadow-lg fixed w-full top-0 z-50">
+        <input type="checkbox" id="mobileMenuToggle" class="mobile-menu-checkbox">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="index.html" class="flex items-center space-x-2">
@@ -593,25 +621,26 @@
                     <a href="index.html#home" class="text-gray-300 hover:text-white transition font-medium">홈</a>
                     <a href="index.html#services" class="text-gray-300 hover:text-white transition font-medium">서비스</a>
                     <a href="0to1log.html" class="text-cosmic-blue font-semibold">블로그</a>
-                    <button onclick="openConsultModal()" class="gradient-cosmic text-white px-6 py-2.5 rounded-full hover:shadow-xl transition font-medium">
+                    <button onclick="window.openConsultModal && window.openConsultModal()" class="gradient-cosmic text-white px-6 py-2.5 rounded-full hover:shadow-xl transition font-medium">
                         🚀 무료 상담
                     </button>
                 </div>
                 
-                <button id="mobileMenuBtn" class="lg:hidden text-white hover:text-cosmic-blue p-2 -mr-2 touch-manipulation" type="button" aria-label="메뉴 열기" onclick="document.getElementById('mobileMenu').classList.toggle('hidden'); return false;">
+                <!-- Mobile Menu Button -->
+                <label for="mobileMenuToggle" class="mobile-menu-btn lg:hidden text-white hover:text-cosmic-blue p-2 -mr-2 cursor-pointer">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
-                </button>
+                </label>
             </div>
             
-            <div id="mobileMenu" class="hidden lg:hidden pb-4 space-y-3">
+            <div class="mobile-menu lg:hidden pb-4 space-y-3">
                 <a href="index.html#home" class="block text-gray-300 hover:text-white transition font-medium py-2">홈</a>
                 <a href="index.html#services" class="block text-gray-300 hover:text-white transition font-medium py-2">서비스</a>
                 <a href="0to1log.html" class="block text-cosmic-blue font-semibold py-2">블로그</a>
-                <button onclick="openConsultModal()" class="w-full gradient-cosmic text-white px-6 py-3 rounded-full hover:shadow-xl transition font-medium mt-2">
+                <a href="#" onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="block w-full gradient-cosmic text-white px-6 py-3 rounded-full hover:shadow-xl transition font-medium mt-2 text-center">
                     🚀 무료 상담
-                </button>
+                </a>
             </div>
         </div>
     </nav>

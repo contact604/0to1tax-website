@@ -28,34 +28,11 @@ published: true
 
 개인은 소득이 늘수록 세율이 급격히 올라가지만, 법인은 상대적으로 완만한 구간 누진 구조입니다. 초기에 어떤 형태로 시작하느냐가 향후 3~5년 누적 세금에 큰 차이를 만듭니다.
 
-<div style="overflow-x: auto; margin: 20px 0;">
-  <table style="width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
-    <thead>
-      <tr style="background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white;">
-        <th style="padding: 16px; text-align: left; font-weight: 600; border-bottom: 2px solid #E2E8F0;">구분</th>
-        <th style="padding: 16px; text-align: left; font-weight: 600; border-bottom: 2px solid #E2E8F0;">개인사업자</th>
-        <th style="padding: 16px; text-align: left; font-weight: 600; border-bottom: 2px solid #E2E8F0;">법인사업자</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="background: #F8FAFC;">
-        <td style="padding: 16px; font-weight: 600; color: #1E293B; border-bottom: 1px solid #E2E8F0;">과세대상</td>
-        <td style="padding: 16px; color: #475569; border-bottom: 1px solid #E2E8F0;">종합소득세(6%~45%)</td>
-        <td style="padding: 16px; color: #475569; border-bottom: 1px solid #E2E8F0;">법인세(10%~25%)</td>
-      </tr>
-      <tr>
-        <td style="padding: 16px; font-weight: 600; color: #1E293B; border-bottom: 1px solid #E2E8F0;">소득구간 누진</td>
-        <td style="padding: 16px; color: #475569; border-bottom: 1px solid #E2E8F0;">급격히 증가</td>
-        <td style="padding: 16px; color: #475569; border-bottom: 1px solid #E2E8F0;">완만한 구조</td>
-      </tr>
-      <tr style="background: #F8FAFC;">
-        <td style="padding: 16px; font-weight: 600; color: #1E293B;">공제/감면 적용</td>
-        <td style="padding: 16px; color: #475569;">제한적</td>
-        <td style="padding: 16px; color: #475569;">상대적으로 광범위</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+| 구분 | 개인사업자 | 법인사업자 |
+|------|------------|------------|
+| **과세대상** | 종합소득세(6%~45%) | 법인세(10%~25%) |
+| **소득구간 누진** | 급격히 증가 | 완만한 구조 |
+| **공제/감면 적용** | 제한적 | 상대적으로 광범위 |
 
 **핵심:** 같은 이익이라도 개인은 세율이 더 가파르게 올라가고, 법인은 구간 내에서 관리가 수월합니다.
 
@@ -105,61 +82,24 @@ published: true
 
 ## 🎯 우리 회사의 절세 가능액은 얼마일까요?
 
-<div style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border-radius: 16px; padding: 40px; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; overflow: hidden;">
-  <!-- 배경 패턴 -->
-  <div style="position: absolute; top: 0; right: 0; width: 300px; height: 300px; background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%); border-radius: 50%;"></div>
-  
-  <div style="position: relative; z-index: 1;">
-    <!-- 헤더 -->
-    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px;">
-      <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #3B82F6, #8B5CF6); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 32px;">🚀</div>
-      <div>
-        <div style="color: white; font-size: 24px; font-weight: 700; margin-bottom: 4px;">Zero to one TAX</div>
-        <div style="color: rgba(255,255,255,0.7); font-size: 14px;">스타트업 성장 세무회계 전문</div>
-      </div>
-    </div>
-    
-    <!-- 메인 메시지 -->
-    <div style="background: rgba(255,255,255,0.05); border-left: 4px solid #3B82F6; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-      <div style="color: white; font-size: 18px; font-weight: 600; margin-bottom: 10px;">💡 무료 절세 진단 받기</div>
-      <div style="color: rgba(255,255,255,0.8); font-size: 15px; line-height: 1.6;">
-        스타트업마다 상황이 다르기 때문에 정확한 절세 시뮬레이션이 필요합니다.<br>
-        <strong style="color: #3B82F6;">5분 만에 무료 진단 완료!</strong>
-      </div>
-    </div>
-    
-    <!-- 연락처 정보 -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
-      <!-- 전화 -->
-      <div style="background: rgba(255,255,255,0.08); border-radius: 12px; padding: 20px; backdrop-filter: blur(10px); transition: all 0.3s;">
-        <div style="color: rgba(255,255,255,0.6); font-size: 13px; margin-bottom: 8px; font-weight: 500;">📞 전화 상담</div>
-        <a href="tel:070-8065-3619" style="color: white; font-size: 20px; font-weight: 700; text-decoration: none; display: block;">070-8065-3619</a>
-      </div>
-      
-      <!-- 이메일 -->
-      <div style="background: rgba(255,255,255,0.08); border-radius: 12px; padding: 20px; backdrop-filter: blur(10px); transition: all 0.3s;">
-        <div style="color: rgba(255,255,255,0.6); font-size: 13px; margin-bottom: 8px; font-weight: 500;">📧 이메일 문의</div>
-        <a href="mailto:contact@0to1tax.com" style="color: white; font-size: 18px; font-weight: 600; text-decoration: none; display: block; word-break: break-all;">contact@0to1tax.com</a>
-      </div>
-      
-      <!-- 웹사이트 -->
-      <div style="background: rgba(255,255,255,0.08); border-radius: 12px; padding: 20px; backdrop-filter: blur(10px); transition: all 0.3s;">
-        <div style="color: rgba(255,255,255,0.6); font-size: 13px; margin-bottom: 8px; font-weight: 500;">🌐 온라인 상담</div>
-        <a href="https://0to1tax.com" target="_blank" style="color: #3B82F6; font-size: 18px; font-weight: 600; text-decoration: none; display: block;">0to1tax.com →</a>
-      </div>
-    </div>
-    
+### 🚀 Zero to one TAX - 스타트업 성장 세무회계 전문
 
-  </div>
-</div>
+#### 💡 무료 절세 진단 받기
+
+스타트업마다 상황이 다르기 때문에 정확한 절세 시뮬레이션이 필요합니다.  
+**5분 만에 무료 진단 완료!**
+
+#### 📞 연락처
+
+- **전화 상담**: [070-8065-3619](tel:070-8065-3619)
+- **이메일 문의**: [contact@0to1tax.com](mailto:contact@0to1tax.com)
+- **온라인 상담**: [0to1tax.com](https://0to1tax.com)
 
 ---
 
-## 🔗 관련 글
+## 📚 함께 읽으면 좋은 글
 
-- [스타트업 세무회계 서비스 소개](https://0to1tax.com)
-- [법인설립 완벽 가이드](https://0to1tax.com/0to1log.html) (예정)
-- [투자유치 후 세무 체크리스트](https://0to1tax.com/0to1log.html) (예정)
+더 많은 스타트업 세무·회계 정보는 [Zero to one TAX 블로그](https://0to1tax.com/0to1log.html)에서 확인하세요!
 
 ---
 

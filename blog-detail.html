@@ -177,6 +177,37 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
     </style>
     
     <script>
@@ -212,11 +243,7 @@
                 <div class="hidden lg:flex items-center space-x-8">
                     <a href="index.html#home" class="text-gray-300 hover:text-white transition font-medium">홈</a>
                     <a href="index.html#services" class="text-gray-300 hover:text-white transition font-medium">서비스</a>
-<<<<<<< HEAD
                     <a href="0to1log.html" class="text-cosmic-blue font-semibold">블로그</a>
-=======
-                    <a href="taxz1log.html" class="text-cosmic-blue font-semibold">블로그</a>
->>>>>>> b74fd977f1e2ea4cc158aa0f8a83a1cdff91a544
                     <button onclick="openConsultModal()" class="gradient-cosmic text-white px-6 py-2.5 rounded-full hover:shadow-xl transition font-medium">
                         🚀 무료 상담
                     </button>
@@ -751,4 +778,3 @@
 
 </body>
 </html>
-

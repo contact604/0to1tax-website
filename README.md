@@ -2,7 +2,7 @@
 
 **🚀 ZERO에서 ONE까지, 대형 회계법인 출신 전문가와 함께하세요**
 
-![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.3-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
+![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.4-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
 
 ---
 
@@ -34,8 +34,9 @@
 ### 🎯 배포 후 가이드
 1. **📖 [빠른_시작_가이드.md](빠른_시작_가이드.md)** ← 배포 후 첫 단계
 2. **✅ [지금_당장_할일.md](지금_당장_할일.md)** ← 우선순위 체크리스트
-3. **🔍 [구글검색_노출_가이드.md](구글검색_노출_가이드.md)** ← 검색 노출
-4. **🌐 [도메인_연결_간단가이드.md](도메인_연결_간단가이드.md)** ← 도메인 연결
+3. **🔍 [🔍_구글_네이버_검색등록_완벽가이드.md](🔍_구글_네이버_검색등록_완벽가이드.md)** ← 검색 노출 완벽 가이드 ⭐ 신규!
+4. **⚡ [⚡_검색노출_빠른_시작_가이드.md](⚡_검색노출_빠른_시작_가이드.md)** ← 5분 빠른 시작 ⭐ 신규!
+5. **🌐 [도메인_연결_간단가이드.md](도메인_연결_간단가이드.md)** ← 도메인 연결
 
 📚 **모든 가이드 한눈에 보기**: **[📖_가이드_모음.md](📖_가이드_모음.md)**
 
@@ -139,10 +140,11 @@ Zero to one TAX는 스타트업을 위한 전문 세무·회계 서비스입니�
 - Open Graph Meta Tags
 - Twitter Cards
 - Structured Data (JSON-LD)
-- robots.txt
-- sitemap.xml
+- robots.txt (구글, 네이버, 다음 최적화) ✅ 업데이트!
+- sitemap.xml (2025-10-30 최신화) ✅ 업데이트!
 - .htaccess (Gzip, Caching, Security)
 - netlify.toml (Netlify 배포 설정) ⭐ 신규!
+- **🔍 검색엔진 등록 가이드** ⭐ 신규!
 
 ### 배포
 - .gitignore (Git 제외 파일) ⭐ 신규!
@@ -336,8 +338,8 @@ GET /tables/consultations?sort=-created_at&limit=100
 
 ## 📞 연락처
 
-- **이메일**: lbg@syacc.co.kr
-- **전화**: 010-4395-1996
+- **이메일**: contact@0to1tax.com
+- **전화**: 070-8065-3619
 - **주소**: 서울특별시 강남구 테헤란로70길 12 H타워 6층
 
 ## 📄 라이선스
@@ -346,7 +348,35 @@ GET /tables/consultations?sort=-created_at&limit=100
 
 ---
 
+## 📊 버전 히스토리
+
+### Version 6.4 (2025-10-30)
+**🔧 버그 수정**
+- **블로그 상세 페이지 무료 상담 모달 버그 수정**
+  - `blog-detail.html`에 모달 CSS 스타일 추가 (.modal, .modal.active)
+  - 모달 팝업이 제대로 표시되지 않던 문제 해결
+  - 무료 상담 버튼과 플로팅 버튼 모두 정상 작동 확인
+  - 모달 애니메이션 (fade-in, scale) 추가
+
+### Version 6.3 (2025-10-30)
+**🔍 검색 엔진 최적화**
+- 구글 및 네이버 검색 등록 완벽 가이드 추가
+- 검색 노출 빠른 시작 가이드 작성
+- 블로그 SEO 최적화 완료 문서 추가
+
+---
+
 ## 🆕 버전 히스토리
+
+### v6.4 (2025-10-30) - 구글/네이버 검색 최적화 & 전화번호 업데이트 🔍
+- ✅ **전화번호 변경**: 010-4395-1996 → 070-8065-3619
+- ✅ **robots.txt 최적화** - 구글봇, 네이버봇, 다음봇 각각 설정
+- ✅ **sitemap.xml 업데이트** - 2025-10-30 최신화, 모든 페이지 포함
+- ✅ **검색엔진 인증 파일** - naver-site-verification.html, google-site-verification.html
+- ✅ **🔍_구글_네이버_검색등록_완벽가이드.md** - 완벽한 검색 등록 가이드
+- ✅ **⚡_검색노출_빠른_시작_가이드.md** - 5분 빠른 시작 가이드
+- ✅ SEO 메타태그 검증 완료
+- ✅ 구조화 데이터 (JSON-LD) 업데이트
 
 ### v6.3 (2024-10-27) - Netlify CMS 블로그 시스템 완성! 📝
 - ✅ **Netlify CMS 완전 설치** - WordPress처럼 쉬운 블로그 관리!

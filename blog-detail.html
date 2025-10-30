@@ -209,6 +209,112 @@
             transition: background 0.2s;
         }
         
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            /* Article container padding */
+            article .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Card padding reduction */
+            .card-cosmic {
+                padding: 1.5rem !important;
+            }
+            
+            .content-body table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 1.5rem -1rem;
+                border-radius: 0;
+                max-width: calc(100vw - 2rem);
+            }
+            
+            .content-body table th,
+            .content-body table td {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.875rem;
+                white-space: nowrap;
+                min-width: 100px;
+            }
+            
+            .content-body table th:first-child,
+            .content-body table td:first-child {
+                position: sticky;
+                left: 0;
+                background: rgba(30, 41, 59, 0.95);
+                z-index: 1;
+            }
+            
+            /* Better text wrapping for mobile */
+            .content-body h1,
+            .content-body h2,
+            .content-body h3,
+            .content-body h4 {
+                word-wrap: break-word;
+                word-break: keep-all;
+                overflow-wrap: break-word;
+            }
+            
+            .content-body p,
+            .content-body li {
+                word-wrap: break-word;
+                word-break: keep-all;
+                overflow-wrap: break-word;
+                line-height: 1.8;
+            }
+            
+            /* Better spacing for mobile */
+            .content-body {
+                font-size: 1rem;
+                line-height: 1.75;
+            }
+            
+            .content-body h1 {
+                font-size: 1.75rem;
+                margin-top: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            .content-body h2 {
+                font-size: 1.5rem;
+                margin-top: 1.5rem;
+                margin-bottom: 0.875rem;
+            }
+            
+            .content-body h3 {
+                font-size: 1.25rem;
+                margin-top: 1.25rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            /* Code blocks horizontal scroll */
+            .content-body pre,
+            .content-body code {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                max-width: 100%;
+            }
+            
+            /* Images responsive */
+            .content-body img {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            /* Lists better spacing */
+            .content-body ul,
+            .content-body ol {
+                padding-left: 1.5rem;
+                margin: 1rem 0;
+            }
+            
+            .content-body li {
+                margin-bottom: 0.5rem;
+            }
+        }
+        
         /* Name Card Styles */
         .content-body .name-card {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
@@ -959,7 +1065,7 @@
             initializeApp();
         }
         
-        // Fallback for older browsers or Kakao webview
+        // Fallback for older browsers
         window.addEventListener('load', function() {
             console.log('Window loaded, checking initialization...');
             // Re-initialize if needed

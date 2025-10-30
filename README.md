@@ -2,7 +2,7 @@
 
 **🚀 ZERO에서 ONE까지, 대형 회계법인 출신 전문가와 함께하세요**
 
-![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.13-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
+![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.15.2-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
 
 ---
 
@@ -350,7 +350,83 @@ GET /tables/consultations?sort=-created_at&limit=100
 
 ## 📊 버전 히스토리
 
-### Version 6.13 (2025-10-30) ⭐ NEW!
+### Version 6.15.1 (2025-10-30) ⭐ HOTFIX!
+**🔥 GitHub 캐시 완전 제거 + 디버깅 강화**
+- **강력한 캐시 버스팅**
+  - GitHub API 호출에 타임스탬프 파라미터 추가
+  - `fetch()` 헤더에 `Cache-Control: no-cache` 강제
+  - `blog-detail.html` 및 `0to1log.html` 모두 적용
+  - 브라우저와 CDN 캐시 완전 우회
+  
+- **디버깅 도구 추가**
+  - `test-github-cache.html` 생성
+  - GitHub API 응답 실시간 확인
+  - CTA 문구 변경 여부 즉시 확인
+  - 캐시 사용/미사용 비교 테스트
+  
+- **버전 정보 표시**
+  - 페이지 메타 태그에 버전 정보 추가
+  - 콘솔에 버전 및 타임스탬프 출력
+  - User Agent 정보 자동 로깅
+  - 마크다운 파일 로드 크기 로깅
+
+### Version 6.15 (2025-10-30)
+**🚀 블로그 UX 완벽 최적화 - 캐시 버스팅 + 브라우저 호환성**
+- **블로그 CTA 문구 변경**
+  - `_posts/2025-10-30-startup-corporate-tax-savings.md`
+  - "5분 만에 절세 가능액 확인하세요!" → "스타트업의 0부터 1까지 모든 과정을 함께합니다"
+  - 브랜드 정체성 강화 및 포괄적 메시지 전달
+  
+- **캐시 버스팅 완벽 구현**
+  - `blog-detail.html`에 HTTP 캐시 제어 메타 태그 추가
+  - `Cache-Control: no-cache, no-store, must-revalidate`
+  - `Pragma: no-cache`
+  - `Expires: 0`
+  - 브라우저 캐시 문제로 인한 업데이트 미반영 완전 해결
+  
+- **테이블 스크롤 강화**
+  - JavaScript `setTimeout`으로 DOM 준비 보장
+  - 강제 인라인 스타일 추가 (`overflow-x: auto`)
+  - 스크롤바 커스텀 디자인 (Chrome/Safari)
+  - `scrollbar-width: thin` (Firefox)
+  - 모바일에서 `overflow-x: scroll !important` 강제 적용
+  - 콘솔 로그로 디버깅 편의성 향상
+  
+- **인라인 HTML 스타일 지원**
+  - 마크다운 내 인라인 스타일 div 완전 지원
+  - `content-body > div[style*="gradient"]` CSS 추가
+  - `content-body > div[style*="background"]` CSS 추가
+  - h3 태그 색상 및 마진 강제 적용
+  - 그라데이션 CTA 카드 완벽 표시
+  
+- **브라우저 호환성 확인**
+  - 카카오톡 인앱 브라우저 감지 코드 없음 확인
+  - 외부 브라우저 유도 배너 제거 확인
+  - 모든 인앱 브라우저에서 자연스러운 경험
+  - User-Agent 감지 로직 완전 제거
+
+### Version 6.14 (2025-10-30)
+**📱 간단한 CTA + 테이블 스크롤 완벽 구현**
+- **마크다운 파일 CTA 영역 단순화**
+  - 복잡한 HTML 네임카드 제거
+  - 마크다운 기본 서식 + 인라인 스타일 버튼으로 교체
+  - 전화번호 링크, 상담 버튼만 남김
+  - 모바일에서 깨지는 문제 완전 해결
+  
+- **테이블 모바일 스크롤 완벽 구현**
+  - JavaScript로 모든 테이블 자동 래퍼 생성
+  - `.table-wrapper` 클래스로 스크롤 컨테이너 생성
+  - `overflow-x: auto` + `-webkit-overflow-scrolling: touch`
+  - 테이블 최소 너비 500px로 고정
+  - 좌우 스크롤 확실히 작동
+  
+- **더 나은 사용자 경험**
+  - 로딩 속도 개선
+  - 모든 기기에서 일관된 표시
+  - 테이블 내용 가독성 향상
+  - 유지보수 용이
+
+### Version 6.13 (2025-10-30)
 **🔧 네임카드 CSS 누락 수정**
 - **blog-detail.html 네임카드 스타일 완성**
   - `.message-content` 클래스 스타일 추가

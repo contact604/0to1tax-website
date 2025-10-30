@@ -209,6 +209,22 @@
             transition: background 0.2s;
         }
         
+        /* Table Wrapper for Mobile Scroll */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .table-wrapper {
+                margin: 1.5rem -1rem;
+                width: calc(100% + 2rem);
+                padding: 0 1rem;
+            }
+        }
+        
         /* Mobile Optimization */
         @media (max-width: 768px) {
             /* Article container padding */
@@ -223,12 +239,11 @@
             }
             
             .content-body table {
-                display: block;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                margin: 1.5rem -1rem;
-                border-radius: 0;
-                max-width: calc(100vw - 2rem);
+                display: table;
+                width: 100%;
+                min-width: 500px;
+                margin: 0;
+                border-radius: 0.75rem;
             }
             
             .content-body table th,
@@ -1303,6 +1318,17 @@
             // Markdown을 HTML로 변환
             const htmlContent = marked.parse(post.body);
             document.getElementById('articleBody').innerHTML = htmlContent;
+            
+            // Wrap tables in a scrollable wrapper for mobile
+            const tables = document.querySelectorAll('#articleBody table');
+            tables.forEach(table => {
+                if (!table.parentElement.classList.contains('table-wrapper')) {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'table-wrapper';
+                    table.parentNode.insertBefore(wrapper, table);
+                    wrapper.appendChild(table);
+                }
+            });
             
             // Category colors
             const categoryColors = {

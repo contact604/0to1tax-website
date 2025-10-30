@@ -80,38 +80,20 @@ published: true
 
 ---
 
-## 🎯 우리 회사의 절세 가능액은 얼마일까요?
+## 🎯 무료 상담 받기
 
-<div class="name-card">
-  <div class="name-card-header">
-    <div class="name-card-icon">🚀</div>
-    <div class="name-card-title">
-      <h3>Zero to one TAX</h3>
-      <p>스타트업 성장 세무회계 전문</p>
-    </div>
-  </div>
-  
-  <div class="name-card-message">
-    <div class="message-icon">💡</div>
-    <div class="message-content">
-      <h4>무료 절세 진단 받기</h4>
-      <p>스타트업마다 상황이 다르기 때문에 정확한 절세 시뮬레이션이 필요합니다.<br><strong>5분 만에 무료 진단 완료!</strong></p>
-    </div>
-  </div>
-  
-  <div class="name-card-contacts">
-    <div class="contact-item">
-      <div class="contact-label">📞 전화 상담</div>
-      <a href="tel:070-8065-3619" class="contact-value">070-8065-3619</a>
-    </div>
-    
-    <div class="contact-item contact-cta">
-      <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="consult-button">
-        <span class="button-icon">💬</span>
-        <span class="button-text">무료 상담하기</span>
-      </button>
-    </div>
-  </div>
+**💡 스타트업의 0부터 1까지 모든 과정을 함께합니다**
+
+스타트업마다 상황이 다르기 때문에 정확한 절세 시뮬레이션이 필요합니다.
+
+---
+
+**📞 전화 상담**: [070-8065-3619](tel:070-8065-3619)
+
+<div style="text-align: center; margin: 2rem 0;">
+  <button onclick="if(window.openConsultModal){window.openConsultModal();}" style="background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.125rem; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4); transition: all 0.3s ease;">
+    💬 무료 상담 신청하기
+  </button>
 </div>
 
 ---

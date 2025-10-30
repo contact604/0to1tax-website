@@ -82,18 +82,40 @@ published: true
 
 ## 🎯 우리 회사의 절세 가능액은 얼마일까요?
 
-### 🚀 Zero to one TAX - 스타트업 성장 세무회계 전문
-
-#### 💡 무료 절세 진단 받기
-
-스타트업마다 상황이 다르기 때문에 정확한 절세 시뮬레이션이 필요합니다.  
-**5분 만에 무료 진단 완료!**
-
-#### 📞 연락처
-
-- **전화 상담**: [070-8065-3619](tel:070-8065-3619)
-- **이메일 문의**: [contact@0to1tax.com](mailto:contact@0to1tax.com)
-- **온라인 상담**: [0to1tax.com](https://0to1tax.com)
+<div class="name-card">
+  <div class="name-card-header">
+    <div class="name-card-icon">🚀</div>
+    <div class="name-card-title">
+      <h3>Zero to one TAX</h3>
+      <p>스타트업 성장 세무회계 전문</p>
+    </div>
+  </div>
+  
+  <div class="name-card-message">
+    <div class="message-icon">💡</div>
+    <div class="message-content">
+      <h4>무료 절세 진단 받기</h4>
+      <p>스타트업마다 상황이 다르기 때문에 정확한 절세 시뮬레이션이 필요합니다.<br><strong>5분 만에 무료 진단 완료!</strong></p>
+    </div>
+  </div>
+  
+  <div class="name-card-contacts">
+    <div class="contact-item">
+      <div class="contact-label">📞 전화 상담</div>
+      <a href="tel:070-8065-3619" class="contact-value">070-8065-3619</a>
+    </div>
+    
+    <div class="contact-item">
+      <div class="contact-label">📧 이메일 문의</div>
+      <a href="mailto:contact@0to1tax.com" class="contact-value">contact@0to1tax.com</a>
+    </div>
+    
+    <div class="contact-item">
+      <div class="contact-label">🌐 온라인 상담</div>
+      <a href="https://0to1tax.com" target="_blank" class="contact-value">0to1tax.com →</a>
+    </div>
+  </div>
+</div>
 
 ---
 

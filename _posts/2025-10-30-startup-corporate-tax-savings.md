@@ -105,23 +105,14 @@ published: true
       <a href="tel:070-8065-3619" class="contact-value">070-8065-3619</a>
     </div>
     
-    <div class="contact-item">
-      <div class="contact-label">📧 이메일 문의</div>
-      <a href="mailto:contact@0to1tax.com" class="contact-value">contact@0to1tax.com</a>
-    </div>
-    
-    <div class="contact-item">
-      <div class="contact-label">🌐 온라인 상담</div>
-      <a href="https://0to1tax.com" target="_blank" class="contact-value">0to1tax.com →</a>
+    <div class="contact-item contact-cta">
+      <button onclick="openConsultModal()" class="consult-button">
+        <span class="button-icon">💬</span>
+        <span class="button-text">무료 상담하기</span>
+      </button>
     </div>
   </div>
 </div>
-
----
-
-## 📚 함께 읽으면 좋은 글
-
-더 많은 스타트업 세무·회계 정보는 [Zero to one TAX 블로그](https://0to1tax.com/0to1log.html)에서 확인하세요!
 
 ---
 

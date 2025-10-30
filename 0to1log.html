@@ -180,6 +180,33 @@
                 transform: translateY(0);
             }
         }
+        
+        /* Pure CSS Mobile Menu */
+        .mobile-menu-checkbox {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-menu-checkbox:checked ~ .container .mobile-menu {
+            max-height: 500px;
+        }
+        
+        .mobile-menu-btn {
+            min-width: 44px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
+        }
     </style>
     
     <script>
@@ -202,6 +229,7 @@
     
     <!-- Navigation -->
     <nav class="nav-cosmic shadow-lg fixed w-full top-0 z-50">
+        <input type="checkbox" id="mobileMenuToggle" class="mobile-menu-checkbox">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="index.html" class="flex items-center space-x-2">
@@ -216,22 +244,25 @@
                     <a href="index.html#home" class="text-gray-300 hover:text-white transition font-medium">홈</a>
                     <a href="index.html#services" class="text-gray-300 hover:text-white transition font-medium">서비스</a>
                     <a href="0to1log.html" class="text-cosmic-blue font-semibold">블로그</a>
-                    <button onclick="openConsultModal()" class="gradient-cosmic text-white px-6 py-2.5 rounded-full hover:shadow-xl transition font-medium">
+                    <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="gradient-cosmic text-white px-6 py-2.5 rounded-full hover:shadow-xl transition font-medium">
                         🚀 무료 상담
                     </button>
                 </div>
                 
-                <button id="mobileMenuBtn" class="lg:hidden text-white hover:text-cosmic-blue">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <label for="mobileMenuToggle" class="mobile-menu-btn lg:hidden text-white hover:text-cosmic-blue cursor-pointer p-2 -mr-2">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
-                </button>
+                </label>
             </div>
             
-            <div id="mobileMenu" class="hidden lg:hidden pb-4 space-y-3">
+            <div class="mobile-menu lg:hidden pb-4 space-y-3">
                 <a href="index.html#home" class="block text-gray-300 hover:text-white transition font-medium py-2">홈</a>
                 <a href="index.html#services" class="block text-gray-300 hover:text-white transition font-medium py-2">서비스</a>
                 <a href="0to1log.html" class="block text-cosmic-blue font-semibold py-2">블로그</a>
+                <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="w-full gradient-cosmic text-white px-6 py-3 rounded-full hover:shadow-xl transition font-medium">
+                    🚀 무료 상담
+                </button>
             </div>
         </div>
     </nav>
@@ -388,7 +419,7 @@
     </section>
     
     <!-- Floating Consult Button -->
-    <button onclick="openConsultModal()" class="floating-btn gradient-cosmic text-white w-16 h-16 rounded-full flex items-center justify-center hover:shadow-2xl transition">
+    <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="floating-btn gradient-cosmic text-white w-16 h-16 rounded-full flex items-center justify-center hover:shadow-2xl transition">
         <i class="fas fa-comment-dots text-2xl"></i>
     </button>
     
@@ -397,7 +428,7 @@
         <div class="modal-content bg-white rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-2xl font-bold text-gray-900">무료 상담 신청</h3>
-                <button onclick="closeConsultModal()" class="text-gray-400 hover:text-gray-600 transition">
+                <button onclick="if(window.closeConsultModal){window.closeConsultModal();} return false;" class="text-gray-400 hover:text-gray-600 transition">
                     <i class="fas fa-times text-2xl"></i>
                 </button>
             </div>
@@ -444,7 +475,7 @@
                 </div>
                 <h4 class="text-2xl font-bold text-gray-900 mb-2">신청 완료!</h4>
                 <p class="text-gray-600 mb-6">빠른 시일 내에 연락드리겠습니다.</p>
-                <button onclick="closeConsultModal()" class="gradient-cosmic text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition">
+                <button onclick="if(window.closeConsultModal){window.closeConsultModal();} return false;" class="gradient-cosmic text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition">
                     확인
                 </button>
             </div>
@@ -482,11 +513,8 @@
         let currentPage = 1;
         const postsPerPage = 10;
         
-        // Mobile Menu Toggle
-        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
-        });
+        // Mobile Menu Toggle (Pure CSS - no JavaScript needed)
+        // Mobile menu is now controlled by CSS :checked selector
         
         // GitHub에서 블로그 포스트 목록 가져오기
         async function loadBlogPosts() {
@@ -798,6 +826,39 @@
         
         // 페이지 로드 시 실행
         loadBlogPosts();
+        
+        // Modal Functions (Global scope for onclick handlers)
+        window.openConsultModal = function() {
+            console.log('Opening modal...');
+            const modal = document.getElementById('consultModal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                console.log('Modal opened');
+            } else {
+                console.error('Modal not found');
+            }
+        }
+
+        window.closeConsultModal = function() {
+            console.log('Closing modal...');
+            const modal = document.getElementById('consultModal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                // Reset form
+                const form = document.getElementById('consultForm');
+                const success = document.getElementById('consultSuccess');
+                if (form) {
+                    form.reset();
+                    form.classList.remove('hidden');
+                }
+                if (success) {
+                    success.classList.add('hidden');
+                }
+                console.log('Modal closed');
+            }
+        }
     </script>
 
 </body>

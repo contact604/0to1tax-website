@@ -63,6 +63,68 @@
             color: white;
             transform: translateY(-2px);
         }
+        
+        /* Pure CSS Mobile Menu */
+        .mobile-menu-checkbox {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-menu-checkbox:checked ~ .container .mobile-menu {
+            max-height: 500px;
+        }
+        
+        .mobile-menu-btn {
+            min-width: 44px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            animation: fadeIn 0.3s;
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
     </style>
     
     <script>
@@ -82,6 +144,7 @@
     
     <!-- Navigation -->
     <nav class="nav-blur shadow-sm fixed w-full top-0 z-50 border-b border-gray-100">
+        <input type="checkbox" id="mobileMenuToggle" class="mobile-menu-checkbox">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="index.html" class="flex items-center space-x-3">
@@ -98,23 +161,26 @@
                     <a href="index.html#services" class="text-gray-600 hover:text-primary transition font-medium">서비스</a>
                     <a href="index.html#pricing" class="text-gray-600 hover:text-primary transition font-medium">가격</a>
                     <a href="blog.html" class="text-primary font-semibold">Z1로그</a>
-                    <button onclick="openConsultModal()" class="gradient-bg text-white px-6 py-2.5 rounded-full hover:shadow-lg transition font-medium">
+                    <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="gradient-bg text-white px-6 py-2.5 rounded-full hover:shadow-lg transition font-medium">
                         무료 상담
                     </button>
                 </div>
                 
-                <button id="mobileMenuBtn" class="lg:hidden text-gray-700 hover:text-primary">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <label for="mobileMenuToggle" class="mobile-menu-btn lg:hidden text-gray-700 hover:text-primary cursor-pointer p-2 -mr-2">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
-                </button>
+                </label>
             </div>
             
-            <div id="mobileMenu" class="hidden lg:hidden pb-4 space-y-3">
+            <div class="mobile-menu lg:hidden pb-4 space-y-3">
                 <a href="index.html#home" class="block text-gray-600 hover:text-primary transition font-medium py-2">홈</a>
                 <a href="index.html#services" class="block text-gray-600 hover:text-primary transition font-medium py-2">서비스</a>
                 <a href="index.html#pricing" class="block text-gray-600 hover:text-primary transition font-medium py-2">가격</a>
                 <a href="blog.html" class="block text-primary font-semibold py-2">Z1로그</a>
+                <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="w-full gradient-bg text-white px-6 py-3 rounded-full hover:shadow-lg transition font-medium">
+                    무료 상담
+                </button>
             </div>
         </div>
     </nav>
@@ -220,7 +286,7 @@
     </footer>
     
     <!-- Floating Button -->
-    <button onclick="openConsultModal()" class="floating-btn gradient-bg text-white px-6 py-4 rounded-full font-semibold shadow-2xl">
+    <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="floating-btn gradient-bg text-white px-6 py-4 rounded-full font-semibold shadow-2xl">
         <i class="fas fa-comments mr-2"></i> 상담예약
     </button>
     
@@ -229,7 +295,7 @@
         <div class="modal-content bg-white rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-2xl font-bold text-gray-900">무료 상담 신청</h3>
-                <button onclick="closeConsultModal()" class="text-gray-400 hover:text-gray-600 transition">
+                <button onclick="if(window.closeConsultModal){window.closeConsultModal();} return false;" class="text-gray-400 hover:text-gray-600 transition">
                     <i class="fas fa-times text-2xl"></i>
                 </button>
             </div>
@@ -276,7 +342,7 @@
                 </div>
                 <h4 class="text-2xl font-bold text-gray-900 mb-2">신청 완료!</h4>
                 <p class="text-gray-600 mb-6">빠른 시일 내에 연락드리겠습니다.</p>
-                <button onclick="closeConsultModal()" class="gradient-bg text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition">
+                <button onclick="if(window.closeConsultModal){window.closeConsultModal();} return false;" class="gradient-bg text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition">
                     확인
                 </button>
             </div>
@@ -285,8 +351,4 @@
     
     <script src="js/blog.js"></script>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> b74fd977f1e2ea4cc158aa0f8a83a1cdff91a544

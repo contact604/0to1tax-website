@@ -2,7 +2,7 @@
 
 **🚀 ZERO에서 ONE까지, 대형 회계법인 출신 전문가와 함께하세요**
 
-![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.7-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
+![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.9-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
 
 ---
 
@@ -349,6 +349,38 @@ GET /tables/consultations?sort=-created_at&limit=100
 ---
 
 ## 📊 버전 히스토리
+
+### Version 6.9 (2025-10-30) ⭐ NEW!
+**✅ 전체 사이트 모바일 최적화 완료 - 카카오톡 완전 호환**
+- **모든 페이지 Pure CSS 모바일 메뉴 전환**
+  - ✅ index.html - 메인 랜딩 페이지
+  - ✅ 0to1log.html - 블로그 목록 페이지
+  - ✅ blog.html - 구 블로그 페이지
+  - ✅ blog-detail.html - 블로그 상세 페이지 (v6.7)
+  - 4개 주요 페이지 모두 Pure CSS 적용 완료
+  
+- **완벽한 모바일 호환성**
+  - JavaScript 없이 100% CSS로 작동
+  - 카카오톡, 네이버, 라인 등 모든 인앱 브라우저 완벽 대응
+  - iOS Safari, Android Chrome 완벽 지원
+  - 웹뷰 환경에서도 안정적 작동
+  
+- **전역 모달 함수 통일**
+  - 모든 페이지에 `window.openConsultModal` 추가
+  - 모든 페이지에 `window.closeConsultModal` 추가
+  - 안전한 호출 패턴: `if(window.func){window.func();}`
+  - 콘솔 로그로 디버깅 편의성 향상
+  
+- **JavaScript 파일 정리**
+  - js/main.js: 모바일 메뉴 토글 로직 제거, 체크박스 uncheck 추가
+  - js/blog.js: 동일 패턴 적용, 전역 모달 함수 추가
+  - 0to1log.html: 인라인 스크립트에 모달 함수 추가
+  
+- **CSS 아키텍처**
+  - `.mobile-menu-checkbox`: 숨김 체크박스
+  - `.mobile-menu`: max-height 애니메이션
+  - `:checked` 선택자로 메뉴 제어
+  - `.mobile-menu-btn`: 44x44px 터치 최적화
 
 ### Version 6.7 (2025-10-30)
 **🔧 순수 CSS 모바일 메뉴로 전환 (JavaScript 독립)**

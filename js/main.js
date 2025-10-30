@@ -1,15 +1,8 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-        });
-    }
+    // Mobile Menu Toggle (Pure CSS - no JavaScript needed)
+    // Mobile menu is now controlled by CSS :checked selector
     
     // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -25,9 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         top: targetPosition,
                         behavior: 'smooth'
                     });
-                    // Close mobile menu if open
-                    if (mobileMenu) {
-                        mobileMenu.classList.add('hidden');
+                    // Close mobile menu if open (uncheck the checkbox)
+                    const menuToggle = document.getElementById('mobileMenuToggle');
+                    if (menuToggle && menuToggle.checked) {
+                        menuToggle.checked = false;
                     }
                 }
             }

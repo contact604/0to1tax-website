@@ -614,6 +614,33 @@
             from { transform: translateY(-50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+        
+        /* Pure CSS Mobile Menu */
+        .mobile-menu-checkbox {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-menu-checkbox:checked ~ .container .mobile-menu {
+            max-height: 500px;
+        }
+        
+        .mobile-menu-btn {
+            min-width: 44px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
+        }
     </style>
     
     <script>
@@ -641,40 +668,41 @@
     
     <!-- Navigation -->
     <nav class="nav-blur shadow-lg fixed w-full top-0 z-50">
+        <input type="checkbox" id="mobileMenuToggle" class="mobile-menu-checkbox">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center space-x-2">
+                <a href="index.html" class="flex items-center space-x-2">
                     <div class="text-2xl">🚀</div>
                     <div class="flex flex-col leading-tight">
                         <span class="text-lg font-bold text-white">Zero to one</span>
                         <span class="text-sm font-bold text-gradient-cosmic">TAX</span>
                     </div>
-                </div>
+                </a>
                 
                 <div class="hidden lg:flex items-center space-x-8">
                     <a href="#home" class="text-gray-300 hover:text-stellar-purple transition font-medium">홈</a>
                     <a href="#services" class="text-gray-300 hover:text-stellar-purple transition font-medium">Missions</a>
                     <a href="#pricing" class="text-gray-300 hover:text-stellar-purple transition font-medium">Launch Plans</a>
                     <a href="0to1log.html" class="text-gray-300 hover:text-stellar-purple transition font-medium">블로그</a>
-                    <button onclick="openConsultModal()" class="gradient-cosmic text-white px-6 py-2.5 rounded-full hover:shadow-lg transition font-medium glow-effect">
+                    <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="gradient-cosmic text-white px-6 py-2.5 rounded-full hover:shadow-lg transition font-medium glow-effect">
                         🚀 문의하기
                     </button>
                 </div>
                 
-                <button id="mobileMenuBtn" class="lg:hidden text-gray-300 hover:text-stellar-purple">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <label for="mobileMenuToggle" class="mobile-menu-btn lg:hidden text-gray-300 hover:text-stellar-purple cursor-pointer p-2 -mr-2">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
-                </button>
+                </label>
             </div>
             
             <!-- Mobile Menu -->
-            <div id="mobileMenu" class="hidden lg:hidden pb-4 space-y-3">
+            <div class="mobile-menu lg:hidden pb-4 space-y-3">
                 <a href="#home" class="block text-gray-300 hover:text-stellar-purple transition font-medium py-2">홈</a>
                 <a href="#services" class="block text-gray-300 hover:text-stellar-purple transition font-medium py-2">Missions</a>
                 <a href="#pricing" class="block text-gray-300 hover:text-stellar-purple transition font-medium py-2">Launch Plans</a>
                 <a href="0to1log.html" class="block text-gray-300 hover:text-stellar-purple transition font-medium py-2">블로그</a>
-                <button onclick="openConsultModal()" class="w-full gradient-cosmic text-white px-6 py-3 rounded-full hover:shadow-lg transition font-medium glow-effect">
+                <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="w-full gradient-cosmic text-white px-6 py-3 rounded-full hover:shadow-lg transition font-medium glow-effect">
                     🚀 문의하기
                 </button>
             </div>
@@ -707,7 +735,7 @@
                     <span class="inline-block">회계를 넘어</span> <span class="inline-block">성장의 구조를</span> <span class="inline-block">설계하다</span>
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button onclick="openConsultModal()" class="gradient-cosmic text-white px-10 py-4 rounded-full text-lg font-semibold hover:shadow-2xl transition transform hover:scale-105 glow-effect">
+                    <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="gradient-cosmic text-white px-10 py-4 rounded-full text-lg font-semibold hover:shadow-2xl transition transform hover:scale-105 glow-effect">
                         🚀 서비스 문의하기
                     </button>
                     <a href="#services" class="bg-transparent text-white border-2 border-white px-10 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-deep-space transition transform hover:scale-105 neon-border">
@@ -1026,7 +1054,7 @@
                             <span class="text-gray-300">대표이사 연말정산</span>
                         </li>
                     </ul>
-                    <button onclick="openConsultModal()" class="w-full bg-gray-100 text-gray-900 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
+                    <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="w-full bg-gray-100 text-gray-900 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
                         상담 신청
                     </button>
                 </div>
@@ -1086,7 +1114,7 @@
                             <span class="text-white font-semibold">임직원 연말정산</span>
                         </li>
                     </ul>
-                    <button onclick="openConsultModal()" class="w-full bg-white text-stellar-purple py-3 rounded-full font-semibold hover:shadow-xl transition">
+                    <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="w-full bg-white text-stellar-purple py-3 rounded-full font-semibold hover:shadow-xl transition">
                         상담 신청
                     </button>
                 </div>
@@ -1145,7 +1173,7 @@
                             <span class="text-gray-300">임직원 연말정산</span>
                         </li>
                     </ul>
-                    <button onclick="openConsultModal()" class="w-full bg-gradient-to-r from-rocket-orange to-stellar-purple text-white py-3 rounded-full font-semibold hover:shadow-xl transition">
+                    <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="w-full bg-gradient-to-r from-rocket-orange to-stellar-purple text-white py-3 rounded-full font-semibold hover:shadow-xl transition">
                         상담 신청
                     </button>
                 </div>
@@ -1385,7 +1413,7 @@
             <h1 class="text-7xl sm:text-8xl lg:text-9xl font-bold text-white mb-6 glow-effect celebrate">ONE</h1>
             <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">궤도 안착!</h2>
             <p class="text-2xl text-gray-300 mb-12"><span class="inline-block">성공적인 성장을</span> <span class="inline-block">축하합니다</span></p>
-            <button onclick="openConsultModal()" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition">
+            <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition">
                 🚀 지금 상담하기
             </button>
         </section>
@@ -1647,13 +1675,13 @@
     </footer>
     
     <!-- Floating Consultation Button -->
-    <button onclick="openConsultModal()" class="floating-btn gradient-blue text-white px-6 py-4 rounded-full font-semibold shadow-2xl">
+    <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="floating-btn gradient-blue text-white px-6 py-4 rounded-full font-semibold shadow-2xl">
         <i class="fas fa-comments mr-2"></i> 상담예약
     </button>
     
     <!-- Floating Consultation Button -->
     <button 
-       onclick="openConsultModal()"
+       onclick="if(window.openConsultModal){window.openConsultModal();} return false;"
        class="fixed bottom-28 right-8 z-50 gradient-cosmic text-white w-16 h-16 rounded-full shadow-2xl transition transform hover:scale-110 flex items-center justify-center animate-bounce"
        style="animation-duration: 2s;"
        title="무료 상담 신청">
@@ -1675,7 +1703,7 @@
         <div class="modal-content bg-white rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-2xl font-bold text-gray-900">무료 상담 신청</h3>
-                <button onclick="closeConsultModal()" class="text-gray-400 hover:text-gray-600 transition">
+                <button onclick="if(window.closeConsultModal){window.closeConsultModal();} return false;" class="text-gray-400 hover:text-gray-600 transition">
                     <i class="fas fa-times text-2xl"></i>
                 </button>
             </div>
@@ -1725,7 +1753,7 @@
                 </div>
                 <h4 class="text-2xl font-bold text-gray-900 mb-2">신청 완료!</h4>
                 <p class="text-gray-600 mb-6">빠른 시일 내에 연락드리겠습니다.</p>
-                <button onclick="closeConsultModal()" class="gradient-blue text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition">
+                <button onclick="if(window.closeConsultModal){window.closeConsultModal();} return false;" class="gradient-blue text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition">
                     확인
                 </button>
             </div>

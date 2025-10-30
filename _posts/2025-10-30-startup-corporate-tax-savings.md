@@ -80,20 +80,8 @@ published: true
 
 ---
 
-## 🎯 무료 상담 받기
-
-**💡 스타트업의 0부터 1까지 모든 과정을 함께합니다**
-
-스타트업마다 상황이 다르기 때문에 정확한 절세 시뮬레이션이 필요합니다.
-
----
-
-**📞 전화 상담**: [070-8065-3619](tel:070-8065-3619)
-
-<div style="text-align: center; margin: 2rem 0;">
-  <button onclick="if(window.openConsultModal){window.openConsultModal();}" style="background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.125rem; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4); transition: all 0.3s ease;">
-    💬 무료 상담 신청하기
-  </button>
+<div style="background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 2rem; border-radius: 1rem; text-align: center; margin: 3rem 0; box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);">
+  <h3 style="margin: 0; font-size: 1.5rem; font-weight: 700;">💡 스타트업의 0부터 1까지 모든 과정을 함께합니다</h3>
 </div>
 
 ---

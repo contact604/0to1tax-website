@@ -514,8 +514,15 @@
         // GitHub에서 블로그 포스트 목록 가져오기
         async function loadBlogPosts() {
             try {
-                // GitHub API - _posts 폴더의 파일 목록
-                const response = await fetch('https://api.github.com/repos/contact604/0to1tax-website/contents/_posts');
+                // GitHub API - _posts 폴더의 파일 목록 (캐시 버스팅)
+                const timestamp = new Date().getTime();
+                const response = await fetch('https://api.github.com/repos/contact604/0to1tax-website/contents/_posts?t=' + timestamp, {
+                    cache: 'no-cache',
+                    headers: {
+                        'Cache-Control': 'no-cache',
+                        'Pragma': 'no-cache'
+                    }
+                });
                 
                 if (!response.ok) {
                     throw new Error('GitHub API 응답 실패');
@@ -530,10 +537,17 @@
                     throw new Error('블로그 포스트가 없습니다');
                 }
                 
-                // 각 파일의 내용 가져오기
+                // 각 파일의 내용 가져오기 (캐시 버스팅)
                 const posts = await Promise.all(
                     markdownFiles.map(async (file) => {
-                        const contentResponse = await fetch(file.download_url);
+                        const timestamp = new Date().getTime();
+                        const contentResponse = await fetch(file.download_url + '?t=' + timestamp, {
+                            cache: 'no-cache',
+                            headers: {
+                                'Cache-Control': 'no-cache',
+                                'Pragma': 'no-cache'
+                            }
+                        });
                         const content = await contentResponse.text();
                         return parseMarkdownPost(content, file.name);
                     })

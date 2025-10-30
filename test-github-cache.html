@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub 캐시 테스트</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #1a1a2e;
+            color: #eee;
+        }
+        .log {
+            background: #16213e;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #3B82F6;
+        }
+        .success {
+            border-left-color: #10b981;
+        }
+        .error {
+            border-left-color: #ef4444;
+        }
+        button {
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        pre {
+            background: #0f1419;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        h1 {
+            color: #3B82F6;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 GitHub API 캐시 테스트</h1>
+    <p>이 페이지는 GitHub에서 블로그 포스트를 제대로 불러오는지 테스트합니다.</p>
+    
+    <button onclick="testWithCache()">일반 로드 (캐시 사용)</button>
+    <button onclick="testWithoutCache()">강제 새로고침 (캐시 무시)</button>
+    <button onclick="clearLogs()">로그 지우기</button>
+    
+    <div id="logs"></div>
+    
+    <script>
+        const logsDiv = document.getElementById('logs');
+        
+        function addLog(message, type = 'log') {
+            const logDiv = document.createElement('div');
+            logDiv.className = 'log ' + type;
+            logDiv.innerHTML = `<strong>${new Date().toLocaleTimeString()}</strong> - ${message}`;
+            logsDiv.insertBefore(logDiv, logsDiv.firstChild);
+        }
+        
+        function clearLogs() {
+            logsDiv.innerHTML = '';
+        }
+        
+        async function testWithCache() {
+            addLog('🔄 일반 로드 시작...', 'log');
+            try {
+                const response = await fetch('https://api.github.com/repos/contact604/0to1tax-website/contents/_posts');
+                const files = await response.json();
+                const mdFiles = files.filter(f => f.name.endsWith('.md'));
+                
+                addLog(`✅ 성공! ${mdFiles.length}개의 마크다운 파일 발견`, 'success');
+                
+                // 첫 번째 파일 내용 가져오기
+                if (mdFiles.length > 0) {
+                    const file = mdFiles[0];
+                    addLog(`📄 파일 로딩 중: ${file.name}`, 'log');
+                    
+                    const contentResponse = await fetch(file.download_url);
+                    const content = await contentResponse.text();
+                    
+                    // CTA 부분 찾기
+                    const ctaMatch = content.match(/💡.*?\n/);
+                    if (ctaMatch) {
+                        addLog(`📝 CTA 문구 확인:<pre>${ctaMatch[0]}</pre>`, 'success');
+                    }
+                    
+                    addLog(`✅ 파일 크기: ${content.length} 바이트`, 'success');
+                    addLog(`<pre>${content.substring(0, 500)}...</pre>`, 'log');
+                }
+            } catch (error) {
+                addLog(`❌ 오류: ${error.message}`, 'error');
+            }
+        }
+        
+        async function testWithoutCache() {
+            addLog('🚀 강제 새로고침 시작...', 'log');
+            try {
+                const timestamp = new Date().getTime();
+                const response = await fetch('https://api.github.com/repos/contact604/0to1tax-website/contents/_posts?t=' + timestamp, {
+                    cache: 'no-cache',
+                    headers: {
+                        'Cache-Control': 'no-cache',
+                        'Pragma': 'no-cache'
+                    }
+                });
+                const files = await response.json();
+                const mdFiles = files.filter(f => f.name.endsWith('.md'));
+                
+                addLog(`✅ 성공! ${mdFiles.length}개의 마크다운 파일 발견 (캐시 무시)`, 'success');
+                
+                // 첫 번째 파일 내용 가져오기
+                if (mdFiles.length > 0) {
+                    const file = mdFiles[0];
+                    addLog(`📄 파일 로딩 중: ${file.name}`, 'log');
+                    
+                    const contentResponse = await fetch(file.download_url + '?t=' + timestamp, {
+                        cache: 'no-cache',
+                        headers: {
+                            'Cache-Control': 'no-cache',
+                            'Pragma': 'no-cache'
+                        }
+                    });
+                    const content = await contentResponse.text();
+                    
+                    // CTA 부분 찾기
+                    const ctaMatch = content.match(/💡.*?\n/);
+                    if (ctaMatch) {
+                        addLog(`📝 CTA 문구 확인:<pre>${ctaMatch[0]}</pre>`, 'success');
+                    }
+                    
+                    // 전체 CTA 섹션 찾기
+                    const fullCtaMatch = content.match(/<div style="background:.*?<\/div>/s);
+                    if (fullCtaMatch) {
+                        addLog(`🎨 전체 CTA 섹션:<pre>${fullCtaMatch[0]}</pre>`, 'success');
+                    }
+                    
+                    addLog(`✅ 파일 크기: ${content.length} 바이트`, 'success');
+                    addLog(`<pre>${content.substring(0, 500)}...</pre>`, 'log');
+                }
+            } catch (error) {
+                addLog(`❌ 오류: ${error.message}`, 'error');
+            }
+        }
+        
+        // 페이지 로드 시 User Agent 표시
+        addLog(`🌐 User Agent: ${navigator.userAgent}`, 'log');
+    </script>
+</body>
+</html>

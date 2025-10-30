@@ -2,7 +2,7 @@
 
 **🚀 ZERO에서 ONE까지, 대형 회계법인 출신 전문가와 함께하세요**
 
-![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.4-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
+![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.5-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
 
 ---
 
@@ -349,6 +349,17 @@ GET /tables/consultations?sort=-created_at&limit=100
 ---
 
 ## 📊 버전 히스토리
+
+### Version 6.5 (2025-10-30)
+**🔧 모바일 UX 개선**
+- **모바일 메뉴 버튼 작동 오류 수정**
+  - DOMContentLoaded 이벤트 추가로 요소 로딩 대기
+  - 이벤트 버블링 방지 (preventDefault, stopPropagation)
+  - 콘솔 로그 추가로 디버깅 개선
+  - 모바일 메뉴에 무료 상담 버튼 추가
+  - 메뉴 항목 클릭 시 자동으로 메뉴 닫힘
+  - 외부 클릭 시 메뉴 닫힘 기능 추가
+  - 햄버거 메뉴(세 줄 아이콘) 정상 작동 확인
 
 ### Version 6.4 (2025-10-30)
 **🔧 버그 수정 & UI/UX 개선**

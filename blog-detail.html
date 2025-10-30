@@ -549,6 +549,9 @@
                 <a href="index.html#home" class="block text-gray-300 hover:text-white transition font-medium py-2">홈</a>
                 <a href="index.html#services" class="block text-gray-300 hover:text-white transition font-medium py-2">서비스</a>
                 <a href="0to1log.html" class="block text-cosmic-blue font-semibold py-2">블로그</a>
+                <button onclick="openConsultModal()" class="w-full gradient-cosmic text-white px-6 py-3 rounded-full hover:shadow-xl transition font-medium mt-2">
+                    🚀 무료 상담
+                </button>
             </div>
         </div>
     </nav>
@@ -756,10 +759,37 @@
     <script src="js/main.js"></script>
     
     <script>
-        // Mobile Menu Toggle
-        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
+        // Mobile Menu Toggle (Wait for DOM)
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                // Toggle menu
+                mobileMenuBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('hidden');
+                    console.log('Mobile menu toggled:', !mobileMenu.classList.contains('hidden'));
+                });
+                
+                // Close menu when clicking menu items
+                const menuLinks = mobileMenu.querySelectorAll('a, button');
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            } else {
+                console.error('Mobile menu elements not found');
+            }
         });
         
         // Get Post ID from URL

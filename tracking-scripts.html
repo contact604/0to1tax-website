@@ -1,0 +1,161 @@
+<!-- ========================================
+     트래킹 스크립트 모음
+     배포 후 index.html <head> 섹션에 추가하세요
+     ======================================== -->
+
+<!-- Google Tag Manager -->
+<!-- 
+사용법:
+1. https://tagmanager.google.com/ 접속
+2. 계정 생성 및 컨테이너 생성
+3. 컨테이너 ID (GTM-XXXXXXX) 받기
+4. 아래 코드의 GTM-XXXXXXX를 실제 ID로 교체
+5. <head> 시작 부분에 추가
+-->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+<!-- End Google Tag Manager -->
+
+<!-- 
+Google Tag Manager (noscript)
+<body> 시작 직후에 추가
+-->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<!-- ======================================== -->
+
+<!-- Google Analytics 4 (대안) -->
+<!-- 
+GTM 대신 직접 GA4를 사용하려면:
+1. https://analytics.google.com/ 접속
+2. 속성 생성
+3. 측정 ID (G-XXXXXXXXXX) 받기
+4. 아래 코드의 G-XXXXXXXXXX를 실제 ID로 교체
+5. <head> 섹션에 추가
+-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- End Google Analytics 4 -->
+
+
+<!-- ======================================== -->
+
+<!-- Facebook Pixel -->
+<!-- 
+사용법:
+1. https://business.facebook.com/events_manager 접속
+2. 픽셀 생성
+3. 픽셀 ID 받기
+4. 아래 코드의 YOUR_PIXEL_ID를 실제 ID로 교체
+5. <head> 섹션에 추가
+-->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel -->
+
+
+<!-- ======================================== -->
+
+<!-- Naver Analytics -->
+<!-- 
+사용법:
+1. https://analytics.naver.com/ 접속
+2. 사이트 등록
+3. 사이트 ID 받기
+4. 아래 코드의 XXXXXXXXXXXXX를 실제 ID로 교체
+5. <head> 섹션에 추가
+-->
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "XXXXXXXXXXXXX";
+if(window.wcs) {
+  wcs_do();
+}
+</script>
+<!-- End Naver Analytics -->
+
+
+<!-- ======================================== -->
+
+<!-- 이벤트 트래킹 예시 -->
+<script>
+// Google Tag Manager로 이벤트 전송
+function trackEvent(eventName, eventData) {
+  if (typeof dataLayer !== 'undefined') {
+    dataLayer.push({
+      'event': eventName,
+      ...eventData
+    });
+  }
+}
+
+// Facebook Pixel로 이벤트 전송
+function trackFBEvent(eventName, eventData) {
+  if (typeof fbq !== 'undefined') {
+    fbq('track', eventName, eventData);
+  }
+}
+
+// 사용 예시:
+// 상담 신청 완료 시
+function onConsultSubmit() {
+  trackEvent('consultation_submit', {
+    'event_category': 'form',
+    'event_label': 'consultation_form'
+  });
+  
+  trackFBEvent('Lead', {
+    content_name: 'Consultation Request',
+    content_category: 'Form Submission'
+  });
+}
+
+// 블로그 글 조회 시
+function onBlogView(postTitle) {
+  trackEvent('blog_view', {
+    'event_category': 'content',
+    'event_label': postTitle
+  });
+}
+
+// 전화번호 클릭 시
+function onPhoneClick() {
+  trackEvent('phone_click', {
+    'event_category': 'contact',
+    'event_label': '070-8065-3619'
+  });
+}
+
+// 이메일 클릭 시
+function onEmailClick() {
+  trackEvent('email_click', {
+    'event_category': 'contact',
+    'event_label': 'lbg@syacc.co.kr'
+  });
+}
+</script>

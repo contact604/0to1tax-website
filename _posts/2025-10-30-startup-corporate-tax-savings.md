@@ -106,7 +106,7 @@ published: true
     </div>
     
     <div class="contact-item contact-cta">
-      <button onclick="openConsultModal()" class="consult-button">
+      <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="consult-button">
         <span class="button-icon">💬</span>
         <span class="button-text">무료 상담하기</span>
       </button>

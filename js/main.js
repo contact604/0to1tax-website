@@ -1,3 +1,36 @@
+// Modal Functions (Global scope - defined immediately for onclick handlers)
+window.openConsultModal = function() {
+    console.log('Opening modal...');
+    const modal = document.getElementById('consultModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        console.log('Modal opened');
+    } else {
+        console.error('Modal element not found');
+    }
+}
+
+window.closeConsultModal = function() {
+    console.log('Closing modal...');
+    const modal = document.getElementById('consultModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        // Reset form
+        const form = document.getElementById('consultForm');
+        const success = document.getElementById('consultSuccess');
+        if (form) {
+            form.reset();
+            form.classList.remove('hidden');
+        }
+        if (success) {
+            success.classList.add('hidden');
+        }
+        console.log('Modal closed');
+    }
+}
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -71,33 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load Blog Posts
     loadBlogPosts();
 });
-
-// Modal Functions (Global scope for onclick handlers)
-window.openConsultModal = function() {
-    const modal = document.getElementById('consultModal');
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-window.closeConsultModal = function() {
-    const modal = document.getElementById('consultModal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-        // Reset form
-        const form = document.getElementById('consultForm');
-        const success = document.getElementById('consultSuccess');
-        if (form) {
-            form.reset();
-            form.classList.remove('hidden');
-        }
-        if (success) {
-            success.classList.add('hidden');
-        }
-    }
-}
 
 // Load Blog Posts (최신 3개)
 async function loadBlogPosts() {

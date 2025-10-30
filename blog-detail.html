@@ -405,6 +405,27 @@
             50% { transform: translateY(-5px); }
         }
         
+        /* Mobile Touch Optimization */
+        button, a, .clickable {
+            -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
+            touch-action: manipulation;
+        }
+        
+        #mobileMenuBtn {
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .touch-manipulation {
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
         @media (max-width: 768px) {
             .content-body .name-card {
                 padding: 1.25rem;
@@ -538,8 +559,8 @@
                     </button>
                 </div>
                 
-                <button id="mobileMenuBtn" class="lg:hidden text-white hover:text-cosmic-blue">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button id="mobileMenuBtn" class="lg:hidden text-white hover:text-cosmic-blue p-2 -mr-2 touch-manipulation" type="button" aria-label="메뉴 열기">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
@@ -756,40 +777,138 @@
         </div>
     </footer>
     
-    <script src="js/main.js"></script>
-    
     <script>
-        // Mobile Menu Toggle (Wait for DOM)
+        // ===== Global Functions (Must be defined first) =====
+        
+        // Modal Functions
+        window.openConsultModal = function() {
+            console.log('Opening modal...');
+            const modal = document.getElementById('consultModal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                console.log('Modal opened');
+            } else {
+                console.error('Modal not found');
+            }
+        }
+        
+        window.closeConsultModal = function() {
+            console.log('Closing modal...');
+            const modal = document.getElementById('consultModal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                // Reset form
+                const form = document.getElementById('consultForm');
+                const success = document.getElementById('consultSuccess');
+                if (form) {
+                    form.reset();
+                    form.classList.remove('hidden');
+                }
+                if (success) {
+                    success.classList.add('hidden');
+                }
+                console.log('Modal closed');
+            }
+        }
+        
+        // ===== Initialize on DOM Ready =====
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing...');
+            
+            // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
             
             if (mobileMenuBtn && mobileMenu) {
-                // Toggle menu
-                mobileMenuBtn.addEventListener('click', function(e) {
+                console.log('Mobile menu found, setting up...');
+                
+                // Toggle menu (both click and touch)
+                function toggleMenu(e) {
                     e.preventDefault();
                     e.stopPropagation();
+                    const isHidden = mobileMenu.classList.contains('hidden');
                     mobileMenu.classList.toggle('hidden');
-                    console.log('Mobile menu toggled:', !mobileMenu.classList.contains('hidden'));
-                });
+                    console.log('Mobile menu toggled:', !isHidden ? 'opened' : 'closed');
+                }
+                
+                mobileMenuBtn.addEventListener('click', toggleMenu);
+                mobileMenuBtn.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    toggleMenu(e);
+                }, { passive: false });
                 
                 // Close menu when clicking menu items
                 const menuLinks = mobileMenu.querySelectorAll('a, button');
                 menuLinks.forEach(link => {
                     link.addEventListener('click', function() {
                         mobileMenu.classList.add('hidden');
+                        console.log('Menu closed by item click');
                     });
                 });
                 
                 // Close menu when clicking outside
                 document.addEventListener('click', function(e) {
                     if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                        mobileMenu.classList.add('hidden');
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            console.log('Menu closed by outside click');
+                        }
                     }
                 });
             } else {
-                console.error('Mobile menu elements not found');
+                console.error('Mobile menu elements not found:', {
+                    btn: !!mobileMenuBtn,
+                    menu: !!mobileMenu
+                });
             }
+            
+            // Modal close on outside click
+            const consultModal = document.getElementById('consultModal');
+            if (consultModal) {
+                consultModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeConsultModal();
+                    }
+                });
+                console.log('Modal outside click handler added');
+            }
+            
+            // Consultation Form Submit
+            const consultForm = document.getElementById('consultForm');
+            if (consultForm) {
+                consultForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    console.log('Form submitted');
+                    
+                    const form = e.target;
+                    const formData = new FormData(form);
+                    
+                    try {
+                        const response = await fetch('/', {
+                            method: 'POST',
+                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                            body: new URLSearchParams(formData).toString()
+                        });
+                        
+                        if (response.ok) {
+                            console.log('Form submission successful');
+                            document.getElementById('consultForm').classList.add('hidden');
+                            document.getElementById('consultSuccess').classList.remove('hidden');
+                        } else {
+                            console.error('Form submission failed');
+                            alert('신청 중 오류가 발생했습니다. 다시 시도해주세요.');
+                        }
+                    } catch (error) {
+                        console.error('Form submission error:', error);
+                        alert('신청 중 오류가 발생했습니다. 다시 시도해주세요.');
+                    }
+                });
+                console.log('Form submit handler added');
+            }
+            
+            console.log('Initialization complete');
         });
         
         // Get Post ID from URL

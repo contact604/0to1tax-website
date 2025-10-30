@@ -1241,7 +1241,9 @@
             try {
                 // 캐시 버스팅을 위한 타임스탬프 추가
                 const timestamp = new Date().getTime();
-                const response = await fetch('https://api.github.com/repos/contact604/0to1tax-website/contents/_posts?t=' + timestamp, {
+                const apiUrl = 'https://api.github.com/repos/contact604/0to1tax-website/contents/_posts?t=' + timestamp;
+                console.log('📡 [Blog Detail] Fetching from:', apiUrl);
+                const response = await fetch(apiUrl, {
                     cache: 'no-cache',
                     headers: {
                         'Cache-Control': 'no-cache',
@@ -1250,11 +1252,17 @@
                 });
                 
                 if (!response.ok) {
-                    throw new Error('GitHub API 응답 실패');
+                    console.error('❌ [Blog Detail] GitHub API Error:', response.status, response.statusText);
+                    const errorText = await response.text();
+                    console.error('Response:', errorText);
+                    throw new Error(`GitHub API 응답 실패: ${response.status} ${response.statusText}`);
                 }
                 
                 const files = await response.json();
+                console.log('📁 [Blog Detail] Files found:', files.length);
+                console.log('📄 [Blog Detail] File list:', files.map(f => f.name));
                 const markdownFiles = files.filter(file => file.name.endsWith('.md'));
+                console.log('📝 [Blog Detail] Markdown files:', markdownFiles.length);
                 
                 if (markdownFiles.length === 0) {
                     throw new Error('블로그 포스트가 없습니다');

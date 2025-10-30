@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub 저장소 확인</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #1a1a2e;
+            color: #eee;
+            line-height: 1.6;
+        }
+        .status {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #3B82F6;
+        }
+        .success { border-left-color: #10b981; background: #064e3b; }
+        .error { border-left-color: #ef4444; background: #7f1d1d; }
+        .warning { border-left-color: #f59e0b; background: #78350f; }
+        button {
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover { opacity: 0.9; }
+        pre {
+            background: #0f1419;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+        h1 { color: #3B82F6; }
+        input {
+            padding: 10px;
+            font-size: 14px;
+            border: 2px solid #3B82F6;
+            border-radius: 4px;
+            background: #0f1419;
+            color: white;
+            width: 400px;
+            margin: 10px 0;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px 0;
+            color: #60a5fa;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 GitHub 저장소 확인</h1>
+    <p>Zero to one TAX 블로그의 GitHub 저장소를 확인합니다.</p>
+    
+    <div style="margin: 20px 0; padding: 20px; background: #16213e; border-radius: 8px;">
+        <label>GitHub 저장소 (owner/repo):</label>
+        <input type="text" id="repoInput" value="contact604/0to1tax-website" placeholder="예: username/repository">
+        <br>
+        <button onclick="testRepo()">🔍 저장소 확인</button>
+        <button onclick="test Posts()">📁 _posts 폴더 확인</button>
+        <button onclick="testFile()">📄 블로그 파일 확인</button>
+    </div>
+    
+    <div id="results"></div>
+    
+    <script>
+        const resultsDiv = document.getElementById('results');
+        
+        function addResult(message, type = 'status') {
+            const div = document.createElement('div');
+            div.className = 'status ' + type;
+            div.innerHTML = message;
+            resultsDiv.insertBefore(div, resultsDiv.firstChild);
+        }
+        
+        function getRepo() {
+            return document.getElementById('repoInput').value.trim();
+        }
+        
+        async function testRepo() {
+            const repo = getRepo();
+            addResult(`🔄 저장소 확인 중: ${repo}`, 'status');
+            
+            try {
+                const response = await fetch(`https://api.github.com/repos/${repo}`);
+                
+                if (response.status === 404) {
+                    addResult(`❌ <strong>저장소를 찾을 수 없습니다!</strong><br>
+                              저장소 이름: <code>${repo}</code><br>
+                              <br><strong>해결 방법:</strong><br>
+                              1. GitHub에 로그인 후 <a href="https://github.com/${repo}" target="_blank" style="color: #60a5fa;">이 링크</a>를 클릭해보세요<br>
+                              2. 저장소가 Private인 경우 Public으로 변경하거나 GitHub Token이 필요합니다<br>
+                              3. 저장소 이름이 다른 경우 위 입력창에 정확한 이름을 입력하세요`, 'error');
+                    return;
+                }
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                addResult(`✅ <strong>저장소 확인 완료!</strong><br>
+                          이름: <code>${data.full_name}</code><br>
+                          설명: ${data.description || '없음'}<br>
+                          공개 여부: ${data.private ? '❌ Private (문제!)' : '✅ Public'}<br>
+                          기본 브랜치: ${data.default_branch}<br>
+                          생성일: ${new Date(data.created_at).toLocaleDateString()}<br>
+                          마지막 업데이트: ${new Date(data.updated_at).toLocaleString()}`, 'success');
+                
+            } catch (error) {
+                addResult(`❌ 오류: ${error.message}`, 'error');
+            }
+        }
+        
+        async function testPosts() {
+            const repo = getRepo();
+            addResult(`🔄 _posts 폴더 확인 중: ${repo}`, 'status');
+            
+            try {
+                const response = await fetch(`https://api.github.com/repos/${repo}/contents/_posts`);
+                
+                if (response.status === 404) {
+                    addResult(`❌ <strong>_posts 폴더를 찾을 수 없습니다!</strong><br>
+                              <br><strong>해결 방법:</strong><br>
+                              1. 로컬에서 <code>_posts</code> 폴더가 있는지 확인<br>
+                              2. Git에 커밋 및 푸시했는지 확인:<br>
+                              <pre>git add _posts/\ngit commit -m "Add blog posts"\ngit push origin main</pre>`, 'error');
+                    return;
+                }
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const files = await response.json();
+                const mdFiles = files.filter(f => f.name.endsWith('.md'));
+                
+                addResult(`✅ <strong>_posts 폴더 확인 완료!</strong><br>
+                          전체 파일: ${files.length}개<br>
+                          마크다운 파일: ${mdFiles.length}개<br>
+                          <br><strong>파일 목록:</strong><br>
+                          ${files.map(f => `• ${f.name} (${(f.size / 1024).toFixed(1)}KB)`).join('<br>')}`, 
+                          mdFiles.length > 0 ? 'success' : 'warning');
+                
+            } catch (error) {
+                addResult(`❌ 오류: ${error.message}`, 'error');
+            }
+        }
+        
+        async function testFile() {
+            const repo = getRepo();
+            const filename = '2025-10-30-startup-corporate-tax-savings.md';
+            addResult(`🔄 블로그 파일 확인 중: ${filename}`, 'status');
+            
+            try {
+                const response = await fetch(`https://api.github.com/repos/${repo}/contents/_posts/${filename}`);
+                
+                if (response.status === 404) {
+                    addResult(`❌ <strong>파일을 찾을 수 없습니다!</strong><br>
+                              파일: <code>${filename}</code><br>
+                              <br>_posts 폴더에 이 파일이 있는지 확인하고 GitHub에 푸시했는지 확인하세요.`, 'error');
+                    return;
+                }
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const fileData = await response.json();
+                const contentResponse = await fetch(fileData.download_url);
+                const content = await contentResponse.text();
+                
+                // CTA 확인
+                const ctaMatch = content.match(/💡[^\n]+/);
+                const ctaText = ctaMatch ? ctaMatch[0] : '찾을 수 없음';
+                
+                addResult(`✅ <strong>파일 확인 완료!</strong><br>
+                          파일명: <code>${fileData.name}</code><br>
+                          크기: ${(fileData.size / 1024).toFixed(1)}KB<br>
+                          마지막 업데이트: ${new Date().toLocaleString()}<br>
+                          <br><strong>CTA 문구:</strong><br>
+                          <code style="background: #064e3b; padding: 5px; border-radius: 4px;">${ctaText}</code><br>
+                          <br><strong>첫 500자:</strong>
+                          <pre>${content.substring(0, 500)}...</pre>`, 'success');
+                
+            } catch (error) {
+                addResult(`❌ 오류: ${error.message}`, 'error');
+            }
+        }
+        
+        // 자동 실행
+        window.addEventListener('load', function() {
+            addResult('🌐 페이지 로드 완료. 위 버튼을 클릭하여 확인을 시작하세요.', 'status');
+        });
+    </script>
+</body>
+</html>

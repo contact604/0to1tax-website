@@ -516,7 +516,9 @@
             try {
                 // GitHub API - _posts 폴더의 파일 목록 (캐시 버스팅)
                 const timestamp = new Date().getTime();
-                const response = await fetch('https://api.github.com/repos/contact604/0to1tax-website/contents/_posts?t=' + timestamp, {
+                const apiUrl = 'https://api.github.com/repos/contact604/0to1tax-website/contents/_posts?t=' + timestamp;
+                console.log('📡 Fetching from:', apiUrl);
+                const response = await fetch(apiUrl, {
                     cache: 'no-cache',
                     headers: {
                         'Cache-Control': 'no-cache',
@@ -525,13 +527,18 @@
                 });
                 
                 if (!response.ok) {
-                    throw new Error('GitHub API 응답 실패');
+                    console.error('GitHub API Error:', response.status, response.statusText);
+                    console.error('Response:', await response.text());
+                    throw new Error(`GitHub API 응답 실패: ${response.status} ${response.statusText}`);
                 }
                 
                 const files = await response.json();
+                console.log('📁 Files found:', files.length);
+                console.log('📄 File list:', files.map(f => f.name));
                 
                 // .md 파일만 필터링 (.gitkeep 제외)
                 const markdownFiles = files.filter(file => file.name.endsWith('.md'));
+                console.log('📝 Markdown files:', markdownFiles.length);
                 
                 if (markdownFiles.length === 0) {
                     throw new Error('블로그 포스트가 없습니다');
@@ -561,7 +568,9 @@
                 renderPosts();
                 
             } catch (error) {
-                console.error('블로그 포스트 로딩 실패:', error);
+                console.error('❌ 블로그 포스트 로딩 실패:', error);
+                console.error('Error details:', error.message);
+                console.error('Stack:', error.stack);
                 showError();
             }
         }

@@ -1345,7 +1345,7 @@
                 </p>
                 
                 <!-- Feature Cards -->
-                <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-12">
                     <!-- Card 1: 스타트업 전문 회계법인의 관리 -->
                     <div class="card-cosmic rounded-2xl p-10 hover:shadow-2xl hover:shadow-cosmic-blue/30 transition-all">
                         <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -1383,6 +1383,23 @@
                             데이터 기반 분석해서<br>
                             경영성과 분석
                         </p>
+                    </div>
+                </div>
+                
+                <!-- 버튼 그룹 -->
+                <div class="text-center space-y-4">
+                    <a href="https://www.syacc.co.kr/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-gradient-to-r from-cosmic-blue to-stellar-purple text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-cosmic-blue/50 transition-all transform hover:scale-105 glow-effect">
+                        <i class="fas fa-building text-xl"></i>
+                        <span>선영회계법인 더 알아보기</span>
+                        <i class="fas fa-arrow-right text-lg"></i>
+                    </a>
+                    
+                    <div>
+                        <button onclick="if(window.openCeoModal){window.openCeoModal();} return false;" class="inline-flex items-center gap-3 bg-white bg-opacity-10 backdrop-blur-md text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-opacity-20 border-2 border-white border-opacity-30 hover:border-opacity-50 transition-all transform hover:scale-105">
+                            <i class="fas fa-user-circle text-xl"></i>
+                            <span>Zero to one TAX 대표 회계사 소개</span>
+                            <i class="fas fa-chevron-right text-lg"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -2623,6 +2640,96 @@
         </div>
     </div>
     
+    <!-- CEO Introduction Modal -->
+    <div id="ceoModal" class="modal">
+        <div class="modal-content bg-gradient-to-br from-deep-space to-space-light rounded-3xl p-0 max-w-3xl w-full mx-4 shadow-2xl border-2 border-stellar-purple relative" style="max-height: 90vh; overflow-y: auto;">
+            <!-- 고정 X 버튼 -->
+            <button onclick="if(window.closeCeoModal){window.closeCeoModal();} return false;" class="sticky top-4 right-4 float-right text-gray-400 hover:text-white transition z-30 bg-deep-space bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center" style="margin: 1rem 1rem 0 0;">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            
+            <div class="relative p-8 lg:p-12 pb-8" style="clear: both;">
+                <div class="text-center mb-8">
+                    <div class="inline-block mb-4 px-6 py-2 bg-stellar-purple bg-opacity-30 rounded-full border border-stellar-purple">
+                        <span class="text-stellar-purple font-semibold text-sm">CEO PROFILE</span>
+                    </div>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white mb-4 glow-effect">대표 회계사 소개</h3>
+                </div>
+                
+                <!-- 프로필 사진 영역 (옵션) -->
+                <div class="text-center mb-8">
+                    <div class="w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-stellar-purple to-cosmic-blue rounded-full flex items-center justify-center mx-auto mb-4 shadow-2xl">
+                        <i class="fas fa-user text-white text-6xl sm:text-7xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-2">홍길동 회계사</h4>
+                    <p class="text-gray-400 text-sm">공인회계사 | CPA</p>
+                </div>
+                
+                <!-- 소개 내용 -->
+                <div class="space-y-6 text-gray-300 leading-relaxed">
+                    <div class="bg-white bg-opacity-5 rounded-2xl p-6 border border-stellar-purple border-opacity-30">
+                        <h5 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                            <i class="fas fa-graduation-cap text-stellar-purple"></i>
+                            학력 및 경력
+                        </h5>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-cosmic-blue mt-1"></i>
+                                <span>여기에 학력을 입력하세요</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-cosmic-blue mt-1"></i>
+                                <span>여기에 경력을 입력하세요</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-cosmic-blue mt-1"></i>
+                                <span>여기에 추가 경력을 입력하세요</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-5 rounded-2xl p-6 border border-cosmic-blue border-opacity-30">
+                        <h5 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                            <i class="fas fa-star text-cosmic-blue"></i>
+                            전문 분야
+                        </h5>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-stellar-purple mt-1"></i>
+                                <span>스타트업 세무 기장</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-stellar-purple mt-1"></i>
+                                <span>투자 유치 자문</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-stellar-purple mt-1"></i>
+                                <span>기업 가치 평가</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-5 rounded-2xl p-6 border border-rocket-orange border-opacity-30">
+                        <h5 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                            <i class="fas fa-heart text-rocket-orange"></i>
+                            대표 메시지
+                        </h5>
+                        <p class="text-sm leading-relaxed">
+                            여기에 대표님의 메시지나 철학을 입력하세요. 스타트업과 함께 성장하는 Zero to one TAX의 비전과 가치를 전달하는 내용을 작성해주세요.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <button onclick="if(window.openConsultModal){window.closeCeoModal(); window.openConsultModal();} return false;" class="inline-flex items-center gap-3 bg-gradient-to-r from-stellar-purple to-cosmic-blue text-white px-8 py-4 rounded-full text-lg font-bold hover:shadow-xl transition">
+                        <i class="fas fa-comments text-xl"></i>
+                        <span>상담 신청하기</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- Modal Functions - Defined immediately -->
     <script>
         // Modal Functions (Global scope - available immediately)
@@ -2772,6 +2879,29 @@
                 additionalBtn.classList.add('bg-rocket-orange', 'text-white');
             }
         }
+
+        // CEO Modal Functions
+        window.openCeoModal = function() {
+            console.log('Opening CEO modal...');
+            const modal = document.getElementById('ceoModal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                console.log('CEO modal opened successfully');
+            } else {
+                console.error('Modal element #ceoModal not found!');
+            }
+        }
+
+        window.closeCeoModal = function() {
+            console.log('Closing CEO modal...');
+            const modal = document.getElementById('ceoModal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                console.log('CEO modal closed successfully');
+            }
+        }
         
         // Log that functions are ready
         console.log('Modal functions loaded and ready!');
@@ -2780,6 +2910,8 @@
         console.log('window.openStarterPlanModal:', typeof window.openStarterPlanModal);
         console.log('window.openGrowthPlanModal:', typeof window.openGrowthPlanModal);
         console.log('window.openScaleupPlanModal:', typeof window.openScaleupPlanModal);
+        console.log('window.openCeoModal:', typeof window.openCeoModal);
+        console.log('window.closeCeoModal:', typeof window.closeCeoModal);
         console.log('window.switchGrowthTab:', typeof window.switchGrowthTab);
         console.log('window.switchScaleupTab:', typeof window.switchScaleupTab);
     </script>

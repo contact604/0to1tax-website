@@ -2,7 +2,7 @@
 
 **🚀 ZERO에서 ONE까지, 대형 회계법인 출신 전문가와 함께하세요**
 
-![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.16.3-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
+![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.17.0-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
 
 ---
 
@@ -349,6 +349,43 @@ GET /tables/consultations?sort=-created_at&limit=100
 ---
 
 ## 📊 버전 히스토리
+
+### Version 6.17.0 (2025-10-30) 🎨 UI/UX 대개편!
+**📱 모바일 가독성 완전 최적화 + 흰색 배경 적용**
+- **흰색 배경으로 가독성 향상**
+  - 블로그 본문 배경을 순백색으로 변경
+  - 검은색 텍스트 (#1F2937)로 명확한 대비
+  - 그림자와 라운드 처리로 콘텐츠 강조
+  - 눈의 피로를 줄이고 집중도 향상
+  
+- **모바일 텍스트 최적화**
+  - 텍스트가 화면 밖으로 넘치지 않도록 자동 줄바꿈
+  - `word-break: keep-all` - 단어 단위 줄바꿈
+  - `overflow-wrap: break-word` - 긴 단어 자동 분리
+  - 모바일에서 가로 스크롤 불필요
+  
+- **Notion 스타일 테이블 스크롤**
+  - 테이블만 좌우 스크롤 가능
+  - 첫 번째 컬럼 고정 (Sticky)
+  - 부드러운 스크롤바 디자인
+  - 터치 스와이프 최적화
+  - 최소 너비 600px로 테이블 가독성 보장
+  
+- **테이블 디자인 개선**
+  - 흰색 배경에 회색 테두리
+  - 홀짝 행 구분 (#F9FAFB)
+  - 호버 효과로 행 강조
+  - 헤더는 그라데이션 유지 (브랜드 일관성)
+  
+- **코드 블록 디자인**
+  - 인라인 코드: 밝은 회색 배경, 빨간색 텍스트
+  - 코드 블록: 다크 테마 유지 (가독성)
+  - 인용문: 연한 회색 배경
+  
+- **반응형 폰트 크기**
+  - 모바일: 1rem (16px)
+  - 태블릿/데스크톱: 1.125rem (18px)
+  - 제목 크기 자동 조절
 
 ### Version 6.16.3 (2025-10-30) 🔧 HOTFIX!
 **⚡ JavaScript 스코프 에러 수정 - 초기화 순서 최적화**

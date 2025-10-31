@@ -10,8 +10,8 @@
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Version Info for Cache Busting Debug -->
-    <meta name="version" content="6.15.1">
-    <meta name="last-modified" content="2025-10-30T14:00:00">
+    <meta name="version" content="6.17.0">
+    <meta name="last-modified" content="2025-10-30T16:00:00">
     <title id="pageTitle">Zero to one TAX 블로그</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -80,18 +80,35 @@
             50% { transform: translateY(-10px); }
         }
         
-        /* Content Body Styles */
+        /* Content Body Styles - White Background for Readability */
         .content-body {
             line-height: 1.8;
             font-size: 1.125rem;
-            color: #E2E8F0;
+            color: #1F2937;
             max-width: 100%;
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
         
         @media (min-width: 1024px) {
             .content-body {
                 font-size: 1.15rem;
                 line-height: 1.9;
+                padding: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .content-body {
+                padding: 1rem;
+                font-size: 1rem;
+                border-radius: 0.75rem;
+                word-break: keep-all;
+                overflow-wrap: break-word;
+                width: 100%;
+                box-sizing: border-box;
             }
         }
         
@@ -99,18 +116,17 @@
             font-weight: 700;
             margin-top: 2rem;
             margin-bottom: 1rem;
-            color: #FFFFFF;
+            color: #111827;
         }
         
         .content-body h1 { 
             font-size: 2rem;
-            text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
         }
         
         .content-body h2 { 
             font-size: 1.75rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+            border-bottom: 2px solid #E5E7EB;
         }
         
         .content-body h3 { 
@@ -118,9 +134,17 @@
             color: var(--cosmic-blue);
         }
         
+        @media (max-width: 768px) {
+            .content-body h1 { font-size: 1.5rem; }
+            .content-body h2 { font-size: 1.35rem; }
+            .content-body h3 { font-size: 1.2rem; }
+        }
+        
         .content-body p {
             margin-bottom: 1.5rem;
-            color: #CBD5E1;
+            color: #374151;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         
         .content-body ul, .content-body ol {
@@ -130,12 +154,12 @@
         
         .content-body li {
             margin-bottom: 0.75rem;
-            color: #CBD5E1;
+            color: #374151;
         }
         
         .content-body strong {
             font-weight: 600;
-            color: #FFFFFF;
+            color: #111827;
         }
         
         .content-body a {
@@ -151,37 +175,48 @@
             border-left: 4px solid var(--cosmic-blue);
             padding-left: 1rem;
             margin: 1.5rem 0;
-            background: rgba(59, 130, 246, 0.1);
+            background: #F3F4F6;
             padding: 1rem;
             border-radius: 0.5rem;
+            color: #4B5563;
         }
         
         .content-body code {
-            background: rgba(15, 23, 42, 0.6);
+            background: #F3F4F6;
             padding: 0.2rem 0.5rem;
             border-radius: 0.25rem;
-            color: var(--rocket-orange);
+            color: #DC2626;
             font-family: monospace;
+            font-size: 0.9em;
         }
         
         .content-body pre {
-            background: rgba(15, 23, 42, 0.8);
+            background: #1F2937;
             padding: 1rem;
             border-radius: 0.5rem;
             overflow-x: auto;
             margin: 1.5rem 0;
         }
         
+        .content-body pre code {
+            background: transparent;
+            color: #E5E7EB;
+            padding: 0;
+        }
+        
         .content-body img {
             border-radius: 1rem;
             margin: 2rem 0;
+            max-width: 100%;
+            height: auto;
         }
         
         /* Support for inline styled divs (from markdown) */
         .content-body > div[style*="gradient"],
         .content-body > div[style*="background"] {
             display: block !important;
-            margin: 2rem auto !important;
+            margin: 2rem 0 !important;
+            word-wrap: break-word;
         }
         
         .content-body > div[style*="gradient"] h3,
@@ -189,17 +224,16 @@
             color: white !important;
             margin: 0 !important;
         }
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
         
         .content-body table {
             width: 100%;
             border-collapse: collapse;
             margin: 2rem 0;
-            background: rgba(30, 41, 59, 0.4);
+            background: white;
+            border: 1px solid #E5E7EB;
             border-radius: 0.75rem;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
         
         .content-body table thead {
@@ -211,79 +245,102 @@
             text-align: left;
             font-weight: 600;
             color: white;
-            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            white-space: nowrap;
         }
         
         .content-body table td {
             padding: 1rem;
-            color: #CBD5E1;
-            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+            color: #374151;
+            border-bottom: 1px solid #E5E7EB;
+            white-space: nowrap;
         }
         
         .content-body table tbody tr:nth-child(even) {
-            background: rgba(15, 23, 42, 0.3);
+            background: #F9FAFB;
         }
         
         .content-body table tbody tr:hover {
-            background: rgba(59, 130, 246, 0.1);
+            background: #F3F4F6;
             transition: background 0.2s;
         }
         
-        /* Table Wrapper for Mobile Scroll */
+        /* Table Wrapper for Mobile Scroll - Notion Style */
         .table-wrapper {
             width: 100%;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             margin: 2rem 0;
-            /* Force scrollbar on mobile */
+            border-radius: 0.75rem;
+            /* Notion-style scrollbar */
             scrollbar-width: thin;
-            scrollbar-color: rgba(59, 130, 246, 0.5) rgba(255, 255, 255, 0.1);
+            scrollbar-color: #CBD5E1 #F3F4F6;
         }
         
         .table-wrapper::-webkit-scrollbar {
-            height: 8px;
+            height: 10px;
         }
         
         .table-wrapper::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
+            background: #F3F4F6;
+            border-radius: 5px;
         }
         
         .table-wrapper::-webkit-scrollbar-thumb {
-            background: rgba(59, 130, 246, 0.5);
-            border-radius: 4px;
+            background: #CBD5E1;
+            border-radius: 5px;
+        }
+        
+        .table-wrapper::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
         }
         
         @media (max-width: 768px) {
             .table-wrapper {
-                margin: 1.5rem -1rem;
-                width: calc(100% + 2rem);
-                padding: 0 1rem;
+                margin: 1.5rem -1.5rem;
+                width: calc(100% + 3rem);
+                padding: 0 1.5rem;
                 /* Ensure mobile touch scrolling */
                 overflow-x: scroll !important;
                 -webkit-overflow-scrolling: touch !important;
+                border-radius: 0;
             }
         }
         
         /* Mobile Optimization */
         @media (max-width: 768px) {
+            /* Body and main container */
+            body {
+                overflow-x: hidden;
+            }
+            
             /* Article container padding */
             article .container {
-                padding-left: 1rem;
-                padding-right: 1rem;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
             }
             
             /* Card padding reduction */
             .card-cosmic {
-                padding: 1.5rem !important;
+                padding: 1rem !important;
+                border-radius: 1rem !important;
+            }
+            
+            /* Content body mobile padding */
+            #articleBody.content-body {
+                padding: 1rem !important;
+                margin: 0;
+                border-radius: 0.75rem !important;
+                width: 100%;
+                box-sizing: border-box;
             }
             
             .content-body table {
                 display: table;
                 width: 100%;
-                min-width: 500px;
+                min-width: 600px;
                 margin: 0;
-                border-radius: 0.75rem;
+                border-radius: 0;
             }
             
             .content-body table th,
@@ -291,15 +348,25 @@
                 padding: 0.75rem 0.5rem;
                 font-size: 0.875rem;
                 white-space: nowrap;
-                min-width: 100px;
+                min-width: 120px;
             }
             
-            .content-body table th:first-child,
+            .content-body table th:first-child {
+                position: sticky;
+                left: 0;
+                background: var(--cosmic-blue);
+                z-index: 2;
+            }
+            
             .content-body table td:first-child {
                 position: sticky;
                 left: 0;
-                background: rgba(30, 41, 59, 0.95);
+                background: white;
                 z-index: 1;
+            }
+            
+            .content-body table tbody tr:nth-child(even) td:first-child {
+                background: #F9FAFB;
             }
             
             /* Better text wrapping for mobile */
@@ -1052,8 +1119,9 @@
     
     <script>
         // ===== Version Info & Debug =====
-        console.log('%c🚀 Zero to one TAX Blog v6.16.3', 'background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 8px 16px; border-radius: 4px; font-weight: bold;');
-        console.log('📅 Last Modified: 2025-10-30T15:30:00');
+        console.log('%c🚀 Zero to one TAX Blog v6.17.0', 'background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 8px 16px; border-radius: 4px; font-weight: bold;');
+        console.log('📅 Last Modified: 2025-10-30T16:00:00');
+        console.log('✨ New: White background for better readability');
         console.log('🔄 Cache Busting: Enabled');
         console.log('📱 User Agent:', navigator.userAgent);
         

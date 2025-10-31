@@ -474,13 +474,405 @@
             }
             
             .start-section {
-                min-height: 70vh;
-                padding: 60px 20px 40px 20px;
+                min-height: 50vh;
+                padding: 40px 20px 30px 20px;
+            }
+            
+            .start-section .text-8xl {
+                font-size: 4rem;
+            }
+            
+            .start-section h1 {
+                font-size: 3rem !important;
+            }
+            
+            .start-section h2 {
+                font-size: 1.5rem !important;
+            }
+            
+            .start-section p {
+                font-size: 1rem !important;
             }
             
             .end-section {
-                min-height: 80vh;
-                padding: 60px 20px;
+                min-height: 60vh;
+                padding: 40px 20px;
+            }
+            
+            .end-section .text-8xl {
+                font-size: 4rem;
+            }
+            
+            .end-section h1 {
+                font-size: 3.5rem !important;
+            }
+            
+            .end-section h2 {
+                font-size: 1.75rem !important;
+            }
+            
+            .end-section p {
+                font-size: 1.125rem !important;
+            }
+        }
+        
+        /* Phase Group Section - Horizontal Layout */
+        .phase-group-section {
+            background: rgba(15, 23, 42, 0.5);
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Cosmic background animation */
+        .phase-group-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(59, 130, 246, 0.1) 25%, 
+                rgba(139, 92, 246, 0.15) 50%, 
+                rgba(249, 115, 22, 0.1) 75%, 
+                transparent 100%);
+            animation: cosmicWave 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes cosmicWave {
+            0%, 100% {
+                transform: translateX(0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateX(50%);
+                opacity: 0.6;
+            }
+        }
+        
+        .phase-group-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .phase-group-section.visible::before {
+            animation-play-state: running;
+        }
+        
+        /* Add perspective for 3D effect */
+        .phase-group-section .grid {
+            perspective: 1000px;
+            perspective-origin: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Shooting stars effect */
+        @keyframes shootingStar {
+            0% {
+                transform: translateX(-100px) translateY(-100px) rotate(-45deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(1000px) translateY(1000px) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+        
+        .phase-group-section::after {
+            content: '⭐';
+            position: absolute;
+            font-size: 1rem;
+            top: 20%;
+            left: 10%;
+            animation: shootingStar 3s ease-in-out infinite;
+            animation-delay: 2s;
+            pointer-events: none;
+            opacity: 0;
+        }
+        
+        .phase-step-card {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.8) translateZ(-200px);
+            animation: flyInFromSpace 0.8s ease-out forwards;
+        }
+        
+        /* Stagger animation delay for each card - Desktop */
+        @media (min-width: 769px) {
+            .phase-step-card:nth-child(1) { animation-delay: 0.1s; }
+            .phase-step-card:nth-child(2) { animation-delay: 0.2s; }
+            .phase-step-card:nth-child(3) { animation-delay: 0.3s; }
+            .phase-step-card:nth-child(4) { animation-delay: 0.4s; }
+            .phase-step-card:nth-child(5) { animation-delay: 0.5s; }
+        }
+        
+        /* Faster animation on mobile */
+        @media (max-width: 768px) {
+            .phase-step-card {
+                animation: flyInFromSpaceMobile 0.6s ease-out forwards;
+            }
+            
+            .phase-step-card:nth-child(1) { animation-delay: 0.05s; }
+            .phase-step-card:nth-child(2) { animation-delay: 0.1s; }
+            .phase-step-card:nth-child(3) { animation-delay: 0.15s; }
+            .phase-step-card:nth-child(4) { animation-delay: 0.2s; }
+            .phase-step-card:nth-child(5) { animation-delay: 0.25s; }
+            
+            @keyframes flyInFromSpaceMobile {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.5) translateY(-50px);
+                }
+                60% {
+                    opacity: 0.8;
+                    transform: scale(1.03) translateY(0);
+                }
+                100% {
+                    opacity: 1;
+                    transform: scale(1) translateY(0);
+                }
+            }
+        }
+        
+        @keyframes flyInFromSpace {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) translateZ(-500px) rotateY(45deg);
+                filter: blur(10px);
+            }
+            60% {
+                opacity: 0.8;
+                transform: scale(1.05) translateZ(0) rotateY(0deg);
+                filter: blur(0px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateZ(0) rotateY(0deg);
+                filter: blur(0px);
+            }
+        }
+        
+        .phase-step-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            border-color: rgba(139, 92, 246, 0.6);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+            animation: none; /* Stop animation on hover */
+        }
+        
+        /* Cosmic glow effect on hover */
+        .phase-step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6, #F97316);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .phase-step-card:hover::before {
+            opacity: 1;
+        }
+        
+        /* Star particles effect */
+        .phase-step-card::after {
+            content: '✨';
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0;
+            pointer-events: none;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        .phase-step-card:nth-child(1)::after { top: 10%; right: 10%; animation-delay: 0s; }
+        .phase-step-card:nth-child(2)::after { top: 15%; right: 15%; animation-delay: 0.4s; }
+        .phase-step-card:nth-child(3)::after { top: 20%; right: 10%; animation-delay: 0.8s; }
+        .phase-step-card:nth-child(4)::after { top: 10%; right: 20%; animation-delay: 1.2s; }
+        .phase-step-card:nth-child(5)::after { top: 15%; right: 12%; animation-delay: 1.6s; }
+        
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2) rotate(180deg);
+            }
+        }
+        
+        .step-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 12px rgba(139, 92, 246, 0.4));
+            opacity: 0;
+            animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0) rotate(-180deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+        
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.75rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+        
+        .step-desc {
+            font-size: 0.95rem;
+            color: #CBD5E1;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 0.6s;
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Recommended Plans Section */
+        .plan-card {
+            transition: all 0.3s ease;
+        }
+        
+        .plan-card:hover {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .plan-card {
+                transform: none !important;
+            }
+            
+            .plan-card:hover {
+                transform: translateY(-5px) !important;
+            }
+        }
+        
+        /* Mobile: Compact 2-column grid */
+        @media (max-width: 768px) {
+            .phase-group-section {
+                padding: 2rem 0;
+            }
+            
+            .phase-group-section .container {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+            
+            /* Force 2 columns on mobile */
+            .phase-group-section .grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.75rem;
+            }
+            
+            .phase-step-card {
+                padding: 1rem;
+                margin-bottom: 0;
+            }
+            
+            .step-number {
+                font-size: 1.25rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .step-icon {
+                font-size: 1.75rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .step-title {
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+                line-height: 1.3;
+            }
+            
+            .step-desc {
+                font-size: 0.75rem;
+                line-height: 1.4;
+                display: none; /* Hide description on mobile for compactness */
+            }
+            
+            /* Mobile phase header - more compact */
+            .phase-group-section .text-center {
+                margin-bottom: 1.25rem;
+            }
+            
+            .phase-group-section .inline-block {
+                padding: 0.5rem 1.25rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .phase-group-section .inline-block span {
+                font-size: 1.1rem;
+            }
+            
+            .phase-group-section .text-gray-300 {
+                font-size: 0.875rem;
+            }
+            
+            /* Reduce animation duration on mobile */
+            .step-number,
+            .step-icon,
+            .step-title {
+                animation-duration: 0.4s;
             }
         }
         
@@ -682,7 +1074,8 @@
                 <div class="hidden lg:flex items-center space-x-8">
                     <a href="#home" class="text-gray-300 hover:text-stellar-purple transition font-medium">홈</a>
                     <a href="#services" class="text-gray-300 hover:text-stellar-purple transition font-medium">Missions</a>
-                    <a href="#pricing" class="text-gray-300 hover:text-stellar-purple transition font-medium">Launch Plans</a>
+                    <a href="#growth-journey" class="text-gray-300 hover:text-stellar-purple transition font-medium">성장여정</a>
+                    <a href="#launch-plans" class="text-gray-300 hover:text-stellar-purple transition font-medium">런치 플랜</a>
                     <a href="0to1log.html" class="text-gray-300 hover:text-stellar-purple transition font-medium">블로그</a>
                     <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="gradient-cosmic text-white px-6 py-2.5 rounded-full hover:shadow-lg transition font-medium glow-effect">
                         🚀 문의하기
@@ -700,7 +1093,8 @@
             <div class="mobile-menu lg:hidden pb-4 space-y-3">
                 <a href="#home" class="block text-gray-300 hover:text-stellar-purple transition font-medium py-2">홈</a>
                 <a href="#services" class="block text-gray-300 hover:text-stellar-purple transition font-medium py-2">Missions</a>
-                <a href="#pricing" class="block text-gray-300 hover:text-stellar-purple transition font-medium py-2">Launch Plans</a>
+                <a href="#growth-journey" class="block text-gray-300 hover:text-stellar-purple transition font-medium py-2">성장여정</a>
+                <a href="#launch-plans" class="block text-gray-300 hover:text-stellar-purple transition font-medium py-2">런치 플랜</a>
                 <a href="0to1log.html" class="block text-gray-300 hover:text-stellar-purple transition font-medium py-2">블로그</a>
                 <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="w-full gradient-cosmic text-white px-6 py-3 rounded-full hover:shadow-lg transition font-medium glow-effect">
                     🚀 문의하기
@@ -988,8 +1382,8 @@
         </div>
     </section>
     
-    <!-- Launch Plans Section -->
-    <section id="pricing" class="py-20 lg:py-32 bg-space">
+    <!-- Services Section (기존 Launch Plans - 제거됨) -->
+    <section id="services-old" class="py-20 lg:py-32 bg-space" style="display: none;">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="text-center mb-16">
                 <div class="inline-block mb-4 px-6 py-2 bg-rocket-orange bg-opacity-20 rounded-full border border-rocket-orange border-opacity-30">
@@ -1252,158 +1646,169 @@
             <div class="text-4xl animate-bounce">↓</div>
         </section>
 
-        <!-- Milestones -->
-        <section class="milestone-section">
-            <div class="milestone-number">01</div>
-            <div class="milestone-card" data-step="1">
-                <div class="milestone-badge">STEP 1</div>
-                <div class="check-icon">✓</div>
-                <div class="milestone-icon">🏢</div>
-                <h3 class="milestone-title">법인설립</h3>
-                <p class="milestone-description">사업의 첫 발걸음을 함께 시작합니다.<br>성장을 염두한 법인 설립으로 처음부터 제대로 시작합니다.</p>
+        <!-- Phase 1: 성장 초기 -->
+        <section class="phase-group-section">
+            <div class="container mx-auto px-4 lg:px-8 py-20">
+                <div class="text-center mb-12">
+                    <div class="inline-block mb-4 px-6 py-2 bg-cosmic-blue bg-opacity-20 rounded-full border border-cosmic-blue border-opacity-40">
+                        <span class="text-cosmic-blue font-semibold text-sm">💎 스타터 플랜 추천</span>
+                    </div>
+                    <div class="inline-block mb-6 px-8 py-3 bg-cosmic-blue bg-opacity-20 rounded-full border-2 border-cosmic-blue border-opacity-40">
+                        <span class="text-cosmic-blue font-bold text-2xl">🌱 성장 초기</span>
+                    </div>
+                    <p class="text-gray-300 text-lg">기초를 다지는 첫 걸음</p>
+                </div>
+                
+                <!-- Horizontal Step Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <!-- Step 1 -->
+                    <div class="phase-step-card" data-step="1">
+                        <div class="step-number">01</div>
+                        <div class="step-icon">🏢</div>
+                        <h4 class="step-title">무료법인설립자문</h4>
+                        <p class="step-desc">사업의 첫 발걸음을 함께 시작합니다</p>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="phase-step-card" data-step="2">
+                        <div class="step-number">02</div>
+                        <div class="step-icon">📊</div>
+                        <h4 class="step-title">투자에 적합한 기장서비스</h4>
+                        <p class="step-desc">신뢰할 수 있는 재무제표 작성</p>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="phase-step-card" data-step="3">
+                        <div class="step-number">03</div>
+                        <div class="step-icon">👥</div>
+                        <h4 class="step-title">노무 관리</h4>
+                        <p class="step-desc">체계적인 인력 관리 지원</p>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="phase-step-card" data-step="4">
+                        <div class="step-number">04</div>
+                        <div class="step-icon">💰</div>
+                        <h4 class="step-title">무료 정부보조금 컨설팅</h4>
+                        <p class="step-desc">정부지원금 최대 확보</p>
+                    </div>
+                    
+                    <!-- Step 5 -->
+                    <div class="phase-step-card" data-step="5">
+                        <div class="step-number">05</div>
+                        <div class="step-icon">💼</div>
+                        <h4 class="step-title">선제적 법인세 감면 전략 설계</h4>
+                        <p class="step-desc">세금 최적화로 자금 운용 극대화</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="milestone-section">
-            <div class="milestone-number">02</div>
-            <div class="milestone-card" data-step="2">
-                <div class="milestone-badge">STEP 2</div>
-                <div class="check-icon">✓</div>
-                <div class="milestone-icon">📊</div>
-                <h3 class="milestone-title"><span class="inline-block">투자 유치에</span> <span class="inline-block">적합한 기장</span></h3>
-                <p class="milestone-description">투자자들이 신뢰할 수 있는<br>재무제표를 작성합니다.</p>
+        <!-- Phase 2: 성장 중기 -->
+        <section class="phase-group-section">
+            <div class="container mx-auto px-4 lg:px-8 py-20">
+                <div class="text-center mb-12">
+                    <div class="inline-block mb-4 px-6 py-2 bg-yellow-500 bg-opacity-20 rounded-full border border-yellow-500 border-opacity-40">
+                        <span class="text-yellow-400 font-semibold text-sm">⭐ 그로스 플랜 추천 (가장 인기)</span>
+                    </div>
+                    <div class="inline-block mb-6 px-8 py-3 bg-stellar-purple bg-opacity-20 rounded-full border-2 border-stellar-purple border-opacity-40">
+                        <span class="text-stellar-purple font-bold text-2xl">🚀 성장 중기</span>
+                    </div>
+                    <p class="text-gray-300 text-lg">투자 유치와 확장</p>
+                </div>
+                
+                <!-- Horizontal Step Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <!-- Step 6 -->
+                    <div class="phase-step-card" data-step="6">
+                        <div class="step-number">06</div>
+                        <div class="step-icon">🎁</div>
+                        <h4 class="step-title">스톡옵션 설계</h4>
+                        <p class="step-desc">최적화된 스톡옵션 제도 설계</p>
+                    </div>
+                    
+                    <!-- Step 7 -->
+                    <div class="phase-step-card" data-step="7">
+                        <div class="step-number">07</div>
+                        <div class="step-icon">📈</div>
+                        <h4 class="step-title">수익자 눈높이에 맞는 IR DECK 작성</h4>
+                        <p class="step-desc">전문적인 IR 자료 작성</p>
+                    </div>
+                    
+                    <!-- Step 8 -->
+                    <div class="phase-step-card" data-step="8">
+                        <div class="step-number">08</div>
+                        <div class="step-icon">💎</div>
+                        <h4 class="step-title">라운드 유치</h4>
+                        <p class="step-desc">시리즈 투자 유치 지원</p>
+                    </div>
+                    
+                    <!-- Step 9 -->
+                    <div class="phase-step-card" data-step="9">
+                        <div class="step-number">09</div>
+                        <div class="step-icon">🎯</div>
+                        <h4 class="step-title">상장전략수립</h4>
+                        <p class="step-desc">IPO 전략 로드맵 설계</p>
+                    </div>
+                    
+                    <!-- Step 10 -->
+                    <div class="phase-step-card" data-step="10">
+                        <div class="step-number">10</div>
+                        <div class="step-icon">🌐</div>
+                        <h4 class="step-title">IFRS 도입자문(컨버전)</h4>
+                        <p class="step-desc">국제회계기준 전환 지원</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="milestone-section">
-            <div class="milestone-number">03</div>
-            <div class="milestone-card" data-step="3">
-                <div class="milestone-badge">STEP 3</div>
-                <div class="check-icon">✓</div>
-                <div class="milestone-icon">👥</div>
-                <h3 class="milestone-title">노무 관리</h3>
-                <p class="milestone-description">인력 채용 시 필수적인 노무 관리를 체계적으로 지원합니다.</p>
-            </div>
-        </section>
-
-        <section class="milestone-section">
-            <div class="milestone-number">04</div>
-            <div class="milestone-card" data-step="4">
-                <div class="milestone-badge">STEP 4</div>
-                <div class="check-icon">✓</div>
-                <div class="milestone-icon">💰</div>
-                <h3 class="milestone-title">정부보조금 지원</h3>
-                <p class="milestone-description">활용 가능한 정부지원금을 최대한 확보하여 성장을 가속화합니다.</p>
-            </div>
-        </section>
-
-        <section class="milestone-section">
-            <div class="milestone-number">05</div>
-            <div class="milestone-card" data-step="5">
-                <div class="milestone-badge">STEP 5</div>
-                <div class="check-icon">✓</div>
-                <div class="milestone-icon">💼</div>
-                <h3 class="milestone-title"><span class="inline-block">선제적</span> <span class="inline-block">법인세 감면 적용</span></h3>
-                <p class="milestone-description">세금 최적화를 통해<br>자금 운용 효율을 극대화합니다.</p>
-            </div>
-        </section>
-
-        <section class="milestone-section">
-            <div class="milestone-number">06</div>
-            <div class="milestone-card" data-step="6">
-                <div class="milestone-badge">STEP 6</div>
-                <div class="check-icon">✓</div>
-                <div class="milestone-icon">🎁</div>
-                <h3 class="milestone-title">스톡옵션 부여</h3>
-                <p class="milestone-description">회사 상황에 최적화된<br>스톡옵션 제도 설계 및<br>세법, 상법의 검토</p>
-            </div>
-        </section>
-
-        <section class="milestone-section">
-            <div class="milestone-number">07</div>
-            <div class="milestone-card" data-step="7">
-                <div class="milestone-badge">STEP 7</div>
-                <div class="check-icon">✓</div>
-                <div class="milestone-icon">📈</div>
-                <h3 class="milestone-title">IR DECK 작성</h3>
-                <p class="milestone-description">투자 유치를 위한<br>전문적이고 설듍력 있는<br>IR 자료를 준비합니다.</p>
-            </div>
-        </section>
-
-        <section class="milestone-section">
-            <div class="milestone-number">08</div>
-            <div class="milestone-card" data-step="8">
-                <div class="milestone-badge">STEP 8</div>
-                <div class="check-icon">✓</div>
-                <div class="milestone-icon">💎</div>
-                <h3 class="milestone-title">라운드 유치</h3>
-                <p class="milestone-description">시리즈 투자 유치 단계를<br>전문적으로 지원합니다.</p>
-            </div>
-        </section>
-
-        <section class="milestone-section">
-            <div class="milestone-number">09</div>
-            <div class="milestone-card" data-step="9">
-                <div class="milestone-badge">STEP 9</div>
-                <div class="check-icon">✓</div>
-                <div class="milestone-icon">🎯</div>
-                <h3 class="milestone-title">상장전략수립</h3>
-                <p class="milestone-description">IPO를 위한<br>전략적 로드맵을 설계합니다.</p>
-            </div>
-        </section>
-
-        <section class="milestone-section">
-            <div class="milestone-number">10</div>
-            <div class="milestone-card" data-step="10">
-                <div class="milestone-badge">STEP 10</div>
-                <div class="check-icon">✓</div>
-                <div class="milestone-icon">🌐</div>
-                <h3 class="milestone-title">IFRS 컨버전</h3>
-                <p class="milestone-description">국제회계기준으로의 전환을<br>체계적으로 지원합니다.</p>
-            </div>
-        </section>
-
-        <section class="milestone-section">
-            <div class="milestone-number">11</div>
-            <div class="milestone-card" data-step="11">
-                <div class="milestone-badge">STEP 11</div>
-                <div class="check-icon">✓</div>
-                <div class="milestone-icon">📋</div>
-                <h3 class="milestone-title"><span class="inline-block">지정감사를 위한</span><br><span class="inline-block">재무제표 작성 지원</span></h3>
-                <p class="milestone-description">외부감사 대비<br>완벽한 재무제표 준비를 지원합니다.</p>
-            </div>
-        </section>
-
-        <section class="milestone-section">
-            <div class="milestone-number">12</div>
-            <div class="milestone-card" data-step="12">
-                <div class="milestone-badge">STEP 12</div>
-                <div class="check-icon">✓</div>
-                <div class="milestone-icon">💹</div>
-                <h3 class="milestone-title">기업가치평가</h3>
-                <p class="milestone-description">객관적이고 전문적인<br>기업 가치를 산정합니다.</p>
-            </div>
-        </section>
-
-        <section class="milestone-section">
-            <div class="milestone-number">13</div>
-            <div class="milestone-card" data-step="13">
-                <div class="milestone-badge">STEP 13</div>
-                <div class="check-icon">✓</div>
-                <div class="milestone-icon">🔍</div>
-                <h3 class="milestone-title"><span class="inline-block">투자 목적의</span> <span class="inline-block">임의 감사</span></h3>
-                <p class="milestone-description">투자자 신뢰 확보를 위한<br>자발적 감사를 진행합니다.</p>
-            </div>
-        </section>
-
-        <section class="milestone-section">
-            <div class="milestone-number">14</div>
-            <div class="milestone-card" data-step="14">
-                <div class="milestone-badge">STEP 14</div>
-                <div class="check-icon">✓</div>
-                <div class="milestone-icon">✅</div>
-                <h3 class="milestone-title">법정감사</h3>
-                <p class="milestone-description">상장 전 필수 외부감사를<br>성공적으로 완료합니다.</p>
+        <!-- Phase 3: 스케일업 -->
+        <section class="phase-group-section">
+            <div class="container mx-auto px-4 lg:px-8 py-20">
+                <div class="text-center mb-12">
+                    <div class="inline-block mb-4 px-6 py-2 bg-rocket-orange bg-opacity-20 rounded-full border border-rocket-orange border-opacity-40">
+                        <span class="text-rocket-orange font-semibold text-sm">💎 스케일업 플랜 추천</span>
+                    </div>
+                    <div class="inline-block mb-6 px-8 py-3 bg-rocket-orange bg-opacity-20 rounded-full border-2 border-rocket-orange border-opacity-40">
+                        <span class="text-rocket-orange font-bold text-2xl">🎯 스케일업</span>
+                    </div>
+                    <p class="text-gray-300 text-lg">글로벌 도약 준비</p>
+                </div>
+                
+                <!-- Horizontal Step Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Step 11 -->
+                    <div class="phase-step-card" data-step="11">
+                        <div class="step-number">11</div>
+                        <div class="step-icon">📋</div>
+                        <h4 class="step-title">재무제표 작성 지원 용역(PA)</h4>
+                        <p class="step-desc">외부감사 대비 완벽 준비</p>
+                    </div>
+                    
+                    <!-- Step 12 -->
+                    <div class="phase-step-card" data-step="12">
+                        <div class="step-number">12</div>
+                        <div class="step-icon">💹</div>
+                        <h4 class="step-title">기업가치평가</h4>
+                        <p class="step-desc">전문적인 기업 가치 산정</p>
+                    </div>
+                    
+                    <!-- Step 13 -->
+                    <div class="phase-step-card" data-step="13">
+                        <div class="step-number">13</div>
+                        <div class="step-icon">🔍</div>
+                        <h4 class="step-title">임의 감사</h4>
+                        <p class="step-desc">투자자 신뢰 확보</p>
+                    </div>
+                    
+                    <!-- Step 14 -->
+                    <div class="phase-step-card" data-step="14">
+                        <div class="step-number">14</div>
+                        <div class="step-icon">✅</div>
+                        <h4 class="step-title">법정감사</h4>
+                        <p class="step-desc">상장 전 필수 외부감사</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1417,6 +1822,157 @@
                 🚀 지금 상담하기
             </button>
         </section>
+    </section>
+    
+    <!-- Launch Plans Section (기존 Recommended Plans) -->
+    <section id="launch-plans" class="py-20 lg:py-32 bg-gradient-to-b from-deep-space to-space-light relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-cosmic-blue rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-stellar-purple rounded-full filter blur-3xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <div class="inline-block mb-4 px-6 py-2 bg-rocket-orange bg-opacity-20 rounded-full border border-rocket-orange border-opacity-30">
+                    <span class="text-rocket-orange font-semibold text-sm">🚀 LAUNCH PLANS</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 glow-effect">
+                    <span class="inline-block">스타트업을 위한</span> <span class="text-gradient-cosmic inline-block">런치 플랜</span>
+                </h2>
+                <p class="text-xl text-gray-400">성장 단계별 최적화된 세무·회계 솔루션</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Starter Plan -->
+                <div class="plan-card bg-space bg-opacity-60 backdrop-blur-lg rounded-3xl p-8 border-2 border-cosmic-blue border-opacity-30 hover:border-opacity-60 transition-all duration-300 hover:transform hover:scale-105">
+                    <div class="text-center mb-6">
+                        <div class="text-5xl mb-4">🌱</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">스타터 플랜</h3>
+                        <p class="text-gray-400 text-sm mb-4">성장 초기 단계</p>
+                        <div class="inline-block px-4 py-1 bg-cosmic-blue bg-opacity-20 rounded-full border border-cosmic-blue border-opacity-40">
+                            <span class="text-cosmic-blue font-semibold text-sm">법인 설립 ~ 세금 최적화</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-cosmic-blue mr-3 mt-1"></i>
+                            <span class="text-gray-300 text-sm">무료법인설립자문</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-cosmic-blue mr-3 mt-1"></i>
+                            <span class="text-gray-300 text-sm">투자에 적합한 기장서비스</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-cosmic-blue mr-3 mt-1"></i>
+                            <span class="text-gray-300 text-sm">노무 관리</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-cosmic-blue mr-3 mt-1"></i>
+                            <span class="text-gray-300 text-sm">무료 정부보조금 컨설팅</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-cosmic-blue mr-3 mt-1"></i>
+                            <span class="text-gray-300 text-sm">선제적 법인세 감면 전략 설계</span>
+                        </li>
+                    </ul>
+                    
+                    <button onclick="if(window.openStarterPlanModal){window.openStarterPlanModal();} return false;" class="w-full bg-cosmic-blue bg-opacity-20 text-cosmic-blue border-2 border-cosmic-blue py-3 rounded-full font-semibold hover:bg-cosmic-blue hover:text-white transition-all duration-300">
+                        자세히 알아보기
+                    </button>
+                </div>
+                
+                <!-- Growth Plan (Popular) -->
+                <div class="plan-card bg-gradient-to-br from-stellar-purple to-cosmic-blue rounded-3xl p-8 border-2 border-stellar-purple transform scale-105 relative shadow-2xl">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                            ⭐ 가장 인기
+                        </span>
+                    </div>
+                    
+                    <div class="text-center mb-6">
+                        <div class="text-5xl mb-4">🚀</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">그로스 플랜</h3>
+                        <p class="text-gray-200 text-sm mb-4">성장 중기 단계</p>
+                        <div class="inline-block px-4 py-1 bg-white bg-opacity-20 rounded-full border border-white border-opacity-40">
+                            <span class="text-white font-semibold text-sm">투자 유치 ~ 상장 준비</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-white mr-3 mt-1"></i>
+                            <span class="text-white text-sm">스톡옵션 설계</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-white mr-3 mt-1"></i>
+                            <span class="text-white text-sm">수익자 눈높이에 맞는 IR DECK 작성</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-white mr-3 mt-1"></i>
+                            <span class="text-white text-sm">라운드 유치</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-white mr-3 mt-1"></i>
+                            <span class="text-white text-sm">상장전략수립</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-white mr-3 mt-1"></i>
+                            <span class="text-white text-sm">IFRS 도입자문(컨버전)</span>
+                        </li>
+                    </ul>
+                    
+                    <button onclick="if(window.openGrowthPlanModal){window.openGrowthPlanModal();} return false;" class="w-full bg-white text-stellar-purple py-3 rounded-full font-bold hover:shadow-xl transition-all duration-300">
+                        자세히 알아보기
+                    </button>
+                </div>
+                
+                <!-- Scale-up Plan -->
+                <div class="plan-card bg-space bg-opacity-60 backdrop-blur-lg rounded-3xl p-8 border-2 border-rocket-orange border-opacity-30 hover:border-opacity-60 transition-all duration-300 hover:transform hover:scale-105">
+                    <div class="text-center mb-6">
+                        <div class="text-5xl mb-4">🎯</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">스케일업 플랜</h3>
+                        <p class="text-gray-400 text-sm mb-4">글로벌 도약 단계</p>
+                        <div class="inline-block px-4 py-1 bg-rocket-orange bg-opacity-20 rounded-full border border-rocket-orange border-opacity-40">
+                            <span class="text-rocket-orange font-semibold text-sm">상장 준비 완성</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-rocket-orange mr-3 mt-1"></i>
+                            <span class="text-gray-300 text-sm">재무제표 작성 지원 용역(PA)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-rocket-orange mr-3 mt-1"></i>
+                            <span class="text-gray-300 text-sm">기업가치평가</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-rocket-orange mr-3 mt-1"></i>
+                            <span class="text-gray-300 text-sm">임의 감사</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-rocket-orange mr-3 mt-1"></i>
+                            <span class="text-gray-300 text-sm">법정감사</span>
+                        </li>
+                    </ul>
+                    
+                    <button onclick="if(window.openScaleupPlanModal){window.openScaleupPlanModal();} return false;" class="w-full bg-rocket-orange bg-opacity-20 text-rocket-orange border-2 border-rocket-orange py-3 rounded-full font-semibold hover:bg-rocket-orange hover:text-white transition-all duration-300">
+                        자세히 알아보기
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Additional Info -->
+            <div class="text-center mt-12">
+                <p class="text-gray-400 mb-4">각 플랜은 귀사의 상황에 맞게 커스터마이징 가능합니다</p>
+                <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="inline-flex items-center text-cosmic-blue hover:text-stellar-purple transition font-semibold">
+                    <i class="fas fa-comment-dots mr-2"></i>
+                    맞춤 플랜 상담받기
+                </button>
+            </div>
+        </div>
     </section>
     
     <!-- FAQ Section -->
@@ -1736,6 +2292,299 @@
         </div>
     </div>
     
+    <!-- Starter Plan Modal -->
+    <div id="starterPlanModal" class="modal">
+        <div class="modal-content bg-gradient-to-br from-deep-space to-space rounded-3xl p-0 max-w-md w-full mx-4 shadow-2xl border-2 border-cosmic-blue overflow-hidden">
+            <div class="relative p-8 pb-6">
+                <button onclick="if(window.closeStarterPlanModal){window.closeStarterPlanModal();} return false;" class="absolute top-4 right-4 text-gray-400 hover:text-white transition z-10">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                
+                <div class="text-center mb-6">
+                    <div class="inline-block px-4 py-1 bg-cosmic-blue bg-opacity-30 rounded-full border border-cosmic-blue mb-4">
+                        <span class="text-cosmic-blue font-semibold text-sm">STARTER</span>
+                    </div>
+                    <div class="text-6xl mb-4">🌱</div>
+                    <h3 class="text-3xl font-bold text-white mb-2">스타터 플랜</h3>
+                    <p class="text-gray-300 mb-6">1인법인 최적화</p>
+                    
+                    <div class="bg-cosmic-blue bg-opacity-10 rounded-2xl p-6 mb-6">
+                        <div class="text-5xl font-bold text-white mb-2">
+                            13만원
+                            <span class="text-2xl text-gray-300">~/월</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-2">(VAT 별도)</p>
+                    </div>
+                </div>
+                
+                <ul class="space-y-3 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-cosmic-blue mr-3 mt-1"></i>
+                        <span class="text-gray-300">무료법인설립자문</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-cosmic-blue mr-3 mt-1"></i>
+                        <span class="text-gray-300">투자에 적합한 기장서비스</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-cosmic-blue mr-3 mt-1"></i>
+                        <span class="text-gray-300">노무 관리</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-cosmic-blue mr-3 mt-1"></i>
+                        <span class="text-gray-300">무료 정부보조금 컨설팅</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-cosmic-blue mr-3 mt-1"></i>
+                        <span class="text-gray-300">선제적 법인세 감면 전략</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-cosmic-blue mr-3 mt-1"></i>
+                        <span class="text-gray-300">4대보험 사무대행</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-cosmic-blue mr-3 mt-1"></i>
+                        <span class="text-gray-300">대표이사 급여업무 대행</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-cosmic-blue mr-3 mt-1"></i>
+                        <span class="text-gray-300">대표이사 연말정산</span>
+                    </li>
+                </ul>
+                
+                <button onclick="if(window.openConsultModal){window.closeStarterPlanModal(); window.openConsultModal();} return false;" class="w-full bg-cosmic-blue text-white py-4 rounded-xl font-bold text-lg hover:shadow-xl transition">
+                    상담 신청
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Growth Plan Modal -->
+    <div id="growthPlanModal" class="modal">
+        <div class="modal-content bg-gradient-to-br from-stellar-purple to-cosmic-blue rounded-3xl p-0 max-w-md w-full mx-4 shadow-2xl border-2 border-stellar-purple overflow-hidden relative">
+            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
+                <span class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                    ⭐ 가장 인기
+                </span>
+            </div>
+            
+            <div class="relative p-8 pb-6 pt-12">
+                <button onclick="if(window.closeGrowthPlanModal){window.closeGrowthPlanModal();} return false;" class="absolute top-4 right-4 text-gray-200 hover:text-white transition z-10">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                
+                <div class="text-center mb-6">
+                    <div class="inline-block px-4 py-1 bg-white bg-opacity-20 rounded-full border border-white border-opacity-40 mb-4">
+                        <span class="text-white font-semibold text-sm">GROWTH</span>
+                    </div>
+                    <div class="text-6xl mb-4">🚀</div>
+                    <h3 class="text-3xl font-bold text-white mb-2">그로스 플랜</h3>
+                    <p class="text-gray-100 mb-6">성장 중기 최적화</p>
+                </div>
+                
+                <!-- 엔터프라이즈 플랜 포함 (월 18만원) -->
+                <div class="bg-white bg-opacity-10 rounded-2xl p-4 mb-4">
+                    <div class="text-center mb-3">
+                        <div class="text-3xl font-bold text-white mb-1">
+                            18만원
+                            <span class="text-lg text-gray-100">~/월</span>
+                        </div>
+                        <p class="text-xs text-gray-200">엔터프라이즈 플랜 포함</p>
+                        <p class="text-xs text-gray-400 mt-1">(VAT 별도)</p>
+                    </div>
+                </div>
+                
+                <ul class="space-y-2 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-white text-sm">카톡, 전화 상시상담</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-white text-sm">복식부기 세무기장</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-white text-sm">부가세 신고</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-white text-sm">법인세 신고(세액공제 검토)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-white text-sm">4대보험 사무대행</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-white text-sm">결산 재무제표 작성(연4회)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-white text-sm">분기별 경영리포트 제공</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-white text-sm">임직원 급여업무 대행</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-white text-sm">임직원 연말정산</span>
+                    </li>
+                </ul>
+                
+                <!-- 구분선 -->
+                <div class="border-t border-white border-opacity-20 my-6"></div>
+                
+                <!-- 그로스 플랜 추가 서비스 (별도 문의) -->
+                <div class="bg-yellow-500 bg-opacity-10 rounded-2xl p-4 mb-4">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-yellow-300 mb-1">
+                            별도 문의
+                        </div>
+                        <p class="text-xs text-gray-100">그로스 플랜 추가 서비스</p>
+                        <p class="text-xs text-gray-400 mt-1">(VAT 별도)</p>
+                    </div>
+                </div>
+                
+                <ul class="space-y-2 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-star text-yellow-300 mr-3 mt-1 text-sm"></i>
+                        <span class="text-white text-sm">스톡옵션 설계</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-star text-yellow-300 mr-3 mt-1 text-sm"></i>
+                        <span class="text-white text-sm">수익자 눈높이 IR DECK 작성</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-star text-yellow-300 mr-3 mt-1 text-sm"></i>
+                        <span class="text-white text-sm">라운드 유치 지원</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-star text-yellow-300 mr-3 mt-1 text-sm"></i>
+                        <span class="text-white text-sm">상장전략수립</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-star text-yellow-300 mr-3 mt-1 text-sm"></i>
+                        <span class="text-white text-sm">IFRS 도입자문(컨버전)</span>
+                    </li>
+                </ul>
+                
+                <button onclick="if(window.openConsultModal){window.closeGrowthPlanModal(); window.openConsultModal();} return false;" class="w-full bg-white text-stellar-purple py-4 rounded-xl font-bold text-lg hover:shadow-xl transition">
+                    상담 신청
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scale-up Plan Modal -->
+    <div id="scaleupPlanModal" class="modal">
+        <div class="modal-content bg-gradient-to-br from-deep-space to-space rounded-3xl p-0 max-w-md w-full mx-4 shadow-2xl border-2 border-rocket-orange overflow-hidden">
+            <div class="relative p-8 pb-6">
+                <button onclick="if(window.closeScaleupPlanModal){window.closeScaleupPlanModal();} return false;" class="absolute top-4 right-4 text-gray-400 hover:text-white transition z-10">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                
+                <div class="text-center mb-6">
+                    <div class="inline-block px-4 py-1 bg-rocket-orange bg-opacity-30 rounded-full border border-rocket-orange mb-4">
+                        <span class="text-rocket-orange font-semibold text-sm">SCALE-UP</span>
+                    </div>
+                    <div class="text-6xl mb-4">🎯</div>
+                    <h3 class="text-3xl font-bold text-white mb-2">스케일업 플랜</h3>
+                    <p class="text-gray-300 mb-6">글로벌 도약 준비</p>
+                </div>
+                
+                <!-- 엔터프라이즈 플랜 포함 (월 18만원) -->
+                <div class="bg-white bg-opacity-10 rounded-2xl p-4 mb-4">
+                    <div class="text-center mb-3">
+                        <div class="text-3xl font-bold text-white mb-1">
+                            18만원
+                            <span class="text-lg text-gray-100">~/월</span>
+                        </div>
+                        <p class="text-xs text-gray-200">엔터프라이즈 플랜 포함</p>
+                        <p class="text-xs text-gray-400 mt-1">(VAT 별도)</p>
+                    </div>
+                </div>
+                
+                <ul class="space-y-2 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-gray-300 text-sm">카톡, 전화 상시상담</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-gray-300 text-sm">복식부기 세무기장</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-gray-300 text-sm">부가세 신고</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-gray-300 text-sm">법인세 신고(세액공제 검토)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-gray-300 text-sm">4대보험 사무대행</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-gray-300 text-sm">결산 재무제표 작성(연4회)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-gray-300 text-sm">분기별 경영리포트 제공</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-gray-300 text-sm">임직원 급여업무 대행</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                        <span class="text-gray-300 text-sm">임직원 연말정산</span>
+                    </li>
+                </ul>
+                
+                <!-- 구분선 -->
+                <div class="border-t border-white border-opacity-20 my-6"></div>
+                
+                <!-- 스케일업 플랜 추가 서비스 (별도 문의) -->
+                <div class="bg-rocket-orange bg-opacity-10 rounded-2xl p-4 mb-4">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-rocket-orange mb-1">
+                            별도 문의
+                        </div>
+                        <p class="text-xs text-gray-100">스케일업 플랜 추가 서비스</p>
+                        <p class="text-xs text-gray-400 mt-1">(VAT 별도)</p>
+                    </div>
+                </div>
+                
+                <ul class="space-y-2 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-star text-rocket-orange mr-3 mt-1 text-sm"></i>
+                        <span class="text-gray-300 text-sm">재무제표 작성 지원 용역(PA)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-star text-rocket-orange mr-3 mt-1 text-sm"></i>
+                        <span class="text-gray-300 text-sm">기업가치평가</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-star text-rocket-orange mr-3 mt-1 text-sm"></i>
+                        <span class="text-gray-300 text-sm">임의 감사</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-star text-rocket-orange mr-3 mt-1 text-sm"></i>
+                        <span class="text-gray-300 text-sm">법정감사</span>
+                    </li>
+                </ul>
+                
+                <button onclick="if(window.openConsultModal){window.closeScaleupPlanModal(); window.openConsultModal();} return false;" class="w-full bg-rocket-orange text-white py-4 rounded-xl font-bold text-lg hover:shadow-xl transition">
+                    상담 신청
+                </button>
+            </div>
+        </div>
+    </div>
+    
     <!-- Modal Functions - Defined immediately -->
     <script>
         // Modal Functions (Global scope - available immediately)
@@ -1770,11 +2619,81 @@
                 console.log('Modal closed successfully');
             }
         }
+
+        // Plan Modal Functions
+        window.openStarterPlanModal = function() {
+            console.log('Opening Starter Plan modal...');
+            const modal = document.getElementById('starterPlanModal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                console.log('Starter Plan modal opened successfully');
+            } else {
+                console.error('Modal element #starterPlanModal not found!');
+            }
+        }
+
+        window.closeStarterPlanModal = function() {
+            console.log('Closing Starter Plan modal...');
+            const modal = document.getElementById('starterPlanModal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                console.log('Starter Plan modal closed successfully');
+            }
+        }
+
+        window.openGrowthPlanModal = function() {
+            console.log('Opening Growth Plan modal...');
+            const modal = document.getElementById('growthPlanModal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                console.log('Growth Plan modal opened successfully');
+            } else {
+                console.error('Modal element #growthPlanModal not found!');
+            }
+        }
+
+        window.closeGrowthPlanModal = function() {
+            console.log('Closing Growth Plan modal...');
+            const modal = document.getElementById('growthPlanModal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                console.log('Growth Plan modal closed successfully');
+            }
+        }
+
+        window.openScaleupPlanModal = function() {
+            console.log('Opening Scale-up Plan modal...');
+            const modal = document.getElementById('scaleupPlanModal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                console.log('Scale-up Plan modal opened successfully');
+            } else {
+                console.error('Modal element #scaleupPlanModal not found!');
+            }
+        }
+
+        window.closeScaleupPlanModal = function() {
+            console.log('Closing Scale-up Plan modal...');
+            const modal = document.getElementById('scaleupPlanModal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                console.log('Scale-up Plan modal closed successfully');
+            }
+        }
         
         // Log that functions are ready
         console.log('Modal functions loaded and ready!');
         console.log('window.openConsultModal:', typeof window.openConsultModal);
         console.log('window.closeConsultModal:', typeof window.closeConsultModal);
+        console.log('window.openStarterPlanModal:', typeof window.openStarterPlanModal);
+        console.log('window.openGrowthPlanModal:', typeof window.openGrowthPlanModal);
+        console.log('window.openScaleupPlanModal:', typeof window.openScaleupPlanModal);
     </script>
     
     <script src="js/main.js"></script>
@@ -1784,7 +2703,7 @@
         // Growth Journey Animation
         (function() {
             const isMobile = window.innerWidth <= 768;
-            const milestoneCards = document.querySelectorAll('.milestone-card');
+            const milestoneCards = document.querySelectorAll('.milestone-card, .phase-step-card');
             const totalSteps = 14;
             let completedSteps = 0;
             
@@ -1847,7 +2766,7 @@
                     if (progressBarMobile) progressBarMobile.style.width = percent + '%';
                 }
                 
-                // Observer for mobile
+                // Observer for mobile - track both old and new card types
                 const mobileObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -1855,17 +2774,21 @@
                             card.classList.add('visible');
                             
                             setTimeout(() => {
-                                if (!card.classList.contains('completed')) {
+                                // Check if card has data-step attribute and hasn't been completed
+                                const stepNum = card.getAttribute('data-step');
+                                if (stepNum && !card.classList.contains('completed')) {
                                     card.classList.add('completed');
                                     completedSteps++;
                                     updateMobileProgress();
+                                    console.log(`✅ Step ${stepNum} completed. Total: ${completedSteps}/${totalSteps}`);
                                 }
                             }, 300);
                         }
                     });
                 }, { threshold: 0.5 });
                 
-                milestoneCards.forEach(card => {
+                // Observe all cards (both .milestone-card and .phase-step-card)
+                document.querySelectorAll('[data-step]').forEach(card => {
                     mobileObserver.observe(card);
                 });
             }
@@ -1875,7 +2798,10 @@
                 const desktopObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            entry.target.querySelector('.milestone-card').classList.add('visible');
+                            const card = entry.target.querySelector('.milestone-card');
+                            if (card) {
+                                card.classList.add('visible');
+                            }
                         }
                     });
                 }, { threshold: 0.3 });
@@ -1884,6 +2810,29 @@
                     desktopObserver.observe(section);
                 });
             }
+            
+            // Phase Group Sections Animation (for new horizontal layout)
+            const phaseObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Trigger card animations
+                        const cards = entry.target.querySelectorAll('.phase-step-card');
+                        cards.forEach((card, index) => {
+                            // Reset animation
+                            card.style.animation = 'none';
+                            setTimeout(() => {
+                                card.style.animation = '';
+                            }, 10);
+                        });
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            document.querySelectorAll('.phase-group-section').forEach(section => {
+                phaseObserver.observe(section);
+            });
         })();
     </script>
     

@@ -142,13 +142,6 @@ RCPS(상환전환우선주)나 CB(전환사채)는 투자자에게는 안정적�
 
 ---
 
-<div style="background: #F3F4F6; padding: 1rem; border-radius: 0.75rem; margin: 2rem 0;">
-  <p style="margin: 0; font-size: 0.8rem; color: #6B7280; text-align: center; line-height: 1.6;">
-    📅 <strong>작성일</strong>: 2025년 10월 31일 | <strong>최종 업데이트</strong>: 2025년 10월 31일<br>
-    📝 <strong>작성자</strong>: Zero to One TAX 세무팀 | ✉️ <strong>문의</strong>: contact@0to1tax.com
-  </p>
+<div style="background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 2rem; border-radius: 1rem; text-align: center; margin: 3rem 0; box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);">
+  <h3 style="margin: 0; font-size: 1.5rem; font-weight: 700;">🚀 스타트업의 0부터 1까지 모든 과정을 함께합니다</h3>
 </div>
-
----
-
-**관련 키워드**: 스타트업 투자 세무관리, RCPS 회계처리, 전환우선주 세금, 파생상품평가손익, 대표이사 급여 설계, 법인세 절세, 투자 후 세무, CB 전환사채, 스타트업 회계, 세무조정, 부당행위계산, 법인세신고, 제로투원택스

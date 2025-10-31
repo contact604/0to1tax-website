@@ -512,56 +512,50 @@
         // Mobile menu is now controlled by CSS :checked selector
         
         // GitHub에서 블로그 포스트 목록 가져오기
+        // 블로그 포스트 목록 (수동 관리 - CORS 문제 해결)
+        const BLOG_POSTS = [
+            '2024-10-28-welcome.md',
+            '2025-10-30-startup-corporate-tax-savings.md'
+        ];
+        
+        const RAW_BASE_URL = 'https://raw.githubusercontent.com/contact604/0to1tax-website/main/_posts/';
+        
         async function loadBlogPosts() {
             try {
-                // GitHub API - _posts 폴더의 파일 목록 (캐시 버스팅)
-                const timestamp = new Date().getTime();
-                const apiUrl = 'https://api.github.com/repos/contact604/0to1tax-website/contents/_posts?t=' + timestamp;
-                console.log('📡 Fetching from:', apiUrl);
-                const response = await fetch(apiUrl, {
-                    cache: 'no-cache',
-                    headers: {
-                        'Cache-Control': 'no-cache',
-                        'Pragma': 'no-cache'
-                    }
-                });
+                console.log('📡 Loading blog posts from GitHub Raw (CORS-free)...');
                 
-                if (!response.ok) {
-                    console.error('GitHub API Error:', response.status, response.statusText);
-                    console.error('Response:', await response.text());
-                    throw new Error(`GitHub API 응답 실패: ${response.status} ${response.statusText}`);
-                }
-                
-                const files = await response.json();
-                console.log('📁 Files found:', files.length);
-                console.log('📄 File list:', files.map(f => f.name));
-                
-                // .md 파일만 필터링 (.gitkeep 제외)
-                const markdownFiles = files.filter(file => file.name.endsWith('.md'));
-                console.log('📝 Markdown files:', markdownFiles.length);
-                
-                if (markdownFiles.length === 0) {
-                    throw new Error('블로그 포스트가 없습니다');
-                }
-                
-                // 각 파일의 내용 가져오기 (캐시 버스팅)
                 const posts = await Promise.all(
-                    markdownFiles.map(async (file) => {
+                    BLOG_POSTS.map(async (filename) => {
                         const timestamp = new Date().getTime();
-                        const contentResponse = await fetch(file.download_url + '?t=' + timestamp, {
-                            cache: 'no-cache',
-                            headers: {
-                                'Cache-Control': 'no-cache',
-                                'Pragma': 'no-cache'
+                        const url = `${RAW_BASE_URL}${filename}?t=${timestamp}`;
+                        console.log('📄 Loading:', filename);
+                        
+                        try {
+                            const response = await fetch(url, {
+                                cache: 'no-cache',
+                                headers: {
+                                    'Cache-Control': 'no-cache',
+                                    'Pragma': 'no-cache'
+                                }
+                            });
+                            
+                            if (!response.ok) {
+                                console.warn(`⚠️ Failed to load ${filename}:`, response.status);
+                                return null;
                             }
-                        });
-                        const content = await contentResponse.text();
-                        return parseMarkdownPost(content, file.name);
+                            
+                            const content = await response.text();
+                            console.log(`✅ Loaded ${filename} (${content.length} bytes)`);
+                            return parseMarkdownPost(content, filename);
+                        } catch (error) {
+                            console.error(`❌ Error loading ${filename}:`, error);
+                            return null;
+                        }
                     })
                 );
                 
                 // null 제거 및 날짜순 정렬 (최신순)
-                allPosts = posts.filter(post => post !== null).sort((a, b) => new Date(b.date) - new Date(a.date));
+                allPosts = posts.filter(post => post !== null && post.published).sort((a, b) => new Date(b.date) - new Date(a.date));
                 filteredPosts = [...allPosts];
                 
                 // 게시글 렌더링

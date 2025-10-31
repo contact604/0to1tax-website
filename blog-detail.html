@@ -1236,56 +1236,50 @@
             });
         }
         
-        // GitHub에서 블로그 포스트 목록 가져오기
+        // 블로그 포스트 목록 (수동 관리 - CORS 문제 해결)
+        const BLOG_POSTS = [
+            '2024-10-28-welcome.md',
+            '2025-10-30-startup-corporate-tax-savings.md'
+        ];
+        
+        const RAW_BASE_URL = 'https://raw.githubusercontent.com/contact604/0to1tax-website/main/_posts/';
+        
+        // GitHub Raw에서 블로그 포스트 목록 가져오기 (CORS-free)
         async function loadBlogPosts() {
             try {
-                // 캐시 버스팅을 위한 타임스탬프 추가
-                const timestamp = new Date().getTime();
-                const apiUrl = 'https://api.github.com/repos/contact604/0to1tax-website/contents/_posts?t=' + timestamp;
-                console.log('📡 [Blog Detail] Fetching from:', apiUrl);
-                const response = await fetch(apiUrl, {
-                    cache: 'no-cache',
-                    headers: {
-                        'Cache-Control': 'no-cache',
-                        'Pragma': 'no-cache'
-                    }
-                });
-                
-                if (!response.ok) {
-                    console.error('❌ [Blog Detail] GitHub API Error:', response.status, response.statusText);
-                    const errorText = await response.text();
-                    console.error('Response:', errorText);
-                    throw new Error(`GitHub API 응답 실패: ${response.status} ${response.statusText}`);
-                }
-                
-                const files = await response.json();
-                console.log('📁 [Blog Detail] Files found:', files.length);
-                console.log('📄 [Blog Detail] File list:', files.map(f => f.name));
-                const markdownFiles = files.filter(file => file.name.endsWith('.md'));
-                console.log('📝 [Blog Detail] Markdown files:', markdownFiles.length);
-                
-                if (markdownFiles.length === 0) {
-                    throw new Error('블로그 포스트가 없습니다');
-                }
+                console.log('📡 [Blog Detail] Loading from GitHub Raw (CORS-free)...');
                 
                 const posts = await Promise.all(
-                    markdownFiles.map(async (file) => {
-                        // 캐시 버스팅을 위한 타임스탬프 추가
+                    BLOG_POSTS.map(async (filename) => {
                         const timestamp = new Date().getTime();
-                        const contentResponse = await fetch(file.download_url + '?t=' + timestamp, {
-                            cache: 'no-cache',
-                            headers: {
-                                'Cache-Control': 'no-cache',
-                                'Pragma': 'no-cache'
+                        const url = `${RAW_BASE_URL}${filename}?t=${timestamp}`;
+                        console.log('📄 [Blog Detail] Loading:', filename);
+                        
+                        try {
+                            const response = await fetch(url, {
+                                cache: 'no-cache',
+                                headers: {
+                                    'Cache-Control': 'no-cache',
+                                    'Pragma': 'no-cache'
+                                }
+                            });
+                            
+                            if (!response.ok) {
+                                console.warn(`⚠️ [Blog Detail] Failed to load ${filename}:`, response.status);
+                                return null;
                             }
-                        });
-                        const content = await contentResponse.text();
-                        console.log('Loaded markdown file:', file.name, 'Length:', content.length);
-                        return parseMarkdownPost(content, file.name);
+                            
+                            const content = await response.text();
+                            console.log(`✅ [Blog Detail] Loaded ${filename} (${content.length} bytes)`);
+                            return parseMarkdownPost(content, filename);
+                        } catch (error) {
+                            console.error(`❌ [Blog Detail] Error loading ${filename}:`, error);
+                            return null;
+                        }
                     })
                 );
                 
-                allPosts = posts.filter(post => post !== null).sort((a, b) => new Date(b.date) - new Date(a.date));
+                allPosts = posts.filter(post => post !== null && post.published).sort((a, b) => new Date(b.date) - new Date(a.date));
                 
             } catch (error) {
                 console.error('블로그 포스트 로딩 실패:', error);

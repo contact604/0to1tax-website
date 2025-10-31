@@ -2,7 +2,7 @@
 
 **🚀 ZERO에서 ONE까지, 대형 회계법인 출신 전문가와 함께하세요**
 
-![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.15.2-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
+![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.16.0-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
 
 ---
 
@@ -349,6 +349,28 @@ GET /tables/consultations?sort=-created_at&limit=100
 ---
 
 ## 📊 버전 히스토리
+
+### Version 6.16.0 (2025-10-30) ⭐ CRITICAL FIX!
+**🔧 CORS 문제 완전 해결 - GitHub Raw URL 사용**
+- **CORS 에러 해결**
+  - GitHub API 대신 Raw Content URL 사용
+  - `https://raw.githubusercontent.com/` 직접 호출
+  - CORS 정책 우회 (Raw URL은 CORS 제한 없음)
+  - API Rate Limit 문제도 동시 해결
+  
+- **새로운 로딩 방식**
+  - 포스트 목록을 수동 관리 (`BLOG_POSTS` 배열)
+  - 각 파일을 Raw URL로 직접 다운로드
+  - 더 빠르고 안정적인 로딩
+  - 실패한 파일은 자동으로 스킵
+  
+- **디버깅 개선**
+  - 각 파일 로딩 상태 개별 로깅
+  - 성공/실패 명확히 표시
+  - 파일 크기 정보 출력
+  
+- **새 파일 추가**
+  - `js/blog-loader.js` - 재사용 가능한 로더 모듈
 
 ### Version 6.15.1 (2025-10-30) ⭐ HOTFIX!
 **🔥 GitHub 캐시 완전 제거 + 디버깅 강화**

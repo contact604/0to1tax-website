@@ -1352,12 +1352,16 @@
             const metadata = {};
             const lines = frontMatter.split('\n');
             let currentKey = null;
+            let isMultiLine = false;
             
             lines.forEach(line => {
                 if (line.startsWith('  - ')) {
                     const arrayValue = line.replace('  - ', '').trim();
-                    if (currentKey && metadata[currentKey]) {
+                    if (currentKey && Array.isArray(metadata[currentKey])) {
                         metadata[currentKey].push(arrayValue);
+                    } else if (currentKey && isMultiLine) {
+                        // Multi-line string (like summary with |)
+                        metadata[currentKey] = (metadata[currentKey] || '') + arrayValue + '\n';
                     }
                 } else if (line.includes(':')) {
                     const colonIndex = line.indexOf(':');
@@ -1367,9 +1371,16 @@
                     if (key === 'tags') {
                         metadata[key] = [];
                         currentKey = key;
+                        isMultiLine = false;
+                    } else if (value === '|') {
+                        // Multi-line string indicator
+                        metadata[key] = '';
+                        currentKey = key;
+                        isMultiLine = true;
                     } else {
                         metadata[key] = value.replace(/^["']|["']$/g, '');
                         currentKey = null;
+                        isMultiLine = false;
                     }
                 }
             });
@@ -1385,7 +1396,7 @@
                 tags: metadata.tags || [],
                 thumbnail: metadata.thumbnail || '',
                 excerpt: metadata.excerpt || '',
-                summary: metadata.summary || '',
+                summary: metadata.summary ? metadata.summary.trim() : '',
                 body: body,
                 published: metadata.published !== 'false'
             };

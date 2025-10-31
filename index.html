@@ -2382,93 +2382,104 @@
                     <p class="text-gray-100 mb-6">성장 중기 최적화</p>
                 </div>
                 
-                <!-- 엔터프라이즈 플랜 포함 (월 18만원) -->
-                <div class="bg-white bg-opacity-10 rounded-2xl p-4 mb-4">
-                    <div class="text-center mb-3">
-                        <div class="text-3xl font-bold text-white mb-1">
-                            18만원
-                            <span class="text-lg text-gray-100">~/월</span>
-                        </div>
-                        <p class="text-xs text-gray-200">엔터프라이즈 플랜 포함</p>
-                        <p class="text-xs text-gray-400 mt-1">(VAT 별도)</p>
-                    </div>
+                <!-- 탭 버튼 -->
+                <div class="flex gap-2 mb-6">
+                    <button onclick="switchGrowthTab('basic')" id="growthTabBasic" class="flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition bg-white text-stellar-purple">
+                        기본 서비스
+                    </button>
+                    <button onclick="switchGrowthTab('additional')" id="growthTabAdditional" class="flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition bg-white bg-opacity-20 text-white hover:bg-opacity-30">
+                        추가 서비스
+                    </button>
                 </div>
                 
-                <ul class="space-y-2 mb-6">
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-white text-sm">카톡, 전화 상시상담</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-white text-sm">복식부기 세무기장</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-white text-sm">부가세 신고</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-white text-sm">법인세 신고(세액공제 검토)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-white text-sm">4대보험 사무대행</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-white text-sm">결산 재무제표 작성(연4회)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-white text-sm">분기별 경영리포트 제공</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-white text-sm">임직원 급여업무 대행</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-white text-sm">임직원 연말정산</span>
-                    </li>
-                </ul>
-                
-                <!-- 구분선 -->
-                <div class="border-t border-white border-opacity-20 my-6"></div>
-                
-                <!-- 그로스 플랜 추가 서비스 (별도 문의) -->
-                <div class="bg-yellow-500 bg-opacity-10 rounded-2xl p-4 mb-4">
-                    <div class="text-center">
-                        <div class="text-2xl font-bold text-yellow-300 mb-1">
-                            별도 문의
+                <!-- 기본 서비스 탭 -->
+                <div id="growthBasicTab" class="tab-content">
+                    <div class="bg-white bg-opacity-10 rounded-2xl p-4 mb-4">
+                        <div class="text-center mb-3">
+                            <div class="text-3xl font-bold text-white mb-1">
+                                18만원
+                                <span class="text-lg text-gray-100">~/월</span>
+                            </div>
+                            <p class="text-xs text-gray-200">엔터프라이즈 플랜 포함</p>
+                            <p class="text-xs text-gray-400 mt-1">(VAT 별도)</p>
                         </div>
-                        <p class="text-xs text-gray-100">그로스 플랜 추가 서비스</p>
-                        <p class="text-xs text-gray-400 mt-1">(VAT 별도)</p>
                     </div>
+                    
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-white text-sm">카톡, 전화 상시상담</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-white text-sm">복식부기 세무기장</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-white text-sm">부가세 신고</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-white text-sm">법인세 신고(세액공제 검토)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-white text-sm">4대보험 사무대행</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-white text-sm">결산 재무제표 작성(연4회)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-white text-sm">분기별 경영리포트 제공</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-white text-sm">임직원 급여업무 대행</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-white text-sm">임직원 연말정산</span>
+                        </li>
+                    </ul>
                 </div>
                 
-                <ul class="space-y-2 mb-6">
-                    <li class="flex items-start">
-                        <i class="fas fa-star text-yellow-300 mr-3 mt-1 text-sm"></i>
-                        <span class="text-white text-sm">스톡옵션 설계</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-star text-yellow-300 mr-3 mt-1 text-sm"></i>
-                        <span class="text-white text-sm">수익자 눈높이 IR DECK 작성</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-star text-yellow-300 mr-3 mt-1 text-sm"></i>
-                        <span class="text-white text-sm">라운드 유치 지원</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-star text-yellow-300 mr-3 mt-1 text-sm"></i>
-                        <span class="text-white text-sm">상장전략수립</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-star text-yellow-300 mr-3 mt-1 text-sm"></i>
-                        <span class="text-white text-sm">IFRS 도입자문(컨버전)</span>
-                    </li>
-                </ul>
+                <!-- 추가 서비스 탭 -->
+                <div id="growthAdditionalTab" class="tab-content hidden">
+                    <div class="bg-yellow-500 bg-opacity-10 rounded-2xl p-4 mb-4">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-yellow-300 mb-1">
+                                별도 문의
+                            </div>
+                            <p class="text-xs text-gray-100">그로스 플랜 추가 서비스</p>
+                            <p class="text-xs text-gray-400 mt-1">(VAT 별도)</p>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-300 mr-3 mt-1 text-sm"></i>
+                            <span class="text-white text-sm">스톡옵션 설계</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-300 mr-3 mt-1 text-sm"></i>
+                            <span class="text-white text-sm">수익자 눈높이 IR DECK 작성</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-300 mr-3 mt-1 text-sm"></i>
+                            <span class="text-white text-sm">라운드 유치 지원</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-300 mr-3 mt-1 text-sm"></i>
+                            <span class="text-white text-sm">상장전략수립</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-300 mr-3 mt-1 text-sm"></i>
+                            <span class="text-white text-sm">IFRS 도입자문(컨버전)</span>
+                        </li>
+                    </ul>
+                </div>
                 
                 <button onclick="if(window.openConsultModal){window.closeGrowthPlanModal(); window.openConsultModal();} return false;" class="w-full bg-white text-stellar-purple py-4 rounded-xl font-bold text-lg hover:shadow-xl transition">
                     상담 신청
@@ -2494,89 +2505,100 @@
                     <p class="text-gray-300 mb-6">글로벌 도약 준비</p>
                 </div>
                 
-                <!-- 엔터프라이즈 플랜 포함 (월 18만원) -->
-                <div class="bg-white bg-opacity-10 rounded-2xl p-4 mb-4">
-                    <div class="text-center mb-3">
-                        <div class="text-3xl font-bold text-white mb-1">
-                            18만원
-                            <span class="text-lg text-gray-100">~/월</span>
-                        </div>
-                        <p class="text-xs text-gray-200">엔터프라이즈 플랜 포함</p>
-                        <p class="text-xs text-gray-400 mt-1">(VAT 별도)</p>
-                    </div>
+                <!-- 탭 버튼 -->
+                <div class="flex gap-2 mb-6">
+                    <button onclick="switchScaleupTab('basic')" id="scaleupTabBasic" class="flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition bg-rocket-orange text-white">
+                        기본 서비스
+                    </button>
+                    <button onclick="switchScaleupTab('additional')" id="scaleupTabAdditional" class="flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition bg-white bg-opacity-20 text-gray-300 hover:bg-opacity-30">
+                        추가 서비스
+                    </button>
                 </div>
                 
-                <ul class="space-y-2 mb-6">
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-gray-300 text-sm">카톡, 전화 상시상담</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-gray-300 text-sm">복식부기 세무기장</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-gray-300 text-sm">부가세 신고</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-gray-300 text-sm">법인세 신고(세액공제 검토)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-gray-300 text-sm">4대보험 사무대행</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-gray-300 text-sm">결산 재무제표 작성(연4회)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-gray-300 text-sm">분기별 경영리포트 제공</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-gray-300 text-sm">임직원 급여업무 대행</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
-                        <span class="text-gray-300 text-sm">임직원 연말정산</span>
-                    </li>
-                </ul>
-                
-                <!-- 구분선 -->
-                <div class="border-t border-white border-opacity-20 my-6"></div>
-                
-                <!-- 스케일업 플랜 추가 서비스 (별도 문의) -->
-                <div class="bg-rocket-orange bg-opacity-10 rounded-2xl p-4 mb-4">
-                    <div class="text-center">
-                        <div class="text-2xl font-bold text-rocket-orange mb-1">
-                            별도 문의
+                <!-- 기본 서비스 탭 -->
+                <div id="scaleupBasicTab" class="tab-content">
+                    <div class="bg-white bg-opacity-10 rounded-2xl p-4 mb-4">
+                        <div class="text-center mb-3">
+                            <div class="text-3xl font-bold text-white mb-1">
+                                18만원
+                                <span class="text-lg text-gray-100">~/월</span>
+                            </div>
+                            <p class="text-xs text-gray-200">엔터프라이즈 플랜 포함</p>
+                            <p class="text-xs text-gray-400 mt-1">(VAT 별도)</p>
                         </div>
-                        <p class="text-xs text-gray-100">스케일업 플랜 추가 서비스</p>
-                        <p class="text-xs text-gray-400 mt-1">(VAT 별도)</p>
                     </div>
+                    
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-gray-300 text-sm">카톡, 전화 상시상담</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-gray-300 text-sm">복식부기 세무기장</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-gray-300 text-sm">부가세 신고</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-gray-300 text-sm">법인세 신고(세액공제 검토)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-gray-300 text-sm">4대보험 사무대행</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-gray-300 text-sm">결산 재무제표 작성(연4회)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-gray-300 text-sm">분기별 경영리포트 제공</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-gray-300 text-sm">임직원 급여업무 대행</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mr-3 mt-1 text-sm"></i>
+                            <span class="text-gray-300 text-sm">임직원 연말정산</span>
+                        </li>
+                    </ul>
                 </div>
                 
-                <ul class="space-y-2 mb-6">
-                    <li class="flex items-start">
-                        <i class="fas fa-star text-rocket-orange mr-3 mt-1 text-sm"></i>
-                        <span class="text-gray-300 text-sm">재무제표 작성 지원 용역(PA)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-star text-rocket-orange mr-3 mt-1 text-sm"></i>
-                        <span class="text-gray-300 text-sm">기업가치평가</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-star text-rocket-orange mr-3 mt-1 text-sm"></i>
-                        <span class="text-gray-300 text-sm">임의 감사</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-star text-rocket-orange mr-3 mt-1 text-sm"></i>
-                        <span class="text-gray-300 text-sm">법정감사</span>
-                    </li>
-                </ul>
+                <!-- 추가 서비스 탭 -->
+                <div id="scaleupAdditionalTab" class="tab-content hidden">
+                    <div class="bg-rocket-orange bg-opacity-10 rounded-2xl p-4 mb-4">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-rocket-orange mb-1">
+                                별도 문의
+                            </div>
+                            <p class="text-xs text-gray-100">스케일업 플랜 추가 서비스</p>
+                            <p class="text-xs text-gray-400 mt-1">(VAT 별도)</p>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-rocket-orange mr-3 mt-1 text-sm"></i>
+                            <span class="text-gray-300 text-sm">재무제표 작성 지원 용역(PA)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-rocket-orange mr-3 mt-1 text-sm"></i>
+                            <span class="text-gray-300 text-sm">기업가치평가</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-rocket-orange mr-3 mt-1 text-sm"></i>
+                            <span class="text-gray-300 text-sm">임의 감사</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-rocket-orange mr-3 mt-1 text-sm"></i>
+                            <span class="text-gray-300 text-sm">법정감사</span>
+                        </li>
+                    </ul>
+                </div>
                 
                 <button onclick="if(window.openConsultModal){window.closeScaleupPlanModal(); window.openConsultModal();} return false;" class="w-full bg-rocket-orange text-white py-4 rounded-xl font-bold text-lg hover:shadow-xl transition">
                     상담 신청
@@ -2686,6 +2708,54 @@
                 console.log('Scale-up Plan modal closed successfully');
             }
         }
+
+        // Tab switching functions for Growth Plan
+        window.switchGrowthTab = function(tab) {
+            const basicTab = document.getElementById('growthBasicTab');
+            const additionalTab = document.getElementById('growthAdditionalTab');
+            const basicBtn = document.getElementById('growthTabBasic');
+            const additionalBtn = document.getElementById('growthTabAdditional');
+
+            if (tab === 'basic') {
+                basicTab.classList.remove('hidden');
+                additionalTab.classList.add('hidden');
+                basicBtn.classList.remove('bg-white', 'bg-opacity-20', 'text-white');
+                basicBtn.classList.add('bg-white', 'text-stellar-purple');
+                additionalBtn.classList.remove('bg-white', 'text-stellar-purple');
+                additionalBtn.classList.add('bg-white', 'bg-opacity-20', 'text-white');
+            } else {
+                basicTab.classList.add('hidden');
+                additionalTab.classList.remove('hidden');
+                basicBtn.classList.remove('bg-white', 'text-stellar-purple');
+                basicBtn.classList.add('bg-white', 'bg-opacity-20', 'text-white');
+                additionalBtn.classList.remove('bg-white', 'bg-opacity-20', 'text-white');
+                additionalBtn.classList.add('bg-white', 'text-stellar-purple');
+            }
+        }
+
+        // Tab switching functions for Scale-up Plan
+        window.switchScaleupTab = function(tab) {
+            const basicTab = document.getElementById('scaleupBasicTab');
+            const additionalTab = document.getElementById('scaleupAdditionalTab');
+            const basicBtn = document.getElementById('scaleupTabBasic');
+            const additionalBtn = document.getElementById('scaleupTabAdditional');
+
+            if (tab === 'basic') {
+                basicTab.classList.remove('hidden');
+                additionalTab.classList.add('hidden');
+                basicBtn.classList.remove('bg-white', 'bg-opacity-20', 'text-gray-300');
+                basicBtn.classList.add('bg-rocket-orange', 'text-white');
+                additionalBtn.classList.remove('bg-rocket-orange', 'text-white');
+                additionalBtn.classList.add('bg-white', 'bg-opacity-20', 'text-gray-300');
+            } else {
+                basicTab.classList.add('hidden');
+                additionalTab.classList.remove('hidden');
+                basicBtn.classList.remove('bg-rocket-orange', 'text-white');
+                basicBtn.classList.add('bg-white', 'bg-opacity-20', 'text-gray-300');
+                additionalBtn.classList.remove('bg-white', 'bg-opacity-20', 'text-gray-300');
+                additionalBtn.classList.add('bg-rocket-orange', 'text-white');
+            }
+        }
         
         // Log that functions are ready
         console.log('Modal functions loaded and ready!');
@@ -2694,6 +2764,8 @@
         console.log('window.openStarterPlanModal:', typeof window.openStarterPlanModal);
         console.log('window.openGrowthPlanModal:', typeof window.openGrowthPlanModal);
         console.log('window.openScaleupPlanModal:', typeof window.openScaleupPlanModal);
+        console.log('window.switchGrowthTab:', typeof window.switchGrowthTab);
+        console.log('window.switchScaleupTab:', typeof window.switchScaleupTab);
     </script>
     
     <script src="js/main.js"></script>

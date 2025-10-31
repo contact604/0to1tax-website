@@ -2,7 +2,7 @@
 
 **🚀 ZERO에서 ONE까지, 대형 회계법인 출신 전문가와 함께하세요**
 
-![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.27.0-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
+![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.28.0-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
 
 ---
 
@@ -349,6 +349,72 @@ GET /tables/consultations?sort=-created_at&limit=100
 ---
 
 ## 📊 버전 히스토리
+
+### Version 6.28.0 (2025-10-31) 📑 Modal Tabs UI!
+**🎨 모달 탭 구조 도입 - 모바일 최적화**
+
+**문제점:**
+- 그로스/스케일업 플랜 모달이 너무 길어서 한 화면에 안 들어옴
+- 특히 모바일에서 과도한 스크롤 필요
+- 기본 서비스 + 추가 서비스 = 긴 콘텐츠
+
+**해결 방법: 탭 구조 도입 ⭐**
+
+**그로스 플랜 모달:**
+```
+┌─────────────────────────────┐
+│  [기본 서비스] [추가 서비스]  │  ← 탭 버튼
+├─────────────────────────────┤
+│  18만원/월 (VAT 별도)        │
+│  엔터프라이즈 플랜 포함       │
+│                              │
+│  ✓ 9개 서비스               │
+└─────────────────────────────┘
+
+탭 전환 시:
+[기본 서비스] → 엔터프라이즈 9개 서비스
+[추가 서비스] → 그로스 전용 5개 서비스
+```
+
+**스케일업 플랜 모달:**
+```
+┌─────────────────────────────┐
+│  [기본 서비스] [추가 서비스]  │  ← 탭 버튼
+├─────────────────────────────┤
+│  18만원/월 (VAT 별도)        │
+│  엔터프라이즈 플랜 포함       │
+│                              │
+│  ✓ 9개 서비스               │
+└─────────────────────────────┘
+
+탭 전환 시:
+[기본 서비스] → 엔터프라이즈 9개 서비스
+[추가 서비스] → 스케일업 전용 4개 서비스
+```
+
+**탭 디자인:**
+- 활성 탭: 밝은 배경 + 진한 텍스트
+  - 그로스: 화이트 배경 + 퍼플 텍스트
+  - 스케일업: 오렌지 배경 + 화이트 텍스트
+- 비활성 탭: 투명 배경 + 밝은 텍스트
+- 부드러운 전환 애니메이션
+
+**JavaScript 함수:**
+- `switchGrowthTab('basic' | 'additional')` - 그로스 플랜 탭 전환
+- `switchScaleupTab('basic' | 'additional')` - 스케일업 플랜 탭 전환
+
+**개선 효과:**
+- ✅ 모달 높이 50% 감소
+- ✅ 모바일 스크롤 최소화
+- ✅ 한 화면에 모든 정보 표시
+- ✅ 깔끔한 UI/UX
+- ✅ 정보 탐색 용이
+
+**사용자 경험:**
+1. 모달 오픈 → 기본 서비스 탭 자동 선택
+2. [추가 서비스] 탭 클릭 → 즉시 전환
+3. 각 탭에서 독립적으로 정보 확인
+4. 상담 신청 버튼은 항상 하단 고정
 
 ### Version 6.27.0 (2025-10-31) 🧭 Navigation Restructure!
 **🎯 네비게이션 메뉴 구조 개편**

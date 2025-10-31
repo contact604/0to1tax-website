@@ -2,7 +2,7 @@
 
 **🚀 ZERO에서 ONE까지, 대형 회계법인 출신 전문가와 함께하세요**
 
-![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.16.0-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
+![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.16.2-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
 
 ---
 

@@ -61,9 +61,9 @@ published: true
 <div style="background: linear-gradient(135deg, #3B82F6, #8B5CF6) !important; color: white !important; padding: 1.25rem !important; border-radius: 0.75rem !important; margin: 1.5rem 0 !important;">
   <h4 style="margin: 0 0 0.75rem 0 !important; font-size: 1rem !important; color: white !important; font-weight: 700 !important;">🚀 Zero to One 솔루션</h4>
   <ul style="margin: 0 !important; padding-left: 2rem !important; line-height: 1.7 !important; font-size: 0.9rem !important; color: white !important; list-style-type: disc !important; list-style-position: outside !important;">
-    <li style="color: white !important; margin-bottom: 0.5rem !important;"><strong>투자계약서 분석</strong>: 자본/부채 분류 사전 검토</li>
-    <li style="color: white !important; margin-bottom: 0.5rem !important;"><strong>K-IFRS 기준 회계처리</strong>: 복합금융상품 분개 및 공시</li>
-    <li style="color: white !important;"><strong>시뮬레이션 제공</strong>: 자본 vs 부채 시나리오별 재무영향 분석</li>
+    <li style="color: white !important; margin-bottom: 0.5rem !important;"><strong style="color: white !important;">투자계약서 분석</strong>: 자본/부채 분류 사전 검토</li>
+    <li style="color: white !important; margin-bottom: 0.5rem !important;"><strong style="color: white !important;">K-IFRS 기준 회계처리</strong>: 복합금융상품 분개 및 공시</li>
+    <li style="color: white !important;"><strong style="color: white !important;">시뮬레이션 제공</strong>: 자본 vs 부채 시나리오별 재무영향 분석</li>
   </ul>
 </div>
 
@@ -100,10 +100,10 @@ RCPS(상환전환우선주)나 CB(전환사채)는 투자자에게는 안정적�
 <div style="background: linear-gradient(135deg, #8B5CF6, #EC4899) !important; color: white !important; padding: 1.25rem !important; border-radius: 0.75rem !important; margin: 1.5rem 0 !important;">
   <h4 style="margin: 0 0 0.75rem 0 !important; font-size: 1rem !important; color: white !important; font-weight: 700 !important;">🚀 Zero to One 솔루션</h4>
   <ul style="margin: 0 !important; padding-left: 2rem !important; line-height: 1.7 !important; font-size: 0.9rem !important; color: white !important; list-style-type: disc !important; list-style-position: outside !important;">
-    <li style="color: white !important; margin-bottom: 0.5rem !important;"><strong>파생상품평가 전문 검토</strong>: RCPS·CB·스톡옵션 등</li>
-    <li style="color: white !important; margin-bottom: 0.5rem !important;"><strong>세무조정계산서 작성</strong>: 익금불산입/손금불산입 정확 적용</li>
-    <li style="color: white !important; margin-bottom: 0.5rem !important;"><strong>법인세 신고 대행</strong>: 홈택스 전자신고 완료까지</li>
-    <li style="color: white !important;"><strong>사후관리</strong>: 세무조사 대비 근거자료 정리</li>
+    <li style="color: white !important; margin-bottom: 0.5rem !important;"><strong style="color: white !important;">파생상품평가 전문 검토</strong>: RCPS·CB·스톡옵션 등</li>
+    <li style="color: white !important; margin-bottom: 0.5rem !important;"><strong style="color: white !important;">세무조정계산서 작성</strong>: 익금불산입/손금불산입 정확 적용</li>
+    <li style="color: white !important; margin-bottom: 0.5rem !important;"><strong style="color: white !important;">법인세 신고 대행</strong>: 홈택스 전자신고 완료까지</li>
+    <li style="color: white !important;"><strong style="color: white !important;">사후관리</strong>: 세무조사 대비 근거자료 정리</li>
   </ul>
 </div>
 
@@ -129,10 +129,6 @@ RCPS(상환전환우선주)나 CB(전환사채)는 투자자에게는 안정적�
       <td style="padding: 0.75rem 0.5rem; border-bottom: 1px solid #BFDBFE; font-size: 0.875rem; color: #1F2937;">부당행위계산 부인 → 인건비 손금불산입 리스크</td>
     </tr>
     <tr style="background: white;">
-      <td style="padding: 0.75rem 0.5rem; border-bottom: 1px solid #BFDBFE; font-size: 0.875rem; color: #1F2937;"><strong>급여를 너무 낮게 책정</strong></td>
-      <td style="padding: 0.75rem 0.5rem; border-bottom: 1px solid #BFDBFE; font-size: 0.875rem; color: #1F2937;">배당으로 간주 → 이중과세 위험 (법인세 + 소득세)</td>
-    </tr>
-    <tr style="background: #EFF6FF;">
       <td style="padding: 0.75rem 0.5rem; font-size: 0.875rem; color: #1F2937;"><strong>배당금만 지급</strong></td>
       <td style="padding: 0.75rem 0.5rem; font-size: 0.875rem; color: #1F2937;">소득세 15.4% + 법인세 이중 부담</td>
     </tr>
@@ -151,10 +147,9 @@ RCPS(상환전환우선주)나 CB(전환사채)는 투자자에게는 안정적�
 <div style="background: linear-gradient(135deg, #10B981, #059669) !important; color: white !important; padding: 1.25rem !important; border-radius: 0.75rem !important; margin: 1.5rem 0 !important;">
   <h4 style="margin: 0 0 0.75rem 0 !important; font-size: 1rem !important; color: white !important; font-weight: 700 !important;">🚀 Zero to One 솔루션</h4>
   <ul style="margin: 0 !important; padding-left: 2rem !important; line-height: 1.7 !important; font-size: 0.9rem !important; color: white !important; list-style-type: disc !important; list-style-position: outside !important;">
-    <li style="color: white !important; margin-bottom: 0.5rem !important;"><strong>최적 보수 시뮬레이션</strong>: 급여·성과급·배당 최적 배분</li>
-    <li style="color: white !important; margin-bottom: 0.5rem !important;"><strong>부당행위계산 검토</strong>: 국세청 적정성 기준 사전 분석</li>
-    <li style="color: white !important; margin-bottom: 0.5rem !important;"><strong>스톡옵션 연계 설계</strong>: 중장기 인센티브 구조화</li>
-    <li style="color: white !important;"><strong>세무조사 대비</strong>: 보수 책정 근거 문서화</li>
+    <li style="color: white !important; margin-bottom: 0.5rem !important;"><strong style="color: white !important;">최적 보수 시뮬레이션</strong>: 급여·성과급·배당 최적 배분</li>
+    <li style="color: white !important; margin-bottom: 0.5rem !important;"><strong style="color: white !important;">스톡옵션 연계 설계</strong>: 중장기 인센티브 구조화</li>
+    <li style="color: white !important;"><strong style="color: white !important;">세무조사 대비</strong>: 보수 책정 근거 문서화</li>
   </ul>
 </div>
 

@@ -1027,6 +1027,18 @@
                             </div>
                         </div>
                         
+                        <!-- Summary Box (Mobile Only - Shows before content) -->
+                        <div class="lg:hidden card-cosmic rounded-2xl p-6 mb-6">
+                            <h3 class="text-lg font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-clipboard-list mr-2 text-cosmic-blue"></i>
+                                요약
+                            </h3>
+                            <div id="articleSummaryMobile" class="space-y-3 text-sm text-gray-300 leading-relaxed">
+                                <!-- Summary will be loaded here from markdown frontmatter -->
+                                <p class="text-gray-400 italic">요약 정보가 없습니다</p>
+                            </div>
+                        </div>
+                        
                         <!-- Article Body -->
                         <div class="card-cosmic rounded-2xl p-8 lg:p-12 mb-8">
                             <div id="articleBody" class="content-body">
@@ -1035,8 +1047,8 @@
                         </div>
                     </div>
                     
-                    <!-- Summary (Right Sidebar) -->
-                    <div class="lg:col-span-3">
+                    <!-- Summary (Right Sidebar - Desktop Only) -->
+                    <div class="lg:col-span-3 hidden lg:block">
                         <div class="lg:sticky lg:top-24">
                             <div class="card-cosmic rounded-2xl p-6 mb-6">
                                 <h3 class="text-lg font-bold text-white mb-4 flex items-center">
@@ -1546,11 +1558,13 @@
             
             // Display summary (if available)
             const summaryContainer = document.getElementById('articleSummary');
+            const summaryContainerMobile = document.getElementById('articleSummaryMobile');
+            
             if (post.summary && post.summary.trim()) {
                 // Split by newline or bullet points
                 const summaryLines = post.summary.split('\n').filter(line => line.trim());
                 if (summaryLines.length > 0) {
-                    summaryContainer.innerHTML = summaryLines.map(line => {
+                    const summaryHTML = summaryLines.map(line => {
                         // Check if line starts with bullet point or number
                         const trimmedLine = line.trim();
                         if (trimmedLine.startsWith('-') || trimmedLine.startsWith('•') || /^\d+\./.test(trimmedLine)) {
@@ -1562,11 +1576,16 @@
                             return `<p class="text-gray-300 leading-relaxed mb-2">${trimmedLine}</p>`;
                         }
                     }).join('');
+                    
+                    summaryContainer.innerHTML = summaryHTML;
+                    summaryContainerMobile.innerHTML = summaryHTML;
                 } else {
                     summaryContainer.innerHTML = '<p class="text-gray-400 italic">요약 정보가 없습니다</p>';
+                    summaryContainerMobile.innerHTML = '<p class="text-gray-400 italic">요약 정보가 없습니다</p>';
                 }
             } else {
                 summaryContainer.innerHTML = '<p class="text-gray-400 italic">요약 정보가 없습니다</p>';
+                summaryContainerMobile.innerHTML = '<p class="text-gray-400 italic">요약 정보가 없습니다</p>';
             }
             
             // Load related articles

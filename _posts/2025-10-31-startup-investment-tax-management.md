@@ -2,7 +2,7 @@
 title: "투자 받은 법인, 법인세 신고 시 반드시 조심해야 할 3가지"
 date: 2025-10-31 10:00:00
 author: "Zero to one TAX"
-category: "스타트업"
+category: "회계"
 tags:
   - 스타트업투자
   - RCPS
@@ -18,9 +18,9 @@ tags:
 excerpt: "투자금 회계처리 방법에 따라 자본이 될 수도 부채가 될 수도 있습니다. 투자 받은 법인이 법인세 신고 시 반드시 조심해야 할 3가지 핵심 포인트를 정리했습니다."
 thumbnail: "/images/blog/investment-tax-management.jpg"
 summary: |
-  - KIFRS 적용 기업은 RCPS, CPS 투자를 부채로 보는 경우가 많아요
-  - KIFRS 적용 기업이 RCPS 등 전환형 증권으로 투자 받는 경우 손익 변동성이 커져요
-  - 투자금 수취 후 대표자 급여, 배당 지급에는 계획이 필요해요
+  • KIFRS 적용 기업은 RCPS, CPS 투자를 부채로 보는 경우가 많아요
+  • KIFRS 적용 기업이 RCPS 등 전환형 증권으로 투자 받는 경우 손익 변동성이 커져요
+  • 투자금 수취 후 대표자 급여, 배당 지급에는 계획이 필요해요
 published: true
 ---
 

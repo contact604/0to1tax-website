@@ -2,7 +2,7 @@
 title: "투자 받은 법인, 법인세 신고 시 반드시 조심해야 할 3가지"
 date: 2025-10-31 10:00:00
 author: "Zero to one TAX"
-category: "스타트업"
+category: "회계"
 tags:
   - 스타트업투자
   - RCPS

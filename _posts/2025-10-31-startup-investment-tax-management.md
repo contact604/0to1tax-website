@@ -156,12 +156,12 @@ published: true
 
 ### 왜 문제가 되는가?
 
-RCPS나 CB(전환사채)를 발행하면 **매 결산 시점마다** 공정가치를 재평가해야 합니다.
+한국채택국제회계기준 적용시 RCPS나 CB(전환사채)를 발행하면 **매 결산 시점마다** 공정가치를 재평가해야 합니다.
 
 <div style="background: #FEF3C7; padding: 1.5rem; border-radius: 0.75rem; border-left: 4px solid #F59E0B; margin: 2rem 0;">
   <p style="margin: 0; font-weight: 600; color: #92400E;">⚠️ 자본변동성 증가</p>
   <ul style="margin: 0.5rem 0 0 0; padding-left: 1.5rem; color: #78350F;">
-    <li><strong>회계</strong>: 평가손익을 손익계산서에 반영>이익잉여금 변동성커짐</li>
+    <li><strong>회계</strong>: 평가손익을 손익계산서에 반영 > 이익잉여금 변동성 커짐</li>
   </ul>
 </div>
 
@@ -174,17 +174,15 @@ RCPS나 CB(전환사채)를 발행하면 **매 결산 시점마다** 공정가�
 | **회계상 당기순이익** | 3억원 | 손익계산서 기준 |
 | **파생상품평가손실** | -4억원 | 공정가치 하락 (미실현) |
 
-✅ **스타트업의 기업가치가 상승하는 것이 일반적이므로 미실현 손실 발생**
-
-
-</div>
+✅ **스타트업의 기업가치가 상승하는 것이 일반적이므로 미실현 손실 발생**  
+✅ **투자자 유치시 손익계산서상 미실현 손실이 반영되어 실제 실적보다 저조해 보이는 이슈 발생**
 
 ### 💡 Zero to One 솔루션
 
 <div style="background: linear-gradient(135deg, #8B5CF6, #EC4899); color: white; padding: 1.25rem; border-radius: 0.75rem; margin: 1.5rem 0;">
-  <h4 style="margin: 0 0 0.75rem 0; font-size: 1.1rem;">🚀 세무조정 검토 및 신고 지원</h4>
+  <h4 style="margin: 0 0 0.75rem 0; font-size: 1.1rem;">🚀 RCPS 평가시 가능한 시뮬레이션 검토 후 향후 손익 변동성 제안</h4>
   <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.7; font-size: 0.9rem;">
-    <li><strong>파생상품평가 전문 검토</strong>: RCPS·CB·스톡옵션 등</li>
+    <li><strong>파생상품평가 전문 검토</strong>: RCPS·CB·스톡옵션 등 > 추후 손익 변동성 예측 가능</li>
     <li><strong>세무조정계산서 작성</strong>: 익금불산입/손금불산입 정확 적용</li>
     <li><strong>법인세 신고 대행</strong>: 홈택스 전자신고 완료까지</li>
     <li><strong>사후관리</strong>: 세무조사 대비 근거자료 정리</li>
@@ -197,99 +195,101 @@ RCPS나 CB(전환사채)를 발행하면 **매 결산 시점마다** 공정가�
 
 ### ⚖️ 급여와 배당, 무엇이 다른가?
 
-<table style="width: 100%; border-collapse: collapse; margin: 2rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+<div style="overflow-x: auto; margin: 2rem 0;">
+<table style="width: 100%; min-width: 500px; border-collapse: collapse; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
   <thead>
     <tr style="background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white;">
-      <th style="padding: 1rem; text-align: center; width: 20%;">구분</th>
-      <th style="padding: 1rem; text-align: center;">급여 💼</th>
-      <th style="padding: 1rem; text-align: center;">배당 💰</th>
+      <th style="padding: 0.75rem 0.5rem; text-align: center; font-size: 0.9rem;">구분</th>
+      <th style="padding: 0.75rem 0.5rem; text-align: center; font-size: 0.9rem;">급여 💼</th>
+      <th style="padding: 0.75rem 0.5rem; text-align: center; font-size: 0.9rem;">배당 💰</th>
     </tr>
   </thead>
   <tbody>
     <tr style="background: white;">
-      <td style="padding: 1rem; border-bottom: 1px solid #E5E7EB; font-weight: 600;">성격</td>
-      <td style="padding: 1rem; border-bottom: 1px solid #E5E7EB;">비용 (손금산입)</td>
-      <td style="padding: 1rem; border-bottom: 1px solid #E5E7EB;">이익 분배</td>
+      <td style="padding: 0.75rem 0.5rem; border-bottom: 1px solid #E5E7EB; font-weight: 600; font-size: 0.85rem;">성격</td>
+      <td style="padding: 0.75rem 0.5rem; border-bottom: 1px solid #E5E7EB; font-size: 0.85rem;">비용 (손금산입)</td>
+      <td style="padding: 0.75rem 0.5rem; border-bottom: 1px solid #E5E7EB; font-size: 0.85rem;">이익 분배</td>
     </tr>
     <tr style="background: #F9FAFB;">
-      <td style="padding: 1rem; border-bottom: 1px solid #E5E7EB; font-weight: 600;">법인세</td>
-      <td style="padding: 1rem; border-bottom: 1px solid #E5E7EB;">✅ 과세표준 감소</td>
-      <td style="padding: 1rem; border-bottom: 1px solid #E5E7EB;">❌ 영향 없음</td>
+      <td style="padding: 0.75rem 0.5rem; border-bottom: 1px solid #E5E7EB; font-weight: 600; font-size: 0.85rem;">법인세</td>
+      <td style="padding: 0.75rem 0.5rem; border-bottom: 1px solid #E5E7EB; font-size: 0.85rem;">✅ 과세표준 감소</td>
+      <td style="padding: 0.75rem 0.5rem; border-bottom: 1px solid #E5E7EB; font-size: 0.85rem;">❌ 영향 없음</td>
     </tr>
     <tr style="background: white;">
-      <td style="padding: 1rem; border-bottom: 1px solid #E5E7EB; font-weight: 600;">소득세</td>
-      <td style="padding: 1rem; border-bottom: 1px solid #E5E7EB;">근로소득세 (6~45% 누진)</td>
-      <td style="padding: 1rem; border-bottom: 1px solid #E5E7EB;">배당소득세 (15.4% 분리과세)</td>
+      <td style="padding: 0.75rem 0.5rem; border-bottom: 1px solid #E5E7EB; font-weight: 600; font-size: 0.85rem;">소득세</td>
+      <td style="padding: 0.75rem 0.5rem; border-bottom: 1px solid #E5E7EB; font-size: 0.85rem;">근로소득세 (6~45% 누진)</td>
+      <td style="padding: 0.75rem 0.5rem; border-bottom: 1px solid #E5E7EB; font-size: 0.85rem;">배당소득세 (15.4% 분리과세)</td>
     </tr>
     <tr style="background: #F9FAFB;">
-      <td style="padding: 1rem; border-bottom: 1px solid #E5E7EB; font-weight: 600;">이중과세</td>
-      <td style="padding: 1rem; border-bottom: 1px solid #E5E7EB;">✅ 없음</td>
-      <td style="padding: 1rem; border-bottom: 1px solid #E5E7EB;">❌ 법인세 + 배당세</td>
+      <td style="padding: 0.75rem 0.5rem; border-bottom: 1px solid #E5E7EB; font-weight: 600; font-size: 0.85rem;">이중과세</td>
+      <td style="padding: 0.75rem 0.5rem; border-bottom: 1px solid #E5E7EB; font-size: 0.85rem;">✅ 없음</td>
+      <td style="padding: 0.75rem 0.5rem; border-bottom: 1px solid #E5E7EB; font-size: 0.85rem;">❌ 법인세 + 배당세</td>
     </tr>
     <tr style="background: white;">
-      <td style="padding: 1rem; font-weight: 600;">4대보험</td>
-      <td style="padding: 1rem;">✅ 가입 (노후 보장)</td>
-      <td style="padding: 1rem;">❌ 해당 없음</td>
+      <td style="padding: 0.75rem 0.5rem; font-weight: 600; font-size: 0.85rem;">4대보험</td>
+      <td style="padding: 0.75rem 0.5rem; font-size: 0.85rem;">✅ 가입 (노후 보장)</td>
+      <td style="padding: 0.75rem 0.5rem; font-size: 0.85rem;">❌ 해당 없음</td>
     </tr>
   </tbody>
 </table>
+</div>
 
 ### 💰 시뮬레이션: 연봉 1억원 vs 배당 1억원
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0;">
   
   <div style="background: linear-gradient(135deg, #EFF6FF, #DBEAFE); padding: 1.25rem; border-radius: 0.75rem; border: 2px solid #3B82F6;">
     <h4 style="margin: 0 0 0.75rem 0; color: #1E40AF; font-size: 1.1rem;">💼 급여 1억원</h4>
-    <div style="margin-bottom: 1rem;">
-      <div style="color: #1E3A8A; font-weight: 600;">법인세 절감</div>
-      <div style="font-size: 1.5rem; font-weight: 700; color: #3B82F6;">-2,200만원</div>
-      <div style="font-size: 0.85rem; color: #60A5FA;">(법인 과세표준 1억 감소)</div>
+    <div style="margin-bottom: 0.75rem;">
+      <div style="color: #1E3A8A; font-weight: 600; font-size: 0.85rem;">법인세 절감</div>
+      <div style="font-size: 1.3rem; font-weight: 700; color: #3B82F6;">-2,200만원</div>
+      <div style="font-size: 0.75rem; color: #60A5FA;">(법인 과세표준 1억 감소)</div>
     </div>
-    <div style="margin-bottom: 1rem;">
-      <div style="color: #1E3A8A; font-weight: 600;">개인 소득세</div>
-      <div style="font-size: 1.5rem; font-weight: 700; color: #3B82F6;">-2,400만원</div>
-      <div style="font-size: 0.85rem; color: #60A5FA;">(근로소득 공제 후)</div>
+    <div style="margin-bottom: 0.75rem;">
+      <div style="color: #1E3A8A; font-weight: 600; font-size: 0.85rem;">개인 소득세</div>
+      <div style="font-size: 1.3rem; font-weight: 700; color: #3B82F6;">-2,400만원</div>
+      <div style="font-size: 0.75rem; color: #60A5FA;">(근로소득 공제 후)</div>
     </div>
-    <hr style="border: 1px solid #BFDBFE; margin: 1rem 0;">
+    <hr style="border: 1px solid #BFDBFE; margin: 0.75rem 0;">
     <div>
-      <div style="color: #1E3A8A; font-weight: 600;">실수령액</div>
-      <div style="font-size: 1.8rem; font-weight: 700; color: #1E40AF;">7,600만원</div>
+      <div style="color: #1E3A8A; font-weight: 600; font-size: 0.85rem;">실수령액</div>
+      <div style="font-size: 1.5rem; font-weight: 700; color: #1E40AF;">7,600만원</div>
     </div>
   </div>
 
   <div style="background: linear-gradient(135deg, #FEE2E2, #FECACA); padding: 1.25rem; border-radius: 0.75rem; border: 2px solid #EF4444;">
     <h4 style="margin: 0 0 0.75rem 0; color: #991B1B; font-size: 1.1rem;">💰 배당 1억원</h4>
-    <div style="margin-bottom: 1rem;">
-      <div style="color: #7F1D1D; font-weight: 600;">법인세 (22%)</div>
-      <div style="font-size: 1.5rem; font-weight: 700; color: #DC2626;">-2,200만원</div>
-      <div style="font-size: 0.85rem; color: #F87171;">(과세표준 1억 유지)</div>
+    <div style="margin-bottom: 0.75rem;">
+      <div style="color: #7F1D1D; font-weight: 600; font-size: 0.85rem;">법인세 (22%)</div>
+      <div style="font-size: 1.3rem; font-weight: 700; color: #DC2626;">-2,200만원</div>
+      <div style="font-size: 0.75rem; color: #F87171;">(과세표준 1억 유지)</div>
     </div>
-    <div style="margin-bottom: 1rem;">
-      <div style="color: #7F1D1D; font-weight: 600;">배당소득세 (15.4%)</div>
-      <div style="font-size: 1.5rem; font-weight: 700; color: #DC2626;">-1,540만원</div>
-      <div style="font-size: 0.85rem; color: #F87171;">(원천징수)</div>
+    <div style="margin-bottom: 0.75rem;">
+      <div style="color: #7F1D1D; font-weight: 600; font-size: 0.85rem;">배당소득세 (15.4%)</div>
+      <div style="font-size: 1.3rem; font-weight: 700; color: #DC2626;">-1,540만원</div>
+      <div style="font-size: 0.75rem; color: #F87171;">(원천징수)</div>
     </div>
-    <hr style="border: 1px solid #FCA5A5; margin: 1rem 0;">
+    <hr style="border: 1px solid #FCA5A5; margin: 0.75rem 0;">
     <div>
-      <div style="color: #7F1D1D; font-weight: 600;">실수령액</div>
-      <div style="font-size: 1.8rem; font-weight: 700; color: #991B1B;">6,260만원</div>
+      <div style="color: #7F1D1D; font-weight: 600; font-size: 0.85rem;">실수령액</div>
+      <div style="font-size: 1.5rem; font-weight: 700; color: #991B1B;">6,260만원</div>
     </div>
   </div>
 
 </div>
 
-<div style="background: #ECFDF5; padding: 1.5rem; border-radius: 0.75rem; border-left: 4px solid #10B981; margin: 2rem 0; text-align: center;">
-  <p style="margin: 0; font-size: 1.3rem; font-weight: 700; color: #065F46;">
+<div style="background: #ECFDF5; padding: 1.25rem; border-radius: 0.75rem; border-left: 4px solid #10B981; margin: 2rem 0; text-align: center;">
+  <p style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #065F46;">
     💡 급여가 배당보다 <span style="color: #10B981;">1,340만원</span> 더 유리!
   </p>
-  <p style="margin: 0.5rem 0 0 0; color: #047857;">
+  <p style="margin: 0.5rem 0 0 0; color: #047857; font-size: 0.9rem;">
     (법인세 절감 효과 + 개인 세부담 차이)
   </p>
 </div>
 
 ### ⚠️ 잘못된 설계의 실제 사례
 
-<div style="background: #FEE2E2; padding: 1.5rem; border-radius: 0.75rem; margin: 2rem 0;">
+<div style="background: #FEE2E2; padding: 1.25rem; border-radius: 0.75rem; margin: 2rem 0;">
 
 **Case 1: 급여 과도 인상**
 - C사 대표, 연봉 3억원으로 급격 인상

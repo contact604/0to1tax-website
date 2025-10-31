@@ -1432,13 +1432,13 @@
             let isMultiLine = false;
             
             lines.forEach(line => {
-                if (line.startsWith('  - ')) {
-                    const arrayValue = line.replace('  - ', '').trim();
+                if (line.startsWith('  - ') || line.startsWith('  • ')) {
+                    const arrayValue = line.replace(/^  [-•] /, '').trim();
                     if (currentKey && Array.isArray(metadata[currentKey])) {
                         metadata[currentKey].push(arrayValue);
                     } else if (currentKey && isMultiLine) {
                         // Multi-line string (like summary with |)
-                        metadata[currentKey] = (metadata[currentKey] || '') + arrayValue + '\n';
+                        metadata[currentKey] = (metadata[currentKey] || '') + line.trim() + '\n';
                     }
                 } else if (line.includes(':')) {
                     const colonIndex = line.indexOf(':');

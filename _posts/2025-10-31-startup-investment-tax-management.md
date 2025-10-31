@@ -34,8 +34,6 @@ published: true
 
 **읽는 시간: 약 5분** | **난이도: ⭐⭐⭐☆☆** | **대상: 투자 유치 후 스타트업 대표·CFO**
 
----
-
 ## 1️⃣ 투자금이 '자본'인지 '부채'인지 구분해야 합니다
 
 투자금은 대부분 자본 거래로 분류되지만, **K-IFRS 기준에 따르면 RCPS, CPS는 부채로 보는 경우가 일반적**입니다.
@@ -62,136 +60,62 @@ published: true
 
 즉, 단순히 "투자금이 들어왔다"는 이유만으로 자본으로 보기 어렵고, 투자계약서 조항에 따라 부채로 보는 경우가 있어 재무약정비율 준수 등에서 불리한 위치에 설 가능성도 있습니다.
 
-<div style="background: linear-gradient(135deg, #3B82F6, #8B5CF6) !important; color: white !important; padding: 0.75rem !important; border-radius: 0.5rem !important; margin: 0.75rem 0 !important;">
-  <h4 style="margin: 0 0 0.5rem 0 !important; font-size: 0.9rem !important; color: white !important; font-weight: 700 !important;">🚀 Zero to One 솔루션</h4>
-  <ul style="margin: 0 !important; padding-left: 1.5rem !important; line-height: 1.4 !important; font-size: 0.8rem !important; color: white !important; list-style-type: disc !important; list-style-position: outside !important;">
-    <li style="color: white !important; margin-bottom: 0.25rem !important;"><strong style="color: white !important;">투자계약서 분석</strong>: 자본/부채 분류 사전 검토</li>
-    <li style="color: white !important; margin-bottom: 0.25rem !important;"><strong style="color: white !important;">K-IFRS 기준 회계처리</strong>: 복합금융상품 분개 및 공시</li>
+<div style="background: linear-gradient(135deg, #3B82F6, #8B5CF6) !important; color: white !important; padding: 0.625rem !important; border-radius: 0.375rem !important; margin: 0.5rem 0 !important;">
+  <h4 style="margin: 0 0 0.375rem 0 !important; font-size: 0.8rem !important; color: white !important; font-weight: 700 !important;">🚀 Zero to One 솔루션</h4>
+  <ul style="margin: 0 !important; padding-left: 1.25rem !important; line-height: 1.3 !important; font-size: 0.75rem !important; color: white !important; list-style-type: disc !important; list-style-position: outside !important;">
+    <li style="color: white !important; margin-bottom: 0.125rem !important;"><strong style="color: white !important;">투자계약서 분석</strong>: 자본/부채 분류 사전 검토</li>
+    <li style="color: white !important; margin-bottom: 0.125rem !important;"><strong style="color: white !important;">K-IFRS 기준 회계처리</strong>: 복합금융상품 분개 및 공시</li>
     <li style="color: white !important;"><strong style="color: white !important;">시뮬레이션 제공</strong>: 자본 vs 부채 시나리오별 재무영향 분석</li>
   </ul>
 </div>
-
----
 
 ## 2️⃣ RCPS·CB 등 전환형 증권은 '파생상품평가손익'을 반드시 조정해야 합니다
 
 RCPS(상환전환우선주)나 CB(전환사채)는 투자자에게는 안정적이지만, 발행법인 입장에서는 매 결산 시 **공정가치평가 손익**이 발생합니다.
 
-### 주요 이슈
+**주요 이슈:**
 
-<div style="background: #F3F4F6 !important; padding: 0.75rem !important; border-radius: 0.5rem !important; margin: 0.75rem 0 !important; color: #1F2937 !important;">
+• 공정가치평가 손익이 손익계산서에 계상되어 실제 영업 실적과 무관하게 당기순이익 변동  
+• 세법상 **미실현손익 제외** 필요 → 세무조정 누락 시 과세표준 왜곡 및 세무조사 리스크
 
-<p style="font-weight: 700 !important; margin: 0 0 0.375rem 0 !important; color: #1F2937 !important; font-size: 0.875rem !important;">1. 재무 실적 왜곡</p>
-<ul style="list-style-type: disc !important; padding-left: 1.5rem !important; margin: 0 0 0.75rem 0 !important; line-height: 1.4 !important; color: #1F2937 !important; list-style-position: outside !important; font-size: 0.875rem !important;">
-  <li style="color: #1F2937 !important; margin-bottom: 0.25rem !important;">공정가치평가 손익이 손익계산서에 계상</li>
-  <li style="color: #1F2937 !important; margin-bottom: 0.25rem !important;">실제 영업 실적과 무관하게 당기순이익 변동</li>
-  <li style="color: #1F2937 !important;">투자유치 시 재무 실적이 나빠 보이는 효과</li>
-</ul>
-
-<p style="font-weight: 700 !important; margin: 0 0 0.375rem 0 !important; color: #1F2937 !important; font-size: 0.875rem !important;">2. 세무조정 필수</p>
-<ul style="list-style-type: disc !important; padding-left: 1.5rem !important; margin: 0 !important; line-height: 1.4 !important; color: #1F2937 !important; list-style-position: outside !important; font-size: 0.875rem !important;">
-  <li style="color: #1F2937 !important; margin-bottom: 0.25rem !important;">세법상 <strong>미실현손익 제외</strong> 필요</li>
-  <li style="color: #1F2937 !important;">공정가치 평가손익에 대한 세무조정 누락 시:
-    <ul style="list-style-type: circle !important; padding-left: 1.5rem !important; margin-top: 0.25rem !important; color: #1F2937 !important; list-style-position: outside !important; font-size: 0.875rem !important;">
-      <li style="color: #1F2937 !important; margin-bottom: 0.125rem !important;">과세표준 왜곡</li>
-      <li style="color: #1F2937 !important;">세무조사 리스크 증가</li>
-    </ul>
-  </li>
-</ul>
-
-</div>
-
-<div style="background: linear-gradient(135deg, #8B5CF6, #EC4899) !important; color: white !important; padding: 0.75rem !important; border-radius: 0.5rem !important; margin: 0.75rem 0 !important;">
-  <h4 style="margin: 0 0 0.5rem 0 !important; font-size: 0.9rem !important; color: white !important; font-weight: 700 !important;">🚀 Zero to One 솔루션</h4>
-  <ul style="margin: 0 !important; padding-left: 1.5rem !important; line-height: 1.4 !important; font-size: 0.8rem !important; color: white !important; list-style-type: disc !important; list-style-position: outside !important;">
-    <li style="color: white !important; margin-bottom: 0.25rem !important;"><strong style="color: white !important;">파생상품평가 전문 검토</strong>: RCPS·CB·스톡옵션 등</li>
-    <li style="color: white !important; margin-bottom: 0.25rem !important;"><strong style="color: white !important;">세무조정계산서 작성</strong>: 익금불산입/손금불산입 정확 적용</li>
-    <li style="color: white !important; margin-bottom: 0.25rem !important;"><strong style="color: white !important;">법인세 신고 대행</strong>: 홈택스 전자신고 완료까지</li>
+<div style="background: linear-gradient(135deg, #8B5CF6, #EC4899) !important; color: white !important; padding: 0.625rem !important; border-radius: 0.375rem !important; margin: 0.5rem 0 !important;">
+  <h4 style="margin: 0 0 0.375rem 0 !important; font-size: 0.8rem !important; color: white !important; font-weight: 700 !important;">🚀 Zero to One 솔루션</h4>
+  <ul style="margin: 0 !important; padding-left: 1.25rem !important; line-height: 1.3 !important; font-size: 0.75rem !important; color: white !important; list-style-type: disc !important; list-style-position: outside !important;">
+    <li style="color: white !important; margin-bottom: 0.125rem !important;"><strong style="color: white !important;">파생상품평가 전문 검토</strong>: RCPS·CB·스톡옵션 등</li>
+    <li style="color: white !important; margin-bottom: 0.125rem !important;"><strong style="color: white !important;">세무조정계산서 작성</strong>: 익금불산입/손금불산입 정확 적용</li>
+    <li style="color: white !important; margin-bottom: 0.125rem !important;"><strong style="color: white !important;">법인세 신고 대행</strong>: 홈택스 전자신고 완료까지</li>
     <li style="color: white !important;"><strong style="color: white !important;">사후관리</strong>: 세무조사 대비 근거자료 정리</li>
   </ul>
 </div>
-
----
 
 ## 3️⃣ 투자금 받은 후, 대표 급여와 배당 설계는 '세금의 분기점'
 
 투자금을 받으면 자금 여유가 생기지만, 대표이사 급여나 배당금 설계를 잘못하면 오히려 세금이 급증할 수 있습니다.
 
-### ⚠️ 잘못된 설계의 리스크
-
-<div style="overflow-x: auto; margin: 0.75rem 0; -webkit-overflow-scrolling: touch;">
-<table style="width: 100%; min-width: 350px; border-collapse: collapse; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-  <thead>
-    <tr style="background: #3B82F6; color: white;">
-      <th style="padding: 0.5rem 0.375rem; text-align: left; font-size: 0.8rem;">잘못된 설계</th>
-      <th style="padding: 0.5rem 0.375rem; text-align: left; font-size: 0.8rem;">발생 문제</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="background: #EFF6FF;">
-      <td style="padding: 0.5rem 0.375rem; border-bottom: 1px solid #BFDBFE; font-size: 0.8rem; color: #1F2937;"><strong>급여를 너무 높게 책정</strong></td>
-      <td style="padding: 0.5rem 0.375rem; border-bottom: 1px solid #BFDBFE; font-size: 0.8rem; color: #1F2937;">부당행위계산 부인 → 인건비 손금불산입 리스크</td>
-    </tr>
-    <tr style="background: white;">
-      <td style="padding: 0.5rem 0.375rem; font-size: 0.8rem; color: #1F2937;"><strong>배당금만 지급</strong></td>
-      <td style="padding: 0.5rem 0.375rem; font-size: 0.8rem; color: #1F2937;">소득세 15.4% + 법인세 이중 부담</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-### 올바른 설계 원칙
-
-> 💬 **"급여는 비용, 배당은 이익분배입니다. 둘의 균형이 투자 이후 세금 구조를 좌우합니다."**
-
-즉, 투자금이 들어왔다고 바로 보수를 늘리면 안 됩니다.
+**⚠️ 잘못된 설계:**  
+• 급여를 너무 높게 책정 → 부당행위계산 부인 리스크  
+• 배당금만 지급 → 소득세 15.4% + 법인세 이중 부담
 
 세법상 **"적정 보수" 수준**을 유지하면서, 성과보수·배당 등을 **지속 가능한 구조로 설계**해야 절세 효과가 극대화됩니다.
 
-<div style="background: linear-gradient(135deg, #10B981, #059669) !important; color: white !important; padding: 0.75rem !important; border-radius: 0.5rem !important; margin: 0.75rem 0 !important;">
-  <h4 style="margin: 0 0 0.5rem 0 !important; font-size: 0.9rem !important; color: white !important; font-weight: 700 !important;">🚀 Zero to One 솔루션</h4>
-  <ul style="margin: 0 !important; padding-left: 1.5rem !important; line-height: 1.4 !important; font-size: 0.8rem !important; color: white !important; list-style-type: disc !important; list-style-position: outside !important;">
-    <li style="color: white !important; margin-bottom: 0.25rem !important;"><strong style="color: white !important;">최적 보수 시뮬레이션</strong>: 급여·성과급·배당 최적 배분</li>
-    <li style="color: white !important; margin-bottom: 0.25rem !important;"><strong style="color: white !important;">스톡옵션 연계 설계</strong>: 중장기 인센티브 구조화</li>
+<div style="background: linear-gradient(135deg, #10B981, #059669) !important; color: white !important; padding: 0.625rem !important; border-radius: 0.375rem !important; margin: 0.5rem 0 !important;">
+  <h4 style="margin: 0 0 0.375rem 0 !important; font-size: 0.8rem !important; color: white !important; font-weight: 700 !important;">🚀 Zero to One 솔루션</h4>
+  <ul style="margin: 0 !important; padding-left: 1.25rem !important; line-height: 1.3 !important; font-size: 0.75rem !important; color: white !important; list-style-type: disc !important; list-style-position: outside !important;">
+    <li style="color: white !important; margin-bottom: 0.125rem !important;"><strong style="color: white !important;">최적 보수 시뮬레이션</strong>: 급여·성과급·배당 최적 배분</li>
+    <li style="color: white !important; margin-bottom: 0.125rem !important;"><strong style="color: white !important;">스톡옵션 연계 설계</strong>: 중장기 인센티브 구조화</li>
     <li style="color: white !important;"><strong style="color: white !important;">세무조사 대비</strong>: 보수 책정 근거 문서화</li>
   </ul>
 </div>
 
----
-
 ## 🧭 정리: 투자 받은 법인의 세무 체크리스트
 
-<div style="background: #F3F4F6 !important; padding: 0.75rem !important; border-radius: 0.5rem !important; margin: 1rem 0 !important;">
-  <h4 style="margin: 0 0 0.625rem 0 !important; color: #1F2937 !important; font-size: 0.9rem !important; font-weight: 700 !important;">법인세 신고 전 필수 점검 3가지</h4>
-  <div style="background: white !important; padding: 0.625rem !important; border-radius: 0.375rem !important; margin-bottom: 0.5rem !important; border-left: 3px solid #3B82F6 !important;">
-    <div style="font-weight: 700 !important; color: #1F2937 !important; margin-bottom: 0.25rem !important; font-size: 0.8rem !important;">✅ 투자금 회계처리가 올바른가?</div>
-    <div style="font-size: 0.75rem !important; color: #4B5563 !important; line-height: 1.4 !important;">자본 vs 부채 분류 확인, K-IFRS 기준 적용 검토</div>
-  </div>
-  <div style="background: white !important; padding: 0.625rem !important; border-radius: 0.375rem !important; margin-bottom: 0.5rem !important; border-left: 3px solid #8B5CF6 !important;">
-    <div style="font-weight: 700 !important; color: #1F2937 !important; margin-bottom: 0.25rem !important; font-size: 0.8rem !important;">✅ RCPS·CB 평가손익 조정이 반영되었는가?</div>
-    <div style="font-size: 0.75rem !important; color: #4B5563 !important; line-height: 1.4 !important;">파생상품 손익조정표 확인, 세무조정 누락 방지</div>
-  </div>
-  <div style="background: white !important; padding: 0.625rem !important; border-radius: 0.375rem !important; border-left: 3px solid #10B981 !important;">
-    <div style="font-weight: 700 !important; color: #1F2937 !important; margin-bottom: 0.25rem !important; font-size: 0.8rem !important;">✅ 대표 급여·배당 설계가 적정한가?</div>
-    <div style="font-size: 0.75rem !important; color: #4B5563 !important; line-height: 1.4 !important;">적정 보수 수준 유지, 급여·배당 균형 설계</div>
-  </div>
-</div>
+**법인세 신고 전 필수 점검 3가지:**
 
-<div style="background: #FEE2E2 !important; padding: 0.75rem !important; border-radius: 0.5rem !important; border-left: 3px solid #EF4444 !important; margin: 1rem 0 !important;">
-  <p style="margin: 0 0 0.5rem 0 !important; font-weight: 600 !important; color: #1F2937 !important; font-size: 0.875rem !important;">⚠️ 이 세 가지를 놓치면</p>
-  <ul style="margin: 0 !important; padding-left: 1.5rem !important; color: #1F2937 !important; line-height: 1.4 !important; font-size: 0.8rem !important; list-style-type: disc !important; list-style-position: outside !important;">
-    <li style="color: #1F2937 !important; margin-bottom: 0.25rem !important;">세액이 불필요하게 늘어남</li>
-    <li style="color: #1F2937 !important; margin-bottom: 0.25rem !important;">재무약정비율 유지조항 위반</li>
-    <li style="color: #1F2937 !important; margin-bottom: 0.25rem !important;">세무조사 리스크 증가</li>
-    <li style="color: #1F2937 !important;">추가 투자 유치 시 불리</li>
-  </ul>
-</div>
+✅ **투자금 회계처리가 올바른가?** - 자본 vs 부채 분류 확인, K-IFRS 기준 적용 검토  
+✅ **RCPS·CB 평가손익 조정이 반영되었는가?** - 파생상품 손익조정표 확인, 세무조정 누락 방지  
+✅ **대표 급여·배당 설계가 적정한가?** - 적정 보수 수준 유지, 급여·배당 균형 설계
 
----
-
-
-
----
+**⚠️ 이 세 가지를 놓치면:** 세액이 불필요하게 늘어나고, 재무약정비율 유지조항 위반, 세무조사 리스크 증가, 추가 투자 유치 시 불리
 
 ## 자주 묻는 질문 (FAQ)
 

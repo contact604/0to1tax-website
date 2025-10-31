@@ -2,7 +2,19 @@
 
 **🚀 ZERO에서 ONE까지, 대형 회계법인 출신 전문가와 함께하세요**
 
-![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.28.0-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
+![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.29.0-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
+
+## 🆕 최신 업데이트 (v6.29.0)
+
+### 📱 모바일 UX 개선
+- ✅ **모바일 플로팅 상담 버튼 추가** - 모든 페이지에서 항상 따라다니는 상담 버튼
+- ✅ **블로그 모바일 최적화** - 한 화면에 50% 더 많은 콘텐츠 표시
+- ✅ **블로그 요약 위치 변경** - 모바일에서 제목 바로 다음에 요약 표시
+
+### 📝 블로그 콘텐츠 개선
+- ✅ **요약 포맷 개선** - 불릿 포인트에 파란색 닷(•) 표시
+- ✅ **카테고리 정리** - "회계" 카테고리로 블로그 글 재분류
+- ✅ **컴팩트 레이아웃** - 박스 크기, 여백, 폰트 크기 최적화
 
 ---
 

@@ -973,17 +973,18 @@
                         </div>
                     </div>
                     
-                    <!-- Table of Contents (Right Sidebar) -->
+                    <!-- Summary (Right Sidebar) -->
                     <div class="lg:col-span-3">
                         <div class="lg:sticky lg:top-24">
                             <div class="card-cosmic rounded-2xl p-6 mb-6">
                                 <h3 class="text-lg font-bold text-white mb-4 flex items-center">
-                                    <i class="fas fa-list-ul mr-2 text-cosmic-blue"></i>
-                                    목차
+                                    <i class="fas fa-clipboard-list mr-2 text-cosmic-blue"></i>
+                                    요약
                                 </h3>
-                                <nav id="tableOfContents" class="space-y-2 text-sm">
-                                    <!-- TOC will be generated here -->
-                                </nav>
+                                <div id="articleSummary" class="space-y-3 text-sm text-gray-300 leading-relaxed">
+                                    <!-- Summary will be loaded here from markdown frontmatter -->
+                                    <p class="text-gray-400 italic">요약 정보가 없습니다</p>
+                                </div>
                             </div>
                             
                             <!-- Consult CTA -->
@@ -1384,6 +1385,7 @@
                 tags: metadata.tags || [],
                 thumbnail: metadata.thumbnail || '',
                 excerpt: metadata.excerpt || '',
+                summary: metadata.summary || '',
                 body: body,
                 published: metadata.published !== 'false'
             };
@@ -1466,17 +1468,37 @@
                 ).join('');
             }
             
+            // Display summary (if available)
+            const summaryContainer = document.getElementById('articleSummary');
+            if (post.summary && post.summary.trim()) {
+                // Split by newline or bullet points
+                const summaryLines = post.summary.split('\n').filter(line => line.trim());
+                if (summaryLines.length > 0) {
+                    summaryContainer.innerHTML = summaryLines.map(line => {
+                        // Check if line starts with bullet point or number
+                        const trimmedLine = line.trim();
+                        if (trimmedLine.startsWith('-') || trimmedLine.startsWith('•') || /^\d+\./.test(trimmedLine)) {
+                            return `<div class="flex items-start gap-2 text-gray-300 leading-relaxed">
+                                <i class="fas fa-check-circle text-cosmic-blue mt-0.5 flex-shrink-0"></i>
+                                <span>${trimmedLine.replace(/^[-•]\s*|\d+\.\s*/, '')}</span>
+                            </div>`;
+                        } else {
+                            return `<p class="text-gray-300 leading-relaxed">${trimmedLine}</p>`;
+                        }
+                    }).join('');
+                } else {
+                    summaryContainer.innerHTML = '<p class="text-gray-400 italic">요약 정보가 없습니다</p>';
+                }
+            } else {
+                summaryContainer.innerHTML = '<p class="text-gray-400 italic">요약 정보가 없습니다</p>';
+            }
+            
             // Load related articles
             loadRelatedArticles(post.category, post.slug);
             
             // Show content
             document.getElementById('loading').classList.add('hidden');
             document.getElementById('articleContent').classList.remove('hidden');
-            
-            // Generate Table of Contents after content is displayed
-            setTimeout(() => {
-                generateTableOfContents();
-            }, 100);
         }
         
         // 날짜 포맷팅

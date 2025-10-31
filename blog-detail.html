@@ -1279,7 +1279,9 @@
                     })
                 );
                 
-                allPosts = posts.filter(post => post !== null && post.published).sort((a, b) => new Date(b.date) - new Date(a.date));
+                allPosts = posts.filter(post => post !== null && post.published !== false).sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                console.log(`✅ [Blog Detail] Total valid posts: ${allPosts.length}`);
                 
             } catch (error) {
                 console.error('블로그 포스트 로딩 실패:', error);

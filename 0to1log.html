@@ -555,8 +555,11 @@
                 );
                 
                 // null 제거 및 날짜순 정렬 (최신순)
-                allPosts = posts.filter(post => post !== null && post.published).sort((a, b) => new Date(b.date) - new Date(a.date));
+                allPosts = posts.filter(post => post !== null && post.published !== false).sort((a, b) => new Date(b.date) - new Date(a.date));
                 filteredPosts = [...allPosts];
+                
+                console.log(`✅ Total valid posts: ${allPosts.length}`);
+                console.log('Posts:', allPosts.map(p => ({ title: p.title, published: p.published })));
                 
                 // 게시글 렌더링
                 renderPosts();

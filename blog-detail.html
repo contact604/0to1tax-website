@@ -1489,12 +1489,12 @@
                         // Check if line starts with bullet point or number
                         const trimmedLine = line.trim();
                         if (trimmedLine.startsWith('-') || trimmedLine.startsWith('•') || /^\d+\./.test(trimmedLine)) {
-                            return `<div class="flex items-start gap-2 text-gray-300 leading-relaxed">
-                                <i class="fas fa-check-circle text-cosmic-blue mt-0.5 flex-shrink-0"></i>
+                            return `<div class="flex items-start gap-2.5 text-gray-300 leading-relaxed mb-2">
+                                <span class="text-cosmic-blue mt-0.5 flex-shrink-0 font-bold" style="min-width: 8px;">•</span>
                                 <span>${trimmedLine.replace(/^[-•]\s*|\d+\.\s*/, '')}</span>
                             </div>`;
                         } else {
-                            return `<p class="text-gray-300 leading-relaxed">${trimmedLine}</p>`;
+                            return `<p class="text-gray-300 leading-relaxed mb-2">${trimmedLine}</p>`;
                         }
                     }).join('');
                 } else {

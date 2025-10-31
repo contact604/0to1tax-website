@@ -2642,7 +2642,7 @@
     
     <!-- CEO Introduction Modal -->
     <div id="ceoModal" class="modal">
-        <div class="modal-content bg-gradient-to-br from-deep-space to-space-light rounded-3xl p-0 max-w-3xl w-full mx-4 shadow-2xl border-2 border-stellar-purple relative" style="max-height: 90vh; overflow-y: auto;">
+        <div class="modal-content bg-gradient-to-br from-deep-space to-space-light rounded-3xl p-0 max-w-3xl w-full mx-4 shadow-2xl relative" style="max-height: 90vh; overflow-y: auto;">
             <!-- 고정 X 버튼 -->
             <button onclick="if(window.closeCeoModal){window.closeCeoModal();} return false;" class="sticky top-4 right-4 float-right text-gray-400 hover:text-white transition z-30 bg-deep-space bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center" style="margin: 1rem 1rem 0 0;">
                 <i class="fas fa-times text-2xl"></i>
@@ -2657,13 +2657,32 @@
                     <p class="text-lg sm:text-xl font-bold text-gradient-cosmic glow-effect">Zero to one TAX</p>
                 </div>
                 
-                <!-- 프로필 사진 영역 -->
-                <div class="text-center mb-8">
-                    <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full mx-auto mb-4 shadow-2xl overflow-hidden border-4 border-stellar-purple bg-gradient-to-br from-stellar-purple to-cosmic-blue">
-                        <img id="ceoProfileImage" src="https://lh3.googleusercontent.com/d/1uz-mHJQlJUSSls1MwjVa9dXFvg4vlOYz" alt="이범기 회계사" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user text-white text-6xl sm:text-7xl\' style=\'line-height: 10rem;\'></i>';">
+                <!-- 프로필 영역: 왼쪽 문구 + 오른쪽 사진 -->
+                <div class="flex flex-col md:flex-row items-center justify-center gap-12 mb-8 px-4">
+                    <!-- 왼쪽: 강조 문구 -->
+                    <div class="flex-1 max-w-xl text-center md:text-left space-y-3">
+                        <p class="text-xl sm:text-2xl md:text-3xl font-bold text-gradient-cosmic glow-effect leading-relaxed">
+                            전 도파민 중독자입니다,
+                        </p>
+                        <p class="text-lg sm:text-xl md:text-2xl font-semibold text-white leading-relaxed">
+                            여러분의 성장에만 집중하세요,
+                        </p>
+                        <p class="text-lg sm:text-xl md:text-2xl font-bold text-gradient-cosmic glow-effect leading-relaxed">
+                            세무회계는 제가 책임지겠습니다
+                        </p>
                     </div>
-                    <h4 class="text-2xl font-bold text-white mb-2">이범기 회계사</h4>
-                    <p class="text-gray-400 text-sm">공인회계사 | CPA</p>
+                    
+                    <!-- 오른쪽: 프로필 사진 -->
+                    <div class="flex-shrink-0 text-center">
+                        <div class="relative w-44 h-44 sm:w-52 sm:h-52 md:w-60 md:h-60 mx-auto mb-4">
+                            <div class="absolute inset-0 rounded-full border-2 border-stellar-purple"></div>
+                            <div class="absolute inset-2 rounded-full overflow-hidden bg-white">
+                                <img id="ceoProfileImage" src="images/ceo-profile.jpg" alt="이범기 회계사" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full bg-gray-800 flex items-center justify-center\'><i class=\'fas fa-user text-white text-6xl\'></i></div>';">
+                            </div>
+                        </div>
+                        <h4 class="text-xl sm:text-2xl font-bold text-white mb-2">이범기 회계사</h4>
+                        <p class="text-gray-400 text-sm">공인회계사 | CPA</p>
+                    </div>
                 </div>
                 
                 <!-- 소개 내용 -->

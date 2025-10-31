@@ -2,7 +2,7 @@
 
 **🚀 ZERO에서 ONE까지, 대형 회계법인 출신 전문가와 함께하세요**
 
-![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.16.2-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
+![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.16.3-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
 
 ---
 
@@ -349,6 +349,25 @@ GET /tables/consultations?sort=-created_at&limit=100
 ---
 
 ## 📊 버전 히스토리
+
+### Version 6.16.3 (2025-10-30) 🔧 HOTFIX!
+**⚡ JavaScript 스코프 에러 수정 - 초기화 순서 최적화**
+- **JavaScript 스코프 에러 해결**
+  - `blog-detail.html`에서 `BLOG_POSTS` 초기화 에러 수정
+  - 상수 선언을 함수 호출 이전으로 이동
+  - `const BLOG_POSTS`, `const RAW_BASE_URL` 선언 순서 최적화
+  - ReferenceError: Cannot access before initialization 해결
+  
+- **초기화 로직 개선**
+  - 페이지 로드 시 즉시 실행 코드 재구조화
+  - slug 검증 → 블로그 로드 → 포스트 표시 순서 명확화
+  - 에러 핸들링 개선 (`.catch()` 추가)
+  - 콘솔 로그로 디버깅 용이성 향상
+  
+- **버전 정보 업데이트**
+  - v6.16.3으로 버전 업데이트
+  - 타임스탬프: 2025-10-30T15:30:00
+  - 브라우저 콘솔에서 버전 확인 가능
 
 ### Version 6.16.0 (2025-10-30) ⭐ CRITICAL FIX!
 **🔧 CORS 문제 완전 해결 - GitHub Raw URL 사용**

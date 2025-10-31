@@ -1052,8 +1052,8 @@
     
     <script>
         // ===== Version Info & Debug =====
-        console.log('%c🚀 Zero to one TAX Blog v6.15.1', 'background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 8px 16px; border-radius: 4px; font-weight: bold;');
-        console.log('📅 Last Modified: 2025-10-30T14:00:00');
+        console.log('%c🚀 Zero to one TAX Blog v6.16.3', 'background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 8px 16px; border-radius: 4px; font-weight: bold;');
+        console.log('📅 Last Modified: 2025-10-30T15:30:00');
         console.log('🔄 Cache Busting: Enabled');
         console.log('📱 User Agent:', navigator.userAgent);
         
@@ -1227,14 +1227,6 @@
         
         const urlParams = new URLSearchParams(window.location.search);
         const postSlug = urlParams.get('slug');
-        
-        if (!postSlug) {
-            showError();
-        } else {
-            loadBlogPosts().then(() => {
-                displayPost(postSlug);
-            });
-        }
         
         // 블로그 포스트 목록 (수동 관리 - CORS 문제 해결)
         const BLOG_POSTS = [
@@ -1594,6 +1586,18 @@
         function showError() {
             document.getElementById('loading').classList.add('hidden');
             document.getElementById('error').classList.remove('hidden');
+        }
+        
+        // 페이지 초기화 - slug 확인 후 포스트 로드
+        if (!postSlug) {
+            showError();
+        } else {
+            loadBlogPosts().then(() => {
+                displayPost(postSlug);
+            }).catch(error => {
+                console.error('초기화 실패:', error);
+                showError();
+            });
         }
     </script>
 

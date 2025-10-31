@@ -2,7 +2,7 @@
 
 **🚀 ZERO에서 ONE까지, 대형 회계법인 출신 전문가와 함께하세요**
 
-![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.17.0-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
+![Zero to one TAX](https://img.shields.io/badge/Status-Ready_to_Deploy-success) ![Version](https://img.shields.io/badge/Version-6.17.1-blue) ![Domain](https://img.shields.io/badge/Domain-0to1tax.com-blue) ![Deployment](https://img.shields.io/badge/Deployment-Netlify-00C7B7) ![CMS](https://img.shields.io/badge/CMS-Netlify_CMS-00C7B7)
 
 ---
 
@@ -349,6 +349,29 @@ GET /tables/consultations?sort=-created_at&limit=100
 ---
 
 ## 📊 버전 히스토리
+
+### Version 6.17.1 (2025-10-30) 🔧 Table Hotfix!
+**📊 모바일 테이블 가로 스크롤 완전 제거**
+- **테이블 텍스트 줄바꿈 활성화**
+  - `white-space: normal` + `word-break: keep-all`
+  - 모바일에서 테이블 셀 내용 자동 줄바꿈
+  - 폰트 크기 0.8rem으로 축소 (가독성 유지)
+  - 패딩 최적화 (0.5rem × 0.4rem)
+  
+- **테이블 최소 너비 제거**
+  - `min-width: 600px` → `min-width: 100%`
+  - 화면 너비에 맞게 자동 조절
+  - `table-layout: auto`로 유연한 레이아웃
+  - 가로 스크롤 완전 제거
+  
+- **테이블 래퍼 최적화**
+  - 음수 마진 제거로 레이아웃 안정화
+  - `width: 100%` + `box-sizing: border-box`
+  - Sticky 첫 번째 컬럼 제거 (복잡도 감소)
+  
+- **마크다운 파일 최적화**
+  - 표 컬럼명 축약 (가독성 유지하며 공간 절약)
+  - 긴 텍스트 줄임말 사용
 
 ### Version 6.17.0 (2025-10-30) 🎨 UI/UX 대개편!
 **📱 모바일 가독성 완전 최적화 + 흰색 배경 적용**

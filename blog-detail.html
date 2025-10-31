@@ -10,8 +10,8 @@
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Version Info for Cache Busting Debug -->
-    <meta name="version" content="6.17.0">
-    <meta name="last-modified" content="2025-10-30T16:00:00">
+    <meta name="version" content="6.17.1">
+    <meta name="last-modified" content="2025-10-30T16:15:00">
     <title id="pageTitle">Zero to one TAX 블로그</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -297,13 +297,14 @@
         
         @media (max-width: 768px) {
             .table-wrapper {
-                margin: 1.5rem -1.5rem;
-                width: calc(100% + 3rem);
-                padding: 0 1.5rem;
+                margin: 1rem 0;
+                width: 100%;
+                padding: 0;
                 /* Ensure mobile touch scrolling */
-                overflow-x: scroll !important;
+                overflow-x: auto !important;
                 -webkit-overflow-scrolling: touch !important;
                 border-radius: 0;
+                box-sizing: border-box;
             }
         }
         
@@ -338,36 +339,23 @@
             .content-body table {
                 display: table;
                 width: 100%;
-                min-width: 600px;
+                min-width: 100%;
                 margin: 0;
                 border-radius: 0;
+                table-layout: auto;
             }
             
             .content-body table th,
             .content-body table td {
-                padding: 0.75rem 0.5rem;
-                font-size: 0.875rem;
-                white-space: nowrap;
-                min-width: 120px;
+                padding: 0.5rem 0.4rem;
+                font-size: 0.8rem;
+                white-space: normal;
+                word-break: keep-all;
+                line-height: 1.4;
+                min-width: auto;
             }
             
-            .content-body table th:first-child {
-                position: sticky;
-                left: 0;
-                background: var(--cosmic-blue);
-                z-index: 2;
-            }
-            
-            .content-body table td:first-child {
-                position: sticky;
-                left: 0;
-                background: white;
-                z-index: 1;
-            }
-            
-            .content-body table tbody tr:nth-child(even) td:first-child {
-                background: #F9FAFB;
-            }
+            /* Sticky first column removed for better mobile experience */
             
             /* Better text wrapping for mobile */
             .content-body h1,
@@ -1119,9 +1107,9 @@
     
     <script>
         // ===== Version Info & Debug =====
-        console.log('%c🚀 Zero to one TAX Blog v6.17.0', 'background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 8px 16px; border-radius: 4px; font-weight: bold;');
-        console.log('📅 Last Modified: 2025-10-30T16:00:00');
-        console.log('✨ New: White background for better readability');
+        console.log('%c🚀 Zero to one TAX Blog v6.17.1 - Table Fix', 'background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 8px 16px; border-radius: 4px; font-weight: bold;');
+        console.log('📅 Last Modified: 2025-10-30T16:15:00');
+        console.log('📊 Table optimized: no horizontal scroll on mobile');
         console.log('🔄 Cache Busting: Enabled');
         console.log('📱 User Agent:', navigator.userAgent);
         

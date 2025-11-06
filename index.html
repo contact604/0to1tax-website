@@ -127,13 +127,7 @@
             bottom: 30px;
             right: 30px;
             z-index: 1000;
-            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.5), 0 0 60px rgba(59, 130, 246, 0.3);
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
         }
         
         .card-hover {
@@ -141,8 +135,8 @@
         }
         
         .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3), 0 0 60px rgba(59, 130, 246, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(139, 92, 246, 0.2);
         }
         
         .nav-blur {
@@ -218,27 +212,17 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(2px 2px at 20px 30px, #fff, transparent),
-                radial-gradient(2px 2px at 60px 70px, #fff, transparent),
-                radial-gradient(1px 1px at 50px 50px, #fff, transparent),
-                radial-gradient(1px 1px at 130px 80px, #fff, transparent),
-                radial-gradient(2px 2px at 90px 10px, #fff, transparent);
+                radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+                radial-gradient(1px 1px at 60px 70px, #fff, transparent),
+                radial-gradient(1px 1px at 50px 50px, #fff, transparent);
             background-size: 200px 200px;
             background-repeat: repeat;
-            opacity: 0.5;
-            animation: twinkle 5s ease-in-out infinite;
-        }
-        
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+            opacity: 0.15;
         }
         
         /* Glow Effect */
         .glow-effect {
-            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5),
-                         0 0 20px rgba(59, 130, 246, 0.3),
-                         0 0 30px rgba(249, 115, 22, 0.2);
+            text-shadow: none;
         }
         
         /* Neon Border */
@@ -268,14 +252,8 @@
             
             .rocket {
                 font-size: 60px;
-                filter: drop-shadow(0 0 20px rgba(249, 115, 22, 0.8));
-                animation: rocketShake 0.5s infinite;
-            }
-            
-            @keyframes rocketShake {
-                0%, 100% { transform: translateX(0) rotate(-45deg); }
-                25% { transform: translateX(-2px) rotate(-46deg); }
-                75% { transform: translateX(2px) rotate(-44deg); }
+                filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.3));
+                transform: rotate(-45deg);
             }
             
             .rocket-flame {
@@ -283,12 +261,7 @@
                 bottom: -20px;
                 right: -20px;
                 font-size: 30px;
-                animation: flameFlicker 0.2s infinite;
-            }
-            
-            @keyframes flameFlicker {
-                0%, 100% { opacity: 1; transform: scale(1); }
-                50% { opacity: 0.7; transform: scale(0.9); }
+                opacity: 0.7;
             }
             
             .progress-bar-container {
@@ -307,7 +280,7 @@
                 left: 0;
                 width: 100%;
                 background: linear-gradient(to bottom, #3B82F6, #8B5CF6, #F97316, #10B981);
-                box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+                box-shadow: none;
                 transition: height 0.1s linear;
             }
             
@@ -433,7 +406,7 @@
                 background: linear-gradient(to right, #3B82F6, #8B5CF6, #F97316, #10B981);
                 border-radius: 6px;
                 transition: width 0.3s ease;
-                box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
+                box-shadow: none;
             }
             
             .progress-stats-mobile {
@@ -528,33 +501,9 @@
             overflow: hidden;
         }
         
-        /* Cosmic background animation */
+        /* Cosmic background - static */
         .phase-group-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 200%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(59, 130, 246, 0.1) 25%, 
-                rgba(139, 92, 246, 0.15) 50%, 
-                rgba(249, 115, 22, 0.1) 75%, 
-                transparent 100%);
-            animation: cosmicWave 8s ease-in-out infinite;
-            pointer-events: none;
-        }
-        
-        @keyframes cosmicWave {
-            0%, 100% {
-                transform: translateX(0);
-                opacity: 0.3;
-            }
-            50% {
-                transform: translateX(50%);
-                opacity: 0.6;
-            }
+            display: none;
         }
         
         .phase-group-section.visible {
@@ -574,25 +523,11 @@
             z-index: 1;
         }
         
-        /* Shooting stars effect */
-        @keyframes shootingStar {
-            0% {
-                transform: translateX(-100px) translateY(-100px) rotate(-45deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateX(1000px) translateY(1000px) rotate(-45deg);
-                opacity: 0;
-            }
+        .phase-group-section::after {
+            display: none !important;
         }
         
-        .phase-group-section::after {
+        .phase-group-section-hidden::after {
             content: '⭐';
             position: absolute;
             font-size: 1rem;
@@ -614,71 +549,21 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            opacity: 0;
-            transform: scale(0.8) translateZ(-200px);
-            animation: flyInFromSpace 0.8s ease-out forwards;
+            opacity: 1;
+            transform: none;
         }
         
-        /* Stagger animation delay for each card - Desktop */
-        @media (min-width: 769px) {
-            .phase-step-card:nth-child(1) { animation-delay: 0.1s; }
-            .phase-step-card:nth-child(2) { animation-delay: 0.2s; }
-            .phase-step-card:nth-child(3) { animation-delay: 0.3s; }
-            .phase-step-card:nth-child(4) { animation-delay: 0.4s; }
-            .phase-step-card:nth-child(5) { animation-delay: 0.5s; }
-        }
+
         
-        /* Faster animation on mobile */
-        @media (max-width: 768px) {
-            .phase-step-card {
-                animation: flyInFromSpaceMobile 0.6s ease-out forwards;
-            }
-            
-            .phase-step-card:nth-child(1) { animation-delay: 0.05s; }
-            .phase-step-card:nth-child(2) { animation-delay: 0.1s; }
-            .phase-step-card:nth-child(3) { animation-delay: 0.15s; }
-            .phase-step-card:nth-child(4) { animation-delay: 0.2s; }
-            .phase-step-card:nth-child(5) { animation-delay: 0.25s; }
-            
-            @keyframes flyInFromSpaceMobile {
-                0% {
-                    opacity: 0;
-                    transform: scale(0.5) translateY(-50px);
-                }
-                60% {
-                    opacity: 0.8;
-                    transform: scale(1.03) translateY(0);
-                }
-                100% {
-                    opacity: 1;
-                    transform: scale(1) translateY(0);
-                }
-            }
-        }
+
         
-        @keyframes flyInFromSpace {
-            0% {
-                opacity: 0;
-                transform: scale(0.3) translateZ(-500px) rotateY(45deg);
-                filter: blur(10px);
-            }
-            60% {
-                opacity: 0.8;
-                transform: scale(1.05) translateZ(0) rotateY(0deg);
-                filter: blur(0px);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) translateZ(0) rotateY(0deg);
-                filter: blur(0px);
-            }
-        }
+
         
         .phase-step-card:hover {
-            transform: translateY(-8px) scale(1.05);
-            border-color: rgba(139, 92, 246, 0.6);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-            animation: none; /* Stop animation on hover */
+            transform: translateY(-2px);
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 8px 16px rgba(139, 92, 246, 0.15);
+            animation: none;
         }
         
         /* Cosmic glow effect on hover */
@@ -698,31 +583,9 @@
             opacity: 1;
         }
         
-        /* Star particles effect */
+        /* Star particles effect - DISABLED */
         .phase-step-card::after {
-            content: '✨';
-            position: absolute;
-            font-size: 1.5rem;
-            opacity: 0;
-            pointer-events: none;
-            animation: sparkle 2s ease-in-out infinite;
-        }
-        
-        .phase-step-card:nth-child(1)::after { top: 10%; right: 10%; animation-delay: 0s; }
-        .phase-step-card:nth-child(2)::after { top: 15%; right: 15%; animation-delay: 0.4s; }
-        .phase-step-card:nth-child(3)::after { top: 20%; right: 10%; animation-delay: 0.8s; }
-        .phase-step-card:nth-child(4)::after { top: 10%; right: 20%; animation-delay: 1.2s; }
-        .phase-step-card:nth-child(5)::after { top: 15%; right: 12%; animation-delay: 1.6s; }
-        
-        @keyframes sparkle {
-            0%, 100% {
-                opacity: 0;
-                transform: scale(0) rotate(0deg);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.2) rotate(180deg);
-            }
+            display: none;
         }
         
         .step-number {
@@ -740,21 +603,8 @@
         .step-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
-            filter: drop-shadow(0 4px 12px rgba(139, 92, 246, 0.4));
-            opacity: 0;
-            animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-            animation-delay: 0.4s;
-        }
-        
-        @keyframes popIn {
-            0% {
-                opacity: 0;
-                transform: scale(0) rotate(-180deg);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) rotate(0deg);
-            }
+            filter: drop-shadow(0 2px 6px rgba(139, 92, 246, 0.2));
+            opacity: 1;
         }
         
         .step-title {

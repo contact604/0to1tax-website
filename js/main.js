@@ -34,6 +34,17 @@ window.closeConsultModal = function() {
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     
+    // Check URL parameters and open modal if needed
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('modal') === 'consult') {
+        // Small delay to ensure DOM is ready
+        setTimeout(() => {
+            if (window.openConsultModal) {
+                window.openConsultModal();
+            }
+        }, 300);
+    }
+    
     // Mobile Menu Toggle (Pure CSS - no JavaScript needed)
     // Mobile menu is now controlled by CSS :checked selector
     

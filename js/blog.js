@@ -193,6 +193,18 @@ document.addEventListener('DOMContentLoaded', function() {
     loadBlogPosts();
 });
 
+// Check URL parameters and open modal if needed
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('modal') === 'consult') {
+        setTimeout(() => {
+            if (window.openConsultModal) {
+                window.openConsultModal();
+            }
+        }, 300);
+    }
+});
+
 // Modal Functions (Global scope for onclick handlers)
 window.openConsultModal = function() {
     console.log('Opening modal...');

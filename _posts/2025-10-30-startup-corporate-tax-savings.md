@@ -13,6 +13,11 @@ tags:
   - 중소기업세액감면
 excerpt: "법인전환 고민 중이라면 이 글 하나로 정리됩니다. 스타트업이 개인사업자보다 법인으로 전환했을 때 세율 구조, 대표 급여 설계, 비용처리 범위, 세액감면까지 실전 기준으로 정리합니다."
 thumbnail: "/images/blog/corporate-tax-savings.jpg"
+summary: |
+  • 법인은 개인보다 세율 구조가 완만해서 실효세율을 낮추기 쉬워요
+  • 대표 급여 설계로 합법적인 소득 분산이 가능해요
+  • 비용처리 범위가 넓고 중소기업 세액감면 등 혜택이 많아요
+  • 투자유치와 지분설계를 고려하면 법인 형태가 필수예요
 published: true
 ---
 
@@ -79,11 +84,3 @@ published: true
 4. 투자유치·지분설계 등 **성장 구조**에 필수
 
 ---
-
-<div style="background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 2rem; border-radius: 1rem; text-align: center; margin: 3rem 0; box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);">
-  <h3 style="margin: 0; font-size: 1.5rem; font-weight: 700;">💡 스타트업의 0부터 1까지 모든 과정을 함께합니다</h3>
-</div>
-
----
-
-**태그**: #스타트업세무 #법인세절세 #개인사업자전환 #법인전환 #세무기장 #절세계획 #중소기업세액감면 #제로투원택스

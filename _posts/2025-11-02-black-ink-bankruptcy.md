@@ -1,5 +1,5 @@
 ---
-title: "흑자도산이란? 이익이 나도 망하는 기업 — 원인, 지표, 실무 대응"
+title: "흑자인데 망합니다"
 date: 2025-11-02 10:00:00
 author: "Zero to one TAX"
 category: "회계"
@@ -90,12 +90,3 @@ published: true
 ✅ 분납·납부유예 활용
 
 ---
-
-
-
----
-
-<div style="background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 1.25rem; border-radius: 0.75rem; text-align: center; margin: 1.5rem 0;">
-  <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🚀</div>
-  <h3 style="margin: 0; font-size: 1rem; font-weight: 700; line-height: 1.3;">Zero to One TAX와 함께<br/>현금흐름 관리 시작하세요</h3>
-</div>

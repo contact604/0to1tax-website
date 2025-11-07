@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Zero to One TAX - 서비스 소개</title>
+    <meta name="title" content="Zero to One TAX - 서비스 소개">
+    <meta name="description" content="Zero to One TAX의 스타터, 엔터프라이즈, 그로스, 스케일업 플랜 상세 안내. 스타트업 맞춤 세무회계 서비스.">
+    <meta name="keywords" content="Zero to One TAX 서비스, 스타트업 세무, 세무기장 플랜, 법인세 신고, 회계 서비스">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://0to1tax.com/services.html">
+    <meta property="og:title" content="Zero to One TAX - 서비스 소개">
+    <meta property="og:description" content="스타트업의 성장 단계별 맞춤 세무회계 서비스">
+    <meta property="og:image" content="https://0to1tax.com/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        }
+        
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            background: #0F172A;
+        }
+        
+        /* Navigation */
+        .nav-blur {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo-main {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .logo-sub {
+            font-size: 0.875rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #8B5CF6, #3B82F6, #F97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: #9CA3AF;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: white;
+        }
+        
+        .nav-link.active {
+            color: #3B82F6;
+            font-weight: 600;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #8B5CF6, #3B82F6, #F97316);
+            color: white;
+            padding: 0.625rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            color: white;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        /* Nav Spacer */
+        .nav-spacer {
+            height: 80px;
+        }
+        
+        /* Loading Screen */
+        .loading {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: #0F172A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 1000;
+        }
+        
+        .loading.hidden {
+            display: none;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(59, 130, 246, 0.2);
+            border-top-color: #3B82F6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            margin-top: 20px;
+            color: #E2E8F0;
+            font-size: 18px;
+        }
+        
+        /* CANVA iframe */
+        iframe {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            border: none;
+            display: block;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: rgba(15, 23, 42, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-blur">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🚀</div>
+                <div class="logo-text">
+                    <span class="logo-main">Zero to one</span>
+                    <span class="logo-sub">TAX</span>
+                </div>
+            </a>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link">홈</a>
+                <a href="index.html#services" class="nav-link">서비스</a>
+                <a href="services.html" class="nav-link active">서비스 소개</a>
+                <a href="0to1log.html" class="nav-link">블로그</a>
+                <a href="index.html?modal=consult" class="cta-button">🚀 무료 상담</a>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Nav Spacer -->
+    <div class="nav-spacer"></div>
+    
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">서비스 소개서 로딩 중...</div>
+    </div>
+    
+    <!-- CANVA iframe -->
+    <iframe 
+        id="canva-iframe"
+        src="https://www.canva.com/design/DAG3ifbpCoE/VlhUJbIjs5Dx502GvfNlcA/view?embed"
+        allow="fullscreen"
+        loading="lazy"
+        onload="hideLoading()"
+    ></iframe>
+    
+    <script>
+        // Hide loading screen
+        function hideLoading() {
+            const loading = document.getElementById('loading');
+            if (loading) {
+                loading.classList.add('hidden');
+            }
+        }
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            navLinks.classList.toggle('active');
+            
+            const icon = menuBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+        
+        // Fallback if iframe doesn't load
+        setTimeout(() => {
+            const loading = document.getElementById('loading');
+            if (loading && !loading.classList.contains('hidden')) {
+                loading.innerHTML = `
+                    <div style="text-align: center; color: white;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #F59E0B; margin-bottom: 1rem;"></i>
+                        <p style="font-size: 1.25rem; margin-bottom: 0.5rem;">서비스 소개서 로딩 중...</p>
+                        <p style="font-size: 0.875rem; color: #9CA3AF;">잠시만 기다려주세요</p>
+                        <a href="index.html?modal=consult" style="display: inline-block; margin-top: 2rem; background: linear-gradient(135deg, #8B5CF6, #3B82F6); color: white; padding: 0.75rem 2rem; border-radius: 9999px; text-decoration: none; font-weight: 600;">상담 신청하기</a>
+                    </div>
+                `;
+            }
+        }, 8000);
+    </script>
+</body>
+</html>

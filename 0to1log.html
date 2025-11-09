@@ -207,6 +207,62 @@
             touch-action: manipulation;
             -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
         }
+        
+        /* 모바일 최적화 */
+        @media (max-width: 768px) {
+            /* 한글 텍스트 줄바꿈 처리 */
+            * {
+                word-break: keep-all;
+                overflow-wrap: break-word;
+            }
+            
+            /* Floating 버튼 위치 및 크기 조정 */
+            .floating-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 56px;
+                height: 56px;
+                padding: 0.75rem;
+            }
+            
+            /* 카테고리 카드 크기 조정 */
+            .category-card {
+                padding: 1rem;
+                font-size: 0.875rem;
+            }
+            
+            /* 검색 입력창 iOS 줌 방지 */
+            .search-input {
+                font-size: 16px !important;
+            }
+            
+            /* 아티클 카드 패딩 */
+            .article-card {
+                padding: 1rem;
+            }
+            
+            /* 네비게이션 패딩 조정 */
+            .nav-cosmic {
+                padding: 0 1rem;
+            }
+            
+            /* 모달 콘텐츠 모바일 조정 */
+            .modal-content {
+                max-width: 95%;
+                margin: 1rem;
+            }
+            
+            /* 입력 필드 iOS 줌 방지 */
+            input, textarea, select {
+                font-size: 16px !important;
+            }
+            
+            /* 터치 영역 최적화 */
+            button, a {
+                min-width: 44px;
+                min-height: 44px;
+            }
+        }
     </style>
     
     <script>

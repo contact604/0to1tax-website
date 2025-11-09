@@ -125,6 +125,65 @@
             from { transform: translateY(-50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+        
+        /* 모바일 최적화 */
+        @media (max-width: 768px) {
+            /* 한글 텍스트 줄바꿈 처리 */
+            * {
+                word-break: keep-all;
+                overflow-wrap: break-word;
+            }
+            
+            /* Floating 버튼 위치 및 크기 조정 */
+            .floating-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 56px;
+                height: 56px;
+                padding: 0.75rem;
+            }
+            
+            /* 필터 버튼 크기 조정 */
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+            
+            /* 카드 호버 효과 제거 (모바일 터치) */
+            .card-hover:hover {
+                transform: none !important;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+            }
+            
+            /* 네비게이션 블러 조정 */
+            .nav-blur {
+                padding: 0 1rem;
+            }
+            
+            /* 모달 콘텐츠 모바일 조정 */
+            .modal-content {
+                max-width: 95%;
+                margin: 1rem;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+            
+            /* 입력 필드 iOS 줌 방지 */
+            input, textarea, select {
+                font-size: 16px !important;
+            }
+            
+            /* 터치 영역 최적화 */
+            button, a {
+                min-width: 44px;
+                min-height: 44px;
+            }
+            
+            /* 그리드 레이아웃 모바일 조정 */
+            .grid {
+                gap: 1rem;
+            }
+        }
     </style>
     
     <script>

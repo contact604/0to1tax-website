@@ -3110,6 +3110,42 @@
                 }, 500);
             }
         })();
+        
+        // Smooth scroll to section on page load (for anchor links like #newsletter)
+        (function smoothScrollToAnchor() {
+            // Wait for page to fully load
+            window.addEventListener('load', function() {
+                const hash = window.location.hash;
+                console.log('Page hash:', hash);
+                
+                if (hash) {
+                    setTimeout(function() {
+                        const targetElement = document.querySelector(hash);
+                        console.log('Target element:', targetElement);
+                        
+                        if (targetElement) {
+                            // Remove hash from URL first to prevent browser's default jump
+                            history.replaceState(null, null, ' ');
+                            
+                            // Smooth scroll to element
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                            
+                            console.log('Scrolled to:', hash);
+                            
+                            // Restore hash after scroll
+                            setTimeout(function() {
+                                history.replaceState(null, null, hash);
+                            }, 1000);
+                        } else {
+                            console.error('Element not found:', hash);
+                        }
+                    }, 300);
+                }
+            });
+        })();
     </script>
     
     <script src="js/main.js"></script>

@@ -3088,6 +3088,20 @@
         console.log('window.closeCeoModal:', typeof window.closeCeoModal);
         console.log('window.switchGrowthTab:', typeof window.switchGrowthTab);
         console.log('window.switchScaleupTab:', typeof window.switchScaleupTab);
+        
+        // Check URL parameters and open modal automatically
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const modalParam = urlParams.get('modal');
+            
+            if (modalParam === 'consult') {
+                console.log('URL parameter detected: opening consult modal');
+                // Small delay to ensure DOM is fully loaded
+                setTimeout(function() {
+                    window.openConsultModal();
+                }, 300);
+            }
+        });
     </script>
     
     <script src="js/main.js"></script>

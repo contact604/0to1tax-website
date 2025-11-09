@@ -3089,19 +3089,27 @@
         console.log('window.switchGrowthTab:', typeof window.switchGrowthTab);
         console.log('window.switchScaleupTab:', typeof window.switchScaleupTab);
         
-        // Check URL parameters and open modal automatically
-        document.addEventListener('DOMContentLoaded', function() {
+        // Check URL parameters and open modal automatically (immediately)
+        (function checkModalParam() {
             const urlParams = new URLSearchParams(window.location.search);
             const modalParam = urlParams.get('modal');
+            
+            console.log('Checking URL parameters...', window.location.search);
+            console.log('Modal param:', modalParam);
             
             if (modalParam === 'consult') {
                 console.log('URL parameter detected: opening consult modal');
                 // Small delay to ensure DOM is fully loaded
                 setTimeout(function() {
-                    window.openConsultModal();
-                }, 300);
+                    console.log('Attempting to open modal...');
+                    if (window.openConsultModal) {
+                        window.openConsultModal();
+                    } else {
+                        console.error('openConsultModal function not found!');
+                    }
+                }, 500);
             }
-        });
+        })();
     </script>
     
     <script src="js/main.js"></script>

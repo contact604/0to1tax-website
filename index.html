@@ -1914,7 +1914,7 @@
                                 지금 바로 구독하기
                             </h3>
                             
-                            <form id="newsletterForm" class="space-y-4">
+                            <form id="newsletterForm" class="space-y-4" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                                 <div>
                                     <label for="newsletter-name" class="block text-sm font-medium text-gray-300 mb-2">이름 *</label>
                                     <input 
@@ -3116,43 +3116,21 @@
     
     <!-- Newsletter Form Script -->
     <script>
-        // Newsletter Form Submit
-        document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('newsletter-name').value,
-                email: document.getElementById('newsletter-email').value,
-                company: document.getElementById('newsletter-company').value,
-                interest: document.getElementById('newsletter-interest').value,
-                timestamp: new Date().toISOString()
-            };
-            
-            try {
-                // TODO: 실제 API 엔드포인트로 교체하세요
-                // 예시: Google Sheets API, Mailchimp API, 또는 자체 백엔드
-                console.log('Newsletter subscription:', formData);
-                
-                // 임시: localStorage에 저장 (실제로는 백엔드로 전송해야 함)
-                const subscribers = JSON.parse(localStorage.getItem('newsletter_subscribers') || '[]');
-                subscribers.push(formData);
-                localStorage.setItem('newsletter_subscribers', JSON.stringify(subscribers));
-                
-                // 폼 숨기고 성공 메시지 표시
+        // Newsletter Form Submit (Netlify Forms)
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            // Netlify Forms가 자동으로 처리하므로 폼은 그대로 제출됨
+            // 성공 메시지만 미리 보여주기
+            setTimeout(() => {
                 document.getElementById('newsletterForm').style.display = 'none';
                 document.getElementById('newsletter-success').classList.remove('hidden');
                 
-                // 3초 후 폼 리셋
+                // 5초 후 폼 리셋
                 setTimeout(() => {
                     document.getElementById('newsletterForm').reset();
                     document.getElementById('newsletterForm').style.display = 'block';
                     document.getElementById('newsletter-success').classList.add('hidden');
                 }, 5000);
-                
-            } catch (error) {
-                console.error('Newsletter subscription error:', error);
-                alert('구독 신청 중 오류가 발생했습니다. 다시 시도해주세요.');
-            }
+            }, 100);
         });
     </script>
     

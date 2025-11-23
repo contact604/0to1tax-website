@@ -17,11 +17,11 @@ image: /images/blog/searchfund-exit.jpg
 문제는…
 
 <ul>
-<li>- 자녀 세대가 승계를 원하지 않아서</li>
-<li>- 회사를 맡길 적임자가 없어서</li>
-<li>- 매각하려니 PEF는 너무 크고</li>
-<li>- 중개 플랫폼은 너무 표준화되어 있고</li>
-<li>- 기업브로커는 검증이 어려워서</li>
+<li>▪️ 자녀 세대가 승계를 원하지 않아서</li>
+<li>▪️ 회사를 맡길 적임자가 없어서</li>
+<li>▪️ 매각하려니 PEF는 너무 크고</li>
+<li>▪️ 중개 플랫폼은 너무 표준화되어 있고</li>
+<li>▪️ 기업브로커는 검증이 어려워서</li>
 </ul>
 
 창업자 입장에서 "마음 편하게 넘길 곳"이 없다는 점이죠.
@@ -71,11 +71,11 @@ IESE·Stanford Search Fund Report 기준 실제 인수 기업 데이터:
 ### ✔ 핵심 조건
 
 <ul>
-<li>꾸준히 현금을 벌고</li>
-<li>변동성이 적고</li>
-<li>오너가 고령이고</li>
-<li>승계가 어렵고</li>
-<li>운영이 복잡하지 않은 회사</li>
+<li>▪️ 꾸준히 현금을 벌고</li>
+<li>▪️ 변동성이 적고</li>
+<li>▪️ 오너가 고령이고</li>
+<li>▪️ 승계가 어렵고</li>
+<li>▪️ 운영이 복잡하지 않은 회사</li>
 </ul>
 
 → 즉, 한국에서 우리가 흔히 보는 '잘 되는 중소기업'이 서치펀드의 핵심 타겟층입니다.
@@ -87,23 +87,23 @@ IESE·Stanford Search Fund Report 기준 실제 인수 기업 데이터:
 ### 🔹 사례 1: Asurion (세계 1위 전자제품 보험사)
 
 <ul>
-<li>1995년, 스탠포드 MBA 출신 2명이 서치펀드로 인수</li>
-<li>당시 직원 20명 수준의 로컬 기업</li>
-<li>20년간 확장</li>
-<li>현재 매출 10조 원+, 전 세계 17개국 진출</li>
-<li>창업 초기 멘토는 서치펀드 창시자 Irving Grousbeck</li>
-<li>"단 하나의 중소기업을 인수했을 뿐인데, 세계 1위 기업이 되었다."</li>
+<li>▪️ 1995년, 스탠포드 MBA 출신 2명이 서치펀드로 인수</li>
+<li>▪️ 당시 직원 20명 수준의 로컬 기업</li>
+<li>▪️ 20년간 확장</li>
+<li>▪️ 현재 매출 10조 원+, 전 세계 17개국 진출</li>
+<li>▪️ 창업 초기 멘토는 서치펀드 창시자 Irving Grousbeck</li>
+<li>▪️ "단 하나의 중소기업을 인수했을 뿐인데, 세계 1위 기업이 되었다."</li>
 </ul>
 
 ### 🔹 사례 2: EggCartons (미국 계란 포장재 기업)
 
 <ul>
-<li>하버드 MBA 출신 Sarah Moore가 서치펀드로 인수</li>
-<li>2년간 미국 전역에 수천 건 직접 콜드메일</li>
-<li>인수 당시 매출 100억 수준</li>
-<li>이후 공격적인 디지털화와 시스템화</li>
-<li>현재 기업가치 600억+</li>
-<li>"무일푼으로 기업 인수한 여성 CEO" 사례로 유명</li>
+<li>▪️ 하버드 MBA 출신 Sarah Moore가 서치펀드로 인수</li>
+<li>▪️ 2년간 미국 전역에 수천 건 직접 콜드메일</li>
+<li>▪️ 인수 당시 매출 100억 수준</li>
+<li>▪️ 이후 공격적인 디지털화와 시스템화</li>
+<li>▪️ 현재 기업가치 600억+</li>
+<li>▪️ "무일푼으로 기업 인수한 여성 CEO" 사례로 유명</li>
 </ul>
 
 > 스타트업처럼 0→1을 만드는 것이 아니라,
@@ -118,10 +118,10 @@ IESE·Stanford Search Fund Report 기준 실제 인수 기업 데이터:
 ### 📌 한국 상황 요약
 
 <ul>
-<li>중소기업의 30%가 오너 60대 이상</li>
-<li>자녀 승계율 30% 이하</li>
-<li>매각이 어려운 기업이 전체의 70%</li>
-<li>"사업은 괜찮은데 승계를 못해서 문 닫는" 기업 증가</li>
+<li>▪️ 중소기업의 30%가 오너 60대 이상</li>
+<li>▪️ 자녀 승계율 30% 이하</li>
+<li>▪️ 매각이 어려운 기업이 전체의 70%</li>
+<li>▪️ "사업은 괜찮은데 승계를 못해서 문 닫는" 기업 증가</li>
 </ul>
 
 즉, 회사를 계속 운영할 사람만 찾으면 살아남을 기업이 정말 많다는 뜻입니다.
@@ -159,11 +159,11 @@ PEF는 '규모 있는 기업'을 위한 모델입니다.
 한국에서도 다음 분야가 서치펀드 핵심 대상이 될 것으로 보입니다:
 
 <ul>
-<li>B2B 기술 서비스</li>
-<li>제조업(정밀, 부품, 기계)</li>
-<li>유통·물류</li>
-<li>헬스케어 서비스</li>
-<li>브랜드 파워 있는 중소기업</li>
+<li>▪️ B2B 기술 서비스</li>
+<li>▪️ 제조업(정밀, 부품, 기계)</li>
+<li>▪️ 유통·물류</li>
+<li>▪️ 헬스케어 서비스</li>
+<li>▪️ 브랜드 파워 있는 중소기업</li>
 </ul>
 
 특히 "후계자 부재 + 현금창출력 견고 + 고령 창업자" 조합은
@@ -173,30 +173,77 @@ PEF는 '규모 있는 기업'을 위한 모델입니다.
 
 ## 자주 묻는 질문 (FAQ)
 
+<style>
+details {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+details:hover {
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+details[open] {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+    border-color: rgba(59, 130, 246, 0.6);
+}
+
+summary {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: #3b82f6;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::before {
+    content: "▶";
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+details p, details ul {
+    margin-top: 16px;
+    padding-left: 24px;
+    line-height: 1.8;
+    color: #333;
+}
+</style>
+
 <details>
-<summary>▶ Q1. 한국에도 서치펀드가 있나요?</summary>
-
-네. 최근 2~3년간 한국에서도 도입 시도가 증가하고 있으며, 중소기업 매각·승계 시장에서 점점 관심이 커지고 있습니다.
-
+<summary>Q1. 한국에도 서치펀드가 있나요?</summary>
+<p>네. 최근 2~3년간 한국에서도 도입 시도가 증가하고 있으며, 중소기업 매각·승계 시장에서 점점 관심이 커지고 있습니다.</p>
 </details>
 
 <details>
-<summary>▶ Q2. 어떤 규모의 회사가 적합한가요?</summary>
-
-매출 20억~200억 사이, EBITDA 5억 이상이면 매우 적합합니다.
-
+<summary>Q2. 어떤 규모의 회사가 적합한가요?</summary>
+<p>매출 20억~200억 사이, EBITDA 5억 이상이면 매우 적합합니다.</p>
 </details>
 
 <details>
-<summary>▶ Q3. 창업자가 서치펀드에 매각하면 장점은?</summary>
-
+<summary>Q3. 창업자가 서치펀드에 매각하면 장점은?</summary>
 <ul>
-<li>신뢰 가능한 젊은 CEO에게 승계</li>
-<li>기업 문화가 유지됨</li>
-<li>오너의 철학이 이어짐</li>
-<li>단계적 Exit 가능</li>
+<li>▪️ 신뢰 가능한 젊은 CEO에게 승계</li>
+<li>▪️ 기업 문화가 유지됨</li>
+<li>▪️ 오너의 철학이 이어짐</li>
+<li>▪️ 단계적 Exit 가능</li>
 </ul>
-
 </details>
 
 ---
@@ -210,22 +257,109 @@ PEF는 '규모 있는 기업'을 위한 모델입니다.
 
 ---
 
-## 💡 서치펀드 승계 가능성, 지금 바로 확인하세요
+<style>
+.cta-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    padding: 40px;
+    margin: 40px 0;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
 
-0to1tax팀은 중소기업 매각·승계·인수 실사(FDD)·가치평가(VCC) 경험으로 서치펀드 모델을 한국에 맞게 적용하는 작업을 하고 있습니다.
+.cta-title {
+    color: #ffffff;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
-### 🎯 무료 진단 서비스
+.cta-description {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    text-align: center;
+}
 
-서치펀드 방식의 매각/승계가 가능한 구조인지 **무료로 20분 진단**해드립니다.
+.cta-services {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px 0;
+}
 
-<ul>
-<li>✅ 기업가치 간단 분석</li>
-<li>✅ 서치펀드 적합성 평가</li>
-<li>✅ 승계 전략 로드맵 제시</li>
-<li>✅ 잠재 인수자 매칭 가능성 검토</li>
-</ul>
+.cta-services h3 {
+    color: #ffffff;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
-**[💬 무료 상담 신청하기](/contact)**
+.cta-services ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.cta-services li {
+    color: #ffffff;
+    font-size: 1.05em;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid #fbbf24;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: #1f2937;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
+    transition: all 0.3s ease;
+    text-align: center;
+    margin: 20px auto;
+    display: block;
+    max-width: 300px;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(251, 191, 36, 0.6);
+}
+</style>
+
+<div class="cta-section">
+    <h2 class="cta-title">💡 서치펀드 승계 가능성, 지금 바로 확인하세요</h2>
+    
+    <p class="cta-description">
+        0to1tax팀은 중소기업 매각·승계·인수 실사(FDD)·가치평가(VCC) 경험으로<br>
+        서치펀드 모델을 한국에 맞게 적용하는 작업을 하고 있습니다.
+    </p>
+    
+    <div class="cta-services">
+        <h3>🎯 무료 진단 서비스</h3>
+        <p style="color: rgba(255, 255, 255, 0.9); text-align: center; margin-bottom: 20px;">
+            서치펀드 방식의 매각/승계가 가능한 구조인지 <strong>진단</strong>해드립니다.
+        </p>
+        <ul>
+            <li>✅ 기업가치 간단 분석</li>
+            <li>✅ 서치펀드 적합성 평가</li>
+            <li>✅ 승계 전략 로드맵 제시</li>
+            <li>✅ 잠재 인수자 매칭 가능성 검토</li>
+        </ul>
+    </div>
+    
+    <a href="/contact" class="cta-button">💬 무료 상담 신청하기</a>
+</div>
 
 ---
 

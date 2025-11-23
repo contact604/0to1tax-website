@@ -1631,6 +1631,15 @@
         function loadRelatedArticles(category, currentSlug) {
             console.log('Loading related articles...', { category, currentSlug, totalPosts: allPosts.length });
             
+            // 서치펀드 글일 경우 관련 글 섹션 숨기기
+            if (currentSlug === '2024-11-23-searchfund-exit-strategy') {
+                const relatedSection = document.querySelector('.max-w-\\[1600px\\].mx-auto.mt-12');
+                if (relatedSection) {
+                    relatedSection.style.display = 'none';
+                }
+                return;
+            }
+            
             // 같은 카테고리 글 우선
             let relatedPosts = allPosts
                 .filter(post => post.category === category && post.slug !== currentSlug && post.published);

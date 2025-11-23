@@ -1582,7 +1582,25 @@
             const summaryContainer = document.getElementById('articleSummary');
             const summaryContainerMobile = document.getElementById('articleSummaryMobile');
             
-            if (post.summary && post.summary.trim()) {
+            // 서치펀드 포스트의 경우 특별 요약 표시
+            if (post.slug === '2024-11-23-searchfund-exit-strategy') {
+                const searchFundSummary = `
+                    <div class="flex items-start gap-2.5 text-gray-300 leading-relaxed mb-3">
+                        <span class="text-cosmic-blue mt-0.5 flex-shrink-0 font-bold" style="min-width: 8px;">•</span>
+                        <span>서치펀드는 MBA를 졸업한 젊은 투자자 본인이 직접 경영하여, 회사의 가치를 키우고, EXIT하는 전략을 구사합니다.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5 text-gray-300 leading-relaxed mb-3">
+                        <span class="text-cosmic-blue mt-0.5 flex-shrink-0 font-bold" style="min-width: 8px;">•</span>
+                        <span>서치펀드는 안정적인 현금흐름을 창출하는 회사를 선호하며, 젊은 세대의 새로운 시각으로 사업전략을 현재에 맞게 수정하여, 투자회사를 Scale up 합니다.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5 text-gray-300 leading-relaxed mb-3">
+                        <span class="text-cosmic-blue mt-0.5 flex-shrink-0 font-bold" style="min-width: 8px;">•</span>
+                        <span>은퇴를 꿈꾸는 많은 대표님들이 소중히 일구어 놓은 사업체를 열정 높은 전문 경영인에게 매각한다는 점에서 승계 + 경영 + 성장을 모두 달성할 수 있습니다.</span>
+                    </div>
+                `;
+                summaryContainer.innerHTML = searchFundSummary;
+                summaryContainerMobile.innerHTML = searchFundSummary;
+            } else if (post.summary && post.summary.trim()) {
                 // Split by newline or bullet points
                 const summaryLines = post.summary.split('\n').filter(line => line.trim());
                 if (summaryLines.length > 0) {

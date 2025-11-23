@@ -257,12 +257,12 @@ details p, details ul {
 
 ---
 
-<div style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); border-radius: 16px; padding: 48px 40px; margin: 40px 0; text-align: center; box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);">
+<div style="background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%); border-radius: 16px; padding: 48px 40px; margin: 40px 0; text-align: center; box-shadow: 0 10px 40px rgba(37, 99, 235, 0.4);">
     <p style="color: #ffffff; font-size: 1.2em; line-height: 1.8; margin-bottom: 30px; font-weight: 500;">
         0to1tax팀은 중소기업 매각·승계·인수 실사(FDD)·가치평가(VCC) 경험으로<br>
         서치펀드 모델을 한국에 맞게 적용하는 작업을 하고 있습니다.
     </p>
-    <a href="/contact" style="display: inline-block; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: #1f2937; font-size: 1.2em; font-weight: bold; padding: 18px 48px; border-radius: 50px; text-decoration: none; box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5); transition: all 0.3s ease;">
+    <a href="javascript:void(0)" onclick="if(window.openConsultModal) window.openConsultModal()" style="display: inline-block; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: #1f2937; font-size: 1.2em; font-weight: bold; padding: 18px 48px; border-radius: 50px; text-decoration: none; box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5); transition: all 0.3s ease; cursor: pointer;">
         💬 무료 상담 신청하기
     </a>
 </div>

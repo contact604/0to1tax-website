@@ -25,17 +25,20 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
         }
         
-        /* Cosmic Theme Colors */
+        /* Cosmic Theme Colors - Light Mode */
         :root {
-            --deep-space: #0F172A;
-            --space-light: #1E293B;
             --cosmic-blue: #3B82F6;
             --stellar-purple: #8B5CF6;
             --rocket-orange: #F97316;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8FAFC;
+            --text-primary: #1E293B;
+            --text-secondary: #64748B;
+            --border-color: #E2E8F0;
         }
         
         body {
-            background: linear-gradient(to bottom, var(--deep-space) 0%, var(--space-light) 100%);
+            background: var(--bg-secondary);
             min-height: 100vh;
         }
         
@@ -52,18 +55,19 @@
         
         .nav-cosmic {
             backdrop-filter: blur(12px);
-            background: rgba(15, 23, 42, 0.95);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
         .card-cosmic {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
         
         .glow-effect {
-            text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+            color: var(--text-primary);
         }
         
         .floating-btn {
@@ -939,15 +943,15 @@
                 <a href="index.html" class="flex items-center space-x-2">
                     <div class="text-3xl">🚀</div>
                     <div class="flex flex-col leading-tight">
-                        <span class="text-xl font-bold text-white">Zero to one</span>
+                        <span class="text-xl font-bold text-gray-900">Zero to one</span>
                         <span class="text-sm font-bold text-gradient-cosmic">TAX</span>
                     </div>
                 </a>
                 
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="index.html#home" class="text-gray-300 hover:text-white transition font-medium">홈</a>
-                    <a href="index.html#services" class="text-gray-300 hover:text-white transition font-medium">서비스</a>
-                    <a href="services.html" class="text-gray-300 hover:text-white transition font-medium">서비스 소개</a>
+                    <a href="index.html#home" class="text-gray-600 hover:text-gray-900 transition font-medium">홈</a>
+                    <a href="index.html#services" class="text-gray-600 hover:text-gray-900 transition font-medium">서비스</a>
+                    <a href="services.html" class="text-gray-600 hover:text-gray-900 transition font-medium">서비스 소개</a>
                     <a href="0to1log.html" class="text-cosmic-blue font-semibold">블로그</a>
                     <button onclick="window.openConsultModal && window.openConsultModal()" class="gradient-cosmic text-white px-6 py-2.5 rounded-full hover:shadow-xl transition font-medium">
                         🚀 무료 상담
@@ -955,7 +959,7 @@
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <label for="mobileMenuToggle" class="mobile-menu-btn lg:hidden text-white hover:text-cosmic-blue p-2 -mr-2 cursor-pointer">
+                <label for="mobileMenuToggle" class="mobile-menu-btn lg:hidden text-gray-900 hover:text-cosmic-blue p-2 -mr-2 cursor-pointer">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -963,9 +967,9 @@
             </div>
             
             <div class="mobile-menu lg:hidden pb-4 space-y-3">
-                <a href="index.html#home" class="block text-gray-300 hover:text-white transition font-medium py-2">홈</a>
-                <a href="index.html#services" class="block text-gray-300 hover:text-white transition font-medium py-2">서비스</a>
-                <a href="services.html" class="block text-gray-300 hover:text-white transition font-medium py-2">서비스 소개</a>
+                <a href="index.html#home" class="block text-gray-600 hover:text-gray-900 transition font-medium py-2">홈</a>
+                <a href="index.html#services" class="block text-gray-600 hover:text-gray-900 transition font-medium py-2">서비스</a>
+                <a href="services.html" class="block text-gray-600 hover:text-gray-900 transition font-medium py-2">서비스 소개</a>
                 <a href="0to1log.html" class="block text-cosmic-blue font-semibold py-2">블로그</a>
                 <a href="index.html#newsletter" class="block w-full bg-stellar-purple bg-opacity-20 border border-stellar-purple border-opacity-30 text-white px-6 py-3 rounded-full hover:bg-opacity-30 transition font-medium text-center">
                     📧 뉴스레터 구독
@@ -982,7 +986,7 @@
         <div class="container mx-auto px-4 lg:px-8">
             <div class="max-w-4xl mx-auto text-center py-20">
                 <div class="inline-block w-16 h-16 border-4 border-cosmic-blue border-t-transparent rounded-full animate-spin mb-4"></div>
-                <p class="text-gray-300 text-lg">로딩 중...</p>
+                <p class="text-gray-600 text-lg">로딩 중...</p>
             </div>
         </div>
     </div>
@@ -1006,24 +1010,24 @@
                                 <span id="articleCategory" class="px-4 py-1.5 rounded-full text-sm font-semibold bg-cosmic-blue bg-opacity-30 text-cosmic-blue">
                                     카테고리
                                 </span>
-                                <span id="articleDate" class="text-gray-400 text-sm">
+                                <span id="articleDate" class="text-gray-500 text-sm">
                                     2024년 1월 1일
                                 </span>
                             </div>
                             
-                            <h1 id="articleTitle" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 glow-effect">
+                            <h1 id="articleTitle" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
                                 게시글 제목
                             </h1>
                             
                             <!-- Summary Box (Mobile Only - Shows after title) -->
                             <div class="lg:hidden mb-6 pb-6 border-b border-cosmic-blue border-opacity-20">
-                                <h3 class="text-base font-bold text-white mb-3 flex items-center">
+                                <h3 class="text-base font-bold text-gray-900 mb-3 flex items-center">
                                     <i class="fas fa-clipboard-list mr-2 text-cosmic-blue"></i>
                                     요약
                                 </h3>
-                                <div id="articleSummaryMobile" class="space-y-2 text-sm text-gray-300 leading-relaxed">
+                                <div id="articleSummaryMobile" class="space-y-2 text-sm text-gray-600 leading-relaxed">
                                     <!-- Summary will be loaded here from markdown frontmatter -->
-                                    <p class="text-gray-400 italic">요약 정보가 없습니다</p>
+                                    <p class="text-gray-500 italic">요약 정보가 없습니다</p>
                                 </div>
                             </div>
                             
@@ -1033,8 +1037,8 @@
                                         <i class="fas fa-user text-white"></i>
                                     </div>
                                     <div>
-                                        <div id="articleAuthor" class="text-white font-semibold">작성자</div>
-                                        <div class="text-gray-400 text-sm">Zero to one TAX</div>
+                                        <div id="articleAuthor" class="text-gray-900 font-semibold">작성자</div>
+                                        <div class="text-gray-600 text-sm">Zero to one TAX</div>
                                     </div>
                                 </div>
                                 
@@ -1055,8 +1059,8 @@
                         <div class="lg:hidden mb-8">
                             <div class="card-cosmic rounded-3xl p-8 text-center">
                                 <div class="text-6xl mb-4">📧</div>
-                                <h4 class="text-white font-bold text-xl mb-3">매주 월요일, 최신 세무 소식</h4>
-                                <p class="text-gray-300 text-base mb-6 leading-relaxed">세금 절세법부터 최신 정보까지<br/>실전에서 바로 쓸 수 있는 정보를 보내드립니다</p>
+                                <h4 class="text-gray-900 font-bold text-xl mb-3">매주 월요일, 최신 세무 소식</h4>
+                                <p class="text-gray-600 text-base mb-6 leading-relaxed">세금 절세법부터 최신 정보까지<br/>실전에서 바로 쓸 수 있는 정보를 보내드립니다</p>
                                 <a href="/index.html#newsletter" class="gradient-cosmic text-white px-8 py-4 rounded-full inline-block hover:shadow-xl transition font-semibold text-lg">
                                     <i class="fas fa-envelope mr-2"></i>뉴스레터 구독하기
                                 </a>
@@ -1072,17 +1076,17 @@
                                     <i class="fas fa-clipboard-list mr-2 text-cosmic-blue"></i>
                                     요약
                                 </h3>
-                                <div id="articleSummary" class="space-y-3 text-sm text-gray-300 leading-relaxed">
+                                <div id="articleSummary" class="space-y-3 text-sm text-gray-600 leading-relaxed">
                                     <!-- Summary will be loaded here from markdown frontmatter -->
-                                    <p class="text-gray-400 italic">요약 정보가 없습니다</p>
+                                    <p class="text-gray-500 italic">요약 정보가 없습니다</p>
                                 </div>
                             </div>
                             
                             <!-- Newsletter Subscription CTA -->
                             <div class="card-cosmic rounded-2xl p-6 text-center mt-6">
                                 <div class="text-4xl mb-3">📧</div>
-                                <h4 class="text-white font-bold mb-2">매주 월요일, 최신 세무 소식</h4>
-                                <p class="text-gray-400 text-sm mb-4">세금 절세법부터 최신 정보까지</p>
+                                <h4 class="text-gray-900 font-bold mb-2">매주 월요일, 최신 세무 소식</h4>
+                                <p class="text-gray-600 text-sm mb-4">세금 절세법부터 최신 정보까지</p>
                                 <a href="/index.html#newsletter" class="gradient-cosmic text-white px-6 py-2.5 rounded-full inline-block hover:shadow-xl transition font-semibold text-sm">
                                     <i class="fas fa-envelope mr-2"></i>뉴스레터 구독하기
                                 </a>
@@ -1095,7 +1099,7 @@
                 <!-- Related Articles (Full Width Below Content) -->
                 <div class="max-w-[1600px] mx-auto mt-12">
                     <div class="card-cosmic rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold text-white mb-6 glow-effect">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">
                             <i class="fas fa-book-open mr-2 text-cosmic-blue"></i>관련 글
                         </h3>
                         <div id="relatedArticles" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1112,8 +1116,8 @@
         <div class="container mx-auto px-4 lg:px-8">
             <div class="max-w-4xl mx-auto card-cosmic rounded-2xl p-12 text-center">
                 <i class="fas fa-exclamation-triangle text-6xl text-rocket-orange mb-6"></i>
-                <h2 class="text-2xl font-bold text-white mb-4">게시글을 찾을 수 없습니다</h2>
-                <p class="text-gray-400 mb-8">요청하신 게시글이 존재하지 않거나 삭제되었습니다.</p>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">게시글을 찾을 수 없습니다</h2>
+                <p class="text-gray-600 mb-8">요청하신 게시글이 존재하지 않거나 삭제되었습니다.</p>
                 <a href="0to1log.html" class="gradient-cosmic text-white px-8 py-3 rounded-full inline-block hover:shadow-xl transition font-semibold">
                     <i class="fas fa-list mr-2"></i>목록으로 돌아가기
                 </a>
@@ -1187,7 +1191,7 @@
                 <div class="flex items-center justify-center space-x-2 mb-4">
                     <div class="text-3xl">🚀</div>
                     <div class="flex flex-col leading-tight">
-                        <span class="text-xl font-bold text-white">Zero to one</span>
+                        <span class="text-xl font-bold text-gray-900">Zero to one</span>
                         <span class="text-sm font-bold text-gradient-cosmic">TAX</span>
                     </div>
                 </div>
@@ -1687,16 +1691,16 @@
                     const excerpt = post.excerpt || post.body.substring(0, 80).replace(/#/g, '').trim() + '...';
                     
                     return `
-                        <a href="blog-detail.html?slug=${post.slug}" class="block p-6 bg-deep-space bg-opacity-40 rounded-xl border border-cosmic-blue border-opacity-20 hover:border-opacity-60 hover:shadow-xl hover:shadow-cosmic-blue/20 transition-all duration-300 group h-full">
+                        <a href="blog-detail.html?slug=${post.slug}" class="block p-6 bg-white rounded-xl border border-gray-200 hover:border-cosmic-blue hover:shadow-xl transition-all duration-300 group h-full">
                             <div class="flex flex-col h-full">
                                 <div class="flex justify-between items-center mb-3">
-                                    <span class="text-xs px-3 py-1.5 rounded-full ${categoryColor} bg-opacity-30 text-white font-semibold">${post.category}</span>
+                                    <span class="text-xs px-3 py-1.5 rounded-full ${categoryColor} bg-opacity-20 text-white font-semibold">${post.category}</span>
                                     <span class="text-xs text-gray-500">
                                         <i class="far fa-calendar-alt mr-1"></i>${formatDateShort(post.date)}
                                     </span>
                                 </div>
-                                <h4 class="text-lg font-bold text-white group-hover:text-cosmic-blue transition mb-3 line-clamp-2">${post.title}</h4>
-                                <p class="text-sm text-gray-400 line-clamp-2 mb-4 flex-grow">${excerpt}</p>
+                                <h4 class="text-lg font-bold text-gray-900 group-hover:text-cosmic-blue transition mb-3 line-clamp-2">${post.title}</h4>
+                                <p class="text-sm text-gray-600 line-clamp-2 mb-4 flex-grow">${excerpt}</p>
                                 <div class="flex items-center text-cosmic-blue text-sm font-semibold group-hover:translate-x-1 transition-transform">
                                     자세히 보기 <i class="fas fa-arrow-right ml-2"></i>
                                 </div>
@@ -1705,7 +1709,7 @@
                     `;
                 }).join('');
             } else {
-                relatedArticlesContainer.innerHTML = '<div class="col-span-full text-center py-12"><i class="fas fa-inbox text-5xl text-gray-600 mb-4"></i><p class="text-gray-400 text-lg">아직 관련 글이 없습니다</p></div>';
+                relatedArticlesContainer.innerHTML = '<div class="col-span-full text-center py-12"><i class="fas fa-inbox text-5xl text-gray-400 mb-4"></i><p class="text-gray-600 text-lg">아직 관련 글이 없습니다</p></div>';
             }
         }
         

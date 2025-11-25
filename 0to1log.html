@@ -15,17 +15,20 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
         }
         
-        /* Cosmic Theme Colors */
+        /* Cosmic Theme Colors - Light Mode */
         :root {
-            --deep-space: #0F172A;
-            --space-light: #1E293B;
             --cosmic-blue: #3B82F6;
             --stellar-purple: #8B5CF6;
             --rocket-orange: #F97316;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8FAFC;
+            --text-primary: #1E293B;
+            --text-secondary: #64748B;
+            --border-color: #E2E8F0;
         }
         
         body {
-            background: linear-gradient(to bottom, var(--deep-space) 0%, var(--space-light) 100%);
+            background: var(--bg-secondary);
             min-height: 100vh;
         }
         
@@ -42,18 +45,19 @@
         
         .nav-cosmic {
             backdrop-filter: blur(12px);
-            background: rgba(15, 23, 42, 0.95);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
         .card-cosmic {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
         
         .glow-effect {
-            text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+            color: var(--text-primary);
         }
         
         .category-card {
@@ -69,27 +73,29 @@
         .article-card {
             transition: all 0.3s ease;
             border-left: 3px solid transparent;
+            background: var(--bg-primary);
         }
         
         .article-card:hover {
             border-left-color: var(--cosmic-blue);
-            background: rgba(59, 130, 246, 0.1);
+            background: #F0F9FF;
             transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
         }
         
         .search-input {
-            background: rgba(15, 23, 42, 0.6);
-            border-color: rgba(59, 130, 246, 0.3);
-            color: #E2E8F0;
+            background: var(--bg-primary);
+            border-color: var(--border-color);
+            color: var(--text-primary);
         }
         
         .search-input::placeholder {
-            color: rgba(226, 232, 240, 0.5);
+            color: var(--text-secondary);
         }
         
         .search-input:focus {
             border-color: var(--cosmic-blue);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
             outline: none;
         }
         
@@ -103,14 +109,15 @@
         }
         
         .category-filter:not(.active) {
-            background: rgba(30, 41, 59, 0.6);
-            border-color: rgba(59, 130, 246, 0.3);
-            color: #E2E8F0;
+            background: var(--bg-primary);
+            border-color: var(--border-color);
+            color: var(--text-secondary);
         }
         
         .category-filter:not(.active):hover {
-            background: rgba(59, 130, 246, 0.2);
+            background: #F0F9FF;
             border-color: var(--cosmic-blue);
+            color: var(--cosmic-blue);
         }
         
         .floating-btn {
@@ -128,20 +135,7 @@
         }
         
         .stars-bg {
-            background-image: 
-                radial-gradient(2px 2px at 20% 30%, white, transparent),
-                radial-gradient(2px 2px at 60% 70%, white, transparent),
-                radial-gradient(1px 1px at 50% 50%, white, transparent),
-                radial-gradient(1px 1px at 80% 10%, white, transparent),
-                radial-gradient(2px 2px at 90% 60%, white, transparent),
-                radial-gradient(1px 1px at 33% 80%, white, transparent);
-            background-size: 200% 200%;
-            animation: twinkle 5s ease-in-out infinite;
-        }
-        
-        @keyframes twinkle {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+            background: linear-gradient(135deg, #EFF6FF 0%, #F8FAFC 50%, #FEF3F2 100%);
         }
         
         /* Modal Styles */
@@ -152,7 +146,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(8px);
             z-index: 9999;
             justify-content: center;
@@ -291,22 +285,22 @@
                 <a href="index.html" class="flex items-center space-x-2">
                     <div class="text-3xl">🚀</div>
                     <div class="flex flex-col leading-tight">
-                        <span class="text-xl font-bold text-white">Zero to one</span>
+                        <span class="text-xl font-bold text-gray-900">Zero to one</span>
                         <span class="text-sm font-bold text-gradient-cosmic">TAX</span>
                     </div>
                 </a>
                 
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="index.html#home" class="text-gray-300 hover:text-white transition font-medium">홈</a>
-                    <a href="index.html#services" class="text-gray-300 hover:text-white transition font-medium">서비스</a>
-                    <a href="services.html" class="text-gray-300 hover:text-white transition font-medium">서비스 소개</a>
+                    <a href="index.html#home" class="text-gray-600 hover:text-gray-900 transition font-medium">홈</a>
+                    <a href="index.html#services" class="text-gray-600 hover:text-gray-900 transition font-medium">서비스</a>
+                    <a href="services.html" class="text-gray-600 hover:text-gray-900 transition font-medium">서비스 소개</a>
                     <a href="0to1log.html" class="text-cosmic-blue font-semibold">블로그</a>
                     <button onclick="if(window.openConsultModal){window.openConsultModal();} return false;" class="gradient-cosmic text-white px-6 py-2.5 rounded-full hover:shadow-xl transition font-medium">
                         🚀 무료 상담
                     </button>
                 </div>
                 
-                <label for="mobileMenuToggle" class="mobile-menu-btn lg:hidden text-white hover:text-cosmic-blue cursor-pointer p-2 -mr-2">
+                <label for="mobileMenuToggle" class="mobile-menu-btn lg:hidden text-gray-900 hover:text-cosmic-blue cursor-pointer p-2 -mr-2">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -314,9 +308,9 @@
             </div>
             
             <div class="mobile-menu lg:hidden pb-4 space-y-3">
-                <a href="index.html#home" class="block text-gray-300 hover:text-white transition font-medium py-2">홈</a>
-                <a href="index.html#services" class="block text-gray-300 hover:text-white transition font-medium py-2">서비스</a>
-                <a href="services.html" class="block text-gray-300 hover:text-white transition font-medium py-2">서비스 소개</a>
+                <a href="index.html#home" class="block text-gray-600 hover:text-gray-900 transition font-medium py-2">홈</a>
+                <a href="index.html#services" class="block text-gray-600 hover:text-gray-900 transition font-medium py-2">서비스</a>
+                <a href="services.html" class="block text-gray-600 hover:text-gray-900 transition font-medium py-2">서비스 소개</a>
                 <a href="0to1log.html" class="block text-cosmic-blue font-semibold py-2">블로그</a>
                 <a href="index.html#newsletter" class="w-full block bg-stellar-purple bg-opacity-20 border border-stellar-purple border-opacity-30 text-white px-6 py-3 rounded-full hover:bg-opacity-30 transition font-medium text-center">
                     📧 뉴스레터 구독
@@ -338,7 +332,7 @@
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 glow-effect">
                     <span class="text-gradient-cosmic">Zero to one TAX로그</span>
                 </h1>
-                <p class="text-lg sm:text-xl text-gray-300 mb-8">
+                <p class="text-lg sm:text-xl text-gray-600 mb-8">
                     <span class="inline-block">스타트업 성장을 위한</span> <span class="inline-block">세무·회계 지식과</span> <span class="inline-block">실전 노하우를 공유합니다</span>
                 </p>
                 
@@ -361,7 +355,7 @@
     </section>
     
     <!-- Category Navigation -->
-    <section class="py-8 bg-space-light sticky top-20 z-40 border-b border-cosmic-blue border-opacity-20">
+    <section class="py-8 bg-white sticky top-20 z-40 border-b border-gray-200 shadow-sm">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="flex flex-wrap gap-3 justify-center">
                 <button onclick="filterByCategory('all')" class="category-filter active px-6 py-2.5 rounded-full font-semibold transition border">
@@ -391,8 +385,8 @@
                 <!-- Main Articles -->
                 <div class="lg:col-span-2">
                     <div class="mb-6 flex justify-between items-center">
-                        <h2 class="text-2xl font-bold text-white glow-effect">최신 가이드</h2>
-                        <div class="text-sm text-gray-400">
+                        <h2 class="text-2xl font-bold text-gray-900">최신 가이드</h2>
+                        <div class="text-sm text-gray-600">
                             총 <span id="totalCount" class="font-semibold text-cosmic-blue">0</span>개
                         </div>
                     </div>
@@ -411,7 +405,7 @@
                 <div class="lg:col-span-1">
                     <!-- Categories -->
                     <div class="card-cosmic rounded-2xl shadow-2xl p-6 mb-6 sticky top-32">
-                        <h3 class="text-xl font-bold text-white mb-4 glow-effect">카테고리</h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">카테고리</h3>
                         <div class="space-y-3">
                             <a href="#" onclick="filterByCategory('세무'); return false;" class="category-card flex items-center justify-between p-4 rounded-xl bg-cosmic-blue bg-opacity-20 hover:bg-opacity-30">
                                 <div class="flex items-center space-x-3">
@@ -419,8 +413,8 @@
                                         <i class="fas fa-calculator text-white"></i>
                                     </div>
                                     <div>
-                                        <div class="font-semibold text-white">세무</div>
-                                        <div class="text-xs text-gray-400">법인세, 부가세 등</div>
+                                        <div class="font-semibold text-gray-900">세무</div>
+                                        <div class="text-xs text-gray-600">법인세, 부가세 등</div>
                                     </div>
                                 </div>
                                 <i class="fas fa-chevron-right text-cosmic-blue"></i>
@@ -432,8 +426,8 @@
                                         <i class="fas fa-chart-line text-white"></i>
                                     </div>
                                     <div>
-                                        <div class="font-semibold text-white">회계</div>
-                                        <div class="text-xs text-gray-400">재무제표, 결산 등</div>
+                                        <div class="font-semibold text-gray-900">회계</div>
+                                        <div class="text-xs text-gray-600">재무제표, 결산 등</div>
                                     </div>
                                 </div>
                                 <i class="fas fa-chevron-right text-stellar-purple"></i>
@@ -445,8 +439,8 @@
                                         <i class="fas fa-rocket text-white"></i>
                                     </div>
                                     <div>
-                                        <div class="font-semibold text-white">스타트업</div>
-                                        <div class="text-xs text-gray-400">창업, 투자 등</div>
+                                        <div class="font-semibold text-gray-900">스타트업</div>
+                                        <div class="text-xs text-gray-600">창업, 투자 등</div>
                                     </div>
                                 </div>
                                 <i class="fas fa-chevron-right text-rocket-orange"></i>
@@ -458,8 +452,8 @@
                                         <i class="fas fa-book text-white"></i>
                                     </div>
                                     <div>
-                                        <div class="font-semibold text-white">기타</div>
-                                        <div class="text-xs text-gray-400">다양한 정보</div>
+                                        <div class="font-semibold text-gray-900">기타</div>
+                                        <div class="text-xs text-gray-600">다양한 정보</div>
                                     </div>
                                 </div>
                                 <i class="fas fa-chevron-right text-gray-400"></i>
@@ -469,7 +463,7 @@
                     
                     <!-- Popular Tags -->
                     <div class="card-cosmic rounded-2xl shadow-2xl p-6">
-                        <h3 class="text-xl font-bold text-white mb-4 glow-effect">인기 태그</h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">인기 태그</h3>
                         <div class="flex flex-wrap gap-2" id="popularTags">
                             <!-- Tags will be loaded here -->
                         </div>
@@ -763,16 +757,16 @@
                     return `
                         <article class="article-card card-cosmic rounded-xl p-6">
                             <div class="flex justify-between items-start mb-3">
-                                <span class="text-xs px-3 py-1 rounded-full ${categoryColor} bg-opacity-30 text-white font-semibold">${post.category}</span>
+                                <span class="text-xs px-3 py-1 rounded-full ${categoryColor} bg-opacity-20 text-white font-semibold">${post.category}</span>
                                 <span class="text-xs text-gray-500">${formatDate(post.date)}</span>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-2 hover:text-cosmic-blue transition">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2 hover:text-cosmic-blue transition">
                                 <a href="blog-detail.html?slug=${post.slug}">${post.title}</a>
                             </h3>
-                            <p class="text-gray-400 mb-4 leading-relaxed">${post.excerpt}</p>
+                            <p class="text-gray-600 mb-4 leading-relaxed">${post.excerpt}</p>
                             ${post.tags && post.tags.length > 0 ? `
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    ${post.tags.map(tag => `<span class="text-xs px-3 py-1 bg-deep-space bg-opacity-60 text-cosmic-blue rounded-full">#${tag}</span>`).join('')}
+                                    ${post.tags.map(tag => `<span class="text-xs px-3 py-1 bg-blue-50 text-cosmic-blue rounded-full border border-blue-200">#${tag}</span>`).join('')}
                                 </div>
                             ` : ''}
                             <a href="blog-detail.html?slug=${post.slug}" class="text-cosmic-blue hover:text-stellar-purple font-semibold text-sm transition inline-flex items-center">
@@ -787,8 +781,8 @@
             } else {
                 articlesList.innerHTML = `
                     <div class="card-cosmic rounded-xl p-12 text-center">
-                        <i class="fas fa-search text-6xl text-gray-600 mb-4"></i>
-                        <p class="text-gray-400 text-lg">검색 결과가 없습니다</p>
+                        <i class="fas fa-search text-6xl text-gray-400 mb-4"></i>
+                        <p class="text-gray-600 text-lg">검색 결과가 없습니다</p>
                     </div>
                 `;
                 document.getElementById('pagination').innerHTML = '';
@@ -820,21 +814,21 @@
             
             // Previous button
             if (currentPage > 1) {
-                paginationHTML += `<button onclick="changePage(${currentPage - 1})" class="px-4 py-2 bg-cosmic-blue bg-opacity-20 text-white rounded-lg hover:bg-opacity-30 transition">이전</button>`;
+                paginationHTML += `<button onclick="changePage(${currentPage - 1})" class="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">이전</button>`;
             }
             
             // Page numbers
             for (let i = 1; i <= totalPages; i++) {
                 if (i === currentPage) {
-                    paginationHTML += `<button class="px-4 py-2 gradient-cosmic text-white rounded-lg font-semibold">${i}</button>`;
+                    paginationHTML += `<button class="px-4 py-2 gradient-cosmic text-white rounded-lg font-semibold shadow-md">${i}</button>`;
                 } else {
-                    paginationHTML += `<button onclick="changePage(${i})" class="px-4 py-2 bg-space-light text-gray-300 rounded-lg hover:bg-cosmic-blue hover:bg-opacity-20 transition">${i}</button>`;
+                    paginationHTML += `<button onclick="changePage(${i})" class="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-blue-50 hover:border-cosmic-blue transition">${i}</button>`;
                 }
             }
             
             // Next button
             if (currentPage < totalPages) {
-                paginationHTML += `<button onclick="changePage(${currentPage + 1})" class="px-4 py-2 bg-cosmic-blue bg-opacity-20 text-white rounded-lg hover:bg-opacity-30 transition">다음</button>`;
+                paginationHTML += `<button onclick="changePage(${currentPage + 1})" class="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">다음</button>`;
             }
             
             pagination.innerHTML = paginationHTML;
@@ -907,12 +901,12 @@
             
             if (sortedTags.length > 0) {
                 popularTagsContainer.innerHTML = sortedTags.map(([tag, count]) => `
-                    <button onclick="searchByTag('${tag}')" class="px-4 py-2 bg-cosmic-blue bg-opacity-20 text-cosmic-blue rounded-full hover:bg-opacity-30 transition text-sm font-semibold">
-                        #${tag} <span class="text-xs text-gray-400">(${count})</span>
+                    <button onclick="searchByTag('${tag}')" class="px-4 py-2 bg-blue-50 text-cosmic-blue rounded-full hover:bg-blue-100 transition text-sm font-semibold border border-blue-200">
+                        #${tag} <span class="text-xs text-gray-500">(${count})</span>
                     </button>
                 `).join('');
             } else {
-                popularTagsContainer.innerHTML = '<p class="text-gray-400 text-sm">태그가 없습니다</p>';
+                popularTagsContainer.innerHTML = '<p class="text-gray-600 text-sm">태그가 없습니다</p>';
             }
         }
         
@@ -927,8 +921,8 @@
         function showError() {
             document.getElementById('articlesList').innerHTML = `
                 <div class="card-cosmic rounded-xl p-12 text-center">
-                    <i class="fas fa-exclamation-triangle text-6xl text-gray-600 mb-4"></i>
-                    <p class="text-gray-400 text-lg mb-4">게시글을 불러오는데 실패했습니다</p>
+                    <i class="fas fa-exclamation-triangle text-6xl text-gray-400 mb-4"></i>
+                    <p class="text-gray-600 text-lg mb-4">게시글을 불러오는데 실패했습니다</p>
                     <p class="text-gray-500 text-sm">GitHub 저장소의 _posts 폴더를 확인해주세요</p>
                 </div>
             `;

@@ -3059,8 +3059,9 @@
         window.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             const openParam = urlParams.get('open');
+            const openModalParam = urlParams.get('openModal');
             
-            if (openParam === 'consult') {
+            if (openParam === 'consult' || openModalParam === 'true') {
                 // 모달이 로드될 때까지 약간의 지연
                 setTimeout(function() {
                     if (window.openConsultModal) {

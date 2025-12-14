@@ -2085,6 +2085,20 @@
                             최근 발행된 뉴스레터
                         </h4>
                         <div class="grid sm:grid-cols-2 gap-4">
+                            <a href="/newsletter-netflix-warner-kcontent.html" target="_blank" class="group block p-4 bg-deep-space bg-opacity-60 rounded-lg border border-cosmic-blue border-opacity-20 hover:border-opacity-50 transition">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-red-500 bg-opacity-20 flex items-center justify-center mr-3">
+                                        <i class="fas fa-newspaper text-red-400"></i>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm text-gray-400 mb-1">2024.12.14</p>
+                                        <h5 class="text-white font-semibold group-hover:text-red-400 transition line-clamp-2">
+                                            넷플릭스가 커질수록, K-콘텐츠 제작사는 불리해진다
+                                        </h5>
+                                    </div>
+                                </div>
+                            </a>
+                            
                             <a href="/newsletter-financial-industrial-separation.html" target="_blank" class="group block p-4 bg-deep-space bg-opacity-60 rounded-lg border border-cosmic-blue border-opacity-20 hover:border-opacity-50 transition">
                                 <div class="flex items-start">
                                     <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500 bg-opacity-20 flex items-center justify-center mr-3">
@@ -3055,22 +3069,56 @@
             }
         }
 
-        // URL 파라미터로 모달 자동 열기
-        window.addEventListener('DOMContentLoaded', function() {
+        // URL 파라미터로 모달 자동 열기 - 개선된 버전
+        (function() {
+            console.log('Checking URL parameters...');
             const urlParams = new URLSearchParams(window.location.search);
             const openParam = urlParams.get('open');
             const openModalParam = urlParams.get('openModal');
             
+            console.log('URL Params:', { openParam, openModalParam });
+            
             if (openParam === 'consult' || openModalParam === 'true') {
-                // 모달이 로드될 때까지 약간의 지연
-                setTimeout(function() {
-                    if (window.openConsultModal) {
+                console.log('Modal should open!');
+                
+                // 여러 시점에서 시도
+                const tryOpenModal = function() {
+                    console.log('Attempting to open modal...');
+                    const modal = document.getElementById('consultModal');
+                    console.log('Modal element:', modal);
+                    
+                    if (modal && window.openConsultModal) {
                         window.openConsultModal();
-                        console.log('Modal auto-opened from URL parameter');
+                        console.log('✓ Modal opened successfully from URL parameter');
+                        return true;
                     }
-                }, 500);
+                    return false;
+                };
+                
+                // 즉시 시도
+                if (!tryOpenModal()) {
+                    console.log('First attempt failed, retrying...');
+                    
+                    // DOMContentLoaded에서 시도
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', function() {
+                            console.log('DOMContentLoaded - trying to open modal');
+                            if (!tryOpenModal()) {
+                                setTimeout(tryOpenModal, 300);
+                            }
+                        });
+                    } else {
+                        // 이미 로드됐다면 여러 번 재시도
+                        setTimeout(tryOpenModal, 100);
+                        setTimeout(tryOpenModal, 300);
+                        setTimeout(tryOpenModal, 500);
+                        setTimeout(tryOpenModal, 1000);
+                    }
+                }
+            } else {
+                console.log('No modal parameter found in URL');
             }
-        });
+        })();
 
         // Plan Modal Functions
         window.openStarterPlanModal = function() {

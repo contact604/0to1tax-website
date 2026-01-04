@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[0TO1 TAX LETTER] 2026년 달라지는 세법 안내</title>
+    <style>
+        /* Outlook 호환성을 위한 스타일 */
+        body, table, td, p, a, li, blockquote {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #333333;
+            line-height: 1.6;
+        }
+        
+        /* 메인 컨테이너 */
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* 헤더 */
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .rocket {
+            font-size: 28px;
+            margin-left: 10px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin: 0;
+        }
+        
+        /* 컨텐츠 영역 */
+        .content {
+            padding: 30px 25px;
+            text-align: left;
+        }
+        
+        /* 인사말 박스 */
+        .intro-box {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #333333;
+        }
+        
+        .intro-box strong {
+            color: #1565c0;
+            font-weight: 600;
+        }
+        
+        .intro-link {
+            display: block;
+            margin-top: 15px;
+            color: #2196f3;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        
+        .intro-link:hover {
+            color: #1565c0;
+            text-decoration: underline;
+        }
+        
+        /* 인사말 텍스트 */
+        .greeting {
+            font-size: 16px;
+            font-weight: 400;
+            color: #333333;
+            margin-bottom: 5px;
+        }
+        
+        .intro {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #4a5568;
+        }
+        
+        /* 섹션 스타일 */
+        .section {
+            margin-bottom: 35px;
+            border-left: 4px solid #3b82f6;
+            padding-left: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .section-content {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #4a5568;
+        }
+        
+        /* 구분선 */
+        .divider {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, #e2e8f0 0%, #3b82f6 50%, #e2e8f0 100%);
+            margin: 30px 0;
+        }
+        
+        /* 요약 박스 */
+        .summary-box {
+            background-color: #f0f9ff;
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .summary-item {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #1e3a8a;
+        }
+        
+        .summary-number {
+            font-weight: bold;
+            color: #dc2626;
+            margin-right: 8px;
+        }
+        
+        /* 포인트 리스트 */
+        .point-list {
+            background-color: #fef7f0;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .point-item {
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .bullet {
+            color: #f59e0b;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        /* CTA 버튼 */
+        .cta-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 35px 25px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            animation: ctaBoxPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes ctaBoxPulse {
+            0%, 100% {
+                box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 12px 32px rgba(59, 130, 246, 0.4);
+                transform: scale(1.02);
+            }
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+            animation: rotateGradient 6s linear infinite;
+            z-index: 0;
+        }
+        
+        @keyframes rotateGradient {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .cta-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-subtext {
+            font-size: 18px;
+            color: #1e3a8a;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 16px 40px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            animation: buttonShine 2s ease-in-out infinite;
+        }
+        
+        @keyframes buttonShine {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            }
+            50% {
+                box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+            }
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.5);
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        }
+        
+        /* 푸터 */
+        .footer {
+            background-color: #1f2937;
+            color: #d1d5db;
+            padding: 30px 25px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .footer-logo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact {
+            margin: 10px 0;
+        }
+        
+        .footer-link {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        .footer-link:hover {
+            color: #93c5fd;
+        }
+        
+        /* 반응형 디자인 */
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                margin: 0 10px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .intro-box {
+                padding: 15px;
+                font-size: 14px;
+            }
+            
+            .intro-link {
+                font-size: 14px;
+            }
+            
+            .section {
+                padding-left: 15px;
+            }
+            
+            .section-title {
+                font-size: 18px;
+            }
+            
+            .cta-section {
+                padding: 25px 20px;
+            }
+            
+            .cta-text {
+                font-size: 18px;
+            }
+            
+            .cta-subtext {
+                font-size: 16px;
+                font-weight: 700;
+            }
+            
+            .cta-button {
+                display: block;
+                margin: 10px 0;
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+        }
+        
+        /* Outlook 특별 처리 */
+        <!--[if mso]>
+        <style>
+            .email-container {
+                width: 600px !important;
+            }
+            
+            .intro-box, .summary-box, .point-list, .cta-section {
+                border: 1px solid #e2e8f0;
+            }
+            
+            .cta-button {
+                padding: 16px 40px !important;
+            }
+        </style>
+        <![endif]-->
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0; background-color: #f8f9fa;">
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f8f9fa;">
+        <tr>
+            <td align="center" style="padding: 20px 0;">
+                <div class="email-container">
+        <!-- 헤더 -->
+        <div class="header">
+            <div class="logo">
+                ZERO TO ONE TAX<span class="rocket">🚀</span>
+            </div>
+            <p class="subtitle">스타트업 성장 세무회계 전문</p>
+        </div>
+        
+        <!-- 메인 컨텐츠 -->
+        <div class="content">
+            <!-- 제목 -->
+            <h1 style="color: #1e3a8a; font-size: 24px; font-weight: bold; margin-bottom: 30px; line-height: 1.3;">
+                2026년 달라지는 세법 안내
+            </h1>
+            
+            <!-- 인사말 -->
+            <div class="greeting">
+                안녕하세요, 0to1tax 이범기 회계사입니다.
+            </div>
+            
+            <!-- 인트로 박스 -->
+            <div class="intro-box">
+                저희 팀은 스타트업이 <strong>0에서 1을 만들어가는 위대한 여정</strong>에서 <strong>곁에서 항상 도움</strong>이 되는 <strong>세무, 회계 서비스</strong>를 제공하고자 합니다.
+                
+                <a href="https://0to1tax.com/services.html" target="_blank" class="intro-link">
+                    🚀 제로투원택스 서비스 소개서 →
+                </a>
+            </div>
+            
+            <div class="intro">
+                2026년 새해가 밝았습니다.<br><br>
+                
+                26년 한해는 원하시는 모든 것을 성취하는 해가 되기를 기원하겠습니다.<br><br>
+                
+                새해를 맞아, <strong>26년 바뀌는 세법</strong>을 소개드립니다.<br><br>
+                
+                자세한 내용은 아래 링크를 참고 부탁드려요.
+            </div>
+            
+            <!-- CTA 버튼 (상단) -->
+            <div class="cta-section">
+                <div class="cta-subtext">🤔 2026년 세법개정, 나에게 뭐가 달라질까?</div>
+                <!--[if mso]>
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                        <td align="center">
+                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://0to1tax.com/2026-tax-reform-slides.html" style="height:50px;v-text-anchor:middle;width:200px;" arcsize="60%" strokecolor="#2563eb" fillcolor="#3b82f6">
+                                <w:anchorlock/>
+                                <center style="color:#ffffff;font-family:sans-serif;font-size:17px;font-weight:bold;">확인하기 →</center>
+                            </v:roundrect>
+                        </td>
+                    </tr>
+                </table>
+                <![endif]-->
+                <!--[if !mso]><!-->
+                <a href="https://0to1tax.com/2026-tax-reform-slides.html" class="cta-button" target="_blank">
+                    확인하기 →
+                </a>
+                <!--<![endif]-->
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 1: 고용·출산 인센티브 강화 -->
+            <div class="section">
+                <div class="section-title">
+                    ① 고용 · 출산 인센티브 강화
+                </div>
+                <div class="section-content">
+                    <div class="point-list">
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            <strong>통합고용세액공제</strong>는 추징 부담이 사라지고, 장기 고용을 유도하는 구조로 전환됩니다.
+                        </div>
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            <strong>자녀 관련 소득공제</strong>와 <strong>보육수당 비과세 한도</strong>도 확대됩니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 2: 자본시장 활성화, 과세 원칙은 정비 -->
+            <div class="section">
+                <div class="section-title">
+                    ② 자본시장 활성화, 과세 원칙은 정비
+                </div>
+                <div class="section-content">
+                    <div class="point-list">
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            <strong>고배당기업 배당소득</strong>에는 분리과세를 도입해 배당 확대와 투자 유입을 유도합니다.
+                        </div>
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            <strong>감액배당 배당소득 분류</strong>로 과세 기준을 명확히 정리합니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 3: 한시적 완화 정책은 종료 -->
+            <div class="section">
+                <div class="section-title">
+                    ③ 한시적 완화 정책은 종료
+                </div>
+                <div class="section-content">
+                    <div class="point-list">
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            <strong>법인세율, 증권거래세율이 인상</strong>됩니다.
+                        </div>
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            한시적으로 인하하였던 법인세율, 증권거래세율을 <strong>다시 원래 수준으로 환원</strong>시킨 것입니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 요약 박스 -->
+            <div class="summary-box">
+                <div style="font-size: 18px; font-weight: bold; color: #1e3a8a; margin-bottom: 15px;">
+                    📌 2026년 세법개정 요약
+                </div>
+                <div class="summary-item">
+                    <span class="summary-number">①</span>
+                    고용 · 출산 인센티브 강화
+                </div>
+                <div class="summary-item">
+                    <span class="summary-number">②</span>
+                    자본시장 활성화, 과세 원칙은 정비
+                </div>
+                <div class="summary-item">
+                    <span class="summary-number">③</span>
+                    한시적 완화 정책은 종료
+                </div>
+            </div>
+            
+            <!-- CTA 버튼 (하단) -->
+            <div class="cta-section">
+                <div class="cta-text">더 많은 내용이 궁금하신가요?</div>
+                <!--[if mso]>
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                        <td align="center" style="padding-bottom: 10px;">
+                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://0to1tax.com/2026-tax-reform-slides.html" style="height:50px;v-text-anchor:middle;width:280px;" arcsize="60%" strokecolor="#2563eb" fillcolor="#3b82f6">
+                                <w:anchorlock/>
+                                <center style="color:#ffffff;font-family:sans-serif;font-size:17px;font-weight:bold;">26년 개정세법 확인하기 →</center>
+                            </v:roundrect>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://0to1tax.com/?modal=consult" style="height:50px;v-text-anchor:middle;width:280px;" arcsize="60%" strokecolor="#2563eb" fillcolor="#3b82f6">
+                                <w:anchorlock/>
+                                <center style="color:#ffffff;font-family:sans-serif;font-size:17px;font-weight:bold;">무료 상담 신청하기 →</center>
+                            </v:roundrect>
+                        </td>
+                    </tr>
+                </table>
+                <![endif]-->
+                <!--[if !mso]><!-->
+                <a href="https://0to1tax.com/2026-tax-reform-slides.html" class="cta-button" target="_blank">
+                    26년 개정세법 확인하기 →
+                </a>
+                <a href="https://0to1tax.com/?modal=consult" class="cta-button" target="_blank">
+                    무료 상담 신청하기 →
+                </a>
+                <!--<![endif]-->
+            </div>
+            
+        </div>
+        
+        <!-- 푸터 -->
+        <div class="footer">
+            <div class="footer-logo">
+                ZERO TO ONE TAX | 선영회계법인
+            </div>
+            
+            <div class="footer-contact">
+                📧 <a href="mailto:lbg@0to1tax.com" class="footer-link">lbg@0to1tax.com</a>
+            </div>
+            
+            <div class="footer-contact">
+                📞 <a href="tel:010-4395-1996" class="footer-link">010-4395-1996</a>
+            </div>
+            
+            <div class="footer-contact">
+                🏢 서울특별시 강남구 테헤란로70길 12 H타워 6층
+            </div>
+            
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #374151;">
+                <a href="https://0to1tax.com" class="footer-link">www.0to1tax.com</a>
+            </div>
+            
+            <div style="margin-top: 15px; font-size: 12px; color: #9ca3af;">
+                이 이메일은 ZERO TO ONE TAX 뉴스레터 구독자에게 발송되었습니다.
+            </div>
+        </div>
+    </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -601,7 +601,6 @@
         // GitHub에서 블로그 포스트 목록 가져오기
         // 블로그 포스트 목록 (수동 관리 - CORS 문제 해결)
         const BLOG_POSTS = [
-            '2024-12-28-2026-tax-reform.md',
             '2024-10-27-welcome.md',
             '2025-10-30-startup-corporate-tax-savings.md',
             '2025-10-31-startup-investment-tax-management.md',
@@ -617,6 +616,20 @@
         async function loadBlogPosts() {
             try {
                 console.log('📡 Loading blog posts from GitHub Raw (CORS-free)...');
+                
+                // 2026 세법개정 포스트 (하드코딩)
+                const taxReformPost = {
+                    slug: '2025-01-04-2026-tax-reform',
+                    title: '2026년 세법 주요 개정사항',
+                    date: '2025-01-04',
+                    author: 'Zero to one TAX',
+                    category: '세무',
+                    tags: ['세법개정', '법인세', '고용세액공제', '배당소득', '증권거래세'],
+                    thumbnail: '',
+                    excerpt: '고용·출산 인센티브 강화부터 배당 과세 완화까지, 2026년 세법개정안의 모든 것을 17개 슬라이드로 한눈에 확인하세요.',
+                    body: '',
+                    published: true
+                };
                 
                 const posts = await Promise.all(
                     BLOG_POSTS.map(async (filename) => {
@@ -645,8 +658,11 @@
                     })
                 );
                 
+                // 2026 세법개정 포스트를 맨 앞에 추가
+                const allLoadedPosts = [taxReformPost, ...posts.filter(post => post !== null && post.published !== false)];
+                
                 // null 제거 및 날짜순 정렬 (최신순)
-                allPosts = posts.filter(post => post !== null && post.published !== false).sort((a, b) => new Date(b.date) - new Date(a.date));
+                allPosts = allLoadedPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
                 filteredPosts = [...allPosts];
                 
                 console.log(`✅ Total valid posts: ${allPosts.length}`);
@@ -756,7 +772,7 @@
                     const categoryColor = categoryColors[post.category] || 'bg-gray-500';
                     
                     // 2026 세법개정 포스트는 슬라이드로 직접 이동
-                    const isSpecialPost = post.slug === '2024-12-28-2026-tax-reform';
+                    const isSpecialPost = post.slug === '2025-01-04-2026-tax-reform';
                     const linkUrl = isSpecialPost ? '2026-tax-reform-slides.html' : `blog-detail.html?slug=${post.slug}`;
                     const linkTarget = isSpecialPost ? 'target="_blank"' : '';
                     

@@ -755,6 +755,11 @@
                     };
                     const categoryColor = categoryColors[post.category] || 'bg-gray-500';
                     
+                    // 2026 세법개정 포스트는 슬라이드로 직접 이동
+                    const isSpecialPost = post.slug === '2024-12-28-2026-tax-reform';
+                    const linkUrl = isSpecialPost ? '2026-tax-reform-slides.html' : `blog-detail.html?slug=${post.slug}`;
+                    const linkTarget = isSpecialPost ? 'target="_blank"' : '';
+                    
                     return `
                         <article class="article-card card-cosmic rounded-xl p-6">
                             <div class="flex justify-between items-start mb-3">
@@ -762,7 +767,7 @@
                                 <span class="text-xs text-gray-500">${formatDate(post.date)}</span>
                             </div>
                             <h3 class="text-xl font-bold text-gray-900 mb-2 hover:text-cosmic-blue transition">
-                                <a href="blog-detail.html?slug=${post.slug}">${post.title}</a>
+                                <a href="${linkUrl}" ${linkTarget}>${post.title}</a>
                             </h3>
                             <p class="text-gray-600 mb-4 leading-relaxed">${post.excerpt}</p>
                             ${post.tags && post.tags.length > 0 ? `
@@ -770,8 +775,8 @@
                                     ${post.tags.map(tag => `<span class="text-xs px-3 py-1 bg-blue-50 text-cosmic-blue rounded-full border border-blue-200">#${tag}</span>`).join('')}
                                 </div>
                             ` : ''}
-                            <a href="blog-detail.html?slug=${post.slug}" class="text-cosmic-blue hover:text-stellar-purple font-semibold text-sm transition inline-flex items-center">
-                                자세히 보기 <i class="fas fa-arrow-right ml-2"></i>
+                            <a href="${linkUrl}" ${linkTarget} class="text-cosmic-blue hover:text-stellar-purple font-semibold text-sm transition inline-flex items-center">
+                                ${isSpecialPost ? '슬라이드 보기' : '자세히 보기'} <i class="fas fa-${isSpecialPost ? 'external-link-alt' : 'arrow-right'} ml-2"></i>
                             </a>
                         </article>
                     `;

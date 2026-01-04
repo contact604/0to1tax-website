@@ -355,20 +355,45 @@
 
         /* CTA 버튼 */
         .cta-section {
-            background: #f8fafc;
-            border: 1px solid rgba(59, 130, 246, 0.15);
-            padding: 40px 35px;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 2px solid #3b82f6;
+            padding: 45px 40px;
+            border-radius: 16px;
             margin-top: 40px;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            animation: rotateGradient 10s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotateGradient {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            color: var(--gray-text);
-            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: var(--primary-blue);
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-buttons {
@@ -376,6 +401,8 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
         .btn {
@@ -661,19 +688,37 @@
 
             /* CTA 섹션 */
             .cta-section {
-                padding: 30px 20px;
+                padding: 35px 25px;
                 margin-top: 30px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .cta-section::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+                animation: rotateGradient 10s linear infinite;
+                z-index: 0;
             }
 
             .cta-section p {
-                font-size: 1rem;
-                margin-bottom: 20px;
+                font-size: 1.1rem;
+                margin-bottom: 25px;
                 line-height: 1.6;
+                position: relative;
+                z-index: 1;
             }
 
             .cta-buttons {
                 flex-direction: column;
                 gap: 12px;
+                position: relative;
+                z-index: 1;
             }
 
             .btn {
@@ -811,7 +856,7 @@
         <div class="slide slide-cover" data-slide="0">
             <h1>2026년 세법<br>주요 개정사항</h1>
             <p class="subtitle">고용 인센티브 강화부터 배당 과세 완화까지<br>기업과 개인이 꼭 알아야 할 변화</p>
-            <div class="logo">ZERO TO ONE TAX<br><span style="font-size: 1.2rem; font-weight: 400;">선영회계법인</span></div>
+            <div class="logo">ZERO TO ONE TAX | 선영회계법인</div>
         </div>
 
         <!-- Slide 1: Executive Summary - 한 장 요약 -->
@@ -836,10 +881,7 @@
                 </ul>
             </div>
             <div class="slide-footer">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <img src="images/zero-to-one-logo.png" alt="Logo" style="width: 30px; height: 30px; object-fit: contain;">
-                    <span class="brand">ZERO TO ONE TAX</span>
-                </div>
+                <span class="brand">ZERO TO ONE TAX | 선영회계법인</span>
                 <span>문의: <a href="mailto:lbg@0to1tax.com" style="color: inherit; text-decoration: underline;">lbg@0to1tax.com</a> | <a href="tel:010-4395-1996" style="color: inherit; text-decoration: underline;">010-4395-1996</a></span>
             </div>
         </div>
@@ -891,16 +933,13 @@
                 <div class="cta-section" style="margin-top: 40px;">
                     <p><strong>개정세법에 대하여 더 궁금하신 점이 있다면, 언제든지 연락 주세요</strong></p>
                     <div class="cta-buttons">
-                        <a href="https://0to1tax.com/services.html" target="_blank" class="btn btn-primary">ZERO TO ONE TAX 선영회계법인 서비스 소개서</a>
+                        <a href="https://0to1tax.com/services.html" target="_blank" class="btn btn-primary">ZERO TO ONE TAX | 선영회계법인 서비스 소개서</a>
                         <a href="https://0to1tax.com/?modal=consult" target="_blank" class="btn btn-contact">💬 문의하기</a>
                     </div>
                 </div>
             </div>
             <div class="slide-footer">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <img src="images/zero-to-one-logo.png" alt="Logo" style="width: 30px; height: 30px; object-fit: contain;">
-                    <span class="brand">ZERO TO ONE TAX</span>
-                </div>
+                <span class="brand">ZERO TO ONE TAX | 선영회계법인</span>
                 <span>문의: <a href="mailto:lbg@0to1tax.com" style="color: inherit; text-decoration: underline;">lbg@0to1tax.com</a> | <a href="tel:010-4395-1996" style="color: inherit; text-decoration: underline;">010-4395-1996</a></span>
             </div>
         </div>
@@ -935,7 +974,7 @@
                 <p>앞으로는 고용이 줄어들더라도 이미 적용받은 공제는 유지하고, <strong>줄어든 인원에 대해서만 해당 연도의 공제를 배제</strong>하는 방식으로 제도가 변경됩니다.</p>
             </div>
             <div class="slide-footer">
-                <span class="brand">ZERO TO ONE TAX</span>
+                <span class="brand">ZERO TO ONE TAX | 선영회계법인</span>
                 <span>문의: <a href="mailto:lbg@0to1tax.com" style="color: inherit; text-decoration: underline;">lbg@0to1tax.com</a> | <a href="tel:010-4395-1996" style="color: inherit; text-decoration: underline;">010-4395-1996</a></span>
             </div>
         </div>
@@ -1028,7 +1067,7 @@
                 <p style="margin-top: 30px; color: var(--gray-text); font-size: 1.05rem;">해당 규정은 <strong>2026년 이후 개시하는 과세연도를 최초 공제연도로 신청하는 경우부터 적용</strong>됩니다.</p>
             </div>
             <div class="slide-footer">
-                <span class="brand">ZERO TO ONE TAX</span>
+                <span class="brand">ZERO TO ONE TAX | 선영회계법인</span>
                 <span>문의: <a href="mailto:lbg@0to1tax.com" style="color: inherit; text-decoration: underline;">lbg@0to1tax.com</a> | <a href="tel:010-4395-1996" style="color: inherit; text-decoration: underline;">010-4395-1996</a></span>
             </div>
         </div>
@@ -1072,7 +1111,7 @@
                 </div>
             </div>
             <div class="slide-footer">
-                <span class="brand">ZERO TO ONE TAX</span>
+                <span class="brand">ZERO TO ONE TAX | 선영회계법인</span>
                 <span>문의: <a href="mailto:lbg@0to1tax.com" style="color: inherit; text-decoration: underline;">lbg@0to1tax.com</a> | <a href="tel:010-4395-1996" style="color: inherit; text-decoration: underline;">010-4395-1996</a></span>
             </div>
         </div>
@@ -1150,7 +1189,7 @@
                 </div>
             </div>
             <div class="slide-footer">
-                <span class="brand">ZERO TO ONE TAX</span>
+                <span class="brand">ZERO TO ONE TAX | 선영회계법인</span>
                 <span>문의: <a href="mailto:lbg@0to1tax.com" style="color: inherit; text-decoration: underline;">lbg@0to1tax.com</a> | <a href="tel:010-4395-1996" style="color: inherit; text-decoration: underline;">010-4395-1996</a></span>
             </div>
         </div>
@@ -1193,7 +1232,7 @@
                 <p style="margin-top: 40px;">이는 급여 체계나 사내 복지제도 설계 시 <strong>실질적인 절세 수단</strong>으로 활용될 수 있습니다.</p>
             </div>
             <div class="slide-footer">
-                <span class="brand">ZERO TO ONE TAX</span>
+                <span class="brand">ZERO TO ONE TAX | 선영회계법인</span>
                 <span>문의: <a href="mailto:lbg@0to1tax.com" style="color: inherit; text-decoration: underline;">lbg@0to1tax.com</a> | <a href="tel:010-4395-1996" style="color: inherit; text-decoration: underline;">010-4395-1996</a></span>
             </div>
         </div>
@@ -1229,7 +1268,7 @@
                 </ul>
             </div>
             <div class="slide-footer">
-                <span class="brand">ZERO TO ONE TAX</span>
+                <span class="brand">ZERO TO ONE TAX | 선영회계법인</span>
                 <span>문의: <a href="mailto:lbg@0to1tax.com" style="color: inherit; text-decoration: underline;">lbg@0to1tax.com</a> | <a href="tel:010-4395-1996" style="color: inherit; text-decoration: underline;">010-4395-1996</a></span>
             </div>
         </div>
@@ -1283,7 +1322,7 @@
                 </div>
             </div>
             <div class="slide-footer">
-                <span class="brand">ZERO TO ONE TAX</span>
+                <span class="brand">ZERO TO ONE TAX | 선영회계법인</span>
                 <span>문의: <a href="mailto:lbg@0to1tax.com" style="color: inherit; text-decoration: underline;">lbg@0to1tax.com</a> | <a href="tel:010-4395-1996" style="color: inherit; text-decoration: underline;">010-4395-1996</a></span>
             </div>
         </div>
@@ -1356,7 +1395,7 @@
                 <p style="margin-top: 30px; color: var(--gray-text); font-size: 1.05rem;">해당 개정은 <strong>2026년 1월 1일 이후 양도하는 분부터 적용</strong>됩니다.</p>
             </div>
             <div class="slide-footer">
-                <span class="brand">ZERO TO ONE TAX</span>
+                <span class="brand">ZERO TO ONE TAX | 선영회계법인</span>
                 <span>문의: <a href="mailto:lbg@0to1tax.com" style="color: inherit; text-decoration: underline;">lbg@0to1tax.com</a> | <a href="tel:010-4395-1996" style="color: inherit; text-decoration: underline;">010-4395-1996</a></span>
             </div>
         </div>
@@ -1409,7 +1448,7 @@
                 <p style="margin-top: 40px; color: var(--gray-text);">감액배당을 통한 자본 환원 시, 세무 리스크를 사전에 정확히 검토하는 것이 중요합니다.</p>
             </div>
             <div class="slide-footer">
-                <span class="brand">ZERO TO ONE TAX</span>
+                <span class="brand">ZERO TO ONE TAX | 선영회계법인</span>
                 <span>문의: <a href="mailto:lbg@0to1tax.com" style="color: inherit; text-decoration: underline;">lbg@0to1tax.com</a> | <a href="tel:010-4395-1996" style="color: inherit; text-decoration: underline;">010-4395-1996</a></span>
             </div>
         </div>
@@ -1451,7 +1490,7 @@
                 <div class="cta-section" style="margin-top: 50px; padding-top: 40px;">
                     <p style="font-size: 1.3rem; margin-bottom: 30px; line-height: 1.5;"><strong>지금 바로 전문가와 상담하세요</strong></p>
                     <div class="cta-buttons">
-                        <a href="https://0to1tax.com/services.html" target="_blank" class="btn btn-primary"><i class="fas fa-file-alt"></i> ZERO TO ONE TAX 선영회계법인 서비스 소개서</a>
+                        <a href="https://0to1tax.com/services.html" target="_blank" class="btn btn-primary"><i class="fas fa-file-alt"></i> ZERO TO ONE TAX | 선영회계법인 서비스 소개서</a>
                         <a href="https://0to1tax.com/?modal=consult" target="_blank" class="btn btn-contact"><i class="fas fa-comments"></i> 문의하기</a>
                     </div>
                     <p style="margin-top: 30px; font-size: 1.1rem; color: var(--primary-blue);">
@@ -1461,7 +1500,7 @@
                 </div>
             </div>
             <div class="slide-footer">
-                <span class="brand">ZERO TO ONE TAX</span>
+                <span class="brand">ZERO TO ONE TAX | 선영회계법인</span>
                 <span>선영회계법인 | www.0to1tax.com</span>
             </div>
         </div>

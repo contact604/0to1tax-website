@@ -3,30 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
     <title>Zero to One TAX - 서비스 소개서</title>
-    <meta name="title" content="Zero to One TAX - 서비스 소개서">
-    <meta name="description" content="Zero to One TAX의 스타터, 엔터프라이즈, 그로스, 스케일업 플랜 상세 안내. 스타트업 맞춤 세무회계 서비스.">
-    <meta name="keywords" content="Zero to One TAX 서비스, 스타트업 세무, 세무기장 플랜, 법인세 신고, 회계 서비스">
+    <meta name="description" content="Pre-A ~ Series A 스타트업의 첫 번째 CFO">
     
-    <!-- Open Graph / Facebook / KakaoTalk -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://0to1tax.com/services.html">
-    <meta property="og:title" content="Zero to One TAX - 서비스 소개서">
-    <meta property="og:description" content="스타트업의 성장 단계별 맞춤 세무회계 서비스">
-    <meta property="og:image" content="https://0to1tax.com/og-image.jpg">
-    <meta property="og:site_name" content="Zero to One TAX">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     
     <style>
@@ -34,288 +17,1234 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
         }
         
-        body, html {
-            height: 100%;
-            overflow: hidden;
-            background: #0F172A;
+        :root {
+            --primary-blue: #2563eb;
+            --primary-blue-dark: #1e40af;
+            --primary-blue-light: #3b82f6;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: #f8fafc;
         }
         
         /* Navigation */
-        .nav-blur {
+        nav {
             position: fixed;
             top: 0;
-            width: 100%;
-            z-index: 9999;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
         }
         
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-        }
-        
-        .logo-icon {
-            font-size: 2rem;
-        }
-        
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-        }
-        
-        .logo-main {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: white;
-        }
-        
-        .logo-sub {
-            font-size: 0.875rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #8B5CF6, #3B82F6, #F97316);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .logo img {
+            height: 40px;
         }
         
         .nav-links {
             display: flex;
             gap: 2rem;
-            align-items: center;
+            list-style: none;
         }
         
-        .nav-link {
-            color: #9CA3AF;
+        .nav-links a {
+            color: var(--text-dark);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
         
-        .nav-link:hover {
-            color: white;
+        .nav-links a:hover {
+            color: var(--primary-blue);
         }
         
-        .nav-link.active {
-            color: #3B82F6;
-            font-weight: 600;
-        }
-        
-        .cta-button {
-            background: linear-gradient(135deg, #8B5CF6, #3B82F6, #F97316);
-            color: white;
-            padding: 0.625rem 1.5rem;
-            border-radius: 9999px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            color: white;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        
-        /* Nav Spacer */
-        .nav-spacer {
-            height: 80px;
-        }
-        
-        /* Loading Screen */
-        .loading {
-            position: fixed;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            height: calc(100vh - 80px);
-            background: #0F172A;
+        /* PPT Slide Structure */
+        .slide {
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
-            z-index: 1000;
+            padding: 6rem 2rem 4rem;
+            scroll-margin-top: 80px;
         }
         
-        .loading.hidden {
-            display: none;
-        }
-        
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(59, 130, 246, 0.2);
-            border-top-color: #3B82F6;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .loading-text {
-            margin-top: 20px;
-            color: #E2E8F0;
-            font-size: 18px;
-        }
-        
-        /* CANVA iframe */
-        iframe {
-            position: fixed;
-            top: 80px;
-            left: 0;
+        .slide-content {
             width: 100%;
-            height: calc(100vh - 80px);
-            border: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            line-height: 1.8;
+            color: var(--text-gray);
+        }
+        
+        /* Slide 1: Cover - PPT Style */
+        .slide-cover {
+            background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 50%, var(--primary-blue-light) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .slide-cover h1 {
+            color: white;
+        }
+        
+        .slide-cover .subtitle {
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 2rem;
+        }
+        
+        .cover-badge {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            border: 2px solid rgba(255,255,255,0.3);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 2rem;
+        }
+        
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+        
+        .target-box {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.25);
+            padding: 2rem 1rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .target-box:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-5px);
+        }
+        
+        .target-box .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
             display: block;
         }
         
-        /* Mobile Styles */
+        .target-box p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        
+        /* Standard Slide - Clean PPT */
+        .slide-standard {
+            background: white;
+            text-align: center;
+        }
+        
+        .slide-standard h2 {
+            color: var(--primary-blue);
+        }
+        
+        /* Problem List */
+        .problem-list {
+            max-width: 900px;
+            margin: 3rem auto;
+            text-align: left;
+        }
+        
+        .problem-item {
+            padding: 2rem 2.5rem;
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            font-size: 1.3rem;
+            font-weight: 500;
+            border-left: 4px solid var(--primary-blue);
+            transition: all 0.3s;
+        }
+        
+        .problem-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        /* Question Slide */
+        .slide-question {
+            background: linear-gradient(135deg, #1e3a8a 0%, var(--primary-blue) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .slide-question h2 {
+            color: white;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.3;
+        }
+        
+        /* Comparison Table */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 3rem auto;
+        }
+        
+        .comparison-col {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-col h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid;
+        }
+        
+        .comparison-col.before h3 {
+            color: #dc2626;
+            border-color: #dc2626;
+        }
+        
+        .comparison-col.after h3 {
+            color: #10b981;
+            border-color: #10b981;
+        }
+        
+        .comparison-col ul {
+            list-style: none;
+        }
+        
+        .comparison-col li {
+            padding: 1.2rem 0;
+            font-size: 1.15rem;
+            border-bottom: 1px solid #e5e7eb;
+            line-height: 1.6;
+        }
+        
+        .comparison-col li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Timeline / Steps */
+        .timeline {
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+        
+        .timeline-item {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--primary-blue);
+        }
+        
+        .timeline-item h3 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-item ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+        
+        .timeline-item li {
+            padding: 0.5rem 0;
+            font-size: 1.15rem;
+            position: relative;
+        }
+        
+        .timeline-item li:before {
+            content: "→";
+            position: absolute;
+            left: -1.5rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+        
+        /* Value Cards */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 3rem auto;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            border-top: 4px solid var(--primary-blue);
+        }
+        
+        .value-card .number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .value-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card p {
+            font-size: 1.05rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        
+        /* Service Cards - Full Screen */
+        .service-card {
+            background: white;
+            padding: 4rem 3rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+        
+        .service-card h3 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+        }
+        
+        .service-card .description {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .service-highlight {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 2rem;
+        }
+        
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 3rem auto;
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: 4rem 3rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            text-align: center;
+        }
+        
+        .pricing-card h3 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 1.5rem 0;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 2rem;
+        }
+        
+        .pricing-card li {
+            padding: 1rem 0;
+            font-size: 1.15rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .pricing-card li:before {
+            content: "✓";
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        /* Profile Section */
+        .profile-section {
+            text-align: center;
+            max-width: 900px;
+            margin: 3rem auto;
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+            margin-bottom: 2rem;
+        }
+        
+        .profile-section h3 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+        }
+        
+        .profile-section .title {
+            font-size: 1.3rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+        
+        .profile-section .description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-top: 1.5rem;
+        }
+        
+        .experience-list {
+            text-align: left;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+            margin-top: 3rem;
+        }
+        
+        .experience-list h4 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .experience-list p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        /* Stats Display */
+        .stats-display {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+        
+        .stat-box {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .stat-value {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            line-height: 1;
+        }
+        
+        /* Logo Grid */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 3rem auto;
+            align-items: center;
+        }
+        
+        .logo-grid img {
+            width: 100%;
+            height: auto;
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+        
+        .logo-grid img:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        /* CTA Section */
+        .slide-cta {
+            background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .slide-cta h2 {
+            color: white;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1.5rem 4rem;
+            background: white;
+            color: var(--primary-blue);
+            font-size: 1.4rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 2.5rem;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .contact-link:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-3px);
+        }
+        
+        /* Learn More Links */
+        .learn-more-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 4rem auto;
+        }
+        
+        .learn-more-link {
+            display: block;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+            color: white;
+            text-align: center;
+            border-radius: 16px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .learn-more-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+        }
+        
+        /* Mobile Responsive - Card Style */
         @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 1rem;
+            nav {
+                padding: 1rem;
             }
             
             .nav-links {
                 display: none;
-                position: fixed;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: rgba(15, 23, 42, 0.98);
-                flex-direction: column;
+            }
+            
+            .slide {
+                min-height: auto;
+                padding: 5rem 1rem 3rem;
+            }
+            
+            /* Mobile: Add Card Style */
+            .slide-standard .slide-content,
+            .profile-section,
+            .service-card,
+            .timeline,
+            .problem-list {
+                background: white;
                 padding: 2rem;
+                border-radius: 20px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            }
+            
+            .target-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            
+            .target-box {
+                padding: 1.5rem 1rem;
+            }
+            
+            .target-box .icon {
+                font-size: 2rem;
+            }
+            
+            .target-box p {
+                font-size: 0.95rem;
+            }
+            
+            .comparison {
+                grid-template-columns: 1fr;
                 gap: 1.5rem;
-                border-bottom: 1px solid rgba(139, 92, 246, 0.2);
             }
             
-            .nav-links.active {
-                display: flex;
+            .value-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
             
-            .mobile-menu-btn {
-                display: block;
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
-            .cta-button {
-                width: 100%;
-                text-align: center;
+            .stats-display {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
+            
+            .logo-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+            
+            .learn-more-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .problem-item {
+                font-size: 1.1rem;
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="nav-blur">
+    <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <div class="logo-icon">🚀</div>
-                <div class="logo-text">
-                    <span class="logo-main">Zero to one</span>
-                    <span class="logo-sub">TAX</span>
-                </div>
-            </a>
-            
-            <div class="nav-links" id="navLinks">
-                <a href="index.html" class="nav-link">홈</a>
-                <a href="index.html#services" class="nav-link">서비스</a>
-                <a href="services.html" class="nav-link active">서비스 소개</a>
-                <a href="0to1log.html" class="nav-link">블로그</a>
-                <a href="index.html?modal=consult" class="cta-button">🚀 무료 상담</a>
+            <div class="logo">
+                <img src="https://0to1tax.com/images/logo-blue.svg" alt="ZERO TO ONE TAX">
             </div>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars"></i>
-            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="services.html">서비스 소개</a></li>
+            </ul>
         </div>
     </nav>
-    
-    <!-- Nav Spacer -->
-    <div class="nav-spacer"></div>
-    
-    <!-- Loading Screen -->
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
-        <div class="loading-text">서비스 소개서 로딩 중...</div>
-    </div>
-    
-    <!-- CANVA iframe -->
-    <iframe 
-        id="canva-iframe"
-        src="https://www.canva.com/design/DAG3ifbpCoE/VlhUJbIjs5Dx502GvfNlcA/view?embed"
-        allow="fullscreen"
-        loading="lazy"
-        onload="hideLoading()"
-    ></iframe>
+
+    <!-- Slide 1: Cover -->
+    <section class="slide slide-cover">
+        <div class="slide-content">
+            <h1>Pre-A ~ Series A 스타트업의<br>첫 번째 CFO</h1>
+            <p class="subtitle">
+                기장·세무를 넘어<br>
+                투자자와 감사인이 신뢰하는 숫자를 만듭니다
+            </p>
+            <div class="cover-badge">ZERO TO ONE TAX by 선영회계법인</div>
+            
+            <div class="target-grid">
+                <div class="target-box">
+                    <span class="icon">🚀</span>
+                    <p>Pre-A ~ Series A<br>스타트업</p>
+                </div>
+                <div class="target-box">
+                    <span class="icon">💰</span>
+                    <p>매출 발생<br>법인</p>
+                </div>
+                <div class="target-box">
+                    <span class="icon">📊</span>
+                    <p>투자자 미팅<br>증가 회사</p>
+                </div>
+                <div class="target-box">
+                    <span class="icon">👔</span>
+                    <p>CFO 없이<br>대표가 숫자 판단</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2: 스타트업이 겪는 문제 -->
+    <section class="slide slide-standard">
+        <div class="slide-content">
+            <h2>스타트업이 겪는 문제</h2>
+            <div class="problem-list">
+                <div class="problem-item">✓ 투자자는 숫자를 묻는데, 답변이 늦어집니다</div>
+                <div class="problem-item">✓ 재무제표는 있지만, 설명이 어렵습니다</div>
+                <div class="problem-item">✓ 투자금 실사를 받았으나 실제 장부와 일치하지 않습니다</div>
+                <div class="problem-item">✓ 장부로 회사의 장점을 부각시키기 어렵습니다</div>
+                <div class="problem-item">✓ 세무사는 신고만 하고, 판단은 대표 몫입니다</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: 핵심 질문 -->
+    <section class="slide slide-question">
+        <div class="slide-content">
+            <h2>이 숫자로<br>투자자 앞에 서도 될까?</h2>
+            <p class="subtitle" style="margin-top: 2rem; color: white;">
+                당신의 회사는<br>
+                투자자 앞에 설 준비가 되어 있나요?
+            </p>
+        </div>
+    </section>
+
+    <!-- Slide 4: Before / After -->
+    <section class="slide slide-standard">
+        <div class="slide-content">
+            <h2>Before / After</h2>
+            <div class="comparison">
+                <div class="comparison-col before">
+                    <h3>❌ Before</h3>
+                    <ul>
+                        <li>투자자 질문에 즉답 불가</li>
+                        <li>재무제표 해석 어려움</li>
+                        <li>IR 자료와 회계장부가 별개</li>
+                        <li>감사 대응 1~2주 소요</li>
+                        <li>사후 대응형 세무 전략</li>
+                    </ul>
+                </div>
+                <div class="comparison-col after">
+                    <h3>✅ After</h3>
+                    <ul>
+                        <li>투자자에게 실시간 대응 가능</li>
+                        <li>재무제표 기반 전략 수립</li>
+                        <li>IR 자료를 설명할 수 있는 회계장부</li>
+                        <li>감사 대응 1~2일 내 완료</li>
+                        <li>선제적 세무 전략</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: 우리의 서비스가 필요한 시점 -->
+    <section class="slide slide-standard">
+        <div class="slide-content">
+            <h2>ZERO TO ONE TAX는<br>결정 이후가 아니라, 결정 이전에 함께합니다</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>투자 전에</h3>
+                    <ul>
+                        <li>투자자 질문에 대비한 숫자 정합성 점검</li>
+                        <li>IR 자료 내 주장을 뒷받침할 수 있는 회계장부 작성</li>
+                        <li>투자 조건이 재무적으로 불리하지 않은지 사전 검토</li>
+                    </ul>
+                    <p style="margin-top: 1.5rem; font-weight: 700; color: var(--primary-blue);">👉 투자 이후 문제가 아니라, 투자 이전에 정리합니다</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>계약 전에</h3>
+                    <ul>
+                        <li>계약 조건이 재무·세무적으로 어떤 영향을 미치는지 사전 검토</li>
+                        <li>단기 비용이 아닌, 중장기 재무 구조에 미치는 영향까지 확인</li>
+                    </ul>
+                    <p style="margin-top: 1.5rem; font-weight: 700; color: var(--primary-blue);">👉 사인하고 나서 후회하지 않도록 합니다</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>구조를 바꾸기 전에</h3>
+                    <ul>
+                        <li>투자 구조, 지분 구조, 보상 구조 변경 시 회계·세무·감사 이슈를 함께 검토</li>
+                        <li>"지금은 괜찮아 보여도, 나중에 문제가 되는 선택"을 사전에 차단</li>
+                    </ul>
+                    <p style="margin-top: 1.5rem; font-weight: 700; color: var(--primary-blue);">👉 지금의 선택이 다음 단계의 리스크가 되지 않게 합니다</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: ZERO TO ONE TAX가 만드는 변화 -->
+    <section class="slide slide-standard">
+        <div class="slide-content">
+            <h2>ZERO TO ONE TAX가 만드는 변화</h2>
+            <p class="subtitle" style="margin-bottom: 1rem;">회사의 지속가능한 성장을 목표로 합니다</p>
+            <p style="text-align: center; font-size: 1.2rem; color: var(--text-gray); margin-bottom: 3rem;">
+                단기적인 신고나 대응이 아니라,<br>다음 단계까지 이어질 수 있는 숫자 구조를 만듭니다.
+            </p>
+            
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="number">1️⃣</div>
+                    <h3>빠른 대응과<br>선제적 판단</h3>
+                    <p>
+                        대표의 부담을 줄입니다<br>
+                        필요한 순간에 즉시 대응<br>
+                        문제가 생기기 전 사전 검토<br>
+                        판단이 늦어지지 않도록 관리
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="number">2️⃣</div>
+                    <h3>투자자와 감사인을<br>숫자로 설득</h3>
+                    <p>
+                        숫자로 설득할 수 있게 합니다<br>
+                        실사·감사 질문 포인트 사전 정리<br>
+                        IR 자료와 장부 간 정합성 확보
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="number">3️⃣</div>
+                    <h3>원칙을 지키는<br>방향으로 관리</h3>
+                    <p>
+                        숫자를 관리합니다<br>
+                        단기 이익보다 설명 가능한 구조<br>
+                        외부 검증을 전제로 관리
+                    </p>
+                </div>
+            </div>
+            
+            <div class="service-highlight" style="max-width: 800px; margin: 3rem auto;">
+                대표가 혼자 책임지지 않아도 되는 숫자를 만듭니다.
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: 단계별 포인트 -->
+    <section class="slide slide-standard">
+        <div class="slide-content">
+            <h2>단계별 포인트</h2>
+            
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="number" style="font-size: 2.5rem;">🌱</div>
+                    <h3>Pre-A</h3>
+                    <p style="font-weight: 600; margin-bottom: 1rem;">대표가 숫자를 설명할 수 있도록 만드는 단계</p>
+                    <ul style="list-style: none; padding: 0; text-align: left;">
+                        <li>• 강점이 보이는 재무 구조 설계</li>
+                        <li>• 투자자 질문 대비 포인트 정리</li>
+                    </ul>
+                </div>
+                
+                <div class="value-card">
+                    <div class="number" style="font-size: 2.5rem;">🚀</div>
+                    <h3>Series A 준비</h3>
+                    <p style="font-weight: 600; margin-bottom: 1rem;">숫자로 설득하는 단계</p>
+                    <ul style="list-style: none; padding: 0; text-align: left;">
+                        <li>• IR 자료와 재무제표 정합성 확보</li>
+                        <li>• RCPS, 스톡옵션 등 핵심 이슈 정리</li>
+                    </ul>
+                </div>
+                
+                <div class="value-card">
+                    <div class="number" style="font-size: 2.5rem;">🌍</div>
+                    <h3>Series A 이후</h3>
+                    <p style="font-weight: 600; margin-bottom: 1rem;">외부 검증을 전제로 관리하는 단계</p>
+                    <ul style="list-style: none; padding: 0; text-align: left;">
+                        <li>• 외부감사·지정감사 대응</li>
+                        <li>• 과거 선택이 리스크가 되지 않도록 관리</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8~10: Core Services -->
+    <section class="slide slide-standard">
+        <div class="slide-content">
+            <h2>Core Service ①</h2>
+            <div class="service-card">
+                <h3>투자 기준 숫자 구조 설계</h3>
+                <p class="description">
+                    회사의 사업 구조와 강점을 숫자에 드러나도록 재무 구조를 설계합니다.<br>
+                    IR에서 대표가 회사의 강점을 숫자로 설명할 수 있게 됩니다.
+                </p>
+                <div class="service-highlight">
+                    재무제표가 설명의 근거가 됩니다
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-standard">
+        <div class="slide-content">
+            <h2>Core Service ②</h2>
+            <div class="service-card">
+                <h3>투자·감사 대응형 기장 & 세무</h3>
+                <p class="description">
+                    IR 자료와 장부 간 숫자 불일치를 제거하고,<br>
+                    투자·감사 과정에서 질문받을 포인트를 관리합니다.<br>
+                    회사의 강점이 드러나도록 재무제표를 구성합니다.
+                </p>
+                <p class="description">
+                    IR 자료의 내용이 실제 장부와 어긋나지 않도록 정리해,<br>
+                    투자자 설명력이 높아지도록 만듭니다.
+                </p>
+                <div class="service-highlight">
+                    기장이 설득의 도구가 됩니다
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-standard">
+        <div class="slide-content">
+            <h2>Core Service ③</h2>
+            <div class="service-card">
+                <h3>대표 의사결정 파트너링</h3>
+                <p class="description">
+                    중요한 판단을 숫자로 함께 검토합니다.<br>
+                    "된다 / 안 된다"를 명확히 제시합니다.
+                </p>
+                <div class="service-highlight">
+                    대표가 혼자 결정하지 않게 됩니다
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 11~12: Pricing -->
+    <section class="slide slide-standard">
+        <div class="slide-content">
+            <h2>서비스 구성 & 가격</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Standard</h3>
+                    <div class="price">월 150,000원 ~<br><span style="font-size: 1.2rem;">(VAT 별도)</span></div>
+                    <ul>
+                        <li>투자 유치에 유리한 재무제표 복식부기 기장</li>
+                        <li>법인세, 부가세 신고</li>
+                        <li>임직원 4대보험 사무대행</li>
+                        <li>임직원 급여업무</li>
+                        <li>카톡/전화 실시간 상담</li>
+                    </ul>
+                </div>
+                
+                <div class="pricing-card" style="border-top: 4px solid #f59e0b;">
+                    <h3 style="color: #f59e0b;">Pro</h3>
+                    <div class="price">별도 협의</div>
+                    <p style="margin: 1.5rem 0; font-size: 1.1rem; color: var(--text-gray);">업무 범위에 따라 논의</p>
+                    
+                    <div style="background: #f3f4f6; padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                        <h4 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-dark);">기본 제공</h4>
+                        <ul style="border: none;">
+                            <li style="border: none;">Standard 서비스 전체 포함</li>
+                            <li style="border: none;">투자자 대응</li>
+                            <li style="border: none;">외부감사 대응</li>
+                            <li style="border: none;">의사결정 파트너링</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #fef3c7; padding: 2rem; border-radius: 12px; border: 2px dashed #f59e0b;">
+                        <h4 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-dark);">추가 선택 가능</h4>
+                        <ul style="border: none;">
+                            <li style="border: none;">IR 자료 작성</li>
+                            <li style="border: none;">IFRS Conversion</li>
+                            <li style="border: none;">스톡옵션 설계</li>
+                            <li style="border: none;">RCPS·CB 등 투자 구조</li>
+                            <li style="border: none;">M&A·조직 개편 등 특수 이슈</li>
+                            <li style="border: none;">투자자 미팅 동반 참석</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); padding: 2.5rem; border-radius: 16px; max-width: 900px; margin: 4rem auto; border-left: 4px solid var(--primary-blue);">
+                <p style="font-size: 1.3rem; font-weight: 700; color: var(--primary-blue); text-align: center; margin-bottom: 1rem;">
+                    투자자나 감사인이 숫자를 묻기 시작했다면 Pro 단계입니다
+                </p>
+                <p style="font-size: 1.1rem; color: var(--text-gray); text-align: center; line-height: 1.8;">
+                    Standard로 시작하여 성장 단계에 맞춰 Pro로 전환 가능합니다.<br>
+                    고객사 상황에 맞춰 유연하게 조정됩니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 13: 우리의 강점 -->
+    <section class="slide slide-standard">
+        <div class="slide-content">
+            <h2>우리의 강점<br>왜 ZERO TO ONE TAX인가</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item" style="border-left-color: var(--primary-blue);">
+                    <h3>① 투자·감사·실사 경험</h3>
+                    <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text-gray);">
+                        숫자를 "만드는 사람"이 아니라 검증하는 사람의 관점으로 봅니다
+                    </p>
+                    <p style="font-weight: 700; color: var(--primary-blue); margin-bottom: 1rem;">우리가 서비스하면 달라지는 점:</p>
+                    <ul>
+                        <li>투자자 질문에 즉답이 가능한 숫자 구조</li>
+                        <li>감사 과정에서 추가 자료 요청과 해석 논쟁 감소</li>
+                        <li>실사에서 설명 가능</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item" style="border-left-color: #7c3aed;">
+                    <h3 style="color: #7c3aed;">② 스타트업 특화</h3>
+                    <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text-gray);">
+                        "이론적으로 맞는 회계"보다 "지금 이 회사에 맞는 숫자"를 봅니다
+                    </p>
+                    <ul>
+                        <li>스타트업은 숫자가 작지만 설명할 것이 많습니다</li>
+                        <li>구조가 자주 바뀌고, 대표가 혼자 재무 판단을 합니다</li>
+                        <li>우리는 지금 단계에서 필요한 숫자 관리 방식을 함께 만듭니다</li>
+                    </ul>
+                    <p style="font-weight: 700; color: #7c3aed; margin-top: 1.5rem;">스타트업의 숫자는 지금과 다음을 함께 봐야 합니다</p>
+                </div>
+                
+                <div class="timeline-item" style="border-left-color: #0891b2;">
+                    <h3 style="color: #0891b2;">③ 한 담당자가 끝까지 책임</h3>
+                    <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text-gray);">
+                        설명이 반복되지 않는 구조 / 히스토리가 끊기지 않는 관리
+                    </p>
+                    <ul>
+                        <li>담당자가 바뀔 때마다 처음부터 설명하지 않아도 됩니다</li>
+                        <li>"이건 왜 이렇게 돼 있죠?"라는 질문에 바로 맥락 있는 답변이 나옵니다</li>
+                        <li>숫자에 대한 책임을 혼자 지지 않아도 됩니다</li>
+                    </ul>
+                    <p style="font-weight: 700; color: #0891b2; margin-top: 1.5rem;">숫자는 기록이 아니라 히스토리입니다</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 14: 이범기 회계사 소개 -->
+    <section class="slide slide-standard">
+        <div class="slide-content">
+            <h2>스타트업 전문가 이범기 회계사가<br>직접 서비스합니다.</h2>
+            
+            <div class="profile-section">
+                <img src="images/profile-lee-beomgi.jpg" alt="이범기 회계사" class="profile-image">
+                <h3>이범기 회계사</h3>
+                <p class="title">ZERO TO ONE TAX | 대표 · 공인회계사</p>
+                <p class="description">
+                    감사 · IPO · 투자 경험을 바탕으로<br>
+                    스타트업의 성장을 숫자로 설계합니다
+                </p>
+                
+                <div class="experience-list">
+                    <h4>주요 경력</h4>
+                    <p><strong>삼일회계법인 감사본부</strong><br>
+                    샘표식품/샘표 감사 PM, 현대엘리베이터·한진중공업 감사, SK쉴더스 내부회계 구축, DH오토웨어 재무제표 작성 지원 PM</p>
+                    
+                    <p><strong>하나증권 IPO(ECM) 팀</strong><br>
+                    현대오일뱅크 상장 주간 업무</p>
+                    
+                    <p><strong>타이거대체투자운용 펀드매니저</strong><br>
+                    약 1.3조원 규모 해외인수금융 투자 및 운용 (티센크루프 1,500억 / URBASER 3,000억 / MEDLINE Industries 등)</p>
+                    
+                    <p><strong>현재: 세무/자문 서비스</strong><br>
+                    400여개 고객 대상 세무기장 및 자문 (주요 고객: 스타트업, 자산운용사)</p>
+                </div>
+                
+                <a href="https://colorful-wealth-23f.notion.site/2a2bcf028220803294c6e3dbc45c2f78?pvs=74" target="_blank" rel="noopener noreferrer" class="cta-button" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%); color: white; margin-top: 3rem;">
+                    이범기 회계사 더 알아보기 →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 15: 선영회계법인 소개 -->
+    <section class="slide slide-standard">
+        <div class="slide-content">
+            <h2>ZERO TO ONE TAX는<br>선영회계법인에서 서비스 합니다</h2>
+            <p class="subtitle" style="margin-bottom: 3rem;">
+                선영회계법인은 SAVETAX 브랜드로 기장서비스를 제공합니다.<br>
+                SAVETAX는 기장 시장 점유율 3위 사업자로<br>
+                지난 8년간의 기장 노하우와 법인 전문 회계사가 결합하여<br>
+                스타트업 전문 기장 서비스인 "ZERO TO ONE TAX"를 제공합니다.
+            </p>
+            
+            <div style="background: linear-gradient(135deg, #f0f4ff 0%, #e5edff 100%); padding: 3rem; border-radius: 24px; margin-bottom: 4rem;">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <img src="https://www.save-tax.co.kr/_next/image?url=%2Fassets%2Flogo.svg&w=384&q=75" alt="SAVETAX" style="height: 50px; margin-bottom: 0.5rem;">
+                    <p style="font-size: 1.1rem; color: var(--text-gray);">실적</p>
+                </div>
+                
+                <div class="stats-display">
+                    <div class="stat-box">
+                        <div class="stat-label">고객사</div>
+                        <div class="stat-value">12,000+</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">연간세금신고건수</div>
+                        <div class="stat-value">16,000+</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">시장점유율</div>
+                        <div class="stat-value">3위</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.08); margin-bottom: 3rem;">
+                <h3 style="text-align: center; color: var(--primary-blue); margin-bottom: 3rem;">SAVETAX와 함께하는 고객사 12,000+</h3>
+                <div class="logo-grid">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_01.png" alt="고객사">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_02.png" alt="고객사">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_03.png" alt="고객사">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_04.png" alt="고객사">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_05.png" alt="고객사">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_06.png" alt="고객사">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_07.png" alt="고객사">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_08.png" alt="고객사">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_09.png" alt="고객사">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_10.png" alt="고객사">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_11.png" alt="고객사">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_12.png" alt="고객사">
+                </div>
+            </div>
+            
+            <div class="learn-more-grid">
+                <a href="https://www.save-tax.co.kr/" target="_blank" rel="noopener noreferrer" class="learn-more-link">
+                    SAVETAX 더 알아보기 →
+                </a>
+                <a href="https://www.syacc.co.kr/" target="_blank" rel="noopener noreferrer" class="learn-more-link">
+                    선영회계법인 더 알아보기 →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 16: CTA -->
+    <section class="slide slide-cta">
+        <div class="slide-content">
+            <h2>Pre-A ~ Series A<br>고객 무료 진단</h2>
+            <p class="subtitle" style="margin-top: 2rem; color: white;">
+                지금 당신의 회사 숫자가<br>
+                투자자 앞에 설 준비가 되어 있는지<br>
+                무료로 진단해드립니다
+            </p>
+            
+            <a href="index.html?modal=consult" class="cta-button">
+                무료 상담 신청하기 →
+            </a>
+            
+            <div style="margin-top: 5rem; padding-top: 3rem; border-top: 2px solid rgba(255,255,255,0.2);">
+                <h3 style="font-size: 1.8rem; color: white; margin-bottom: 2rem;">연락하기</h3>
+                <div class="contact-links">
+                    <a href="mailto:lbg@0to1tax.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>E : lbg@0to1tax.com</span>
+                    </a>
+                    <a href="tel:010-4395-1996" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        <span>P : 010-4395-1996</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <script>
-        // Hide loading screen
-        function hideLoading() {
-            const loading = document.getElementById('loading');
-            if (loading) {
-                loading.classList.add('hidden');
-            }
-        }
-        
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            const menuBtn = document.getElementById('mobileMenuBtn');
-            navLinks.classList.toggle('active');
-            
-            const icon = menuBtn.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        }
-        
-        // Fallback if iframe doesn't load
-        setTimeout(() => {
-            const loading = document.getElementById('loading');
-            if (loading && !loading.classList.contains('hidden')) {
-                loading.innerHTML = `
-                    <div style="text-align: center; color: white;">
-                        <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #F59E0B; margin-bottom: 1rem;"></i>
-                        <p style="font-size: 1.25rem; margin-bottom: 0.5rem;">서비스 소개서 로딩 중...</p>
-                        <p style="font-size: 0.875rem; color: #9CA3AF;">잠시만 기다려주세요</p>
-                        <a href="index.html?modal=consult" style="display: inline-block; margin-top: 2rem; background: linear-gradient(135deg, #8B5CF6, #3B82F6); color: white; padding: 0.75rem 2rem; border-radius: 9999px; text-decoration: none; font-weight: 600;">상담 신청하기</a>
-                    </div>
-                `;
-            }
-        }, 8000);
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
     </script>
 </body>
 </html>

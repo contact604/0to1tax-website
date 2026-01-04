@@ -136,27 +136,38 @@
                 font-size: 1.1rem !important;
             }
             
+            /* Mobile-only line break */
+            .mobile-br {
+                display: inline !important;
+            }
+            
             /* Cover Slide */
             .cover-badge {
                 font-size: 0.9rem;
                 padding: 0.6rem 1.5rem;
             }
             
+            .target-intro {
+                font-size: 1.1rem;
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+            }
+            
             .target-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr !important;
                 gap: 1rem;
             }
             
             .target-box {
-                padding: 1.5rem 1rem;
+                padding: 2rem 1.5rem;
             }
             
             .target-box .icon {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             
             .target-box p {
-                font-size: 0.95rem;
+                font-size: 1.1rem;
             }
             
             /* Problem List */
@@ -165,61 +176,91 @@
             }
             
             .problem-item {
-                font-size: 1.05rem;
-                padding: 1.3rem 1.5rem;
+                font-size: 0.95rem;
+                padding: 1.2rem 1.3rem;
                 margin-bottom: 1rem;
+                line-height: 1.5;
+            }
+            
+            /* Question Slide - Larger Font */
+            .slide-question h2 {
+                font-size: 2.5rem !important;
+                line-height: 1.3;
+                font-weight: 900;
             }
             
             /* Comparison */
             .comparison {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 2.5rem;
             }
             
             .comparison-col {
-                padding: 2rem 1.5rem;
+                padding: 2.5rem 2rem;
+                width: 100% !important;
             }
             
             .comparison-col h3 {
-                font-size: 1.6rem !important;
+                font-size: 1.8rem !important;
+                margin-bottom: 1.5rem;
             }
             
             .comparison-col li {
-                font-size: 1rem;
-                padding: 1rem 0;
+                font-size: 1.1rem;
+                padding: 1.2rem 0;
+                line-height: 1.6;
             }
             
             /* Timeline */
             .timeline {
                 margin: 2rem auto;
+                text-align: left;
             }
             
             .timeline-item {
                 padding: 2rem 1.5rem;
                 margin-bottom: 1.5rem;
+                text-align: left;
             }
             
             .timeline-item h3 {
                 font-size: 1.5rem !important;
+                text-align: left;
+            }
+            
+            .timeline-item ul {
+                text-align: left;
             }
             
             .timeline-item li {
                 font-size: 1rem;
                 padding: 0.5rem 0;
+                text-align: left;
             }
             
             .timeline-item p {
                 font-size: 1rem;
+                text-align: left;
+            }
+            
+            /* Growth Goal - Mobile Only Larger Font */
+            .growth-goal {
+                font-size: 1.4rem !important;
+                font-weight: 700 !important;
+                line-height: 1.5;
             }
             
             /* Value Grid */
             .value-grid {
-                grid-template-columns: 1fr;
+                display: flex !important;
+                flex-direction: column !important;
                 gap: 1.5rem;
             }
             
             .value-card {
                 padding: 2.5rem 2rem;
+                width: 100% !important;
             }
             
             .value-card .number {
@@ -238,28 +279,44 @@
             .service-card {
                 padding: 3rem 2rem;
                 margin-bottom: 2rem;
+                text-align: left;
             }
             
             .service-card h3 {
                 font-size: 2rem !important;
+                text-align: left;
             }
             
             .service-card .description {
                 font-size: 1.1rem;
+                text-align: left;
             }
             
             .service-highlight {
                 font-size: 1.2rem !important;
                 padding: 1.5rem;
+                text-align: left;
+            }
+            
+            .service-list li {
+                font-size: 1.05rem;
+                margin-bottom: 1rem;
+                line-height: 1.7;
+            }
+            
+            .service-list li::before {
+                font-size: 1.3rem;
             }
             
             /* Pricing */
             .pricing-grid {
-                grid-template-columns: 1fr;
+                display: flex !important;
+                flex-direction: column !important;
                 gap: 2rem;
             }
             
             .pricing-card {
+                width: 100% !important;
                 padding: 3rem 2rem;
             }
             
@@ -305,14 +362,30 @@
                 font-size: 1rem;
             }
             
+            .experience-list p strong {
+                font-size: 1.1rem;
+            }
+            
+            .experience-list li {
+                font-size: 0.95rem;
+                margin-bottom: 0.6rem;
+            }
+            
+            .experience-list li::before {
+                font-size: 1.1rem;
+            }
+            
             /* Stats */
             .stats-display {
+                display: flex !important;
+                flex-direction: column !important;
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
             
             .stat-box {
                 padding: 2.5rem 2rem;
+                width: 100% !important;
             }
             
             .stat-label {
@@ -325,8 +398,21 @@
             
             /* Logo Grid */
             .logo-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1.5rem;
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;  /* 모바일: 4열 그리드 */
+                gap: 0.8rem !important;
+                margin: 1.5rem auto;
+                width: 100% !important;
+            }
+            
+            .logo-grid img {
+                width: 100% !important;  /* 전체 너비 */
+                max-width: 90px !important;  /* 4열에 맞게 적당한 크기 */
+                min-height: 40px !important;
+                height: auto !important;
+                display: block !important;
+                margin: 0 auto !important;
+                object-fit: contain !important;
             }
             
             /* Learn More */
@@ -342,8 +428,9 @@
             
             /* CTA */
             .cta-button {
-                padding: 1.3rem 3rem;
-                font-size: 1.2rem;
+                padding: 0.9rem 1.2rem;
+                font-size: 0.85rem;
+                white-space: nowrap;
             }
             
             .contact-links {
@@ -357,8 +444,8 @@
             }
         }
         
-        /* Mobile Landscape - Full Screen PPT Optimization */
-        @media (max-width: 926px) and (orientation: landscape) {
+        /* REMOVED: Mobile Landscape Mode */
+        /* @media (max-width: 926px) and (orientation: landscape) {
             .slide {
                 height: 100vh;
                 padding: 3rem 1rem 2rem;
@@ -392,21 +479,22 @@
             
             /* Compact spacing */
             .target-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
                 gap: 0.8rem;
                 margin-top: 1.5rem;
             }
             
             .target-box {
-                padding: 1rem 0.5rem;
+                padding: 1.2rem 0.8rem;
             }
             
             .target-box .icon {
-                font-size: 1.5rem;
+                font-size: 2rem;
                 margin-bottom: 0.5rem;
             }
             
             .target-box p {
-                font-size: 0.75rem;
+                font-size: 0.85rem;
                 line-height: 1.3;
             }
             
@@ -580,12 +668,15 @@
             }
             
             .stats-display {
+                display: flex !important;
+                flex-direction: column !important;  /* 모바일: 세로 배치 */
                 gap: 1rem;
                 margin: 1.5rem auto;
             }
             
             .stat-box {
                 padding: 1.5rem 1rem;
+                width: 100% !important;  /* 전체 너비 */
             }
             
             .stat-label {
@@ -598,24 +689,43 @@
             }
             
             .logo-grid {
-                gap: 0.8rem;
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;  /* 모바일: 4열 그리드 */
+                gap: 0.8rem !important;
                 margin: 1.5rem auto;
+                width: 100% !important;
+            }
+            
+            .logo-grid img {
+                width: 100% !important;  /* 전체 너비 */
+                max-width: 90px !important;  /* 4열에 맞게 적당한 크기 */
+                min-height: 40px !important;
+                height: auto !important;
+                display: block !important;
+                margin: 0 auto !important;
+                object-fit: contain !important;
             }
             
             .learn-more-grid {
+                grid-template-columns: 1fr !important;  /* 모바일: 1열 */
                 gap: 1rem;
                 margin: 2rem auto;
             }
             
             .learn-more-link {
-                padding: 1rem;
-                font-size: 0.9rem;
+                padding: 1rem 0.85rem !important;  /* 적당하게 */
+                font-size: 0.9rem !important;  /* 적당하게 */
+                white-space: normal;  /* 줄바꿈 허용 */
+                line-height: 1.4;
             }
             
             .cta-button {
-                padding: 1rem 2.5rem;
-                font-size: 1.1rem;
+                padding: 0.7rem 0.9rem !important;  /* 적당하게 */
+                font-size: 0.75rem !important;  /* 적당하게 */
                 margin-top: 1.5rem;
+                white-space: normal;  /* 줄바꿈 허용 */
+                line-height: 1.4;
+                max-width: 100%;
             }
             
             .contact-links {
@@ -645,7 +755,7 @@
             .nav-links a {
                 font-size: 0.9rem;
             }
-        }
+        } */
         
         /* Typography */
         h1 {
@@ -674,6 +784,11 @@
             color: var(--text-gray);
         }
         
+        /* Mobile-only line break */
+        .mobile-br {
+            display: none;
+        }
+        
         /* Slide 1: Cover - PPT Style */
         .slide-cover {
             background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 50%, var(--primary-blue-light) 100%);
@@ -700,6 +815,17 @@
             font-size: 1.1rem;
             font-weight: 600;
             margin-top: 2rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+        
+        .target-intro {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
         }
         
         .target-grid {
@@ -760,10 +886,11 @@
             background: white;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 500;
             border-left: 4px solid var(--primary-blue);
             transition: all 0.3s;
+            line-height: 1.6;
         }
         
         .problem-item:hover {
@@ -780,8 +907,9 @@
         
         .slide-question h2 {
             color: white;
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(3rem, 6vw, 5rem);
             line-height: 1.3;
+            font-weight: 900;
         }
         
         /* Comparison Table */
@@ -836,6 +964,7 @@
         .timeline {
             max-width: 1000px;
             margin: 3rem auto;
+            text-align: left;
         }
         
         .timeline-item {
@@ -845,23 +974,27 @@
             border-radius: 16px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             border-left: 5px solid var(--primary-blue);
+            text-align: left;
         }
         
         .timeline-item h3 {
             color: var(--primary-blue);
             font-size: 1.8rem;
             margin-bottom: 1rem;
+            text-align: left;
         }
         
         .timeline-item ul {
             list-style: none;
             padding-left: 1.5rem;
+            text-align: left;
         }
         
         .timeline-item li {
             padding: 0.5rem 0;
             font-size: 1.15rem;
             position: relative;
+            text-align: left;
         }
         
         .timeline-item li:before {
@@ -917,19 +1050,21 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             max-width: 900px;
             margin: 0 auto 3rem;
-            text-align: center;
+            text-align: left;
         }
         
         .service-card h3 {
             font-size: 2.5rem;
             color: var(--primary-blue);
             margin-bottom: 2rem;
+            text-align: left;
         }
         
         .service-card .description {
             font-size: 1.3rem;
             line-height: 1.8;
             margin-bottom: 2rem;
+            text-align: left;
         }
         
         .service-highlight {
@@ -940,6 +1075,31 @@
             font-size: 1.4rem;
             font-weight: 700;
             margin-top: 2rem;
+            text-align: left;
+        }
+        
+        .service-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 2rem;
+        }
+        
+        .service-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+        
+        .service-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            font-weight: bold;
         }
         
         /* Pricing Cards */
@@ -1046,10 +1206,40 @@
             margin-bottom: 1rem;
         }
         
+        .experience-list p strong {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+        }
+        
+        .experience-list ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 2rem;
+        }
+        
+        .experience-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.7rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+        
+        .experience-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        
         /* Stats Display */
         .stats-display {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;  /* 데스크톱: 1행 3열 */
+            flex-direction: row !important;  /* 데스크톱: 가로 */
             gap: 2rem;
             max-width: 1000px;
             margin: 3rem auto;
@@ -1061,6 +1251,8 @@
             border-radius: 20px;
             box-shadow: 0 6px 25px rgba(0,0,0,0.08);
             text-align: center;
+            width: auto !important;  /* 데스크톱: 자동 너비 */
+        }
         }
         
         .stat-label {
@@ -1078,20 +1270,23 @@
         }
         
         /* Logo Grid */
-        .logo-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 2rem;
-            max-width: 1100px;
-            margin: 3rem auto;
-            align-items: center;
-        }
-        
-        .logo-grid img {
-            width: 100%;
-            height: auto;
-            opacity: 0.8;
-            transition: all 0.3s;
+        @media (min-width: 769px) {
+            .logo-grid {
+                display: grid !important;
+                grid-template-columns: repeat(8, 1fr) !important;  /* 데스크톱: 8열 가로 배치 */
+                gap: 2rem !important;
+                max-width: 1100px;
+                margin: 3rem auto;
+                align-items: center;
+            }
+            
+            .logo-grid img {
+                width: 100% !important;
+                max-width: none !important;
+                height: auto;
+                opacity: 0.8;
+                transition: all 0.3s;
+            }
         }
         
         .logo-grid img:hover {
@@ -1108,7 +1303,7 @@
         
         .slide-cta h2 {
             color: white;
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: clamp(3rem, 6vw, 4.5rem);  /* 더 크게 */
         }
         
         .cta-button {
@@ -1212,7 +1407,9 @@
                 기장·세무를 넘어<br>
                 투자자와 감사인이 신뢰하는 숫자를 만듭니다
             </p>
-            <div class="cover-badge">ZERO TO ONE TAX by 선영회계법인</div>
+            <div class="cover-badge">ZERO TO ONE TAX<br>by 선영회계법인</div>
+            
+            <p class="target-intro">이런 고객분께 추천드려요</p>
             
             <div class="target-grid">
                 <div class="target-box">
@@ -1252,7 +1449,7 @@
     <!-- Slide 3: 핵심 질문 -->
     <section class="slide slide-question">
         <div class="slide-content">
-            <h2>이 숫자로<br>투자자 앞에 서도 될까?</h2>
+            <h2>이 숫자로<br>투자자 앞에 서도<br class="mobile-br"> 될까?</h2>
             <p class="subtitle" style="margin-top: 2rem; color: white;">
                 당신의 회사는<br>
                 투자자 앞에 설 준비가 되어 있나요?
@@ -1292,7 +1489,7 @@
     <!-- Slide 5: 우리의 서비스가 필요한 시점 -->
     <section class="slide slide-standard">
         <div class="slide-content">
-            <h2>ZERO TO ONE TAX는<br>결정 이후가 아니라, 결정 이전에 함께합니다</h2>
+            <h2>ZERO TO ONE TAX는<br>결정 이후가 아니라,<br class="mobile-br"> 결정 이전에 함께합니다</h2>
             
             <div class="timeline">
                 <div class="timeline-item">
@@ -1330,9 +1527,9 @@
     <section class="slide slide-standard">
         <div class="slide-content">
             <h2>ZERO TO ONE TAX가 만드는 변화</h2>
-            <p class="subtitle" style="margin-bottom: 1rem;">회사의 지속가능한 성장을 목표로 합니다</p>
+            <p class="subtitle growth-goal" style="margin-bottom: 1rem;">회사의 지속가능한 성장을 목표로 합니다</p>
             <p style="text-align: center; font-size: 1.2rem; color: var(--text-gray); margin-bottom: 3rem;">
-                단기적인 신고나 대응이 아니라,<br>다음 단계까지 이어질 수 있는 숫자 구조를 만듭니다.
+                단기적인 신고나 대응이 아니라,<br>다음 단계까지 이어질 수 있는 구조를 만듭니다.
             </p>
             
             <div class="value-grid">
@@ -1418,11 +1615,11 @@
         <div class="slide-content">
             <h2>Core Service ①</h2>
             <div class="service-card">
-                <h3>투자 기준 숫자 구조 설계</h3>
-                <p class="description">
-                    회사의 사업 구조와 강점을 숫자에 드러나도록 재무 구조를 설계합니다.<br>
-                    IR에서 대표가 회사의 강점을 숫자로 설명할 수 있게 됩니다.
-                </p>
+                <h3>투자 기준 구조 설계</h3>
+                <ul class="service-list">
+                    <li>회사의 사업 구조와 강점을 숫자에 드러나도록 재무 구조를 설계합니다.</li>
+                    <li>IR에서 대표가 회사의 강점을 숫자로 설명할 수 있게 됩니다.</li>
+                </ul>
                 <div class="service-highlight">
                     재무제표가 설명의 근거가 됩니다
                 </div>
@@ -1435,15 +1632,11 @@
             <h2>Core Service ②</h2>
             <div class="service-card">
                 <h3>투자·감사 대응형 기장 & 세무</h3>
-                <p class="description">
-                    IR 자료와 장부 간 숫자 불일치를 제거하고,<br>
-                    투자·감사 과정에서 질문받을 포인트를 관리합니다.<br>
-                    회사의 강점이 드러나도록 재무제표를 구성합니다.
-                </p>
-                <p class="description">
-                    IR 자료의 내용이 실제 장부와 어긋나지 않도록 정리해,<br>
-                    투자자 설명력이 높아지도록 만듭니다.
-                </p>
+                <ul class="service-list">
+                    <li>IR 자료와 장부 간 숫자 불일치를 제거하고, 투자·감사 과정에서 질문받을 포인트를 관리합니다.</li>
+                    <li>회사의 강점이 드러나도록 재무제표를 구성합니다.</li>
+                    <li>IR 자료의 내용이 실제 장부와 어긋나지 않도록 정리해, 투자자 설명력이 높아지도록 만듭니다.</li>
+                </ul>
                 <div class="service-highlight">
                     기장이 설득의 도구가 됩니다
                 </div>
@@ -1456,10 +1649,10 @@
             <h2>Core Service ③</h2>
             <div class="service-card">
                 <h3>대표 의사결정 파트너링</h3>
-                <p class="description">
-                    중요한 판단을 숫자로 함께 검토합니다.<br>
-                    "된다 / 안 된다"를 명확히 제시합니다.
-                </p>
+                <ul class="service-list">
+                    <li>중요한 판단을 숫자로 함께 검토합니다.</li>
+                    <li>"된다 / 안 된다"를 명확히 제시합니다.</li>
+                </ul>
                 <div class="service-highlight">
                     대표가 혼자 결정하지 않게 됩니다
                 </div>
@@ -1519,7 +1712,7 @@
                 </p>
                 <p style="font-size: 1.1rem; color: var(--text-gray); text-align: center; line-height: 1.8;">
                     Standard로 시작하여 성장 단계에 맞춰 Pro로 전환 가능합니다.<br>
-                    고객사 상황에 맞춰 유연하게 조정됩니다.
+                    고객사 상황에 맞춰 유연하게<br> 조정됩니다.
                 </p>
             </div>
         </div>
@@ -1538,7 +1731,7 @@
                     </p>
                     <p style="font-weight: 700; color: var(--primary-blue); margin-bottom: 1rem;">우리가 서비스하면 달라지는 점:</p>
                     <ul>
-                        <li>투자자 질문에 즉답이 가능한 숫자 구조</li>
+                        <li>투자자 질문에 즉답이 가능한 구조</li>
                         <li>감사 과정에서 추가 자료 요청과 해석 논쟁 감소</li>
                         <li>실사에서 설명 가능</li>
                     </ul>
@@ -1581,7 +1774,7 @@
             <div class="profile-section">
                 <img src="images/profile-lee-beomgi.jpg" alt="이범기 회계사" class="profile-image">
                 <h3>이범기 회계사</h3>
-                <p class="title">ZERO TO ONE TAX | 대표 · 공인회계사</p>
+                <p class="title">ZERO TO ONE TAX |<br class="mobile-br"> 대표 · 공인회계사</p>
                 <p class="description">
                     감사 · IPO · 투자 경험을 바탕으로<br>
                     스타트업의 성장을 숫자로 설계합니다
@@ -1589,17 +1782,29 @@
                 
                 <div class="experience-list">
                     <h4>주요 경력</h4>
-                    <p><strong>삼일회계법인 감사본부</strong><br>
-                    샘표식품/샘표 감사 PM, 현대엘리베이터·한진중공업 감사, SK쉴더스 내부회계 구축, DH오토웨어 재무제표 작성 지원 PM</p>
+                    <p><strong>삼일회계법인 감사본부</strong></p>
+                    <ul>
+                        <li>샘표식품/샘표 감사 PM</li>
+                        <li>현대엘리베이터·한진중공업 감사</li>
+                        <li>SK쉴더스 내부회계 구축</li>
+                        <li>DH오토웨어 재무제표 작성 지원 PM</li>
+                    </ul>
                     
-                    <p><strong>하나증권 IPO(ECM) 팀</strong><br>
-                    현대오일뱅크 상장 주간 업무</p>
+                    <p><strong>하나증권 IPO(ECM) 팀</strong></p>
+                    <ul>
+                        <li>현대오일뱅크 상장 주간 업무</li>
+                    </ul>
                     
-                    <p><strong>타이거대체투자운용 펀드매니저</strong><br>
-                    약 1.3조원 규모 해외인수금융 투자 및 운용 (티센크루프 1,500억 / URBASER 3,000억 / MEDLINE Industries 등)</p>
+                    <p><strong>타이거대체투자운용 펀드매니저</strong></p>
+                    <ul>
+                        <li>약 1.3조원 규모 해외인수금융 투자 및 운용 (티센크루프 1,500억 / URBASER 3,000억 / MEDLINE Industries 등)</li>
+                    </ul>
                     
-                    <p><strong>현재: 세무/자문 서비스</strong><br>
-                    400여개 고객 대상 세무기장 및 자문 (주요 고객: 스타트업, 자산운용사)</p>
+                    <p><strong>현재: 세무/자문 서비스</strong></p>
+                    <ul>
+                        <li>400여개 고객 대상 세무기장 및 자문</li>
+                        <li>주요 고객: 스타트업, 자산운용사</li>
+                    </ul>
                 </div>
                 
                 <a href="https://colorful-wealth-23f.notion.site/2a2bcf028220803294c6e3dbc45c2f78?pvs=74" target="_blank" rel="noopener noreferrer" class="cta-button" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%); color: white; margin-top: 3rem;">
@@ -1614,28 +1819,27 @@
         <div class="slide-content">
             <h2>ZERO TO ONE TAX는<br>선영회계법인에서 서비스 합니다</h2>
             <p class="subtitle" style="margin-bottom: 3rem;">
-                선영회계법인은 SAVETAX 브랜드로 기장서비스를 제공합니다.<br>
+                선영회계법인은 SAVETAX 브랜드로<br class="mobile-br"> 기장서비스를 제공합니다.<br>
                 SAVETAX는 기장 시장 점유율 3위 사업자로<br>
-                지난 8년간의 기장 노하우와 법인 전문 회계사가 결합하여<br>
-                스타트업 전문 기장 서비스인 "ZERO TO ONE TAX"를 제공합니다.
+                지난 8년간의 기장 노하우와 법인 전문 회계사가<br class="mobile-br"> 결합하여 스타트업 전문 기장 서비스인<br class="mobile-br"> "ZERO TO ONE TAX"를 제공합니다.
             </p>
             
             <div style="background: linear-gradient(135deg, #f0f4ff 0%, #e5edff 100%); padding: 3rem; border-radius: 24px; margin-bottom: 4rem;">
                 <div style="text-align: center; margin-bottom: 2rem;">
-                    <img src="https://www.save-tax.co.kr/_next/image?url=%2Fassets%2Flogo.svg&w=384&q=75" alt="SAVETAX" style="height: 50px; margin-bottom: 0.5rem;">
+                    <img src="https://www.save-tax.co.kr/_next/image?url=%2Fassets%2Flogo.svg&w=384&q=75" alt="SAVETAX" style="height: 35px; margin-bottom: 0.5rem;">
                     <p style="font-size: 1.1rem; color: var(--text-gray);">실적</p>
                 </div>
                 
-                <div class="stats-display">
-                    <div class="stat-box">
+                <div class="stats-display" style="display: flex !important; flex-direction: column !important;">
+                    <div class="stat-box" style="width: 100% !important;">
                         <div class="stat-label">고객사</div>
                         <div class="stat-value">12,000+</div>
                     </div>
-                    <div class="stat-box">
+                    <div class="stat-box" style="width: 100% !important;">
                         <div class="stat-label">연간세금신고건수</div>
                         <div class="stat-value">16,000+</div>
                     </div>
-                    <div class="stat-box">
+                    <div class="stat-box" style="width: 100% !important;">
                         <div class="stat-label">시장점유율</div>
                         <div class="stat-value">3위</div>
                     </div>
@@ -1643,20 +1847,20 @@
             </div>
             
             <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.08); margin-bottom: 3rem;">
-                <h3 style="text-align: center; color: var(--primary-blue); margin-bottom: 3rem;">SAVETAX와 함께하는 고객사 12,000+</h3>
-                <div class="logo-grid">
-                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_01.png" alt="고객사">
-                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_02.png" alt="고객사">
-                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_03.png" alt="고객사">
-                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_04.png" alt="고객사">
-                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_05.png" alt="고객사">
-                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_06.png" alt="고객사">
-                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_07.png" alt="고객사">
-                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_08.png" alt="고객사">
-                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_09.png" alt="고객사">
-                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_10.png" alt="고객사">
-                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_11.png" alt="고객사">
-                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_12.png" alt="고객사">
+                <h3 style="text-align: center; color: var(--primary-blue); margin-bottom: 3rem; font-size: 2rem;">SAVETAX와 함께하는 고객사 12,000+</h3>
+                <div class="logo-grid" style="display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 0.8rem !important;">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_01.png" alt="고객사" style="width: 100%; max-width: 90px; margin: 0 auto; display: block;">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_02.png" alt="고객사" style="width: 100%; max-width: 90px; margin: 0 auto; display: block;">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_03.png" alt="고객사" style="width: 100%; max-width: 90px; margin: 0 auto; display: block;">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_04.png" alt="고객사" style="width: 100%; max-width: 90px; margin: 0 auto; display: block;">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_05.png" alt="고객사" style="width: 100%; max-width: 90px; margin: 0 auto; display: block;">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_06.png" alt="고객사" style="width: 100%; max-width: 90px; margin: 0 auto; display: block;">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_07.png" alt="고객사" style="width: 100%; max-width: 90px; margin: 0 auto; display: block;">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_08.png" alt="고객사" style="width: 100%; max-width: 90px; margin: 0 auto; display: block;">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_09.png" alt="고객사" style="width: 100%; max-width: 90px; margin: 0 auto; display: block;">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_10.png" alt="고객사" style="width: 100%; max-width: 90px; margin: 0 auto; display: block;">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_11.png" alt="고객사" style="width: 100%; max-width: 90px; margin: 0 auto; display: block;">
+                    <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_12.png" alt="고객사" style="width: 100%; max-width: 90px; margin: 0 auto; display: block;">
                 </div>
             </div>
             

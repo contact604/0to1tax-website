@@ -38,6 +38,20 @@
             background: #f8fafc;
         }
         
+        /* Auto Rotate Content to Landscape on Portrait Mode */
+        @media (max-width: 768px) and (orientation: portrait) {
+            body {
+                transform: rotate(90deg);
+                transform-origin: left top;
+                width: 100vh;
+                height: 100vw;
+                overflow-x: hidden;
+                position: absolute;
+                top: 100%;
+                left: 0;
+            }
+        }
+        
         /* Navigation */
         nav {
             position: fixed;
@@ -97,6 +111,296 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
+        }
+        
+        /* Mobile Landscape - Full Screen PPT Optimization */
+        @media (max-width: 926px) and (orientation: landscape) {
+            .slide {
+                height: 100vh;
+                padding: 3rem 1rem 2rem;
+            }
+            
+            .slide-content {
+                max-height: 85vh;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            /* Reduce font sizes for mobile landscape */
+            h1 {
+                font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+                margin-bottom: 1rem;
+            }
+            
+            h2 {
+                font-size: clamp(1.3rem, 3.5vw, 2rem) !important;
+                margin-bottom: 1rem;
+            }
+            
+            h3 {
+                font-size: clamp(1.1rem, 2.5vw, 1.5rem) !important;
+                margin-bottom: 0.8rem;
+            }
+            
+            .subtitle {
+                font-size: clamp(0.9rem, 1.8vw, 1.1rem) !important;
+            }
+            
+            /* Compact spacing */
+            .target-grid {
+                gap: 0.8rem;
+                margin-top: 1.5rem;
+            }
+            
+            .target-box {
+                padding: 1rem 0.5rem;
+            }
+            
+            .target-box .icon {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .target-box p {
+                font-size: 0.75rem;
+                line-height: 1.3;
+            }
+            
+            .problem-list {
+                margin: 1.5rem auto;
+            }
+            
+            .problem-item {
+                padding: 1rem 1.5rem;
+                margin-bottom: 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .comparison {
+                gap: 1rem;
+                margin: 1.5rem auto;
+            }
+            
+            .comparison-col {
+                padding: 1.5rem 1rem;
+            }
+            
+            .comparison-col h3 {
+                font-size: 1.3rem !important;
+                margin-bottom: 1rem;
+            }
+            
+            .comparison-col li {
+                padding: 0.6rem 0;
+                font-size: 0.85rem;
+            }
+            
+            .timeline {
+                margin: 1.5rem auto;
+            }
+            
+            .timeline-item {
+                padding: 1.2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .timeline-item h3 {
+                font-size: 1.2rem !important;
+                margin-bottom: 0.5rem;
+            }
+            
+            .timeline-item li {
+                font-size: 0.85rem;
+                padding: 0.3rem 0;
+            }
+            
+            .timeline-item p {
+                font-size: 0.85rem;
+                margin-top: 0.8rem;
+            }
+            
+            .value-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+                margin: 1.5rem auto;
+            }
+            
+            .value-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .value-card .number {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .value-card h3 {
+                font-size: 1rem !important;
+                margin-bottom: 0.5rem;
+            }
+            
+            .value-card p {
+                font-size: 0.75rem;
+                line-height: 1.4;
+            }
+            
+            .service-card {
+                padding: 2rem 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.5rem !important;
+                margin-bottom: 1rem;
+            }
+            
+            .service-card .description {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+                line-height: 1.5;
+            }
+            
+            .service-highlight {
+                font-size: 1rem !important;
+                padding: 1rem;
+                margin-top: 1rem;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                margin: 1.5rem auto;
+            }
+            
+            .pricing-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .pricing-card h3 {
+                font-size: 1.5rem !important;
+                margin-bottom: 0.5rem;
+            }
+            
+            .pricing-card .price {
+                font-size: 1.5rem !important;
+                margin: 1rem 0;
+            }
+            
+            .pricing-card ul {
+                margin-top: 1rem;
+            }
+            
+            .pricing-card li {
+                padding: 0.6rem 0;
+                font-size: 0.8rem;
+            }
+            
+            .profile-section {
+                margin: 1.5rem auto;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 1rem;
+            }
+            
+            .profile-section h3 {
+                font-size: 1.5rem !important;
+            }
+            
+            .profile-section .title {
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .profile-section .description {
+                font-size: 0.9rem;
+                margin-top: 1rem;
+            }
+            
+            .experience-list {
+                padding: 1.5rem;
+                margin-top: 1.5rem;
+            }
+            
+            .experience-list h4 {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .experience-list p {
+                font-size: 0.8rem;
+                line-height: 1.5;
+                margin-bottom: 0.8rem;
+            }
+            
+            .stats-display {
+                gap: 1rem;
+                margin: 1.5rem auto;
+            }
+            
+            .stat-box {
+                padding: 1.5rem 1rem;
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .stat-value {
+                font-size: 2rem !important;
+            }
+            
+            .logo-grid {
+                gap: 0.8rem;
+                margin: 1.5rem auto;
+            }
+            
+            .learn-more-grid {
+                gap: 1rem;
+                margin: 2rem auto;
+            }
+            
+            .learn-more-link {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .cta-button {
+                padding: 1rem 2.5rem;
+                font-size: 1.1rem;
+                margin-top: 1.5rem;
+            }
+            
+            .contact-links {
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+            
+            .contact-link {
+                padding: 1rem 1.5rem;
+                font-size: 0.85rem;
+            }
+            
+            .cover-badge {
+                padding: 0.5rem 1.5rem;
+                font-size: 0.9rem;
+                margin-top: 1rem;
+            }
+            
+            nav {
+                padding: 0.5rem 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+            }
         }
         
         /* Typography */

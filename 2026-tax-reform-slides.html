@@ -364,6 +364,16 @@
             box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
             position: relative;
             overflow: hidden;
+            animation: ctaPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes ctaPulse {
+            0%, 100% {
+                box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+            }
+            50% {
+                box-shadow: 0 8px 32px rgba(59, 130, 246, 0.35);
+            }
         }
 
         .cta-section::before {
@@ -373,8 +383,8 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-            animation: rotateGradient 10s linear infinite;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+            animation: rotateGradient 8s linear infinite;
             z-index: 0;
         }
 
@@ -692,6 +702,7 @@
                 margin-top: 30px;
                 position: relative;
                 overflow: hidden;
+                animation: ctaPulse 3s ease-in-out infinite;
             }
 
             .cta-section::before {
@@ -701,8 +712,8 @@
                 left: -50%;
                 width: 200%;
                 height: 200%;
-                background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-                animation: rotateGradient 10s linear infinite;
+                background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+                animation: rotateGradient 8s linear infinite;
                 z-index: 0;
             }
 

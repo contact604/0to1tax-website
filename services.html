@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Zero to One TAX - 서비스 소개서</title>
     <meta name="description" content="Pre-A ~ Series A 스타트업의 첫 번째 CFO">
     
@@ -634,91 +637,6 @@
         .learn-more-link:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
-        }
-        
-        /* Mobile Responsive - Card Style */
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .slide {
-                min-height: auto;
-                padding: 5rem 1rem 3rem;
-            }
-            
-            /* Mobile: Add Card Style */
-            .slide-standard .slide-content,
-            .profile-section,
-            .service-card,
-            .timeline,
-            .problem-list {
-                background: white;
-                padding: 2rem;
-                border-radius: 20px;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            }
-            
-            .target-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-            }
-            
-            .target-box {
-                padding: 1.5rem 1rem;
-            }
-            
-            .target-box .icon {
-                font-size: 2rem;
-            }
-            
-            .target-box p {
-                font-size: 0.95rem;
-            }
-            
-            .comparison {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .value-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .stats-display {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .logo-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
-            }
-            
-            .learn-more-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .contact-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .problem-item {
-                font-size: 1.1rem;
-                padding: 1.5rem;
-            }
         }
         
         /* Smooth Scroll */

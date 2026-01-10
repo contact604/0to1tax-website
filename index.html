@@ -224,6 +224,66 @@
             align-items: center;
         }
 
+        /* Dropdown Menu */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-btn {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-dropdown-btn:hover {
+            background: var(--light-blue);
+        }
+
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 8px;
+            min-width: 240px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .nav-dropdown.active .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav-dropdown-item {
+            display: block;
+            padding: 12px 16px;
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .nav-dropdown-item:hover {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+        }
+
         .nav-link {
             font-size: 15px;
             font-weight: 600;
@@ -1971,8 +2031,15 @@
         <div class="nav-container">
             <a href="index.html" class="nav-logo">Zero to One TAX</a>
             <div class="nav-links">
-                <a href="insights/index.html" class="nav-link nav-link-primary">재무 관리 인사이트</a>
-                <a href="#contact" class="nav-link nav-link-cta" onclick="event.preventDefault(); scrollToContactForm();">문의하기</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-btn" onclick="toggleNavMenu(event)">
+                        투자 단계에서 필요한 추가 전문 서비스 ▼
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="insights/index.html" class="nav-dropdown-item">📊 재무 관리 인사이트</a>
+                        <a href="#contact" class="nav-dropdown-item" onclick="event.preventDefault(); scrollToContactForm(); closeNavMenu();">💬 문의하기</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -3088,6 +3155,26 @@
                 faqItem.classList.add('active');
             }
         }
+
+        // Navigation dropdown toggle
+        function toggleNavMenu(event) {
+            event.stopPropagation();
+            const dropdown = event.target.closest('.nav-dropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        function closeNavMenu() {
+            document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.nav-dropdown')) {
+                closeNavMenu();
+            }
+        });
 
         // Scroll to contact form
         function scrollToContactForm() {

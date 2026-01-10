@@ -1227,13 +1227,15 @@
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.3s ease, padding 0.3s ease;
             padding: 0 30px;
+            opacity: 0;
         }
 
         .faq-item.active .faq-answer {
             max-height: 1000px;
             padding: 0 30px 25px 30px;
+            opacity: 1;
         }
 
         .faq-answer p {
@@ -1647,10 +1649,13 @@
 
             .faq-answer {
                 padding: 0 20px;
+                max-height: 0;
+                overflow: hidden;
             }
 
             .faq-item.active .faq-answer {
                 padding: 0 20px 20px 20px;
+                max-height: 1000px;
             }
 
             .faq-answer p {
@@ -1717,6 +1722,8 @@
 
             .faq-answer {
                 padding: 0 18px;
+                max-height: 0;
+                overflow: hidden;
             }
 
             .faq-item.active .faq-answer {

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="PRE-A부터 Series A까지, 투자 준비를 위한 재무·세무 인사이트 모음">
+    <title>투자 준비 인사이트 - Zero to One TAX</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        :root {
+            --primary-blue: #0066FF;
+            --dark-blue: #0052CC;
+            --light-blue: #E6F0FF;
+            --dark-gray: #1a1a1a;
+            --medium-gray: #666666;
+            --light-gray: #f5f5f5;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%);
+            padding: 80px 20px 60px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Filter Tags */
+        .filter-section {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .filter-tag {
+            padding: 10px 20px;
+            background: var(--light-gray);
+            border: 2px solid transparent;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark-gray);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-tag:hover {
+            background: var(--light-blue);
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+        }
+
+        .filter-tag.active {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* Insights Grid */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .insight-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .insight-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 8px 24px rgba(0, 102, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .card-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .card-summary {
+            font-size: 14px;
+            color: var(--medium-gray);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--medium-gray);
+            padding-top: 16px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .read-time {
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 60px 20px 40px;
+            }
+
+            .header h1 {
+                font-size: 26px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .insights-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .insight-card {
+                padding: 24px;
+            }
+
+            .card-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <a href="../index.html" class="back-link">← 홈으로 돌아가기</a>
+        <h1>투자 준비 인사이트</h1>
+        <p>PRE-A부터 Series A까지, 투자 유치를 위한 재무·세무 가이드</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <div class="filter-tags">
+                <div class="filter-tag active" data-filter="all">전체</div>
+                <div class="filter-tag" data-filter="pre-a">PRE-A 준비</div>
+                <div class="filter-tag" data-filter="ir">IR·미팅</div>
+                <div class="filter-tag" data-filter="fdd">실사 대응</div>
+                <div class="filter-tag" data-filter="series-a">Series A</div>
+                <div class="filter-tag" data-filter="structure">법인·세무 구조</div>
+            </div>
+        </div>
+
+        <!-- Insights Grid -->
+        <div class="insights-grid">
+            <!-- Insight Card 1 -->
+            <a href="ir-numbers.html" class="insight-card" data-category="ir">
+                <span class="card-tag">IR·미팅</span>
+                <h3 class="card-title">VC 미팅에서 꼭 준비해야 할 재무 숫자는?</h3>
+                <p class="card-summary">
+                    투자자가 확인하는 핵심 지표와 IR 자료에서 설명 가능한 재무 구조를 정리하는 방법
+                </p>
+                <div class="card-meta">
+                    <span class="read-time">📖 5분 읽기</span>
+                    <span>2025.01.10</span>
+                </div>
+            </a>
+
+            <!-- Insight Card 2 -->
+            <a href="fdd.html" class="insight-card" data-category="fdd">
+                <span class="card-tag">실사 대응</span>
+                <h3 class="card-title">투자 실사(FDD)에서 문제되는 재무 구조는?</h3>
+                <p class="card-summary">
+                    실사 단계에서 자주 발견되는 리스크 포인트와 사전에 정리해야 할 재무·세무 이슈
+                </p>
+                <div class="card-meta">
+                    <span class="read-time">📖 6분 읽기</span>
+                    <span>2025.01.09</span>
+                </div>
+            </a>
+
+            <!-- Insight Card 3 -->
+            <a href="structure.html" class="insight-card" data-category="structure">
+                <span class="card-tag">법인·세무 구조</span>
+                <h3 class="card-title">법인 설립 단계부터 투자 관점으로 설계해야 하는 이유</h3>
+                <p class="card-summary">
+                    초기 법인 구조와 주주 구성이 Series A 투자에 미치는 영향과 사전 체크 포인트
+                </p>
+                <div class="card-meta">
+                    <span class="read-time">📖 5분 읽기</span>
+                    <span>2025.01.08</span>
+                </div>
+            </a>
+
+            <!-- Insight Card 4 -->
+            <a href="pre-a.html" class="insight-card" data-category="pre-a">
+                <span class="card-tag">PRE-A 준비</span>
+                <h3 class="card-title">PRE-A 투자 준비, 언제부터 시작해야 할까?</h3>
+                <p class="card-summary">
+                    투자 유치 3~6개월 전부터 준비해야 할 재무·세무 체크리스트와 실무 타임라인
+                </p>
+                <div class="card-meta">
+                    <span class="read-time">📖 4분 읽기</span>
+                    <span>2025.01.07</span>
+                </div>
+            </a>
+
+            <!-- Insight Card 5 -->
+            <a href="series-a.html" class="insight-card" data-category="series-a">
+                <span class="card-tag">Series A</span>
+                <h3 class="card-title">Series A 투자 계약서, 재무적으로 체크해야 할 조항은?</h3>
+                <p class="card-summary">
+                    투자 계약 체결 전 회계사 관점에서 확인해야 할 핵심 조항과 세무 리스크
+                </p>
+                <div class="card-meta">
+                    <span class="read-time">📖 7분 읽기</span>
+                    <span>2025.01.06</span>
+                </div>
+            </a>
+
+            <!-- Insight Card 6 -->
+            <a href="stock-options.html" class="insight-card" data-category="structure">
+                <span class="card-tag">법인·세무 구조</span>
+                <h3 class="card-title">스톡옵션 설계, 세무 리스크 없이 진행하는 방법</h3>
+                <p class="card-summary">
+                    스톡옵션 부여 시 발생하는 과세 이슈와 투자 실사에서 문제되지 않는 설계 방법
+                </p>
+                <div class="card-meta">
+                    <span class="read-time">📖 6분 읽기</span>
+                    <span>2025.01.05</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>더 자세한 상담이 필요하시면 <a href="../index.html#contact">투자 준비 문의하기</a></p>
+        <p style="margin-top: 20px; opacity: 0.7; font-size: 14px;">© 2025 Zero to One TAX. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterTags = document.querySelectorAll('.filter-tag');
+        const insightCards = document.querySelectorAll('.insight-card');
+
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                // Update active state
+                filterTags.forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+
+                // Filter cards
+                const filter = tag.dataset.filter;
+                insightCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

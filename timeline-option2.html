@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>옵션 2: 로켓 발사 애니메이션 - Zero to one TAX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(to bottom, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .rocket-container {
+            position: fixed;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            transition: top 0.1s linear;
+        }
+        
+        .rocket {
+            font-size: 60px;
+            filter: drop-shadow(0 0 20px rgba(249, 115, 22, 0.8));
+            animation: rocketShake 0.5s infinite;
+        }
+        
+        @keyframes rocketShake {
+            0%, 100% { transform: translateX(0) rotate(-45deg); }
+            25% { transform: translateX(-2px) rotate(-46deg); }
+            75% { transform: translateX(2px) rotate(-44deg); }
+        }
+        
+        .rocket-flame {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 30px;
+            animation: flameFlicker 0.2s infinite;
+        }
+        
+        @keyframes flameFlicker {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(0.9); }
+        }
+        
+        .progress-bar-container {
+            position: fixed;
+            left: 100px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: rgba(59, 130, 246, 0.2);
+            z-index: 50;
+        }
+        
+        .progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to bottom, #3B82F6, #8B5CF6, #F97316, #10B981);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+            transition: height 0.1s linear;
+        }
+        
+        .milestone-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 60px 200px 60px 160px;
+            position: relative;
+        }
+        
+        .milestone-card {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 24px;
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.8s ease-out;
+            max-width: 800px;
+        }
+        
+        .milestone-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .milestone-number {
+            position: absolute;
+            left: 120px;
+            font-size: 120px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.2;
+        }
+        
+        .start-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .end-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 20px rgba(139, 92, 246, 0.6),
+                         0 0 40px rgba(59, 130, 246, 0.4);
+        }
+        
+        .celebrate {
+            animation: celebrate 1s ease-in-out;
+        }
+        
+        @keyframes celebrate {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @media (max-width: 768px) {
+            .rocket-container {
+                left: 20px;
+                font-size: 40px;
+            }
+            
+            .progress-bar-container {
+                left: 60px;
+            }
+            
+            .milestone-section {
+                padding: 60px 20px 60px 80px;
+            }
+            
+            .milestone-number {
+                left: 70px;
+                font-size: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars" id="starsContainer"></div>
+    
+    <!-- Progress Bar -->
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <!-- Rocket -->
+    <div class="rocket-container" id="rocket">
+        <div class="rocket">🚀</div>
+        <div class="rocket-flame">🔥</div>
+    </div>
+    
+    <!-- Content -->
+    <div class="content">
+        <!-- Start Section -->
+        <section class="start-section">
+            <div class="text-8xl mb-8 animate-bounce">🌱</div>
+            <h1 class="text-6xl sm:text-7xl lg:text-8xl font-bold text-white mb-6 glow-text">0</h1>
+            <h2 class="text-3xl sm:text-4xl text-gray-300 mb-4">시작 단계</h2>
+            <p class="text-xl text-gray-400 mb-12">스크롤하여 성장 여정을 시작하세요</p>
+            <div class="text-4xl animate-bounce">↓</div>
+        </section>
+        
+        <!-- Milestones -->
+        <section class="milestone-section">
+            <div class="milestone-number">01</div>
+            <div class="milestone-card">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-bold mb-4">
+                    STEP 1
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-4">법인설립</h3>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    사업의 첫 발걸음을 함께 시작합니다. 전문가의 컨설팅으로 최적의 법인 구조를 설계합니다.
+                </p>
+            </div>
+        </section>
+        
+        <section class="milestone-section">
+            <div class="milestone-number">02</div>
+            <div class="milestone-card">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-bold mb-4">
+                    STEP 2
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-4">투자 유치에 적합한 기장</h3>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    투자자들이 신뢰할 수 있는 투명하고 정확한 재무제표를 작성합니다.
+                </p>
+            </div>
+        </section>
+        
+        <section class="milestone-section">
+            <div class="milestone-number">03</div>
+            <div class="milestone-card">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-bold mb-4">
+                    STEP 3
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-4">노무 관리</h3>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    인력 채용 시 필수적인 노무 관리를 체계적으로 지원합니다.
+                </p>
+            </div>
+        </section>
+        
+        <section class="milestone-section">
+            <div class="milestone-number">04</div>
+            <div class="milestone-card">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-bold mb-4">
+                    STEP 4
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-4">정부보조금 지원</h3>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    활용 가능한 정부지원금을 최대한 확보하여 성장을 가속화합니다.
+                </p>
+            </div>
+        </section>
+        
+        <section class="milestone-section">
+            <div class="milestone-number">05</div>
+            <div class="milestone-card">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-bold mb-4">
+                    STEP 5
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-4">선제적 법인세 감면 적용</h3>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    세금 최적화를 통해 자금 운용 효율을 극대화합니다.
+                </p>
+            </div>
+        </section>
+        
+        <section class="milestone-section">
+            <div class="milestone-number">06</div>
+            <div class="milestone-card">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-bold mb-4">
+                    STEP 6
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-4">IR DECK 작성</h3>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    투자 유치를 위한 전문적이고 설득력 있는 IR 자료를 준비합니다.
+                </p>
+            </div>
+        </section>
+        
+        <section class="milestone-section">
+            <div class="milestone-number">07</div>
+            <div class="milestone-card">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-bold mb-4">
+                    STEP 7
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-4">라운드 유치</h3>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    시리즈 투자 유치 단계를 전문적으로 지원합니다.
+                </p>
+            </div>
+        </section>
+        
+        <section class="milestone-section">
+            <div class="milestone-number">08</div>
+            <div class="milestone-card">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-bold mb-4">
+                    STEP 8
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-4">IFRS 컨버전</h3>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    국제회계기준으로의 전환을 체계적으로 지원합니다.
+                </p>
+            </div>
+        </section>
+        
+        <section class="milestone-section">
+            <div class="milestone-number">09</div>
+            <div class="milestone-card">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-bold mb-4">
+                    STEP 9
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-4">지정감사를 위한 재무제표 작성 지원</h3>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    외부감사 대비 완벽한 재무제표 준비를 지원합니다.
+                </p>
+            </div>
+        </section>
+        
+        <section class="milestone-section">
+            <div class="milestone-number">10</div>
+            <div class="milestone-card">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-bold mb-4">
+                    STEP 10
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-4">기업가치평가</h3>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    객관적이고 전문적인 기업 가치를 산정합니다.
+                </p>
+            </div>
+        </section>
+        
+        <section class="milestone-section">
+            <div class="milestone-number">11</div>
+            <div class="milestone-card">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-bold mb-4">
+                    STEP 11
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-4">상장전략수립</h3>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    IPO를 위한 전략적 로드맵을 설계합니다.
+                </p>
+            </div>
+        </section>
+        
+        <section class="milestone-section">
+            <div class="milestone-number">12</div>
+            <div class="milestone-card">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-bold mb-4">
+                    STEP 12
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-4">스톡옵션 부여</h3>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    임직원 인센티브 제도를 체계적으로 설계합니다.
+                </p>
+            </div>
+        </section>
+        
+        <section class="milestone-section">
+            <div class="milestone-number">13</div>
+            <div class="milestone-card">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-bold mb-4">
+                    STEP 13
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-4">투자 목적의 임의 감사</h3>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    투자자 신뢰 확보를 위한 자발적 감사를 진행합니다.
+                </p>
+            </div>
+        </section>
+        
+        <section class="milestone-section">
+            <div class="milestone-number">14</div>
+            <div class="milestone-card">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-bold mb-4">
+                    STEP 14
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-4">법정감사</h3>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    상장 전 필수 외부감사를 성공적으로 완료합니다.
+                </p>
+            </div>
+        </section>
+        
+        <!-- End Section -->
+        <section class="end-section">
+            <div class="text-8xl mb-8 celebrate">🎉</div>
+            <h1 class="text-7xl sm:text-8xl lg:text-9xl font-bold text-white mb-6 glow-text celebrate">1</h1>
+            <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">궤도 안착!</h2>
+            <p class="text-2xl text-gray-300 mb-12">성공적인 성장을 축하합니다</p>
+            <a href="index.html" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition">
+                ← 메인으로 돌아가기
+            </a>
+        </section>
+    </div>
+    
+    <script>
+        // Generate stars
+        const starsContainer = document.getElementById('starsContainer');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+        
+        // Rocket and progress animation
+        const rocket = document.getElementById('rocket');
+        const progressBar = document.getElementById('progressBar');
+        
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollProgress = window.scrollY / scrollHeight;
+            
+            // Update progress bar
+            progressBar.style.height = (scrollProgress * 100) + '%';
+            
+            // Update rocket position
+            const maxRocketTop = window.innerHeight * 0.9;
+            const minRocketTop = window.innerHeight * 0.1;
+            const rocketTop = minRocketTop + (maxRocketTop - minRocketTop) * (1 - scrollProgress);
+            rocket.style.top = rocketTop + 'px';
+        });
+        
+        // Milestone cards animation
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelector('.milestone-card').classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.milestone-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

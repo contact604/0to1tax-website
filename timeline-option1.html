@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>옵션 1: 수직 타임라인 - Zero to one TAX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(to bottom, #0F172A 0%, #1E293B 100%);
+            min-height: 100vh;
+        }
+        
+        .timeline-container {
+            position: relative;
+            padding: 60px 0;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, 
+                #3B82F6 0%, 
+                #8B5CF6 30%,
+                #F97316 70%,
+                #10B981 100%
+            );
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+            margin-right: 60px;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+            margin-left: 60px;
+            text-align: left;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            border: 4px solid #0F172A;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+            z-index: 10;
+        }
+        
+        .timeline-dot.start {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .timeline-dot.end {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #F97316, #10B981);
+            font-size: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(249, 115, 22, 1), 0 0 60px rgba(16, 185, 129, 0.8);
+            }
+        }
+        
+        .timeline-content {
+            width: 45%;
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .timeline-content:hover {
+            border-color: rgba(139, 92, 246, 0.6);
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+        
+        .milestone-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5),
+                         0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 30px;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px;
+                margin-right: 0;
+                text-align: left;
+            }
+        }
+        
+        .header-section {
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .end-section {
+            text-align: center;
+            padding: 80px 20px;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-4 max-w-6xl">
+        <!-- Header -->
+        <div class="header-section">
+            <div class="text-6xl mb-6">🚀</div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 glow-text">
+                옵션 1: 수직 타임라인
+            </h1>
+            <p class="text-xl text-gray-300">
+                0에서 1로, 당신의 스타트업 성장 여정
+            </p>
+        </div>
+        
+        <!-- Timeline -->
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            
+            <!-- Start Point -->
+            <div class="timeline-item visible">
+                <div class="timeline-dot start">🌱</div>
+                <div class="timeline-content" style="margin: 0 auto; text-align: center; width: 300px;">
+                    <h2 class="text-4xl font-bold text-white mb-2">0</h2>
+                    <p class="text-gray-300 text-lg">시작 단계</p>
+                </div>
+            </div>
+            
+            <!-- Timeline Items -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="milestone-badge text-white">STEP 1</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">법인설립</h3>
+                    <p class="text-gray-300">사업의 첫 발걸음을 함께 시작합니다</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="milestone-badge text-white">STEP 2</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">투자 유치에 적합한 기장</h3>
+                    <p class="text-gray-300">투자자들이 신뢰할 수 있는 재무제표 작성</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="milestone-badge text-white">STEP 3</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">노무 관리</h3>
+                    <p class="text-gray-300">인력 채용 시 필수적인 노무 관리</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="milestone-badge text-white">STEP 4</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">정부보조금 지원</h3>
+                    <p class="text-gray-300">활용 가능한 정부지원금 최대 확보</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="milestone-badge text-white">STEP 5</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">선제적 법인세 감면 적용</h3>
+                    <p class="text-gray-300">세금 최적화를 통한 자금 효율 극대화</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="milestone-badge text-white">STEP 6</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">IR DECK 작성</h3>
+                    <p class="text-gray-300">투자 유치를 위한 전문적인 IR 자료 준비</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="milestone-badge text-white">STEP 7</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">라운드 유치</h3>
+                    <p class="text-gray-300">시리즈 투자 유치 단계 지원</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="milestone-badge text-white">STEP 8</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">IFRS 컨버전</h3>
+                    <p class="text-gray-300">국제회계기준 전환 지원</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="milestone-badge text-white">STEP 9</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">지정감사를 위한 재무제표 작성 지원 용역</h3>
+                    <p class="text-gray-300">외부감사 대비 전문 지원</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="milestone-badge text-white">STEP 10</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">기업가치평가</h3>
+                    <p class="text-gray-300">객관적인 기업 가치 산정</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="milestone-badge text-white">STEP 11</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">상장전략수립</h3>
+                    <p class="text-gray-300">IPO를 위한 전략적 로드맵 설계</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="milestone-badge text-white">STEP 12</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">스톡옵션 부여</h3>
+                    <p class="text-gray-300">임직원 인센티브 제도 설계</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="milestone-badge text-white">STEP 13</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">투자 목적의 임의 감사</h3>
+                    <p class="text-gray-300">투자자 신뢰 확보를 위한 자발적 감사</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="milestone-badge text-white">STEP 14</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">법정감사</h3>
+                    <p class="text-gray-300">상장 전 필수 외부감사 완료</p>
+                </div>
+            </div>
+            
+            <!-- End Point -->
+            <div class="timeline-item visible">
+                <div class="timeline-dot end">🚀</div>
+                <div class="timeline-content" style="margin: 0 auto; text-align: center; width: 400px; background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(16, 185, 129, 0.2)); border-color: rgba(249, 115, 22, 0.5);">
+                    <h2 class="text-5xl font-bold text-white mb-4 glow-text">1</h2>
+                    <h3 class="text-3xl font-bold text-white mb-2">궤도 안착!</h3>
+                    <p class="text-gray-200 text-lg">성공적인 성장을 축하합니다</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- End Section -->
+        <div class="end-section">
+            <a href="index.html" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition">
+                ← 메인으로 돌아가기
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>

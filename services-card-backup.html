@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero to One TAX - 서비스 소개서 FULL VERSION</title>
+    <meta name="description" content="Pre-A ~ Series A 스타트업의 첫 번째 CFO. 투자와 성장을 숫자로 설계합니다.">
+    <meta name="keywords" content="Zero to One TAX, 스타트업 세무, CFO, 투자 유치, IR, 법인세">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://0to1tax.com/services.html">
+    <meta property="og:title" content="Zero to One TAX - 서비스 소개서">
+    <meta property="og:description" content="Pre-A ~ Series A 스타트업의 첫 번째 CFO">
+    <meta property="og:image" content="https://0to1tax.com/og-image.jpg">
+    <meta property="og:site_name" content="Zero to One TAX">
+    
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-blue: #2563eb;
+            --primary-blue-dark: #1e40af;
+            --primary-blue-light: #3b82f6;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-blue);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding-top: 80px;
+        }
+        
+        /* Slide Section */
+        .slide-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+        
+        .slide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        /* Slide 1: Cover */
+        .slide-cover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .slide-cover h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .slide-cover .subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .slide-cover .description {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .slide-cover .company {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Slide 2-4: Text-focused */
+        .slide-text {
+            background: var(--bg-white);
+        }
+        
+        .slide-text h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .target-list,
+        .reality-list,
+        .limit-list {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .target-item,
+        .reality-item,
+        .limit-item {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-blue);
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+        
+        .emoji {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Slide 5: Key Question */
+        .slide-question {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .slide-question .question {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+        }
+        
+        .slide-question .sub-question {
+            font-size: 1.5rem;
+            opacity: 0.95;
+        }
+        
+        /* Slide 6: Definition */
+        .definition-box {
+            background: var(--bg-white);
+            padding: 4rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+        }
+        
+        .definition-box h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+        }
+        
+        .definition-box .definition-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+        
+        /* Slide 7: Before/After */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .comparison-card {
+            background: var(--bg-white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+        
+        .comparison-card.before {
+            border-top: 4px solid #ef4444;
+        }
+        
+        .comparison-card.after {
+            border-top: 4px solid #10b981;
+        }
+        
+        .comparison-card h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .comparison-card.before h3 {
+            color: #ef4444;
+        }
+        
+        .comparison-card.after h3 {
+            color: #10b981;
+        }
+        
+        .comparison-list {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .comparison-list li {
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
+        
+        /* Slide 8: Timeline */
+        .timeline-box {
+            background: var(--bg-white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .timeline-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            min-width: 60px;
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+        }
+        
+        /* Slide 9: Core Values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .value-card {
+            background: var(--bg-white);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .value-card .icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .value-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .value-card p {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        
+        /* Slide 10: Growth Points */
+        .growth-stages {
+            display: grid;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .stage-card {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--primary-blue);
+        }
+        
+        .stage-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .stage-card .stage-points {
+            list-style: none;
+            display: grid;
+            gap: 0.75rem;
+        }
+        
+        .stage-card .stage-points li {
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+        
+        .stage-card .stage-points li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+        
+        /* Slide 11-13: Core Services */
+        .service-detail {
+            background: var(--bg-white);
+            padding: 4rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .service-detail h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .service-detail .service-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .service-features {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .feature-item {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+        
+        .feature-item .icon {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            min-width: 40px;
+        }
+        
+        .feature-item .content h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-item .content p {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        
+        /* Slide 14: Principles */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .principle-card {
+            background: var(--bg-white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+        
+        .principle-card .number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .principle-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .principle-card p {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        
+        /* Slide 15-19: Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: var(--bg-white);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pricing-card.featured {
+            border: 3px solid var(--primary-blue);
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+        
+        .pricing-card h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-card .price-note {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .pricing-features li {
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .pricing-features li:before {
+            content: "✓";
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        /* Pro Service Detail */
+        .pro-detail {
+            background: var(--bg-white);
+            padding: 4rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .service-category {
+            margin-bottom: 3rem;
+        }
+        
+        .service-category:last-child {
+            margin-bottom: 0;
+        }
+        
+        .service-category h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .service-items {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .service-item {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        /* Slide 19: Boundary */
+        .boundary-box {
+            background: var(--bg-white);
+            padding: 4rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .boundary-box h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+        }
+        
+        .boundary-box .boundary-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+        
+        .boundary-box .note {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+        
+        /* Slide 20: Why Us */
+        .why-us-grid {
+            display: grid;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .why-us-item {
+            background: var(--bg-white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+        
+        .why-us-item .icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            min-width: 60px;
+        }
+        
+        .why-us-item h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .why-us-item p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        
+        /* Slide 21: Pricing Note */
+        .pricing-note-box {
+            background: var(--bg-white);
+            padding: 4rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .pricing-note-box h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .note-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .note-item {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .note-item h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+        
+        .note-item p {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        
+        /* Slide 22: CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section .cta-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary-blue);
+            padding: 1.5rem 4rem;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .slide-cover h1 {
+                font-size: 2rem;
+            }
+            
+            .slide-cover .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .slide-cover .description {
+                font-size: 1rem;
+            }
+            
+            .slide-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .target-item,
+            .reality-item,
+            .limit-item {
+                font-size: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .highlight-box {
+                font-size: 1.3rem;
+                padding: 2rem;
+            }
+            
+            .slide-question .question {
+                font-size: 1.8rem;
+            }
+            
+            .slide-question .sub-question {
+                font-size: 1.1rem;
+            }
+            
+            .definition-box {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .definition-box h2 {
+                font-size: 1.8rem;
+            }
+            
+            .definition-box .definition-text {
+                font-size: 1.1rem;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-card {
+                padding: 2rem;
+            }
+            
+            .comparison-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-detail {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .service-detail h2 {
+                font-size: 1.8rem;
+            }
+            
+            .service-detail .service-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card {
+                padding: 3rem 2rem;
+            }
+            
+            .pricing-card .price {
+                font-size: 2.5rem;
+            }
+            
+            .pro-detail {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-section .cta-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .cta-button {
+                padding: 1.25rem 3rem;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-blur">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://www.genspark.ai/api/files/s/daKCuJgn" alt="ZERO TO ONE TAX">
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="index.html#services">서비스</a></li>
+                <li><a href="services.html" class="active">서비스 소개</a></li>
+                <li><a href="0to1log.html">블로그</a></li>
+                <li><a href="index.html?modal=consult">무료 상담</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Slide 1: Cover -->
+        <section class="slide-section slide-cover">
+            <div class="slide-container">
+                <h1>Pre-A ~ Series A 스타트업의<br>첫 번째 CFO</h1>
+                <div class="description">
+                    기장·세무를 넘어<br>
+                    투자자와 감사인이 신뢰하는 숫자를 만듭니다
+                </div>
+                <div class="company">ZERO TO ONE TAX by 선영회계법인</div>
+                
+                <!-- Target audience -->
+                <div style="margin-top: 4rem; padding: 3rem 2.5rem; background: rgba(255,255,255,0.2); border-radius: 20px; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3);">
+                    <p style="font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem; text-align: center; color: white;">👉 이런 분들을 위한 서비스입니다</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div style="background: rgba(255,255,255,0.25); padding: 1.5rem; border-radius: 12px; font-size: 1.15rem; font-weight: 600; text-align: center; color: white;">
+                            🚀<br>Pre-A ~ Series A<br>스타트업
+                        </div>
+                        <div style="background: rgba(255,255,255,0.25); padding: 1.5rem; border-radius: 12px; font-size: 1.15rem; font-weight: 600; text-align: center; color: white;">
+                            💰<br>매출 발생<br>법인
+                        </div>
+                        <div style="background: rgba(255,255,255,0.25); padding: 1.5rem; border-radius: 12px; font-size: 1.15rem; font-weight: 600; text-align: center; color: white;">
+                            📊<br>투자자 미팅 증가<br>회사
+                        </div>
+                        <div style="background: rgba(255,255,255,0.25); padding: 1.5rem; border-radius: 12px; font-size: 1.15rem; font-weight: 600; text-align: center; color: white;">
+                            👔<br>CFO 없이<br>대표가 숫자 판단
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Problems -->
+        <section class="slide-section slide-text">
+            <div class="slide-container">
+                <h2 style="text-align: center; margin-bottom: 3rem;">스타트업이 겪는 문제</h2>
+                
+                <!-- Customer Reality -->
+                <div style="background: var(--bg-white); padding: 3rem; border-radius: 16px; box-shadow: var(--shadow); margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.8rem; font-weight: 700; color: #ef4444; margin-bottom: 2rem; text-align: center;">❌ 현실</h3>
+                    <div class="reality-list">
+                        <div class="reality-item">
+                            투자자는 숫자를 묻는데, 답변이 늦어집니다
+                        </div>
+                        <div class="reality-item">
+                            재무제표는 있지만, 설명이 어렵습니다
+                        </div>
+                        <div class="reality-item">
+                            투자금 실사를 받았으나 실제 장부와 일치하지 않습니다
+                        </div>
+                        <div class="reality-item">
+                            장부로 회사의 장점을 부각시키기 어렵습니다
+                        </div>
+                        <div class="reality-item">
+                            세무사는 신고만 하고, 판단은 대표 몫입니다
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Limits -->
+                <div style="background: var(--bg-white); padding: 3rem; border-radius: 16px; box-shadow: var(--shadow); margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.8rem; font-weight: 700; color: #f97316; margin-bottom: 2rem; text-align: center;">⚠️ 기존 서비스의 한계</h3>
+                    <div class="limit-list">
+                        <div class="limit-item">
+                            <strong>기장만 하는 서비스</strong><br>
+                            → 투자 유치, 감사 대응, 의사결정에 도움이 안 됨
+                        </div>
+                        <div class="limit-item">
+                            <strong>신고만 하는 서비스</strong><br>
+                            → 스타트업 성장 맥락을 모름
+                        </div>
+                        <div class="limit-item">
+                            <strong>사후 대응형 서비스</strong><br>
+                            → 문제가 생긴 뒤에 수습하는 구조
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    "이 숫자로 투자자 앞에 서도 될까?"<br>
+                    <span style="font-size: 1rem; opacity: 0.9;">성장하는 스타트업에겐 '기장 + 신고'만으로는 부족합니다</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Key Question & Definition -->
+        <section class="slide-section slide-question">
+            <div class="slide-container">
+                <div class="question">
+                    당신의 회사는<br>
+                    투자자 앞에 설 준비가<br>
+                    되어 있나요?
+                </div>
+                <div class="sub-question" style="margin-bottom: 4rem;">
+                    숫자가 말해주는 이야기가 명확한가요?
+                </div>
+                
+                <!-- Definition -->
+                <div style="background: rgba(255,255,255,0.15); padding: 3rem; border-radius: 20px; backdrop-filter: blur(10px); margin-top: 3rem;">
+                    <h3 style="color: white; font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; text-align: center;">ZERO TO ONE TAX</h3>
+                    <div style="color: white; font-size: 1.3rem; line-height: 1.8; text-align: center;">
+                        우리는 단순한 기장·세무 대행사가 아닙니다.<br><br>
+                        <strong style="font-size: 1.5rem;">투자 유치, 외부 감사, 의사결정이 필요한 순간</strong><br>
+                        대표님 옆에서 '숫자로 말하는' 파트너입니다.<br><br>
+                        <strong style="font-size: 1.6rem;">Pre-A ~ Series A 스타트업의 첫 번째 CFO</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Before/After -->
+        <section class="slide-section slide-text">
+            <div class="slide-container">
+                <h2 style="text-align: center; margin-bottom: 3rem;">Before / After</h2>
+                <div class="comparison-grid">
+                    <div class="comparison-card before">
+                        <h3>❌ Before</h3>
+                        <ul class="comparison-list">
+                            <li>투자자 질문에 즉답 불가</li>
+                            <li>재무제표 해석이 어려움</li>
+                            <li>IR 자료와 회계장부가 별개</li>
+                            <li>감사 대응에 1~2주 소요</li>
+                            <li>세무 전략 없이 사후 대응</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card after">
+                        <h3>✅ After</h3>
+                        <ul class="comparison-list">
+                            <li>투자자 질문에 실시간 대응</li>
+                            <li>재무제표 기반 전략 수립</li>
+                            <li>IR 자료를 설명할 수 있는 회계장부</li>
+                            <li>감사 대응 1~2일 내 완료</li>
+                            <li>선제적 세무 전략 수립</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Timeline -->
+        <section class="slide-section slide-text">
+            <div class="slide-container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">우리의 서비스가 필요한 시점</h2>
+                <div class="highlight-box" style="margin-bottom: 3rem;">
+                    ZERO TO ONE TAX는 결정 이후가 아니라, 결정 이전에 함께합니다
+                </div>
+                <div class="timeline-box">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">💼</div>
+                        <div class="timeline-content">
+                            <h3>투자 전에</h3>
+                            <p>• 투자자 질문에 대비한 숫자 정합성 점검</p>
+                            <p>• IR 자료 내 주장을 뒷받침할 수 있는 회계장부 작성</p>
+                            <p>• 투자 조건이 재무적으로 불리하지 않은지 사전 검토</p>
+                            <p style="margin-top: 1rem; font-weight: 600; color: var(--primary-blue);">👉 투자 이후 문제가 아니라, 투자 이전에 정리합니다</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">📋</div>
+                        <div class="timeline-content">
+                            <h3>계약 전에</h3>
+                            <p>• 계약 조건이 재무·세무적으로 어떤 영향을 미치는지 사전 검토</p>
+                            <p>• 단기 비용이 아닌, 중장기 재무 구조에 미치는 영향까지 확인</p>
+                            <p style="margin-top: 1rem; font-weight: 600; color: var(--primary-blue);">👉 사인하고 나서 후회하지 않도록 합니다</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">🔄</div>
+                        <div class="timeline-content">
+                            <h3>구조를 바꾸기 전에</h3>
+                            <p>• 투자 구조, 지분 구조, 보상 구조 변경 시 회계·세무·감사 이슈를 함께 검토</p>
+                            <p>• "지금은 괜찮아 보여도, 나중에 문제가 되는 선택"을 사전에 차단</p>
+                            <p style="margin-top: 1rem; font-weight: 600; color: var(--primary-blue);">👉 지금의 선택이 다음 단계의 리스크가 되지 않게 합니다</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Core Values -->
+        <section class="slide-section slide-text">
+            <div class="slide-container">
+                <h2 style="text-align: center; margin-bottom: 1.5rem;">ZERO TO ONE TAX가 만드는 변화</h2>
+                <p style="text-align: center; font-size: 1.3rem; color: var(--text-gray); margin-bottom: 3rem;">
+                    회사의 지속가능한 성장을 목표로 합니다
+                </p>
+                <div class="highlight-box" style="margin-bottom: 3rem;">
+                    단기적인 신고나 대응이 아니라,<br>
+                    다음 단계까지 이어질 수 있는 숫자 구조를 만듭니다.
+                </div>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="icon">⚡</div>
+                        <h3>1️⃣ 빠른 대응과<br>선제적 판단</h3>
+                        <p style="font-weight: 600; color: var(--text-dark); margin-bottom: 1rem;">대표의 부담을 줄입니다</p>
+                        <p>• 필요한 순간에 즉시 대응</p>
+                        <p>• 문제가 생기기 전 사전 검토</p>
+                        <p>• 판단이 늦어지지 않도록 관리</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="icon">💎</div>
+                        <h3>2️⃣ 투자자와 감사인을<br>숫자로 설득</h3>
+                        <p style="font-weight: 600; color: var(--text-dark); margin-bottom: 1rem;">숫자로 설득할 수 있게 합니다</p>
+                        <p>• 실사·감사 질문 포인트 사전 정리</p>
+                        <p>• IR 자료와 장부 간 정합성 확보</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="icon">📋</div>
+                        <h3>3️⃣ 원칙을 지키는<br>방향으로 관리</h3>
+                        <p style="font-weight: 600; color: var(--text-dark); margin-bottom: 1rem;">숫자를 관리합니다</p>
+                        <p>• 단기 이익보다 설명 가능한 구조</p>
+                        <p>• 외부 검증을 전제로 관리</p>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 3rem;">
+                    대표가 혼자 책임지지 않아도 되는 숫자를 만듭니다.
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 10: Growth Points -->
+        <section class="slide-section slide-text">
+            <div class="slide-container">
+                <h2 style="text-align: center; margin-bottom: 3rem;">단계별 포인트</h2>
+                <div class="growth-stages">
+                    <div class="stage-card">
+                        <h3>🌱 Pre-A</h3>
+                        <p style="font-weight: 600; color: var(--primary-blue); margin-bottom: 1rem;">대표가 숫자를 설명할 수 있도록 만드는 단계</p>
+                        <ul class="stage-points">
+                            <li>강점이 보이는 재무 구조 설계</li>
+                            <li>투자자 질문 대비 포인트 정리</li>
+                        </ul>
+                    </div>
+                    <div class="stage-card">
+                        <h3>🚀 Series A 준비</h3>
+                        <p style="font-weight: 600; color: var(--primary-blue); margin-bottom: 1rem;">숫자로 설득하는 단계</p>
+                        <ul class="stage-points">
+                            <li>IR 자료와 재무제표 정합성 확보</li>
+                            <li>RCPS, 스톡옵션 등 핵심 이슈 정리</li>
+                        </ul>
+                    </div>
+                    <div class="stage-card">
+                        <h3>🌍 Series A 이후</h3>
+                        <p style="font-weight: 600; color: var(--primary-blue); margin-bottom: 1rem;">외부 검증을 전제로 관리하는 단계</p>
+                        <ul class="stage-points">
+                            <li>외부감사·지정감사 대응</li>
+                            <li>과거 선택이 리스크가 되지 않도록 관리</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 11: Core Service 1 -->
+        <section class="slide-section slide-text">
+            <div class="slide-container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-lg); margin-bottom: 2rem;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem 2rem; border-radius: 12px; display: inline-block; margin-bottom: 1.5rem;">
+                            <h2 style="color: white; font-size: 2rem; margin: 0;">Core Service ①</h2>
+                        </div>
+                        <h3 style="color: white; font-size: 2rem; font-weight: 700; margin-bottom: 2rem;">투자 기준 숫자 구조 설계</h3>
+                        <div style="background: white; padding: 2.5rem; border-radius: 16px; line-height: 1.8;">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="font-size: 2rem; min-width: 40px;">📈</div>
+                                <p style="font-size: 1.15rem; color: var(--text-dark); margin: 0;">회사의 사업 구조와 강점이<br>숫자에 드러나도록 재무 구조를 설계</p>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 2rem;">
+                                <div style="font-size: 2rem; min-width: 40px;">🎯</div>
+                                <p style="font-size: 1.15rem; color: var(--text-dark); margin: 0;">대표가 IR에서<br>회사의 강점을 숫자로 설명 가능</p>
+                            </div>
+                            <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--primary-blue);">
+                                <p style="font-size: 1.25rem; font-weight: 700; color: var(--primary-blue); margin: 0;">👉 재무제표가 설명의 근거가 됩니다</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 12: Core Service 2 -->
+        <section class="slide-section slide-text">
+            <div class="slide-container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-lg); margin-bottom: 2rem;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem 2rem; border-radius: 12px; display: inline-block; margin-bottom: 1.5rem;">
+                            <h2 style="color: white; font-size: 2rem; margin: 0;">Core Service ②</h2>
+                        </div>
+                        <h3 style="color: white; font-size: 2rem; font-weight: 700; margin-bottom: 2rem;">투자·감사 대응형 기장 & 세무</h3>
+                        <div style="background: white; padding: 2.5rem; border-radius: 16px; line-height: 1.8;">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="font-size: 2rem; min-width: 40px;">✔️</div>
+                                <p style="font-size: 1.15rem; color: var(--text-dark); margin: 0;">IR 자료와 장부 간 숫자 불일치 제거</p>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 2rem;">
+                                <div style="font-size: 2rem; min-width: 40px;">✔️</div>
+                                <p style="font-size: 1.15rem; color: var(--text-dark); margin: 0;">투자·감사 과정에서 질문받을 포인트 관리</p>
+                            </div>
+                            <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                                <p style="font-size: 1.05rem; color: var(--text-dark); line-height: 1.7; margin: 0;">회사의 강점이 드러나도록 재무제표를 구성합니다.<br>
+IR 자료의 내용이 실제 장부와 어긋나지 않도록 정리해,<br>
+투자자 설명력이 높아지도록 만듭니다.</p>
+                            </div>
+                            <div style="background: #7c3aed; padding: 1.5rem; border-radius: 12px;">
+                                <p style="font-size: 1.25rem; font-weight: 700; color: white; margin: 0;">👉 기장이 설득의 도구가 됩니다</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 13: Core Service 3 -->
+        <section class="slide-section slide-text">
+            <div class="slide-container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div style="background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-lg); margin-bottom: 2rem;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem 2rem; border-radius: 12px; display: inline-block; margin-bottom: 1.5rem;">
+                            <h2 style="color: white; font-size: 2rem; margin: 0;">Core Service ③</h2>
+                        </div>
+                        <h3 style="color: white; font-size: 2rem; font-weight: 700; margin-bottom: 2rem;">대표 의사결정 파트너링</h3>
+                        <div style="background: white; padding: 2.5rem; border-radius: 16px; line-height: 1.8;">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="font-size: 2rem; min-width: 40px;">🤝</div>
+                                <p style="font-size: 1.15rem; color: var(--text-dark); margin: 0;">중요한 판단을 숫자로 함께 검토</p>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 2rem;">
+                                <div style="font-size: 2rem; min-width: 40px;">✅</div>
+                                <p style="font-size: 1.15rem; color: var(--text-dark); margin: 0;">"된다 / 안 된다"를 명확히 제시</p>
+                            </div>
+                            <div style="background: #0891b2; padding: 1.5rem; border-radius: 12px;">
+                                <p style="font-size: 1.25rem; font-weight: 700; color: white; margin: 0;">👉 대표가 혼자 결정하지 않게 됩니다</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 15: Standard Plan -->
+        <section class="slide-section slide-text">
+            <div class="slide-container">
+                <h2 style="text-align: center; margin-bottom: 3rem;">서비스 구성 & 가격</h2>
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <div class="pricing-card" style="padding: 4rem 3rem;">
+                        <h3 style="font-size: 3rem; margin-bottom: 2rem;">Standard</h3>
+                        <div class="price" style="font-size: 3.5rem;">월 150,000원 ~</div>
+                        <div class="price-note" style="font-size: 1.2rem; margin-bottom: 3rem;">(VAT 별도)</div>
+                        <ul class="pricing-features" style="gap: 1.5rem;">
+                            <li style="font-size: 1.2rem;">투자 유치에 유리한 재무제표 복식부기 기장</li>
+                            <li style="font-size: 1.2rem;">법인세, 부가세 신고</li>
+                            <li style="font-size: 1.2rem;">임직원 4대보험 사무대행</li>
+                            <li style="font-size: 1.2rem;">임직원 급여업무</li>
+                            <li style="font-size: 1.2rem;">카톡/전화 실시간 상담</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 16: Pro Plan -->
+        <section class="slide-section slide-text">
+            <div class="slide-container">
+                <h2 style="text-align: center; margin-bottom: 3rem;">서비스 구성 & 가격</h2>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div class="pricing-card featured" style="padding: 4rem 3rem; position: relative;">
+                        <div class="pricing-badge" style="font-size: 1.2rem; padding: 0.75rem 2rem;">추천</div>
+                        <h3 style="font-size: 3rem; margin-bottom: 2rem;">Pro</h3>
+                        <div class="price" style="font-size: 3rem;">별도 협의</div>
+                        <div class="price-note" style="font-size: 1.2rem; margin-bottom: 3rem;">업무 범위에 따라 논의</div>
+                        
+                        <!-- Pro Core -->
+                        <div style="background: var(--bg-light); padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                            <h4 style="font-size: 1.4rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 1.5rem;">✓ 기본 제공</h4>
+                            <ul class="pricing-features" style="margin: 0; gap: 1rem;">
+                                <li style="font-size: 1.1rem;">Standard 서비스 전체 포함</li>
+                                <li style="font-size: 1.1rem;">투자자 대응</li>
+                                <li style="font-size: 1.1rem;">외부감사 대응</li>
+                                <li style="font-size: 1.1rem;">의사결정 파트너링</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Pro Optional - Accordion -->
+                        <div style="background: #fff3e0; border-radius: 12px; border: 2px dashed #ff9800; overflow: hidden;">
+                            <button onclick="toggleOptional()" style="width: 100%; background: none; border: none; padding: 2rem; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                                <h4 style="font-size: 1.4rem; font-weight: 700; color: #f57c00; margin: 0;">+ 추가 선택 가능</h4>
+                                <span id="optionalIcon" style="font-size: 1.5rem; color: #f57c00; transition: transform 0.3s;">▼</span>
+                            </button>
+                            <div id="optionalContent" style="max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, padding 0.5s ease-out; padding: 0 2rem;">
+                                <ul class="pricing-features" style="margin: 0; gap: 1rem; padding-bottom: 2rem;">
+                                    <li style="font-size: 1.1rem;">IR 자료 작성</li>
+                                    <li style="font-size: 1.1rem;">IFRS Conversion</li>
+                                    <li style="font-size: 1.1rem;">스톡옵션 설계</li>
+                                    <li style="font-size: 1.1rem;">RCPS·CB 등 투자 구조</li>
+                                    <li style="font-size: 1.1rem;">M&A·조직 개편 등 특수 이슈</li>
+                                    <li style="font-size: 1.1rem;">투자자 미팅 동반 참석</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pro Transition Note -->
+                <div style="max-width: 800px; margin: 3rem auto 0; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); padding: 3rem; border-radius: 16px; border-left: 4px solid var(--primary-blue); box-shadow: var(--shadow);">
+                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 1.5rem; text-align: center;">📊 투자자나 감사인이<br>숫자를 묻기 시작했다면 Pro 단계입니다</p>
+                    <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center;">
+                        <p style="font-size: 1.1rem; color: var(--text-dark); line-height: 1.8; margin-bottom: 1rem;">💡 Standard로 시작하여 성장 단계에 맞춰 Pro로 전환 가능합니다.</p>
+                        <p style="font-size: 1.1rem; color: var(--text-gray); line-height: 1.8;">고객사 상황에 맞춰 유연하게 조정됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 20: Why Us -->
+        <section class="slide-section slide-text">
+            <div class="slide-container">
+                <h2 style="text-align: center; margin-bottom: 1rem;">우리의 강점</h2>
+                <h3 style="text-align: center; font-size: 2rem; color: var(--primary-blue); margin-bottom: 4rem;">왜 ZERO TO ONE TAX인가</h3>
+                
+                <!-- Strength 1 -->
+                <div style="max-width: 1000px; margin: 0 auto 4rem;">
+                    <div style="background: var(--bg-white); padding: 3rem; border-radius: 16px; box-shadow: var(--shadow); border-top: 4px solid var(--primary-blue);">
+                        <h3 style="font-size: 1.8rem; font-weight: 800; color: var(--primary-blue); margin-bottom: 2rem;">① 투자·감사·실사 경험</h3>
+                        <p style="font-size: 1.3rem; font-weight: 600; color: var(--text-dark); margin-bottom: 2rem;">숫자를 "만드는 사람"이 아니라<br>검증하는 사람의 관점으로 봅니다</p>
+                        
+                        <div style="background: var(--bg-light); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                            <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.5rem;">우리가 알고 있는 것</h4>
+                            <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem;">
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: var(--primary-blue);">•</span>
+                                    투자자는 어떤 숫자를 먼저 의심하는지
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: var(--primary-blue);">•</span>
+                                    감사인은 어디에서 질문을 시작하는지
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: var(--primary-blue);">•</span>
+                                    실사(FDD)는 어떤 구조에서 문제가 커지는지
+                                </li>
+                            </ul>
+                            <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary-blue); margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                                👉 단순히 기준을 아는 것이 아니라,<br>실제 질문이 어떻게 들어오는지를 알고 있습니다.
+                            </p>
+                        </div>
+                        
+                        <div style="background: #e0f2fe; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                            <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.5rem;">우리가 서비스하면 달라지는 점</h4>
+                            <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem;">
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: var(--primary-blue);">✓</span>
+                                    투자자 질문에 즉답이 가능한 숫자 구조로 정리됩니다
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: var(--primary-blue);">✓</span>
+                                    감사 과정에서 추가 자료 요청과 해석 논쟁이 줄어듭니다
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: var(--primary-blue);">✓</span>
+                                    실사에서 "왜 이렇게 처리했는지" 설명이 가능합니다
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%); padding: 2rem; border-radius: 12px; text-align: center;">
+                            <p style="color: white; font-size: 1.3rem; font-weight: 700; margin: 0; line-height: 1.6;">
+                                질문을 예상하고 준비하는 것과<br>질문을 받고 대응하는 것은 완전히 다릅니다
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Strength 2 -->
+                <div style="max-width: 1000px; margin: 0 auto 4rem;">
+                    <div style="background: var(--bg-white); padding: 3rem; border-radius: 16px; box-shadow: var(--shadow); border-top: 4px solid #7c3aed;">
+                        <h3 style="font-size: 1.8rem; font-weight: 800; color: #7c3aed; margin-bottom: 2rem;">② 스타트업 특화</h3>
+                        <p style="font-size: 1.3rem; font-weight: 600; color: var(--text-dark); margin-bottom: 2rem;">"이론적으로 맞는 회계"보다<br>"지금 이 회사에 맞는 숫자"를 봅니다</p>
+                        
+                        <div style="background: var(--bg-light); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                            <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.5rem;">스타트업이 겪는 현실</h4>
+                            <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem;">
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #7c3aed;">•</span>
+                                    숫자는 아직 작지만, 설명해야 할 사람은 많아집니다
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #7c3aed;">•</span>
+                                    구조는 자주 바뀌고, 모든 선택이 다음 단계에 영향을 미칩니다
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #7c3aed;">•</span>
+                                    대표가 재무 판단까지 혼자 떠안게 됩니다
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: #f3e8ff; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                            <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.5rem;">ZERO TO ONE TAX의 접근 방식</h4>
+                            <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem;">
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #7c3aed;">✓</span>
+                                    지금 단계에 과하지 않은 기준을 적용합니다
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #7c3aed;">✓</span>
+                                    다만, 나중에 고치지 않아도 되는 방향으로 설계합니다
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #7c3aed;">✓</span>
+                                    "지금은 괜찮다"가 아니라 "다음 단계에서도 문제없다"를 기준으로 봅니다
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: #f3e8ff; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                            <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.5rem;">고객에게 생기는 변화</h4>
+                            <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem;">
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #7c3aed;">→</span>
+                                    숫자가 부담이 아니라 설명의 도구가 됩니다
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #7c3aed;">→</span>
+                                    재무 이슈가 의사결정을 늦추지 않습니다
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #7c3aed;">→</span>
+                                    성장 과정에서 같은 설명을 반복하지 않아도 됩니다
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); padding: 2rem; border-radius: 12px; text-align: center;">
+                            <p style="color: white; font-size: 1.3rem; font-weight: 700; margin: 0; line-height: 1.6;">
+                                스타트업의 숫자는<br>지금과 다음을 함께 봐야 합니다
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Strength 3 -->
+                <div style="max-width: 1000px; margin: 0 auto;">
+                    <div style="background: var(--bg-white); padding: 3rem; border-radius: 16px; box-shadow: var(--shadow); border-top: 4px solid #0891b2;">
+                        <h3 style="font-size: 1.8rem; font-weight: 800; color: #0891b2; margin-bottom: 2rem;">③ 한 담당자가 끝까지 책임</h3>
+                        <p style="font-size: 1.3rem; font-weight: 600; color: var(--text-dark); margin-bottom: 2rem;">설명이 반복되지 않는 구조<br>히스토리가 끊기지 않는 관리</p>
+                        
+                        <div style="background: var(--bg-light); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                            <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.5rem;">일반적인 구조의 문제</h4>
+                            <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem;">
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #0891b2;">•</span>
+                                    기장 담당자 변경
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #0891b2;">•</span>
+                                    자문은 그때그때 다른 사람
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #0891b2;">•</span>
+                                    맥락 없는 숫자 설명의 반복
+                                </li>
+                            </ul>
+                            <p style="font-size: 1.1rem; font-weight: 600; color: #0891b2; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                                👉 결국, 대표가 다시 설명해야 합니다
+                            </p>
+                        </div>
+                        
+                        <div style="background: #cffafe; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                            <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.5rem;">ZERO TO ONE TAX의 방식</h4>
+                            <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem;">
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #0891b2;">✓</span>
+                                    한 담당자가 초기 구조부터 투자·감사 대응까지 함께합니다
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #0891b2;">✓</span>
+                                    과거 의사결정의 맥락을 숫자 안에서 기억합니다
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #0891b2;">✓</span>
+                                    같은 질문에 다시 설명하지 않아도 됩니다
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: #cffafe; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                            <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.5rem;">대표 입장에서의 변화</h4>
+                            <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem;">
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #0891b2;">→</span>
+                                    "이건 왜 이렇게 돼 있죠?"라는 질문에 바로 맥락 있는 답변이 나옵니다
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #0891b2;">→</span>
+                                    담당자가 바뀔 때마다 처음부터 설명하지 않아도 됩니다
+                                </li>
+                                <li style="padding-left: 1.5rem; position: relative; font-size: 1.1rem;">
+                                    <span style="position: absolute; left: 0; color: #0891b2;">→</span>
+                                    숫자에 대한 책임을 혼자 지지 않아도 됩니다
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); padding: 2rem; border-radius: 12px; text-align: center;">
+                            <p style="color: white; font-size: 1.3rem; font-weight: 700; margin: 0; line-height: 1.6;">
+                                숫자는 기록이 아니라<br>히스토리입니다
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 21: About Me (이범기 회계사) -->
+        <section class="slide-section slide-text">
+            <div class="slide-container">
+                <div style="max-width: 1000px; margin: 0 auto;">
+                    <!-- Main Title -->
+                    <h2 style="font-size: 3rem; font-weight: 800; color: var(--primary-blue); text-align: center; margin-bottom: 4rem;">
+                        스타트업 전문가 이범기 회계사가<br>직접 서비스합니다.
+                    </h2>
+                    
+                    <!-- Header -->
+                    <div style="text-align: center; margin-bottom: 4rem;">
+                        <!-- Profile Photo -->
+                        <div style="margin-bottom: 2rem;">
+                            <img src="images/profile-lee-beomgi.jpg" alt="이범기 회계사" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary-blue); box-shadow: 0 8px 24px rgba(37, 99, 235, 0.2); margin: 0 auto;">
+                        </div>
+                        <h3 style="font-size: 2.5rem; font-weight: 800; color: var(--primary-blue); margin-bottom: 1rem;">이범기 회계사</h3>
+                        <p style="font-size: 1.3rem; color: var(--text-gray); margin-bottom: 0.5rem;">ZERO TO ONE TAX | 대표 · 공인회계사</p>
+                        <p style="font-size: 1.5rem; font-weight: 600; color: var(--text-dark); line-height: 1.6;">
+                            감사 · IPO · 투자 경험을 바탕으로<br>
+                            스타트업의 성장을 숫자로 설계합니다
+                        </p>
+                    </div>
+                    
+                    <!-- Experience -->
+                    <div style="background: var(--bg-white); padding: 3rem; border-radius: 16px; box-shadow: var(--shadow); margin-bottom: 3rem;">
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 2rem; text-align: center;">주요 경력</h3>
+                        <div style="display: grid; gap: 1.5rem;">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.5rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--primary-blue);">
+                                <div style="font-size: 2rem; min-width: 40px;">🏢</div>
+                                <div style="flex: 1;">
+                                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem;">삼일회계법인 감사본부</h4>
+                                    <p style="font-size: 0.95rem; color: var(--text-gray); line-height: 1.6;">
+                                        • 샘표식품/샘표 감사 PM<br>
+                                        • 현대엘리베이터, 한진중공업 감사<br>
+                                        • SK쉴더스 내부회계 구축<br>
+                                        • DH오토웨어 재무제표 작성 지원 PM
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.5rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--primary-blue);">
+                                <div style="font-size: 2rem; min-width: 40px;">📈</div>
+                                <div style="flex: 1;">
+                                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem;">하나증권 IPO(ECM) 팀</h4>
+                                    <p style="font-size: 0.95rem; color: var(--text-gray);">
+                                        • 현대오일뱅크 상장 주간 업무
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.5rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid var(--primary-blue);">
+                                <div style="font-size: 2rem; min-width: 40px;">💼</div>
+                                <div style="flex: 1;">
+                                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem;">타이거대체투자운용 펀드매니저</h4>
+                                    <p style="font-size: 0.95rem; color: var(--text-gray); line-height: 1.6;">
+                                        • 약 1.3조원 규모 해외인수금융 투자 및 운용<br>
+                                        • 티센크루프 1,500억 / URBASER 3,000억<br>
+                                        • MEDLINE Industries 등 글로벌 기업 투자
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.5rem; background: var(--bg-light); border-radius: 12px; border-left: 4px solid #10b981;">
+                                <div style="font-size: 2rem; min-width: 40px;">🚀</div>
+                                <div style="flex: 1;">
+                                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem;">현재: 세무/자문 서비스</h4>
+                                    <p style="font-size: 0.95rem; color: var(--text-gray);">
+                                        • 400여개 고객 대상 세무기장 및 자문<br>
+                                        • 주요 고객: 스타트업, 자산운용사
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #e0f2fe; padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                            <p style="font-size: 1.1rem; color: var(--text-dark); line-height: 1.8; text-align: center;">
+                                기업의 재무와 성장의 흐름을<br>
+                                <strong>감사인·투자자·운용사의 시선</strong>에서 모두 경험하며,<br>
+                                스타트업이 어떤 숫자를 언제 준비해야 하는지<br>
+                                가장 가까이에서 보아왔습니다.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Learn More -->
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <a href="https://colorful-wealth-23f.notion.site/2a2bcf028220803294c6e3dbc45c2f78?pvs=74" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 1.5rem 3rem; background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%); color: white; font-size: 1.2rem; font-weight: 700; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); transition: all 0.3s ease;">
+                            이범기 회계사 더 알아보기 →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 22: About Company (선영회계법인) -->
+        <section class="slide-section slide-text">
+            <div class="slide-container">
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <!-- Main Title -->
+                    <h2 style="font-size: 3rem; font-weight: 800; color: var(--primary-blue); text-align: center; margin-bottom: 2rem;">
+                        ZERO TO ONE TAX는<br>선영회계법인에서 서비스 합니다
+                    </h2>
+                    
+                    <!-- Subtitle -->
+                    <p style="font-size: 1.3rem; color: var(--text-gray); text-align: center; margin-bottom: 4rem; line-height: 1.8;">
+                        선영회계법인은 SAVETAX 브랜드로 기장서비스를 제공합니다.<br>
+                        SAVETAX는 기장 시장 점유율 3위 사업자로<br>
+                        지난 8년간의 기장 노하우와 법인 전문 회계사가 결합하여<br>
+                        스타트업 전문 기장 서비스인 "ZERO TO ONE TAX"를 제공합니다.
+                    </p>
+                    
+                    <!-- SAVETAX Stats -->
+                    <div style="background: linear-gradient(135deg, #f0f4ff 0%, #e5edff 100%); padding: 3rem; border-radius: 20px; margin-bottom: 4rem; box-shadow: var(--shadow);">
+                        <div style="text-align: center; margin-bottom: 2rem;">
+                            <img src="https://www.save-tax.co.kr/_next/image?url=%2Fassets%2Flogo.svg&w=384&q=75" alt="SAVETAX" style="height: 50px; margin-bottom: 1rem;">
+                            <p style="font-size: 1.1rem; color: var(--text-gray); margin-top: 0.5rem;">실적</p>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto;">
+                            <!-- Stat 1 -->
+                            <div style="background: white; padding: 2.5rem 2rem; border-radius: 16px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                                <p style="font-size: 1rem; color: var(--text-gray); margin-bottom: 1rem; font-weight: 600;">고객사</p>
+                                <p style="font-size: 3rem; font-weight: 800; color: var(--primary-blue); margin: 0; line-height: 1;">12,000+</p>
+                            </div>
+                            
+                            <!-- Stat 2 -->
+                            <div style="background: white; padding: 2.5rem 2rem; border-radius: 16px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                                <p style="font-size: 1rem; color: var(--text-gray); margin-bottom: 1rem; font-weight: 600;">연간세금신고건수</p>
+                                <p style="font-size: 3rem; font-weight: 800; color: var(--primary-blue); margin: 0; line-height: 1;">16,000+</p>
+                            </div>
+                            
+                            <!-- Stat 3 -->
+                            <div style="background: white; padding: 2.5rem 2rem; border-radius: 16px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                                <p style="font-size: 1rem; color: var(--text-gray); margin-bottom: 1rem; font-weight: 600;">시장점유율</p>
+                                <p style="font-size: 3rem; font-weight: 800; color: var(--primary-blue); margin: 0; line-height: 1;">3위</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Client Logos -->
+                    <div style="background: var(--bg-white); padding: 3rem; border-radius: 16px; box-shadow: var(--shadow);">
+                        <h3 style="font-size: 1.8rem; font-weight: 700; color: var(--primary-blue); text-align: center; margin-bottom: 3rem;">
+                            SAVETAX와 함께하는 고객사 12,000+
+                        </h3>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 2rem; align-items: center; justify-items: center;">
+                            <!-- Row 1 -->
+                            <div style="padding: 1rem;">
+                                <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_01.png" alt="고객사 로고" style="max-width: 100%; height: auto; opacity: 0.8;">
+                            </div>
+                            <div style="padding: 1rem;">
+                                <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_02.png" alt="고객사 로고" style="max-width: 100%; height: auto; opacity: 0.8;">
+                            </div>
+                            <div style="padding: 1rem;">
+                                <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_03.png" alt="고객사 로고" style="max-width: 100%; height: auto; opacity: 0.8;">
+                            </div>
+                            <div style="padding: 1rem;">
+                                <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_04.png" alt="고객사 로고" style="max-width: 100%; height: auto; opacity: 0.8;">
+                            </div>
+                            <div style="padding: 1rem;">
+                                <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_05.png" alt="고객사 로고" style="max-width: 100%; height: auto; opacity: 0.8;">
+                            </div>
+                            <div style="padding: 1rem;">
+                                <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_06.png" alt="고객사 로고" style="max-width: 100%; height: auto; opacity: 0.8;">
+                            </div>
+                            
+                            <!-- Row 2 -->
+                            <div style="padding: 1rem;">
+                                <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_07.png" alt="고객사 로고" style="max-width: 100%; height: auto; opacity: 0.8;">
+                            </div>
+                            <div style="padding: 1rem;">
+                                <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_08.png" alt="고객사 로고" style="max-width: 100%; height: auto; opacity: 0.8;">
+                            </div>
+                            <div style="padding: 1rem;">
+                                <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_09.png" alt="고객사 로고" style="max-width: 100%; height: auto; opacity: 0.8;">
+                            </div>
+                            <div style="padding: 1rem;">
+                                <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_10.png" alt="고객사 로고" style="max-width: 100%; height: auto; opacity: 0.8;">
+                            </div>
+                            <div style="padding: 1rem;">
+                                <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_11.png" alt="고객사 로고" style="max-width: 100%; height: auto; opacity: 0.8;">
+                            </div>
+                            <div style="padding: 1rem;">
+                                <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_12.png" alt="고객사 로고" style="max-width: 100%; height: auto; opacity: 0.8;">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Learn More Links -->
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 4rem auto 0;">
+                        <!-- SAVETAX Link -->
+                        <a href="https://www.save-tax.co.kr/" target="_blank" rel="noopener noreferrer" style="display: block; padding: 2rem 2.5rem; background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%); color: white; font-size: 1.2rem; font-weight: 700; border-radius: 16px; text-decoration: none; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); transition: all 0.3s ease; text-align: center;">
+                            SAVETAX 더 알아보기 →
+                        </a>
+                        
+                        <!-- 선영회계법인 Link -->
+                        <a href="https://www.syacc.co.kr/" target="_blank" rel="noopener noreferrer" style="display: block; padding: 2rem 2.5rem; background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%); color: white; font-size: 1.2rem; font-weight: 700; border-radius: 16px; text-decoration: none; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); transition: all 0.3s ease; text-align: center;">
+                            선영회계법인 더 알아보기 →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 23: CTA -->
+        <section class="slide-section cta-section">
+            <div class="slide-container">
+                <h2>Pre-A ~ Series A<br>무료 30분 숫자 진단</h2>
+                <div class="cta-subtitle">
+                    지금 당신의 회사 숫자가<br>
+                    투자자 앞에 설 준비가 되어 있는지<br>
+                    무료로 진단해드립니다
+                </div>
+                <a href="index.html?modal=consult" class="cta-button">
+                    무료 상담 신청하기 →
+                </a>
+                
+                <!-- Contact Info -->
+                <div style="margin-top: 4rem; padding-top: 3rem; border-top: 2px solid rgba(255, 255, 255, 0.2);">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 2rem; text-align: center;">연락하기</h3>
+                    <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
+                        <!-- Email -->
+                        <a href="mailto:lbg@0to1tax.com" style="display: flex; align-items: center; gap: 1rem; padding: 1.5rem 2.5rem; background: rgba(255, 255, 255, 0.15); border-radius: 50px; text-decoration: none; color: white; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease; backdrop-filter: blur(10px); border: 2px solid rgba(255, 255, 255, 0.3);">
+                            <i class="fas fa-envelope" style="font-size: 1.5rem;"></i>
+                            <span>E : lbg@0to1tax.com</span>
+                        </a>
+                        
+                        <!-- Phone -->
+                        <a href="tel:010-4395-1996" style="display: flex; align-items: center; gap: 1rem; padding: 1.5rem 2.5rem; background: rgba(255, 255, 255, 0.15); border-radius: 50px; text-decoration: none; color: white; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease; backdrop-filter: blur(10px); border: 2px solid rgba(255, 255, 255, 0.3);">
+                            <i class="fas fa-phone" style="font-size: 1.5rem;"></i>
+                            <span>P : 010-4395-1996</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const btn = document.querySelector('.mobile-menu-btn i');
+            navLinks.classList.toggle('active');
+            btn.classList.toggle('fa-bars');
+            btn.classList.toggle('fa-times');
+        }
+        
+        function toggleOptional() {
+            const content = document.getElementById('optionalContent');
+            const icon = document.getElementById('optionalIcon');
+            
+            if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.style.maxHeight = '0px';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
+</body>
+</html>

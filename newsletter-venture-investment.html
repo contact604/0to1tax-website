@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[0TO1 LETTER] 벤처투자 4조 시대, 시장이 다시 열리고 있습니다</title>
+    <style>
+        /* Outlook 호환성을 위한 스타일 */
+        body, table, td, p, a, li, blockquote {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #333333;
+            line-height: 1.6;
+        }
+        
+        /* 메인 컨테이너 */
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* 헤더 */
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .rocket {
+            font-size: 28px;
+            margin-left: 10px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin: 0;
+        }
+        
+        /* 컨텐츠 영역 */
+        .content {
+            padding: 30px 25px;
+        }
+        
+        .greeting {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+        
+        .intro {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #4a5568;
+        }
+        
+        /* 섹션 스타일 */
+        .section {
+            margin-bottom: 35px;
+            border-left: 4px solid #3b82f6;
+            padding-left: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .section-content {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #4a5568;
+        }
+        
+        /* 구분선 */
+        .divider {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, #e2e8f0 0%, #3b82f6 50%, #e2e8f0 100%);
+            margin: 30px 0;
+        }
+        
+        /* 통계 박스 */
+        .stats-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .stats-item {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .stats-label {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        
+        .stats-value {
+            color: #059669;
+            font-weight: bold;
+        }
+        
+        /* 포인트 리스트 */
+        .point-list {
+            background-color: #fef7f0;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .point-item {
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .point-number {
+            font-weight: bold;
+            color: #dc2626;
+            margin-right: 8px;
+        }
+        
+        /* 투자 사례 리스트 */
+        .investment-list {
+            background-color: #f0f9ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .investment-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0f2fe;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .investment-item:last-child {
+            border-bottom: none;
+        }
+        
+        .company-name {
+            font-weight: bold;
+            color: #0c4a6e;
+        }
+        
+        .investment-detail {
+            color: #0369a1;
+            margin-left: 8px;
+        }
+        
+        /* CTA 버튼 */
+        .cta-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 8px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* 푸터 */
+        .footer {
+            background-color: #1f2937;
+            color: #d1d5db;
+            padding: 30px 25px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .footer-logo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact {
+            margin: 10px 0;
+        }
+        
+        .footer-link {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        .footer-link:hover {
+            color: #93c5fd;
+        }
+        
+        /* 반응형 디자인 */
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                margin: 0 10px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .section {
+                padding-left: 15px;
+            }
+            
+            .section-title {
+                font-size: 18px;
+            }
+        }
+        
+        /* Outlook 특별 처리 */
+        <!--[if mso]>
+        <style>
+            .email-container {
+                width: 600px !important;
+            }
+            
+            .stats-box, .point-list, .investment-list {
+                border: 1px solid #e2e8f0;
+            }
+        </style>
+        <![endif]-->
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <!-- 헤더 -->
+        <div class="header">
+            <div class="logo">
+                Zero to One TAX<span class="rocket">🚀</span>
+            </div>
+            <p class="subtitle">스타트업 성장 세무회계 전문</p>
+        </div>
+        
+        <!-- 메인 컨텐츠 -->
+        <div class="content">
+            <!-- 제목 -->
+            <h1 style="color: #1e3a8a; font-size: 24px; font-weight: bold; margin-bottom: 30px; line-height: 1.3;">
+                [0TO1 LETTER] 벤처투자 4조 시대, 시장이 다시 열리고 있습니다
+            </h1>
+            
+            <!-- 인사말 -->
+            <div class="greeting">
+                안녕하세요.
+            </div>
+            
+            <div class="intro">
+                Zero to One TAX 이범기 회계사입니다.<br><br>
+                
+                요즘 창업자 분들과 통화하면 제일 많이 받는 질문이 있습니다.<br><br>
+                
+                <strong>"요즘 투자 시장 어때요?"</strong><br><br>
+                
+                이번 주 중소벤처기업부 자료와 주요 투자 기사들을 모아보면,<br>
+                이제는 <strong>"네"</strong>라고 말할 수 있는 신호들이 눈에 보이기 시작했습니다.
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 1 -->
+            <div class="section">
+                <div class="section-title">
+                    1. 벤처투자, 4년 만에 분기 4조원 돌파
+                </div>
+                
+                <div class="section-content">
+                    중기부가 발표한 '2025년 3분기 신규 벤처투자 및 벤처펀드 결성 동향'을 보면,
+                </div>
+                
+                <div class="stats-box">
+                    <div class="stats-item">
+                        <span class="stats-label">3분기 벤처투자 금액:</span> 
+                        <span class="stats-value">4조 4,000억원</span>
+                    </div>
+                    <div class="stats-item">
+                        • 전 분기 대비 <span class="stats-value">+32%</span>
+                    </div>
+                    <div class="stats-item">
+                        • 전년 동기 대비 <span class="stats-value">+28%</span>
+                    </div>
+                    <div class="stats-item">
+                        • 코로나 국면이었던 2021년 이후 4년 만에 처음으로 <strong>"분기 4조"</strong> 재돌파
+                    </div>
+                    <div class="stats-item">
+                        <span class="stats-label">1~3분기 누적 투자:</span> 
+                        <span class="stats-value">9.8조원</span> (전년 대비 +13.1%)
+                    </div>
+                </div>
+                
+                <div class="section-content">
+                    또 한 가지 중요한 포인트는 <strong>"어디에"</strong> 돈이 들어갔는가입니다.
+                </div>
+                
+                <div class="stats-box">
+                    <div class="stats-item">
+                        • <span class="stats-label">창업 7년 이하 기업:</span> <span class="stats-value">4.5조 (+13.1%)</span>
+                    </div>
+                    <div class="stats-item">
+                        • <span class="stats-label">7년 초과 후기기업:</span> <span class="stats-value">5.25조 (+13.1%)</span>
+                    </div>
+                    <div class="stats-item">
+                        • <span class="stats-label">창업 3년 이하 초기기업:</span> <span class="stats-value">1.71조 (+9.2%)</span>
+                    </div>
+                </div>
+                
+                <div class="section-content">
+                    초기부터 후기까지, 특정 단계만 튄 게 아니라<br>
+                    성장 단계 전반에서 골고루 투자가 늘어나고 있습니다.<br><br>
+                    
+                    이건 단기 이벤트라기보다는 <strong>"시장 체력 회복"</strong>에 가깝습니다.
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 2 -->
+            <div class="section">
+                <div class="section-title">
+                    2. 옥석 가리기의 시작 : 투자기업 수는 감소, 그러나 기업당 투자액은 상승
+                </div>
+                
+                <div class="section-content">
+                    재미있는 지점은 여기입니다.
+                </div>
+                
+                <div class="stats-box">
+                    <div class="stats-item">
+                        • <span class="stats-label">투자받은 기업 수:</span> <span style="color: #dc2626;">3,136개 (-9%)</span>
+                    </div>
+                    <div class="stats-item">
+                        • <span class="stats-label">기업당 평균 투자액:</span> <span class="stats-value">31.2억 (+24.3%)</span>
+                    </div>
+                </div>
+                
+                <div class="section-content">
+                    즉,<br><br>
+                    
+                    <strong>"많은 회사에 조금씩"</strong>이 아니라<br>
+                    <strong>"준비된 회사에 더 크게"</strong> 투자되는 흐름입니다.<br><br>
+                    
+                    숫자만 놓고 보면, 투자 시장은 분명히 좋아졌습니다.<br><br>
+                    
+                    다만 아무 준비가 안 된 상태에서 "예전처럼 한 번 붙어볼까" 하는 식으로 접근하면<br>
+                    오히려 체감 난이도는 더 높게 느껴질 수 있습니다.
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 3 -->
+            <div class="section">
+                <div class="section-title">
+                    3. 펀드 결성 9.7조, 민간 83%…이게 더 중요한 이유
+                </div>
+                
+                <div class="section-content">
+                    올해 1~3분기 기준 벤처펀드 결성액은 <strong>9.7조원</strong>으로 전년 대비 +17.3%입니다.<br><br>
+                    
+                    특히 구조가 의미 있습니다.
+                </div>
+                
+                <div class="stats-box">
+                    <div class="stats-item">
+                        • <span class="stats-label">출자 중 민간 비중:</span> <span class="stats-value">83%</span>
+                    </div>
+                    <div class="stats-item">
+                        • <span class="stats-label">연기금·공제회 출자:</span> <span class="stats-value">8,370억 (+131.5%, 역대 최대)</span>
+                    </div>
+                    <div class="stats-item">
+                        • 일반법인·금융기관·VC 출자도 두 자릿수 증가
+                    </div>
+                </div>
+                
+                <div class="section-content">
+                    정책 자금에만 의존해서 붙잡아둔 시장이 아니라, 민간 자본이 다시 <strong>"벤처"</strong>를 선택하고 있다는 뜻입니다.<br><br>
+                    
+                    투자 실적(4조)도 중요하지만,<br>
+                    <strong>"앞으로 들어올 수 있는 돈의 풀(펀드 결성 9.7조)"</strong>이 커졌다는 점에서<br><br>
+                    
+                    2026년, 2027년 투자를 준비하는 스타트업에겐 꽤 큰 의미가 있습니다.
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 4 -->
+            <div class="section">
+                <div class="section-title">
+                    4. 지금 스타트업이 준비해야 할 것 2가지
+                </div>
+                
+                <div class="section-content">
+                    이제는 <strong>"누가 준비돼 있느냐"</strong>의 싸움으로 빠르게 전환되고 있습니다.<br><br>
+                    
+                    제가 현장에서 느끼는, 지금 시점에 꼭 점검해야 할 포인트는 두 가지입니다.
+                </div>
+                
+                <div class="point-list">
+                    <div class="point-item">
+                        <span class="point-number">1.</span><strong>재무제표 정비</strong><br>
+                        - 가수금,가지급금 등 가계정 정리, 진부화된 매출채권, 선급금, 개발비 정리, 퇴직급여충당부채 등 미계상 부채 인식 등<br>
+                        - <strong>"장부 깨끗합니다"</strong>라는 말보다, 바로 꺼내 보여줄 수 있는 숫자와 근거가 훨씬 중요해졌습니다.
+                    </div>
+                    
+                    <div class="point-item">
+                        <span class="point-number">2.</span><strong>IR Deck 업데이트 – 기술·사업 구조를 숫자로 설명할 수 있는가</strong><br>
+                        - 어떤 시장에서<br>
+                        - 어떤 문제를<br>
+                        - 어떤 기술/제품으로 풀고 있고<br>
+                        - 이 사업이 숫자로 어떻게 확장되는지<br><br>
+                        
+                        투자자 입장에서는 <strong>"스토리"</strong>보다 <strong>"논리+데이터"</strong>를 보고 있습니다.
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 5 -->
+            <div class="section">
+                <div class="section-title">
+                    5. 이번주 주요 투자사례 (헤드라인)
+                </div>
+                
+                <div class="section-content">
+                    <strong>11월 둘째주</strong>
+                </div>
+                
+                <div class="investment-list">
+                    <div class="investment-item">
+                        <span class="company-name">• 리벨리온</span> 
+                        <span class="investment-detail">– AI 반도체, 시리즈C 추가 100억</span>
+                    </div>
+                    <div class="investment-item">
+                        <span class="company-name">• 포스트매스</span> 
+                        <span class="investment-detail">– 에듀테크(수학비서), 시리즈A 56억</span>
+                    </div>
+                    <div class="investment-item">
+                        <span class="company-name">• 리빌더AI</span> 
+                        <span class="investment-detail">– 3D 모델링 AI, 프리A 45억</span>
+                    </div>
+                    <div class="investment-item">
+                        <span class="company-name">• H&B아시아</span> 
+                        <span class="investment-detail">– 신품종 과일 IP 유통, 100억 투자 유치</span>
+                    </div>
+                    <div class="investment-item">
+                        <span class="company-name">• 아비투스어소시에이트(Artue)</span> 
+                        <span class="investment-detail">– AI 미술 큐레이션, 전략적 투자</span>
+                    </div>
+                    <div class="investment-item">
+                        <span class="company-name">• 배럴아이</span> 
+                        <span class="investment-detail">– 의료영상 AI, 약 1,000만달러(약 140억) 전략적 투자</span>
+                    </div>
+                    <div class="investment-item">
+                        <span class="company-name">• 시그코퍼레이션</span> 
+                        <span class="investment-detail">– AIoT 기반 시니어 헬스케어, 전략적 투자</span>
+                    </div>
+                    <div class="investment-item">
+                        <span class="company-name">• 링더벨</span> 
+                        <span class="investment-detail">– 김밥롤 마스크팩 '리써', 시드 투자</span>
+                    </div>
+                    <div class="investment-item">
+                        <span class="company-name">• 그 외</span> 
+                        <span class="investment-detail">에이비엠랩, 리신바이오, 온코랩, 디에스, 아기곰컴퍼니, 더마리움, 페스터 등</span>
+                    </div>
+                </div>
+                
+                <div class="section-content">
+                    <strong>바이오·딥테크·라이프스타일 초기 기업 다수 투자 유치</strong>
+                </div>
+            </div>
+            
+            <!-- CTA 섹션 -->
+            <div class="cta-section">
+                <h3 style="color: #1e3a8a; margin-bottom: 20px;">투자 준비, 혼자서는 부담스럽나요?</h3>
+                <p style="color: #4a5568; margin-bottom: 25px;">
+                    재무제표 정비부터 IR 자료 준비까지<br>
+                    Zero to One TAX가 함께 준비하겠습니다.
+                </p>
+                <a href="https://0to1tax.com/" class="cta-button">
+                    무료 상담 신청하기 🚀
+                </a>
+            </div>
+        </div>
+        
+        <!-- 푸터 -->
+        <div class="footer">
+            <div class="footer-logo">
+                Zero to One TAX 🚀
+            </div>
+            <div class="footer-contact">
+                <strong>이범기 회계사</strong> | 공인회계사 CPA
+            </div>
+            <div class="footer-contact">
+                서울특별시 강남구 테헤란로70길 12 H타워 6층
+            </div>
+            <div class="footer-contact">
+                <a href="https://0to1tax.com/" class="footer-link">0to1tax.com</a> | 
+                <a href="mailto:lbg@0to1tax.com" class="footer-link">lbg@0to1tax.com</a>
+            </div>
+            <div style="margin-top: 20px; font-size: 12px; color: #9ca3af;">
+                스타트업 성장을 함께 설계하는 파트너<br>
+                Zero to One TAX - Startup Tax. Reimagined.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

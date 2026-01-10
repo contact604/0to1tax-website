@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제로투원택스 선영 회계법인 세무기장 계약서</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+            line-height: 1.5;
+            color: #000;
+            background: #fff;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+            page-break-after: always;
+        }
+
+        /* 표지 페이지 1 */
+        .cover-page-1 {
+            background: linear-gradient(135deg, #0066cc 0%, #004999 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .top-bar-text {
+            color: white;
+            font-size: 24pt;
+            font-weight: 600;
+            letter-spacing: 4px;
+        }
+
+        .cover-logo {
+            text-align: center;
+            color: white;
+            margin-top: -40px;
+        }
+
+        .cover-logo h1 {
+            font-weight: 700;
+            margin: 0;
+            text-transform: uppercase;
+            font-family: 'Arial Black', 'Arial', sans-serif;
+        }
+
+        .cover-logo .zero-to-one {
+            display: block;
+            font-size: 56pt;
+            letter-spacing: 10px;
+            margin-bottom: 15px;
+        }
+
+        .cover-logo .tax {
+            display: block;
+            font-size: 78pt;
+            letter-spacing: 14px;
+        }
+
+        .cover-subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 18pt;
+            margin-top: 35px;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+
+        .cover-copyright {
+            position: absolute;
+            bottom: 35px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 10pt;
+            letter-spacing: 1px;
+        }
+
+        /* 표지 페이지 2 */
+        .cover-page-2 {
+            background: white;
+            display: flex;
+            flex-direction: column;
+            padding: 50mm 30mm;
+        }
+
+        .document-info {
+            margin-bottom: 50px;
+        }
+
+        .document-title {
+            font-size: 32pt;
+            font-weight: 700;
+            color: #0066cc;
+            margin-bottom: 30px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .info-section {
+            background: #f8f9fa;
+            border-left: 4px solid #0066cc;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+        }
+
+        .info-section h3 {
+            font-size: 14pt;
+            color: #0066cc;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .info-section p {
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .info-section p strong {
+            color: #000;
+            font-weight: 600;
+        }
+
+        .document-structure {
+            margin-top: 40px;
+        }
+
+        .structure-title {
+            font-size: 16pt;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .structure-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .structure-list li {
+            font-size: 11pt;
+            padding: 12px 20px;
+            background: #f8f9fa;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            color: #555;
+        }
+
+        .structure-list li::before {
+            content: "▪";
+            color: #0066cc;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* 본문 페이지 */
+        .content-page {
+            padding: 20mm 25mm 25mm 25mm;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .page-header h1 {
+            font-size: 18pt;
+            color: #0066cc;
+            font-weight: 600;
+        }
+
+        .page-header .common-info {
+            font-size: 10pt;
+            color: #666;
+        }
+
+        .common-box {
+            background: #f5f5f5;
+            border-left: 3px solid #000;
+            padding: 12px 15px;
+            margin: 15px 0 20px 0;
+            font-size: 9.5pt;
+            line-height: 1.6;
+        }
+
+        .columns {
+            column-count: 2;
+            column-gap: 12mm;
+            margin-bottom: 20px;
+        }
+
+        .article {
+            break-inside: avoid;
+            margin-bottom: 15px;
+        }
+
+        .article h3 {
+            font-size: 10pt;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .article p {
+            font-size: 9.5pt;
+            line-height: 1.7;
+            margin-bottom: 6px;
+        }
+
+        .clause {
+            margin-left: 0;
+            text-indent: 0;
+        }
+
+        .sub-clause {
+            margin-left: 1.5em;
+        }
+
+        .full-width {
+            column-span: all;
+            break-inside: avoid;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 8.5pt;
+        }
+
+        table th {
+            background: #e8e8e8;
+            padding: 8px;
+            border: 1px solid #999;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 6px 8px;
+            border: 1px solid #999;
+            text-align: left;
+        }
+
+        .signature-section {
+            margin-top: 30px;
+            page-break-inside: avoid;
+        }
+
+        .signature-box {
+            border: 2px solid #000;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .signature-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            gap: 40px;
+        }
+
+        .signature-item {
+            flex: 1;
+        }
+
+        .signature-item label {
+            display: block;
+            font-size: 9pt;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .signature-item input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            font-size: 10pt;
+            font-family: 'Malgun Gothic', sans-serif;
+        }
+
+        .page-footer {
+            position: absolute;
+            bottom: 20mm;
+            left: 25mm;
+            right: 25mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 9pt;
+            color: #999;
+        }
+
+        @media print {
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .page {
+                width: 100%;
+                min-height: auto;
+                padding: 20px;
+            }
+            .columns {
+                column-count: 1;
+            }
+            .top-bar-text {
+                font-size: 16pt;
+            }
+            .cover-logo .zero-to-one {
+                font-size: 36pt;
+            }
+            .cover-logo .tax {
+                font-size: 48pt;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 표지 페이지 1 -->
+    <div class="page cover-page-1">
+        <div class="top-bar">
+            <div class="top-bar-text">세무기장 계약서</div>
+        </div>
+        <div class="cover-logo">
+            <h1>
+                <span class="zero-to-one">ZERO TO ONE</span>
+                <span class="tax">TAX</span>
+            </h1>
+            <div class="cover-subtitle">선영 회계법인</div>
+        </div>
+        <div class="cover-copyright">copyright © Zero to One Tax All Rights Reserved.</div>
+    </div>
+
+    <!-- 표지 페이지 2 - 문서 안내 -->
+    <div class="page cover-page-2">
+        <div class="document-info">
+            <h2 class="document-title">세무기장 이용동의서</h2>
+            
+            <div class="info-section">
+                <h3>📋 문서 개요</h3>
+                <p>본 문서는 제로투원택스 선영 회계법인의 세무기장 서비스 이용을 위한 약관 및 계약서입니다.</p>
+                <p>서비스 이용 전 모든 조항을 반드시 확인하시고 동의해 주시기 바랍니다.</p>
+            </div>
+
+            <div class="info-section">
+                <h3>🏢 수임인 정보</h3>
+                <p><strong>회사명:</strong> 제로투원택스 선영 회계법인</p>
+                <p><strong>대표자:</strong> 이범기</p>
+                <p><strong>주소:</strong> 서울시 강남구 테헤란로70길 12 H타워, 2층</p>
+                <p><strong>연락처:</strong> 010-4395-1996</p>
+                <p><strong>이메일:</strong> lbg@0to1tax.com</p>
+            </div>
+
+            <div class="info-section">
+                <h3>👤 개인정보보호 책임자</h3>
+                <p><strong>개인정보보호책임자:</strong> 박학수 (010-5084-7967, admin@0to1tax.com)</p>
+                <p><strong>개인정보취급자:</strong> 이범기 (010-4395-1996, lbg@0to1tax.com)</p>
+            </div>
+        </div>
+
+        <div class="document-structure">
+            <h3 class="structure-title">📑 문서 구성</h3>
+            <ul class="structure-list">
+                <li>제1부: 이용 약관 (제1조 ~ 제22조)</li>
+                <li>제2부: 개인정보 처리방침 (제1조 ~ 제11조)</li>
+                <li>제3부: 세무대리 계약서 (제1조 ~ 제13조)</li>
+                <li>부록: 기장료 및 조정료 보수표</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 이용 약관 페이지 -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h1>이용 약관</h1>
+            <span class="common-info">공통기재사항</span>
+        </div>
+
+        <div class="common-box full-width">
+            <strong>공통기재사항</strong><br>
+            본 약관은 제로투원택스 선영 회계법인(이하 "회사")이 제공하는 세무기장 서비스의 이용조건 및 절차, 회사와 이용자의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.
+        </div>
+
+        <div class="columns">
+            <div class="article">
+                <h3>제 1 조 (목적)</h3>
+                <p class="clause">① 이 약관은 제로투원택스 선영 회계법인(이하 "회사")가 제공하는 제로투원택스 및 제로투원택스 관련 제반 서비스의 이용과 관련하여 회사와 회원과의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 2 조 (약관의 효력과 변경)</h3>
+                <p class="clause">① 이 약관은 서비스를 이용하고자 하는 모든 회원에 대하여 그 효력을 발생합니다.</p>
+                <p class="clause">② 이 약관의 내용은 서비스 화면에 게시하거나 기타의 방법으로 회원에게 공지하고, 이에 동의한 회원이 서비스에 가입함으로써 효력이 발생합니다.</p>
+                <p class="clause">③ 회사는 필요하다고 인정되는 경우 이 약관의 내용을 변경할 수 있으며, 변경된 약관은 서비스 화면에 공지함으로써 효력을 발생합니다.</p>
+                <p class="clause">④ 회원은 변경된 약관에 동의하지 않을 경우 회원 탈퇴를 요청할 수 있으며, 변경된 약관의 효력 발생일 이후에도 서비스를 계속 사용할 경우 약관의 변경 사항에 동의한 것으로 간주됩니다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 3 조 (약관 외 준칙)</h3>
+                <p class="clause">① 이 약관에 명시되지 않은 사항은 전기통신기본법, 전기통신사업법, 정보통신망 이용촉진 및 정보보호 등에 관한 법률 및 기타 관련 법령의 규정에 따릅니다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 4 조 (용어의 정의)</h3>
+                <p class="clause">이 약관에서 사용하는 용어의 정의는 다음과 같습니다.</p>
+                <p class="sub-clause">1) "서비스"라 함은 회사가 제공하는 세무기장, 세무상담, 세무신고 대리 등 제반 세무 관련 서비스를 말합니다.</p>
+                <p class="sub-clause">2) "회원"이라 함은 회사와 서비스 이용계약을 체결하고 회사가 제공하는 서비스를 이용하는 고객을 말합니다.</p>
+                <p class="sub-clause">3) "아이디(ID)"라 함은 회원의 식별과 서비스 이용을 위하여 회원이 정하고 회사가 승인하는 문자와 숫자의 조합을 말합니다.</p>
+                <p class="sub-clause">4) "비밀번호"라 함은 회원이 부여받은 아이디와 일치되는 회원임을 확인하고 비밀보호를 위해 회원 자신이 정한 문자 또는 숫자의 조합을 말합니다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 5 조 (이용계약의 성립)</h3>
+                <p class="clause">① 이용계약은 회원이 되고자 하는 자(이하 "가입신청자")가 약관의 내용에 대하여 동의를 한 다음 회원가입신청을 하고 회사가 이러한 신청에 대하여 승낙함으로써 체결됩니다.</p>
+                <p class="clause">② 회사는 가입신청자의 신청에 대하여 서비스 이용을 승낙함을 원칙으로 합니다. 다만, 회사는 다음 각 호에 해당하는 신청에 대하여는 승낙을 하지 않거나 사후에 이용계약을 해지할 수 있습니다.</p>
+                <p class="sub-clause">1) 실명이 아니거나 타인의 명의를 이용한 경우</p>
+                <p class="sub-clause">2) 허위의 정보를 기재하거나, 회사가 제시하는 내용을 기재하지 않은 경우</p>
+                <p class="sub-clause">3) 부정한 용도로 서비스를 사용하고자 하는 경우</p>
+                <p class="sub-clause">4) 기타 회사가 정한 이용신청 요건이 미비 되었을 때</p>
+            </div>
+
+            <div class="article">
+                <h3>제 6 조 (서비스의 내용)</h3>
+                <p class="clause">① 회사는 다음과 같은 서비스를 제공합니다.</p>
+                <p class="sub-clause">1) 세무기장 서비스</p>
+                <p class="sub-clause">2) 세무상담 서비스</p>
+                <p class="sub-clause">3) 세무신고 대리 서비스</p>
+                <p class="sub-clause">4) 경영자문 서비스</p>
+                <p class="sub-clause">5) 기타 회사가 추가 개발하거나 제휴계약 등을 통해 회원에게 제공하는 일체의 서비스</p>
+            </div>
+
+            <div class="article">
+                <h3>제 7 조 (서비스의 이용시간)</h3>
+                <p class="clause">① 서비스의 이용은 연중무휴 1일 24시간을 원칙으로 합니다. 다만, 회사의 업무상 또는 기술상의 이유로 서비스가 일시 중지될 수 있고, 또한 정기점검 등 운영상의 목적으로 회사가 정한 기간에는 서비스가 일시 중지될 수 있습니다.</p>
+                <p class="clause">② 회사는 서비스를 일정범위로 분할하여 각 범위별로 이용가능 시간을 별도로 정할 수 있으며, 이 경우 그 내용을 사전에 공지합니다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 8 조 (서비스의 중지 및 정보의 저장과 사용)</h3>
+                <p class="clause">① 회사는 다음 각 호에 해당하는 경우 서비스 제공을 중지할 수 있습니다.</p>
+                <p class="sub-clause">1) 서비스용 설비의 보수 등 공사로 인한 부득이한 경우</p>
+                <p class="sub-clause">2) 전기통신사업법에 규정된 기간통신사업자가 전기통신 서비스를 중지했을 경우</p>
+                <p class="sub-clause">3) 기타 불가항력적 사유가 있는 경우</p>
+                <p class="clause">② 회사는 국가비상사태, 정전, 서비스 설비의 장애 또는 서비스 이용의 폭주 등으로 정상적인 서비스 이용에 지장이 있는 때에는 서비스의 전부 또는 일부를 제한하거나 중지할 수 있습니다.</p>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span>제로투원택스</span>
+            <span>페이지 3</span>
+        </div>
+    </div>
+
+    <!-- 이용 약관 계속 -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h1>이용 약관</h1>
+            <span class="common-info">공통기재사항</span>
+        </div>
+
+        <div class="columns">
+            <div class="article">
+                <h3>제 9 조 (회원정보의 변경)</h3>
+                <p class="clause">① 회원은 개인정보관리화면을 통하여 언제든지 본인의 개인정보를 열람하고 수정할 수 있습니다.</p>
+                <p class="clause">② 회원은 회원가입신청 시 기재한 사항이 변경되었을 경우 온라인으로 수정을 하거나 전자우편 기타 방법으로 회사에 대하여 그 변경사항을 알려야 합니다.</p>
+                <p class="clause">③ 제2항의 변경사항을 회사에 알리지 않아 발생한 불이익에 대하여 회사는 책임지지 않습니다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 10 조 (회원의 아이디 및 비밀번호의 관리에 대한 의무)</h3>
+                <p class="clause">① 아이디와 비밀번호에 관한 모든 관리책임은 회원에게 있습니다.</p>
+                <p class="clause">② 회원에게 부여된 아이디와 비밀번호의 관리소홀, 부정사용에 의하여 발생하는 모든 결과에 대한 책임은 회원에게 있습니다.</p>
+                <p class="clause">③ 자신의 아이디가 부정하게 사용된 경우 회원은 반드시 회사에 그 사실을 통보해야 합니다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 11 조 (게시물의 저작권)</h3>
+                <p class="clause">① 회원이 서비스 내에 게시한 게시물의 저작권은 게시한 회원에게 귀속됩니다. 또한 회사는 게시자의 동의 없이 게시물을 상업적으로 이용할 수 없습니다.</p>
+                <p class="clause">② 회원의 게시물이 타인의 저작권을 침해함으로써 발생하는 민·형사상의 책임은 전적으로 회원이 부담하여야 합니다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 12 조 (사용자의 행동규범 및 서비스 이용제한)</h3>
+                <p class="clause">① 회원은 다음 각 호에 해당하는 행위를 하여서는 안되며, 해당 행위를 한 경우에 회사는 회원의 서비스 이용제한 및 적법한 조치를 취할 수 있으며 이용계약을 해지하거나 기간을 정하여 서비스를 중지할 수 있습니다.</p>
+                <p class="sub-clause">1) 회원가입신청 또는 변경 시 허위내용을 등록하는 행위</p>
+                <p class="sub-clause">2) 다른 이용자의 ID, 비밀번호, 주민등록번호를 도용하는 행위</p>
+                <p class="sub-clause">3) 이용자 ID를 타인과 거래하는 행위</p>
+                <p class="sub-clause">4) 회사의 운영진, 직원 또는 관계자를 사칭하는 행위</p>
+                <p class="sub-clause">5) 회사로부터 특별한 권리를 부여 받지 않고 회사의 클라이언트 프로그램을 변경하거나, 회사의 서버를 해킹하거나, 웹사이트 또는 게시된 정보의 일부분 또는 전체를 임의로 변경하는 행위</p>
+                <p class="sub-clause">6) 서비스를 통해 얻은 정보를 회사의 사전 승낙 없이 서비스 이용 외의 목적으로 복제하거나, 이를 출판 및 방송 등에 사용하거나, 제3자에게 제공하는 행위</p>
+                <p class="sub-clause">7) 타인의 명예를 손상시키거나 불이익을 주는 행위</p>
+                <p class="sub-clause">8) 게시판 등에 음란물을 게재하거나 음란사이트를 연결(링크)하는 행위</p>
+                <p class="sub-clause">9) 회사의 승인을 받지 않고 다른 사용자의 개인정보를 수집 또는 저장하는 행위</p>
+                <p class="sub-clause">10) 자기 또는 타인에게 재산상의 이익을 주거나 타인에게 손해를 가할 목적으로 허위의 정보를 유통시키는 행위</p>
+                <p class="sub-clause">11) 재물을 걸고 도박하거나 사행행위를 하는 행위</p>
+                <p class="sub-clause">12) 윤락행위를 알선하거나 음행을 매개하는 내용의 정보를 유통시키는 행위</p>
+                <p class="sub-clause">13) 수치심이나 혐오감 또는 공포심을 일으키는 말이나 음향, 글이나 화상 또는 영상을 상대방에게 도달하게 하는 행위</p>
+                <p class="sub-clause">14) 법령에 의하여 전송 또는 게시가 금지되는 정보(컴퓨터 프로그램 포함)를 전송 또는 게시하는 행위</p>
+                <p class="sub-clause">15) 회사 또는 제3자의 지적재산권 등의 권리를 침해하거나 회사의 업무를 방해하는 행위</p>
+                <p class="sub-clause">16) 정크메일(junk mail), 스팸메일(spam mail), 행운의 편지(chain letters), 피라미드 조직에 가입할 것을 권유하는 메일, 외설 또는 폭력적인 메시지, 화상, 음성 등이 담긴 메일을 보내거나 기타 공서양속에 반하는 정보를 공개 또는 게시하는 행위</p>
+                <p class="sub-clause">17) 기타 관계법령에 위배되는 행위</p>
+            </div>
+
+            <div class="article">
+                <h3>제 13 조 (서비스 제공의 중지)</h3>
+                <p class="clause">① 회사는 다음 각 호에 해당하는 경우 서비스의 전부 또는 일부의 제공을 중지할 수 있습니다.</p>
+                <p class="sub-clause">1) 전기통신사업법 제37조 및 동법 시행령에 의하여 전기통신서비스가 중지된 경우</p>
+                <p class="sub-clause">2) 전시, 사변, 천재지변 또는 이에 준하는 국가비상사태가 발생하거나 발생할 우려가 있는 경우</p>
+                <p class="sub-clause">3) 서비스용 설비의 보수 등 공사로 인한 부득이한 경우</p>
+                <p class="sub-clause">4) 서비스용 설비의 장애 또는 서비스 이용의 폭주 등으로 서비스 이용에 지장이 있는 경우</p>
+                <p class="sub-clause">5) 기타 회사가 서비스를 제공할 수 없는 사유가 발생한 경우</p>
+            </div>
+
+            <div class="article">
+                <h3>제 14 조 (정보의 제공 및 광고의 게재)</h3>
+                <p class="clause">① 회사는 회원이 서비스 이용 중 필요하다고 인정되는 다양한 정보를 공지사항이나 전자우편 등의 방법으로 회원에게 제공할 수 있습니다. 다만, 회원은 관련법에 따른 거래관련 정보 및 고객문의 등에 대한 답변 등을 제외하고는 언제든지 전자우편 등에 대해서 수신 거절을 할 수 있습니다.</p>
+                <p class="clause">② 회사는 서비스의 운용과 관련하여 서비스 화면, 홈페이지, 전자우편 등에 광고 등을 게재할 수 있습니다.</p>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span>제로투원택스</span>
+            <span>페이지 4</span>
+        </div>
+    </div>
+
+    <!-- 개인정보 처리방침 페이지 -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h1>개인정보 처리방침</h1>
+            <span class="common-info">공통기재사항</span>
+        </div>
+
+        <div class="common-box full-width">
+            <strong>개인정보 처리방침</strong><br>
+            제로투원택스 선영 회계법인은 개인정보보호법 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 다음과 같이 개인정보 처리방침을 수립·공개합니다.
+        </div>
+
+        <div class="columns">
+            <div class="article">
+                <h3>제 1 조 (개인정보의 수집 및 이용목적)</h3>
+                <p class="clause">① 회사는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며 이용 목적이 변경되는 경우에는 개인정보 보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.</p>
+                <p class="sub-clause">1) 회원가입 및 관리: 회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 서비스 부정이용 방지, 각종 고지·통지 등을 목적으로 개인정보를 처리합니다.</p>
+                <p class="sub-clause">2) 세무기장 서비스 제공: 세무기장, 세무상담, 세무신고 대리 등의 서비스 제공, 콘텐츠 제공, 맞춤 서비스 제공, 본인인증 등을 목적으로 개인정보를 처리합니다.</p>
+                <p class="sub-clause">3) 마케팅 및 광고에의 활용: 신규 서비스 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공, 서비스의 유효성 확인, 접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 2 조 (개인정보의 수집항목 및 수집방법)</h3>
+                <p class="clause">① 회사는 다음의 개인정보 항목을 처리하고 있습니다.</p>
+                <p class="sub-clause">1) 필수항목: 성명, 생년월일, 주소, 전화번호, 휴대전화번호, 이메일, 사업자등록번호, 상호명, 업종, 업태, 대표자명, 사업장 소재지</p>
+                <p class="sub-clause">2) 선택항목: 직책, 부서, 팩스번호</p>
+                <p class="sub-clause">3) 자동수집항목: 서비스 이용기록, 접속 로그, 쿠키, 접속 IP 정보</p>
+                <p class="clause">② 회사는 다음의 방법으로 개인정보를 수집합니다.</p>
+                <p class="sub-clause">1) 홈페이지, 서면양식, 팩스, 전화, 상담 게시판, 이메일, 이벤트 응모</p>
+                <p class="sub-clause">2) 협력회사로부터의 제공</p>
+                <p class="sub-clause">3) 생성정보 수집 툴을 통한 수집</p>
+            </div>
+
+            <div class="article">
+                <h3>제 3 조 (개인정보의 보유 및 이용기간)</h3>
+                <p class="clause">① 회사는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의받은 개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다.</p>
+                <p class="clause">② 각각의 개인정보 처리 및 보유 기간은 다음과 같습니다.</p>
+                <p class="sub-clause">1) 회원가입 및 관리: 서비스 이용계약 또는 회원가입 해지시까지. 다만, 다음의 사유에 해당하는 경우에는 해당 사유 종료시까지</p>
+                <p class="sub-clause">① 관계 법령 위반에 따른 수사·조사 등이 진행중인 경우에는 해당 수사·조사 종료시까지</p>
+                <p class="sub-clause">② 서비스 이용에 따른 채권·채무관계 잔존시에는 해당 채권·채무관계 정산시까지</p>
+                <p class="sub-clause">2) 세무기장 서비스 제공: 서비스 제공기간 종료시까지</p>
+            </div>
+
+            <div class="article">
+                <h3>제 4 조 (개인정보의 제3자 제공)</h3>
+                <p class="clause">① 회사는 정보주체의 개인정보를 제1조(개인정보의 수집 및 이용목적)에서 명시한 범위 내에서만 처리하며, 정보주체의 동의, 법률의 특별한 규정 등 개인정보 보호법 제17조 및 제18조에 해당하는 경우에만 개인정보를 제3자에게 제공합니다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 5 조 (개인정보의 파기)</h3>
+                <p class="clause">① 회사는 개인정보 보유기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체없이 해당 개인정보를 파기합니다.</p>
+                <p class="clause">② 개인정보 파기의 절차 및 방법은 다음과 같습니다.</p>
+                <p class="sub-clause">1) 파기절차: 회사는 파기 사유가 발생한 개인정보를 선정하고, 회사의 개인정보 보호책임자의 승인을 받아 개인정보를 파기합니다.</p>
+                <p class="sub-clause">2) 파기방법: 회사는 전자적 파일 형태로 기록·저장된 개인정보는 기록을 재생할 수 없도록 파기하며, 종이 문서에 기록·저장된 개인정보는 분쇄기로 분쇄하거나 소각하여 파기합니다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 6 조 (정보주체와 법정대리인의 권리·의무 및 그 행사방법)</h3>
+                <p class="clause">① 정보주체는 회사에 대해 언제든지 개인정보 열람·정정·삭제·처리정지 요구 등의 권리를 행사할 수 있습니다.</p>
+                <p class="clause">② 제1항에 따른 권리 행사는 회사에 대해 개인정보 보호법 시행령 제41조제1항에 따라 서면, 전자우편, 모사전송(FAX) 등을 통하여 하실 수 있으며 회사는 이에 대해 지체 없이 조치하겠습니다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 7 조 (개인정보의 안전성 확보조치)</h3>
+                <p class="clause">① 회사는 개인정보의 안전성 확보를 위해 다음과 같은 조치를 취하고 있습니다.</p>
+                <p class="sub-clause">1) 관리적 조치: 내부관리계획 수립·시행, 정기적 직원 교육 등</p>
+                <p class="sub-clause">2) 기술적 조치: 개인정보처리시스템 등의 접근권한 관리, 접근통제시스템 설치, 고유식별정보 등의 암호화, 보안프로그램 설치</p>
+                <p class="sub-clause">3) 물리적 조치: 전산실, 자료보관실 등의 접근통제</p>
+            </div>
+
+            <div class="article">
+                <h3>제 8 조 (개인정보 자동 수집 장치의 설치·운영 및 거부에 관한 사항)</h3>
+                <p class="clause">① 회사는 이용자에게 개별적인 맞춤서비스를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 '쿠키(cookie)'를 사용합니다.</p>
+                <p class="clause">② 쿠키는 웹사이트를 운영하는데 이용되는 서버(http)가 이용자의 컴퓨터 브라우저에게 보내는 소량의 정보이며 이용자들의 PC 컴퓨터내의 하드디스크에 저장되기도 합니다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 9 조 (개인정보 보호책임자)</h3>
+                <p class="clause">① 회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.</p>
+                <p class="sub-clause">▶ 개인정보보호책임자</p>
+                <p class="sub-clause">성명: 박학수</p>
+                <p class="sub-clause">연락처: 010-5084-7967</p>
+                <p class="sub-clause">이메일: admin@0to1tax.com</p>
+                <p class="sub-clause">▶ 개인정보취급자</p>
+                <p class="sub-clause">성명: 이범기</p>
+                <p class="sub-clause">연락처: 010-4395-1996</p>
+                <p class="sub-clause">이메일: lbg@0to1tax.com</p>
+            </div>
+
+            <div class="article">
+                <h3>제 10 조 (개인정보 열람청구)</h3>
+                <p class="clause">① 정보주체는 개인정보 보호법 제35조에 따른 개인정보의 열람 청구를 아래의 부서에 할 수 있습니다. 회사는 정보주체의 개인정보 열람청구가 신속하게 처리되도록 노력하겠습니다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 11 조 (권익침해 구제방법)</h3>
+                <p class="clause">정보주체는 개인정보침해로 인한 구제를 받기 위하여 개인정보분쟁조정위원회, 한국인터넷진흥원 개인정보침해신고센터 등에 분쟁해결이나 상담 등을 신청할 수 있습니다.</p>
+            </div>
+        </div>
+
+        <div class="full-width">
+            <div class="signature-section">
+                <h3 style="font-size: 12pt; text-align: center; margin: 20px 0;">서비스 이용 동의</h3>
+                <div style="border: 2px solid #000; padding: 20px; margin: 20px 0;">
+                    <p style="font-size: 10pt; margin-bottom: 15px;"><input type="checkbox" style="transform: scale(1.3); margin-right: 8px;"> <strong>전체 약관에 동의합니다</strong></p>
+                    <p style="font-size: 9pt; margin-bottom: 10px; margin-left: 20px;"><input type="checkbox" style="transform: scale(1.2); margin-right: 8px;"> [필수] 이용약관 동의</p>
+                    <p style="font-size: 9pt; margin-bottom: 10px; margin-left: 20px;"><input type="checkbox" style="transform: scale(1.2); margin-right: 8px;"> [필수] 개인정보 수집 및 이용 동의</p>
+                    <p style="font-size: 9pt; margin-bottom: 10px; margin-left: 20px;"><input type="checkbox" style="transform: scale(1.2); margin-right: 8px;"> [필수] 세무기장 서비스 제공 동의</p>
+                    <p style="font-size: 9pt; margin-left: 20px;"><input type="checkbox" style="transform: scale(1.2); margin-right: 8px;"> [선택] 마케팅 정보 수신 동의</p>
+                </div>
+                <p style="text-align: right; font-size: 9pt; color: #666; margin-top: 20px;">제정일자: 2021년 1월 17일</p>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span>제로투원택스</span>
+            <span>페이지 5</span>
+        </div>
+    </div>
+
+    <!-- 세무대리 계약서 페이지 -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h1>세무대리 계약서</h1>
+            <span class="common-info">공통기재사항</span>
+        </div>
+
+        <div class="common-box full-width">
+            <strong>세무대리 계약</strong><br>
+            위임인(이하 "갑")과 수임인 제로투원택스 선영 회계법인(이하 "을")은 세무업무의 위임에 관하여 다음과 같이 계약을 체결한다.
+        </div>
+
+        <div class="columns">
+            <div class="article">
+                <h3>제 1 조 (계약의 목적)</h3>
+                <p class="clause">이 계약은 갑이 을에게 세무기장 및 세무신고 업무를 위임하고, 을은 이를 성실히 수행함을 목적으로 한다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 2 조 (업무의 범위)</h3>
+                <p class="clause">① 을이 갑으로부터 위임받아 처리하는 업무의 범위는 다음 각 호와 같다.</p>
+                <p class="sub-clause">1) 장부의 기장 및 보관</p>
+                <p class="sub-clause">2) 세무조정계산서 작성</p>
+                <p class="sub-clause">3) 각종 세무신고서의 작성 및 신고 대리</p>
+                <p class="sub-clause">4) 세무상담</p>
+                <p class="sub-clause">5) 기타 갑과 을이 협의하여 정한 세무 관련 업무</p>
+            </div>
+
+            <div class="article">
+                <h3>제 3 조 (계약기간)</h3>
+                <p class="clause">① 계약기간은 계약체결일로부터 1년으로 하며, 계약만료일 1개월 전까지 갑 또는 을의 별도의 의사표시가 없으면 동일한 조건으로 1년간 자동 연장되는 것으로 한다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 4 조 (보수)</h3>
+                <p class="clause">① 갑은 을에게 위임업무의 대가로 다음과 같이 보수를 지급한다.</p>
+                <p class="sub-clause">1) 월 기장료: 별표 1의 보수표에 따른다.</p>
+                <p class="sub-clause">2) 연말 조정료: 별표 2의 보수표에 따른다.</p>
+                <p class="clause">② 제1항의 보수에는 부가가치세가 별도이다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 5 조 (보수의 지급시기 및 방법)</h3>
+                <p class="clause">① 갑은 제4조의 보수를 매월 25일까지 을이 지정하는 계좌로 입금하여야 한다.</p>
+                <p class="clause">② 갑이 보수 지급을 2회 이상 연체할 경우, 을은 계약을 해지할 수 있다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 6 조 (갑의 의무)</h3>
+                <p class="clause">① 갑은 을의 업무수행에 필요한 자료를 지체없이 제공하여야 한다.</p>
+                <p class="clause">② 갑은 사업내용에 변동이 있을 경우 즉시 을에게 통지하여야 한다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 7 조 (을의 의무)</h3>
+                <p class="clause">① 을은 위임받은 업무를 성실히 수행하여야 한다.</p>
+                <p class="clause">② 을은 업무수행 중 알게 된 갑의 비밀을 누설하여서는 아니된다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 8 조 (비밀유지)</h3>
+                <p class="clause">을은 이 계약의 이행과 관련하여 알게 된 갑의 경영, 재무, 기술상의 정보를 갑의 사전 서면 동의 없이 제3자에게 공개하거나 누설하여서는 아니되며, 이 계약이 종료된 후에도 같다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 9 조 (계약의 해지)</h3>
+                <p class="clause">① 갑 또는 을은 계약기간 중이라도 상대방에게 1개월 전에 서면으로 통지함으로써 이 계약을 해지할 수 있다.</p>
+                <p class="clause">② 갑이 계약을 중도 해지할 경우, 다음의 해지정산금을 을에게 지급하여야 한다.</p>
+                <p class="sub-clause">해지정산금 = 할인 혜택 반환금 + 계약 시 지급받은 사은품 가치</p>
+            </div>
+
+            <div class="article">
+                <h3>제 10 조 (손해배상)</h3>
+                <p class="clause">① 갑 또는 을이 이 계약을 위반하여 상대방에게 손해를 입힌 경우 그 손해를 배상하여야 한다.</p>
+                <p class="clause">② 다만, 을의 고의 또는 중대한 과실이 없는 경우 을의 손해배상 책임은 해당 업무에 대한 수수료 금액을 한도로 한다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 11 조 (계약의 해석)</h3>
+                <p class="clause">이 계약서에 명시되지 아니한 사항에 대하여는 갑과 을이 상호 협의하여 결정하되, 협의가 이루어지지 아니할 경우에는 관계법령 및 상관습에 따른다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 12 조 (분쟁의 해결)</h3>
+                <p class="clause">① 이 계약과 관련하여 분쟁이 발생한 경우 갑과 을은 상호 협의하여 원만히 해결하도록 노력한다.</p>
+                <p class="clause">② 제1항의 협의가 이루어지지 아니할 경우에는 을의 사업장 소재지를 관할하는 법원을 전속관할로 한다.</p>
+            </div>
+
+            <div class="article">
+                <h3>제 13 조 (계약의 성립)</h3>
+                <p class="clause">이 계약은 갑과 을이 계약서에 서명 또는 날인함으로써 성립하며, 계약서는 2통을 작성하여 갑과 을이 각각 1통씩 보관한다.</p>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span>제로투원택스</span>
+            <span>페이지 6</span>
+        </div>
+    </div>
+
+    <!-- 보수표 페이지 -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h1>보수표</h1>
+            <span class="common-info">별표</span>
+        </div>
+
+        <div class="full-width">
+            <h3 style="font-size: 12pt; margin: 20px 0; font-weight: 600;">[ 별표 1 ] 기장료 보수표</h3>
+            
+            <h4 style="font-size: 10pt; margin: 15px 0 10px 0; font-weight: 600;">1. 일반 기장료</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>매출액 구간</th>
+                        <th>월 기장료 (VAT 별도)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>2억 미만</td><td>100,000원</td></tr>
+                    <tr><td>2억 이상 ~ 5억 미만</td><td>150,000원</td></tr>
+                    <tr><td>5억 이상 ~ 10억 미만</td><td>200,000원</td></tr>
+                    <tr><td>10억 이상 ~ 20억 미만</td><td>250,000원</td></tr>
+                    <tr><td>20억 이상 ~ 30억 미만</td><td>300,000원</td></tr>
+                    <tr><td>30억 이상 ~ 50억 미만</td><td>400,000원</td></tr>
+                    <tr><td>50억 이상 ~ 70억 미만</td><td>500,000원</td></tr>
+                    <tr><td>70억 이상 ~ 100억 미만</td><td>600,000원</td></tr>
+                    <tr><td>100억 이상</td><td>별도 협의</td></tr>
+                </tbody>
+            </table>
+
+            <h4 style="font-size: 10pt; margin: 20px 0 10px 0; font-weight: 600;">2. 법인 기장료</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>매출액 구간</th>
+                        <th>월 기장료 (VAT 별도)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>2억 미만</td><td>150,000원</td></tr>
+                    <tr><td>2억 이상 ~ 5억 미만</td><td>200,000원</td></tr>
+                    <tr><td>5억 이상 ~ 10억 미만</td><td>250,000원</td></tr>
+                    <tr><td>10억 이상 ~ 20억 미만</td><td>350,000원</td></tr>
+                    <tr><td>20억 이상 ~ 30억 미만</td><td>450,000원</td></tr>
+                    <tr><td>30억 이상 ~ 50억 미만</td><td>550,000원</td></tr>
+                    <tr><td>50억 이상 ~ 70억 미만</td><td>700,000원</td></tr>
+                    <tr><td>70억 이상 ~ 100억 미만</td><td>850,000원</td></tr>
+                    <tr><td>100억 이상</td><td>별도 협의</td></tr>
+                </tbody>
+            </table>
+
+            <h3 style="font-size: 12pt; margin: 30px 0 20px 0; font-weight: 600;">[ 별표 2 ] 조정료 보수표</h3>
+            
+            <h4 style="font-size: 10pt; margin: 15px 0 10px 0; font-weight: 600;">1. 일반 조정료</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>매출액 구간</th>
+                        <th>종합소득세 신고료 (VAT 별도)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1억 미만</td><td>200,000원</td></tr>
+                    <tr><td>1억 이상 ~ 3억 미만</td><td>300,000원</td></tr>
+                    <tr><td>3억 이상 ~ 5억 미만</td><td>400,000원</td></tr>
+                    <tr><td>5억 이상 ~ 10억 미만</td><td>500,000원</td></tr>
+                    <tr><td>10억 이상 ~ 30억 미만</td><td>700,000원</td></tr>
+                    <tr><td>30억 이상 ~ 50억 미만</td><td>900,000원</td></tr>
+                    <tr><td>50억 이상 ~ 100억 미만</td><td>1,200,000원</td></tr>
+                    <tr><td>100억 이상</td><td>별도 협의</td></tr>
+                </tbody>
+            </table>
+
+            <h4 style="font-size: 10pt; margin: 20px 0 10px 0; font-weight: 600;">2. 법인 조정료</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>매출액 구간</th>
+                        <th>법인세 신고료 (VAT 별도)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1억 미만</td><td>400,000원</td></tr>
+                    <tr><td>1억 이상 ~ 3억 미만</td><td>600,000원</td></tr>
+                    <tr><td>3억 이상 ~ 5억 미만</td><td>800,000원</td></tr>
+                    <tr><td>5억 이상 ~ 10억 미만</td><td>1,000,000원</td></tr>
+                    <tr><td>10억 이상 ~ 30억 미만</td><td>1,400,000원</td></tr>
+                    <tr><td>30억 이상 ~ 50억 미만</td><td>1,800,000원</td></tr>
+                    <tr><td>50억 이상 ~ 100억 미만</td><td>2,400,000원</td></tr>
+                    <tr><td>100억 이상</td><td>별도 협의</td></tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 30px; padding: 15px; background: #fff9e6; border: 1px solid #f0c020; border-radius: 4px;">
+                <p style="font-size: 9pt; line-height: 1.7; margin-bottom: 8px;"><strong>※ 특약사항</strong></p>
+                <p style="font-size: 9pt; line-height: 1.7; margin-bottom: 5px;">1. 위 보수에는 부가가치세가 별도입니다.</p>
+                <p style="font-size: 9pt; line-height: 1.7; margin-bottom: 5px;">2. 업종의 특성에 따라 보수가 조정될 수 있습니다.</p>
+                <p style="font-size: 9pt; line-height: 1.7; margin-bottom: 5px;">3. 중도 해지 시 해지정산금 = 할인 혜택 반환금 + 계약 시 지급받은 사은품 가치</p>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span>제로투원택스</span>
+            <span>페이지 7</span>
+        </div>
+    </div>
+
+    <!-- 서명란 페이지 -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h1>계약 당사자</h1>
+            <span class="common-info">서명란</span>
+        </div>
+
+        <div class="full-width signature-section">
+            <h3 style="font-size: 14pt; text-align: center; margin-bottom: 30px; font-weight: 600;">위와 같이 계약을 체결하고 이를 증명하기 위하여 계약서를 작성하고 서명 날인합니다.</h3>
+            
+            <div style="margin-top: 40px;">
+                <h4 style="font-size: 12pt; margin-bottom: 20px; font-weight: 600; color: #0066cc;">▣ 위임인 (갑)</h4>
+                <div class="signature-box">
+                    <div class="signature-row">
+                        <div class="signature-item">
+                            <label>회사명 / 성명</label>
+                            <input type="text" placeholder="">
+                        </div>
+                        <div class="signature-item">
+                            <label>사업자등록번호</label>
+                            <input type="text" placeholder="">
+                        </div>
+                    </div>
+                    <div class="signature-row">
+                        <div class="signature-item">
+                            <label>연락처</label>
+                            <input type="text" placeholder="">
+                        </div>
+                        <div class="signature-item">
+                            <label>이메일</label>
+                            <input type="text" placeholder="">
+                        </div>
+                    </div>
+                    <div class="signature-row">
+                        <div class="signature-item">
+                            <label>주소</label>
+                            <input type="text" placeholder="">
+                        </div>
+                    </div>
+                    <div class="signature-row">
+                        <div class="signature-item">
+                            <label>서명</label>
+                            <div style="height: 80px; border: 1px dashed #ddd; background: #fafafa;"></div>
+                        </div>
+                        <div class="signature-item">
+                            <label>날짜</label>
+                            <input type="date" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px;">
+                <h4 style="font-size: 12pt; margin-bottom: 20px; font-weight: 600; color: #0066cc;">▣ 수임인 (을)</h4>
+                <div class="signature-box">
+                    <div class="signature-row">
+                        <div class="signature-item">
+                            <label>회사명</label>
+                            <input type="text" value="제로투원택스 선영 회계법인" readonly style="background: #f5f5f5;">
+                        </div>
+                        <div class="signature-item">
+                            <label>대표자</label>
+                            <input type="text" value="이범기" readonly style="background: #f5f5f5;">
+                        </div>
+                    </div>
+                    <div class="signature-row">
+                        <div class="signature-item">
+                            <label>연락처</label>
+                            <input type="text" value="010-4395-1996" readonly style="background: #f5f5f5;">
+                        </div>
+                        <div class="signature-item">
+                            <label>이메일</label>
+                            <input type="text" value="lbg@0to1tax.com" readonly style="background: #f5f5f5;">
+                        </div>
+                    </div>
+                    <div class="signature-row">
+                        <div class="signature-item">
+                            <label>주소</label>
+                            <input type="text" value="서울시 강남구 테헤란로70길 12 H타워, 2층" readonly style="background: #f5f5f5;">
+                        </div>
+                    </div>
+                    <div class="signature-row">
+                        <div class="signature-item">
+                            <label>서명 / 직인</label>
+                            <div style="height: 80px; border: 1px dashed #ddd; background: #fafafa;"></div>
+                        </div>
+                        <div class="signature-item">
+                            <label>날짜</label>
+                            <input type="date" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span>제로투원택스</span>
+            <span>페이지 8</span>
+        </div>
+    </div>
+
+</body>
+</html>

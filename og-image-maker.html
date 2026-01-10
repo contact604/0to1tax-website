@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OG Image Maker - Zero to one TAX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* OG 이미지 캔버스 - 정확히 1200x630px */
+        .og-canvas {
+            width: 1200px;
+            height: 630px;
+            background: #ffffff;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 90px 100px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        /* 로고 영역 */
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 70px;
+        }
+        
+        .rocket-icon {
+            font-size: 52px;
+            line-height: 1;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .logo-main {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1e293b;
+            line-height: 1.1;
+            margin-bottom: 2px;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-sub {
+            font-size: 36px;
+            font-weight: 700;
+            color: #6366f1;
+            line-height: 1.1;
+            letter-spacing: 1px;
+        }
+        
+        /* 텍스트 영역 */
+        .text-section {
+            text-align: center;
+            max-width: 950px;
+        }
+        
+        .text-primary {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 28px;
+            line-height: 1.5;
+            letter-spacing: -0.5px;
+        }
+        
+        .text-secondary {
+            font-size: 30px;
+            font-weight: 400;
+            color: #64748b;
+            line-height: 1.6;
+            letter-spacing: -0.3px;
+        }
+        
+        /* 편집 컨트롤 */
+        .controls {
+            margin-top: 30px;
+            width: 1200px;
+        }
+        
+        .control-group {
+            margin-bottom: 20px;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        
+        .control-group input,
+        .control-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 16px;
+        }
+        
+        .control-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2563eb;
+        }
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+        
+        .btn-secondary:hover {
+            background: #cbd5e1;
+        }
+        
+        .instructions {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f1f5f9;
+            border-radius: 6px;
+            width: 1200px;
+        }
+        
+        .instructions h3 {
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+            color: #475569;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- OG 이미지 캔버스 -->
+        <div class="og-canvas" id="ogCanvas">
+            <div class="logo-section">
+                <div class="rocket-icon">🚀</div>
+                <div class="logo-text">
+                    <div class="logo-main">Zero to one</div>
+                    <div class="logo-sub">TAX</div>
+                </div>
+            </div>
+            
+            <div class="text-section">
+                <div class="text-primary" id="textPrimary">스타트업 성장 세무 회계</div>
+                <div class="text-secondary" id="textSecondary">회계를 넘어 성장의 구조를 설계하다</div>
+            </div>
+        </div>
+        
+        <!-- 편집 컨트롤 -->
+        <div class="controls">
+            <div class="control-group">
+                <label for="inputPrimary">메인 문구 (Primary Text)</label>
+                <input 
+                    type="text" 
+                    id="inputPrimary" 
+                    value="스타트업 성장 세무 회계"
+                    placeholder="메인 문구를 입력하세요"
+                >
+            </div>
+            
+            <div class="control-group">
+                <label for="inputSecondary">서브 문구 (Secondary Text)</label>
+                <textarea 
+                    id="inputSecondary" 
+                    placeholder="서브 문구를 입력하세요"
+                >회계를 넘어 성장의 구조를 설계하다</textarea>
+            </div>
+            
+            <div class="button-group">
+                <button class="btn-primary" onclick="updateText()">✏️ 텍스트 업데이트</button>
+                <button class="btn-secondary" onclick="resetText()">🔄 초기화</button>
+            </div>
+        </div>
+        
+        <!-- 사용 방법 -->
+        <div class="instructions">
+            <h3>📸 스크린샷 저장 방법</h3>
+            <ol>
+                <li>위에서 텍스트를 원하는 대로 수정하세요</li>
+                <li><strong>흰색 박스만</strong> 스크린샷으로 캡처하세요 (1200×630px)</li>
+                <li><strong>Windows</strong>: Win + Shift + S (영역 캡처)</li>
+                <li><strong>Mac</strong>: Cmd + Shift + 4 (영역 선택)</li>
+                <li>저장 파일명: <code>og-image.jpg</code></li>
+                <li><a href="https://tinypng.com/" target="_blank">TinyPNG</a>에서 최적화 (선택사항)</li>
+                <li>프로젝트 루트 폴더에 업로드</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+        // 텍스트 업데이트 함수
+        function updateText() {
+            const primaryText = document.getElementById('inputPrimary').value;
+            const secondaryText = document.getElementById('inputSecondary').value;
+            
+            document.getElementById('textPrimary').textContent = primaryText;
+            document.getElementById('textSecondary').textContent = secondaryText;
+        }
+        
+        // 초기화 함수
+        function resetText() {
+            document.getElementById('inputPrimary').value = '스타트업 성장 세무 회계';
+            document.getElementById('inputSecondary').value = '회계를 넘어 성장의 구조를 설계하다';
+            updateText();
+        }
+        
+        // 실시간 업데이트
+        document.getElementById('inputPrimary').addEventListener('input', updateText);
+        document.getElementById('inputSecondary').addEventListener('input', updateText);
+    </script>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="VC 미팅에서 꼭 준비해야 할 재무 숫자와 IR 자료 작성 가이드">
+    <title>VC 미팅에서 꼭 준비해야 할 재무 숫자는? - Zero to One TAX</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', 'Inter', sans-serif;
+            line-height: 1.8;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        :root {
+            --primary-blue: #0066FF;
+            --dark-blue: #0052CC;
+            --light-blue: #E6F0FF;
+            --dark-gray: #1a1a1a;
+            --medium-gray: #666666;
+            --light-gray: #f5f5f5;
+        }
+
+        /* Header */
+        .article-header {
+            background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%);
+            padding: 80px 20px 60px;
+            color: white;
+        }
+
+        .header-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+        }
+
+        .article-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .article-title {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Article Body */
+        .article-body {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .article-body h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin: 50px 0 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        .article-body h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin: 40px 0 16px;
+        }
+
+        .article-body p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--dark-gray);
+            margin-bottom: 24px;
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 20px 0 24px 24px;
+        }
+
+        .article-body li {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            color: var(--dark-gray);
+        }
+
+        .article-body strong {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .highlight-box {
+            background: var(--light-blue);
+            border-left: 4px solid var(--primary-blue);
+            padding: 24px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .cta-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: white;
+            color: var(--primary-blue);
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Related Articles */
+        .related-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .related-section h3 {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .related-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            display: block;
+        }
+
+        .related-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(0, 102, 255, 0.1);
+        }
+
+        .related-card-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .related-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.5;
+            color: var(--dark-gray);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .article-header {
+                padding: 60px 20px 40px;
+            }
+
+            .article-title {
+                font-size: 26px;
+            }
+
+            .article-body {
+                margin: 40px auto;
+            }
+
+            .article-body h2 {
+                font-size: 22px;
+            }
+
+            .article-body h3 {
+                font-size: 18px;
+            }
+
+            .cta-section {
+                padding: 40px 20px;
+            }
+
+            .cta-section h2 {
+                font-size: 24px;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="article-header">
+        <div class="header-container">
+            <a href="index.html" class="back-link">← 인사이트 목록으로</a>
+            <div class="article-tag">IR·미팅</div>
+            <h1 class="article-title">VC 미팅에서 꼭 준비해야 할 재무 숫자는?</h1>
+            <div class="article-meta">📖 5분 읽기 · 2025.01.10</div>
+        </div>
+    </div>
+
+    <!-- Article Body -->
+    <div class="article-body">
+        <p>
+            투자 유치를 준비하는 스타트업 대표님들이 가장 많이 하는 질문이 있습니다.<br>
+            <strong>"VC 미팅에서 어떤 재무 숫자를 준비해야 하나요?"</strong>
+        </p>
+
+        <p>
+            사업 계획서와 IR 자료를 준비하면서 매출 추이, 성장률, 비용 구조를 정리하지만,<br>
+            막상 미팅 현장에서 투자자가 묻는 질문은 예상과 다른 경우가 많습니다.
+        </p>
+
+        <div class="highlight-box">
+            <p>
+                <strong>VC가 보는 재무 숫자는 단순 매출이 아니라, "투자 후 어떻게 성장할 것인가"를 판단할 수 있는 구조적 지표입니다.</strong>
+            </p>
+        </div>
+
+        <h2>1. 투자자가 확인하는 핵심 재무 지표</h2>
+
+        <h3>① Unit Economics (단위 경제)</h3>
+        <p>
+            고객 한 명당 얼마의 수익을 내고, 얼마의 비용이 드는가?<br>
+            <strong>LTV (고객 생애 가치)</strong>와 <strong>CAC (고객 획득 비용)</strong>의 비율이 핵심입니다.
+        </p>
+        <ul>
+            <li>LTV/CAC 비율이 3:1 이상이면 건강한 구조</li>
+            <li>CAC 회수 기간이 12개월 이내인지 확인</li>
+            <li>매출이 없어도 Unit Economics 논리는 설명 가능해야 함</li>
+        </ul>
+
+        <h3>② Burn Rate (현금 소진율)</h3>
+        <p>
+            한 달에 얼마의 현금이 나가는가?<br>
+            투자금 없이 몇 개월을 버틸 수 있는가? (Runway)
+        </p>
+        <ul>
+            <li>월별 현금 유출액 (인건비, 마케팅비, 운영비)</li>
+            <li>현재 자금으로 생존 가능한 기간 (Runway 계산)</li>
+            <li>투자 유치 후 Runway를 얼마나 확보할 수 있는지</li>
+        </ul>
+
+        <h3>③ Growth Rate (성장률)</h3>
+        <p>
+            MoM (월간 성장률), QoQ (분기 성장률)이 일관되게 유지되는가?<br>
+            단순 매출 증가가 아니라, <strong>성장 추세의 일관성</strong>이 중요합니다.
+        </p>
+
+        <h2>2. IR 자료에서 설명 가능한 재무 구조</h2>
+
+        <p>
+            VC는 IR 자료를 보면서 아래 질문들을 던집니다:
+        </p>
+
+        <ul>
+            <li>"이 숫자는 어떻게 계산했나요?"</li>
+            <li>"이 가정은 어디서 나왔나요?"</li>
+            <li>"실사할 때 이 숫자가 맞는지 확인할 수 있나요?"</li>
+        </ul>
+
+        <p>
+            즉, IR 자료의 재무 숫자는 <strong>설명 가능하고, 검증 가능한 근거</strong>가 있어야 합니다.
+        </p>
+
+        <div class="highlight-box">
+            <p>
+                <strong>Zero to One TAX는 IR 자료 작성 단계부터 "실사에서 검증 가능한 재무 구조"를 함께 설계합니다.</strong>
+            </p>
+        </div>
+
+        <h2>3. 미팅 전에 반드시 체크해야 할 것들</h2>
+
+        <ol>
+            <li><strong>재무제표 기준</strong>: 기장이 투자·VC 기준으로 정리되어 있는가?</li>
+            <li><strong>비용 구조</strong>: 고정비와 변동비가 명확히 구분되는가?</li>
+            <li><strong>현금 흐름</strong>: 매출과 현금 유입 시점이 일치하는가?</li>
+            <li><strong>IR 숫자 근거</strong>: 모든 재무 예측의 가정이 설명 가능한가?</li>
+            <li><strong>실사 대비</strong>: FDD에서 문제될 만한 구조적 리스크는 없는가?</li>
+        </ol>
+
+        <h2>4. 정리하며</h2>
+
+        <p>
+            VC 미팅은 단순히 IR 자료를 발표하는 자리가 아닙니다.<br>
+            투자자는 <strong>재무 숫자를 통해 비즈니스 모델의 건전성과 성장 가능성</strong>을 판단합니다.
+        </p>
+
+        <p>
+            따라서 미팅 준비는 "숫자를 만드는 것"이 아니라,<br>
+            <strong>"숫자가 설명 가능하고, 검증 가능한 구조로 정리되어 있는가"</strong>를 점검하는 과정입니다.
+        </p>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <div class="cta-container">
+            <h2>내 투자 단계, 재무 구조가<br>제대로 준비되어 있을까요?</h2>
+            <p>
+                Zero to One TAX는 VC 기준으로 재무를 정리하고,<br>
+                IR·실사에서 설명 가능한 구조를 처음부터 함께 설계합니다.
+            </p>
+            <a href="../index.html#contact" class="cta-button">💬 투자 준비 진단 요청하기</a>
+        </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="related-section">
+        <h3>📚 함께 읽으면 좋은 글</h3>
+        <div class="related-grid">
+            <a href="fdd.html" class="related-card">
+                <span class="related-card-tag">실사 대응</span>
+                <h4>투자 실사(FDD)에서 문제되는 재무 구조는?</h4>
+            </a>
+            <a href="structure.html" class="related-card">
+                <span class="related-card-tag">법인·세무 구조</span>
+                <h4>법인 설립 단계부터 투자 관점으로 설계해야 하는 이유</h4>
+            </a>
+            <a href="pre-a.html" class="related-card">
+                <span class="related-card-tag">PRE-A 준비</span>
+                <h4>PRE-A 투자 준비, 언제부터 시작해야 할까?</h4>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Zero to One TAX. All rights reserved.</p>
+    </footer>
+</body>
+</html>

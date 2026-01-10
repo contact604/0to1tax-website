@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero to One TAX - 서비스 소개서</title>
+    <meta name="description" content="Pre-A ~ Series A 스타트업의 첫 번째 CFO">
+    <meta name="keywords" content="Zero to One TAX, 스타트업 세무, CFO, 투자 유치, IR, 법인세">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://0to1tax.com/services.html">
+    <meta property="og:title" content="Zero to One TAX - 서비스 소개서">
+    <meta property="og:description" content="Pre-A ~ Series A 스타트업의 첫 번째 CFO">
+    <meta property="og:image" content="https://0to1tax.com/og-image.jpg">
+    
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-blue: #2563eb;
+            --primary-blue-dark: #1e40af;
+            --primary-blue-light: #3b82f6;
+            --gradient-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-blue: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --border-color: #e2e8f0;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Slide System - Desktop PPT Style */
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 2rem;
+            position: relative;
+        }
+        
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        /* Slide 1: Cover */
+        .slide-cover {
+            background: var(--gradient-purple);
+            color: white;
+        }
+        
+        .slide-cover h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+        
+        .slide-cover .subtitle {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+        
+        .slide-cover .description {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        
+        .slide-cover .company {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            font-weight: 500;
+        }
+        
+        .target-boxes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .target-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .target-box .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .target-box h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .target-box p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Slide 2: Problems */
+        .slide-white {
+            background: var(--bg-white);
+        }
+        
+        .slide-white h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 3rem;
+        }
+        
+        .problem-list {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .problem-item {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary-blue);
+            font-size: 1.3rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .problem-item .emoji {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+        
+        /* Slide 3: Question */
+        .slide-question {
+            background: var(--gradient-blue);
+            color: white;
+        }
+        
+        .slide-question .question-text {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+        }
+        
+        .slide-question .sub-question {
+            font-size: 1.8rem;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+        
+        /* Slide 4: Definition */
+        .definition-box {
+            background: white;
+            padding: 4rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .definition-box h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+        }
+        
+        .definition-box .definition-text {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+        
+        .definition-box .highlight {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-top: 2rem;
+        }
+        
+        /* Slide 5: Before/After */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .comparison-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-card h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+        
+        .comparison-card.before h3 {
+            color: #dc2626;
+        }
+        
+        .comparison-card.after h3 {
+            color: var(--primary-blue);
+        }
+        
+        .comparison-card ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .comparison-card li {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .comparison-card.before li::before {
+            content: "❌";
+            position: absolute;
+            left: 0;
+        }
+        
+        .comparison-card.after li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Slide 6: Timeline */
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .timeline-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--primary-blue);
+        }
+        
+        .timeline-item h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-item p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+        
+        /* Slide 7: Changes */
+        .change-section {
+            margin-bottom: 3rem;
+        }
+        
+        .change-section h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+        }
+        
+        .change-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .change-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .change-item .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .change-item h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .change-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-gray);
+        }
+        
+        /* Slide 8-10: Core Services */
+        .service-card {
+            background: white;
+            padding: 4rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .service-card .service-number {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+        
+        .service-card h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+        
+        .service-card .service-description {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .service-card li {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .service-card li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+        }
+        
+        /* Slide 11-12: Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--primary-blue);
+        }
+        
+        .pricing-card h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .pricing-card .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-card .description {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .pricing-card li {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+        
+        .pricing-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+        
+        /* Slide 13: Strengths */
+        .strength-grid {
+            display: grid;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .strength-item {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: left;
+        }
+        
+        .strength-item h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .strength-item p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .strength-item ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .strength-item li {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-gray);
+        }
+        
+        .strength-item li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+        }
+        
+        /* Slide 14: Profile */
+        .profile-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 2rem;
+            display: block;
+            border: 4px solid var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .profile-section h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .profile-section .title {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+        
+        .profile-section .intro {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+        }
+        
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .career-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .career-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .career-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .career-card p {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+        
+        .career-summary {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        
+        .career-summary ul {
+            list-style: none;
+        }
+        
+        .career-summary li {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .career-summary li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+        }
+        
+        .learn-more-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        
+        .learn-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        /* Slide 15: Company */
+        .company-section {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .company-section h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .company-section .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        
+        .company-logo {
+            max-height: 50px;
+            margin-bottom: 3rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .stat-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-card h4 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card p {
+            font-size: 1rem;
+            color: var(--text-gray);
+        }
+        
+        .customer-logos {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+        }
+        
+        .customer-logos h4 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+        
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .logo-grid img {
+            width: 100%;
+            height: 60px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+        
+        .logo-grid img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .company-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .company-link-btn {
+            display: block;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        
+        .company-link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        /* Slide 16: CTA */
+        .cta-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .cta-section h3 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .cta-section .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            color: white;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary-blue);
+            padding: 1.5rem 4rem;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 3rem;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .contact-section {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 3rem;
+        }
+        
+        .contact-section h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .contact-link:hover {
+            background: white;
+            color: var(--primary-blue);
+            border-color: white;
+        }
+        
+        /* Mobile Responsive - Card Style */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.5rem 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .slide {
+                min-height: auto;
+                padding: 3rem 1rem;
+            }
+            
+            .slide-content {
+                padding: 2rem 1rem;
+            }
+            
+            /* Card Style for Mobile */
+            .slide-cover h1 {
+                font-size: 2rem;
+            }
+            
+            .slide-cover .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .slide-cover .description {
+                font-size: 1rem;
+            }
+            
+            .target-boxes {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .target-box {
+                padding: 1.5rem;
+            }
+            
+            .slide-white h2 {
+                font-size: 2rem;
+            }
+            
+            .problem-item {
+                font-size: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .slide-question .question-text {
+                font-size: 2rem;
+            }
+            
+            .slide-question .sub-question {
+                font-size: 1.2rem;
+            }
+            
+            .definition-box {
+                padding: 2rem;
+            }
+            
+            .definition-box h2 {
+                font-size: 1.8rem;
+            }
+            
+            .definition-box .definition-text {
+                font-size: 1.1rem;
+            }
+            
+            .definition-box .highlight {
+                font-size: 1.2rem;
+                padding: 1.5rem;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .comparison-card {
+                padding: 2rem;
+            }
+            
+            .comparison-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .comparison-card li {
+                font-size: 1rem;
+            }
+            
+            .timeline-item {
+                padding: 1.5rem;
+            }
+            
+            .timeline-item h3 {
+                font-size: 1.3rem;
+            }
+            
+            .timeline-item p {
+                font-size: 1rem;
+            }
+            
+            .change-list {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .change-item {
+                padding: 1.5rem;
+            }
+            
+            .service-card {
+                padding: 2rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.8rem;
+            }
+            
+            .service-card .service-description {
+                font-size: 1.1rem;
+            }
+            
+            .service-card li {
+                font-size: 1rem;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .pricing-card {
+                padding: 2rem;
+            }
+            
+            .pricing-card h3 {
+                font-size: 1.8rem;
+            }
+            
+            .pricing-card .price {
+                font-size: 1.5rem;
+            }
+            
+            .strength-item {
+                padding: 2rem;
+            }
+            
+            .strength-item h3 {
+                font-size: 1.5rem;
+            }
+            
+            .strength-item p {
+                font-size: 1rem;
+            }
+            
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .profile-section h3 {
+                font-size: 1.8rem;
+            }
+            
+            .profile-section .title {
+                font-size: 1.2rem;
+            }
+            
+            .profile-section .intro {
+                font-size: 1.1rem;
+            }
+            
+            .career-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .career-card {
+                padding: 1.5rem;
+            }
+            
+            .company-section h3 {
+                font-size: 1.8rem;
+            }
+            
+            .company-section .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .stat-card {
+                padding: 1.5rem;
+            }
+            
+            .logo-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+            
+            .company-links {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .cta-section h3 {
+                font-size: 2rem;
+            }
+            
+            .cta-section .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .cta-btn {
+                padding: 1rem 2rem;
+                font-size: 1.2rem;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .contact-link {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Zero to one TAX</a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="services.html" class="active">서비스 소개</a></li>
+                <li><a href="newsletter.html">뉴스레터</a></li>
+                <li><a href="index.html?modal=consult">상담 신청</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Slide 1: Cover -->
+    <section class="slide slide-cover">
+        <div class="slide-content">
+            <h1>Pre-A ~ Series A 스타트업의<br>첫 번째 CFO</h1>
+            <p class="subtitle">기장·세무를 넘어</p>
+            <p class="description">투자자와 감사인이 신뢰하는 숫자를 만듭니다</p>
+            <p class="company">ZERO TO ONE TAX by 선영회계법인</p>
+            
+            <div class="target-boxes">
+                <div class="target-box">
+                    <div class="emoji">📈</div>
+                    <h3>Pre-A ~ Series A<br>스타트업</h3>
+                    <p>투자 유치를 앞둔 기업</p>
+                </div>
+                <div class="target-box">
+                    <div class="emoji">💡</div>
+                    <h3>매출 발생<br>법인</h3>
+                    <p>본격적인 성장 단계 진입</p>
+                </div>
+                <div class="target-box">
+                    <div class="emoji">🏢</div>
+                    <h3>투자자 미팅 중인<br>회사</h3>
+                    <p>IR 자료에 들어갈 숫자 필요</p>
+                </div>
+                <div class="target-box">
+                    <div class="emoji">👔</div>
+                    <h3>CFO 없이<br>대표가 숫자 판단</h3>
+                    <p>재무 전략이 필요한 시점</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2: Problems -->
+    <section class="slide slide-white">
+        <div class="slide-content">
+            <h2>스타트업이 겪는 문제</h2>
+            <div class="problem-list">
+                <div class="problem-item">
+                    <span class="emoji">😰</span>
+                    투자자 미팅 앞두고 숫자를 봤더니, 믿고 말할 수 있는 근거가 없다
+                </div>
+                <div class="problem-item">
+                    <span class="emoji">😵</span>
+                    세무사에게 물어보면 "세금 관점에서는 괜찮아요"라는 말만 반복된다
+                </div>
+                <div class="problem-item">
+                    <span class="emoji">🤔</span>
+                    감사 대응할 때마다 "왜 이렇게 처리했나요?"라는 질문에 답을 못한다
+                </div>
+                <div class="problem-item">
+                    <span class="emoji">😫</span>
+                    담당자가 바뀔 때마다 처음부터 다시 설명해야 한다
+                </div>
+                <div class="problem-item">
+                    <span class="emoji">😤</span>
+                    장부는 맞는데, 투자자 IR 자료로 쓸 수 있는 숫자가 아니다
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: Question -->
+    <section class="slide slide-question">
+        <div class="slide-content">
+            <p class="question-text">당신의 회사는<br>투자자 앞에 설 준비가<br>되어 있나요?</p>
+            <p class="sub-question">장부가 맞는 것과<br>투자자가 신뢰하는 숫자는 다릅니다</p>
+        </div>
+    </section>
+
+    <!-- Slide 4: Definition -->
+    <section class="slide slide-white">
+        <div class="slide-content">
+            <div class="definition-box">
+                <h2>ZERO TO ONE TAX의 정의</h2>
+                <p class="definition-text">
+                    재무·세무·자금 전략을<br>
+                    함께 설계하는 서비스입니다
+                </p>
+                <div class="highlight">
+                    대표가 혼자 숫자를 판단하는 것이 아니라<br>
+                    감사·IPO·투자 경험이 있는 회계사가<br>
+                    0부터 1까지 함께 만들어갑니다
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Before/After -->
+    <section class="slide slide-white">
+        <div class="slide-content">
+            <h2>ZERO TO ONE TAX가 만드는 변화</h2>
+            <div class="comparison-grid">
+                <div class="comparison-card before">
+                    <h3>❌ Before</h3>
+                    <ul>
+                        <li>투자자 미팅 직전에야 숫자를 확인</li>
+                        <li>세무사는 세금만, 회계사는 감사만</li>
+                        <li>담당자 바뀌면 처음부터 다시 설명</li>
+                        <li>장부는 맞는데 IR에 못 쓰는 숫자</li>
+                        <li>대표가 숫자 판단을 혼자 책임</li>
+                    </ul>
+                </div>
+                <div class="comparison-card after">
+                    <h3>✅ After</h3>
+                    <ul>
+                        <li>매달 투자자 관점의 숫자를 정리</li>
+                        <li>재무·세무·투자를 통합 설계</li>
+                        <li>히스토리가 끊기지 않는 관리</li>
+                        <li>감사·IR 모두 대응 가능한 숫자</li>
+                        <li>회계사와 함께 숫자 전략 수립</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Timeline -->
+    <section class="slide slide-white">
+        <div class="slide-content">
+            <h2>우리의 서비스가 필요한 시점</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>① 투자 유치를 앞두고 있을 때</h3>
+                    <p>투자자 미팅 전, IR 자료에 들어갈 신뢰할 수 있는 숫자가 필요합니다</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>② 외부감사 대응이 처음일 때</h3>
+                    <p>감사인이 물어보는 질문에 근거 있는 답변을 준비해야 합니다</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>③ 매출이 본격적으로 발생하기 시작했을 때</h3>
+                    <p>단순 기장을 넘어, 투자자 관점의 재무 전략이 필요한 시점입니다</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>④ 담당자가 자주 바뀌어 곤란할 때</h3>
+                    <p>히스토리가 끊기지 않고, 맥락을 이해하는 담당자가 필요합니다</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: Changes (Client & CEO) -->
+    <section class="slide slide-white">
+        <div class="slide-content">
+            <div class="change-section">
+                <h3>고객 입장에서의 변화</h3>
+                <div class="change-list">
+                    <div class="change-item">
+                        <div class="emoji">🔁</div>
+                        <h4>같은 질문을 다시 설명하지 않아도 됩니다</h4>
+                        <p>히스토리를 이해하는 담당자가 계속 관리합니다</p>
+                    </div>
+                    <div class="change-item">
+                        <div class="emoji">⚡</div>
+                        <h4>맥락을 바로 이해한 답변을 받습니다</h4>
+                        <p>회사의 변화와 상황을 함께 파악합니다</p>
+                    </div>
+                    <div class="change-item">
+                        <div class="emoji">🎯</div>
+                        <h4>의사결정 타이밍을 놓치지 않습니다</h4>
+                        <p>빠르게 판단 기준을 제시합니다</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="change-section">
+                <h3>대표 입장에서의 변화</h3>
+                <div class="change-list">
+                    <div class="change-item">
+                        <div class="emoji">💬</div>
+                        <h4>담당자 바뀌어도 처음부터 설명 안 해도 됩니다</h4>
+                        <p>히스토리가 끊기지 않는 관리</p>
+                    </div>
+                    <div class="change-item">
+                        <div class="emoji">🤝</div>
+                        <h4>숫자에 대한 책임을 혼자 지지 않습니다</h4>
+                        <p>회계사와 함께 전략을 설계합니다</p>
+                    </div>
+                    <div class="change-item">
+                        <div class="emoji">📊</div>
+                        <h4>투자자가 신뢰하는 숫자를 만듭니다</h4>
+                        <p>IR과 감사에 모두 대응 가능한 재무제표</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: Core Service 1 -->
+    <section class="slide slide-white">
+        <div class="slide-content">
+            <div class="service-card">
+                <span class="service-number">Core Service ①</span>
+                <h3>재무 전략 설계</h3>
+                <p class="service-description">
+                    투자 유치·외부감사·세무 전략을 통합해서<br>
+                    지금 이 회사에 맞는 숫자를 설계합니다
+                </p>
+                <ul>
+                    <li>투자자 관점의 재무제표 구조 설계</li>
+                    <li>외부감사 대응 전략 수립</li>
+                    <li>법인세·부가세 절세 전략</li>
+                    <li>자금 흐름 관리 및 예측</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 9: Core Service 2 -->
+    <section class="slide slide-white">
+        <div class="slide-content">
+            <div class="service-card">
+                <span class="service-number">Core Service ②</span>
+                <h3>월간 재무 리포팅</h3>
+                <p class="service-description">
+                    매월 투자자 IR에 쓸 수 있는 숫자로 정리해서<br>
+                    대표가 즉시 의사결정할 수 있게 만듭니다
+                </p>
+                <ul>
+                    <li>월간 재무제표 + 투자자 관점 해석</li>
+                    <li>주요 지표 변화 요약 (매출/비용/손익)</li>
+                    <li>다음 달 주의사항 및 판단 포인트</li>
+                    <li>IR 미팅 전 숫자 검토 및 시뮬레이션</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: Core Service 3 -->
+    <section class="slide slide-white">
+        <div class="slide-content">
+            <div class="service-card">
+                <span class="service-number">Core Service ③</span>
+                <h3>투자·감사 대응</h3>
+                <p class="service-description">
+                    투자자 미팅, 외부감사, 법인세 신고까지<br>
+                    모든 단계에서 대표와 함께 대응합니다
+                </p>
+                <ul>
+                    <li>투자자 Q&A 사전 준비 및 동행 지원</li>
+                    <li>외부감사 자료 준비 및 감사인 대응</li>
+                    <li>법인세·부가세 신고 및 세무조사 대응</li>
+                    <li>정부 지원사업 (R&D, 고용장려금 등) 연계</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 11: Pricing - Standard -->
+    <section class="slide slide-white">
+        <div class="slide-content">
+            <h2>Standard 플랜</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Standard</h3>
+                    <p class="price">월 80만원 (VAT 별도)</p>
+                    <p class="description">Pre-A ~ Seed 단계 스타트업에 최적화</p>
+                    <ul>
+                        <li>월간 재무제표 + 투자자 관점 리포팅</li>
+                        <li>법인세·부가세 신고 (연 4회)</li>
+                        <li>급여 대행 (인원 무제한)</li>
+                        <li>비용 처리 자문 (실시간 카톡)</li>
+                        <li>투자 IR 자료 검토 (분기 1회)</li>
+                        <li>회계·세무 질의응답 무제한</li>
+                    </ul>
+                </div>
+                <div class="pricing-card">
+                    <h3>추가 선택 가능</h3>
+                    <p class="price" style="font-size: 1.3rem;">필요 시 선택</p>
+                    <p class="description">상황에 따라 추가 가능한 옵션</p>
+                    <ul>
+                        <li>외부감사 대응 (별도 협의)</li>
+                        <li>투자자 미팅 동행 (회당 30만원)</li>
+                        <li>정부 지원사업 연계 (성공 보수)</li>
+                        <li>스톡옵션·주식 구조 설계 (별도)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 12: Pricing - Pro -->
+    <section class="slide slide-white">
+        <div class="slide-content">
+            <h2>Pro 플랜</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 style="color: #f97316;">Pro</h3>
+                    <p class="price">별도 협의</p>
+                    <p class="description">Series A 이상, 외부감사 대응 필수 기업</p>
+                    <ul>
+                        <li><strong>Standard 서비스 전체 포함</strong></li>
+                        <li>투자자 대응: IR 미팅 동행 무제한</li>
+                        <li>외부감사 대응: 감사인과 직접 커뮤니케이션</li>
+                        <li>의사결정 파트너링: 대표와 월 2회 전략 미팅</li>
+                    </ul>
+                </div>
+                <div class="pricing-card">
+                    <h3>추가 선택 가능</h3>
+                    <p class="price" style="font-size: 1.3rem;">별도 협의</p>
+                    <p class="description">Pro 플랜에서 추가 가능</p>
+                    <ul>
+                        <li>IPO 준비 컨설팅</li>
+                        <li>M&A 실사 대응</li>
+                        <li>내부회계관리제도 구축</li>
+                        <li>CFO 업무 대행</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 13: Why Us (3 Strengths) -->
+    <section class="slide slide-white">
+        <div class="slide-content">
+            <h2>왜 ZERO TO ONE TAX인가</h2>
+            <div class="strength-grid">
+                <div class="strength-item">
+                    <h3>① 감사·IPO·투자 경험</h3>
+                    <p>"이론적으로 맞는 회계"가 아니라 "투자자와 감사인이 신뢰하는 숫자"를 만듭니다</p>
+                    <ul>
+                        <li>삼일회계법인 감사본부 출신</li>
+                        <li>코스닥 상장사 외부감사 다수 경험</li>
+                        <li>Pre-IPO·M&A 실사 경험</li>
+                    </ul>
+                </div>
+                <div class="strength-item">
+                    <h3>② 스타트업 특화</h3>
+                    <p>"이론적으로 맞는 회계"보다 "지금 이 회사에 맞는 숫자"를 봅니다</p>
+                    <ul>
+                        <li>스타트업은 숫자가 작고 설명이 많습니다</li>
+                        <li>구조가 자주 바뀌고, 대표가 재무 판단을 단독으로 합니다</li>
+                        <li>현재 단계에 맞춘 숫자 관리 방식을 함께 만듭니다</li>
+                    </ul>
+                </div>
+                <div class="strength-item">
+                    <h3>③ 한 담당자가 끝까지 책임</h3>
+                    <p>설명이 반복되지 않는 구조 / 히스토리가 끊기지 않는 관리</p>
+                    <ul>
+                        <li>담당자 교체 시 처음부터 설명하지 않아도 됩니다</li>
+                        <li>맥락 있는 답변이 즉시 제공됩니다</li>
+                        <li>숫자에 대한 책임을 혼자 지지 않습니다</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 14: About Me -->
+    <section class="slide slide-white">
+        <div class="slide-content">
+            <h2>대표 소개: 스타트업 전문가 이범기 회계사가 직접 서비스합니다</h2>
+            <div class="profile-section">
+                <img src="images/profile-lee-beomgi.jpg" alt="이범기 회계사" class="profile-image">
+                <h3>이범기 회계사</h3>
+                <p class="title">ZERO TO ONE TAX 대표 · 공인회계사</p>
+                <p class="intro">감사 · IPO · 투자 경험으로<br>스타트업의 성장을 숫자로 설계합니다</p>
+                
+                <div class="career-grid">
+                    <div class="career-card">
+                        <div class="emoji">🏢</div>
+                        <h4>삼일회계법인</h4>
+                        <p>감사본부<br>샘표식품/샘표 감사 PM</p>
+                    </div>
+                    <div class="career-card">
+                        <div class="emoji">📊</div>
+                        <h4>외부감사 다수</h4>
+                        <p>현대엘리베이터<br>한진중공업 감사</p>
+                    </div>
+                    <div class="career-card">
+                        <div class="emoji">🎯</div>
+                        <h4>내부회계 구축</h4>
+                        <p>SK쉴더스<br>내부회계관리제도</p>
+                    </div>
+                </div>
+                
+                <div class="career-summary">
+                    <ul>
+                        <li>삼일회계법인 감사본부 (2015~2020)</li>
+                        <li>샘표식품/샘표 외부감사 PM</li>
+                        <li>현대엘리베이터, 한진중공업 외부감사</li>
+                        <li>SK쉴더스 내부회계관리제도 구축 참여</li>
+                        <li>Pre-IPO 실사 다수 경험</li>
+                    </ul>
+                </div>
+                
+                <a href="https://colorful-wealth-23f.notion.site/2a2bcf028220803294c6e3dbc45c2f78?pvs=74" target="_blank" class="learn-more-btn">
+                    이범기 회계사 더 알아보기 →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 15: About Company -->
+    <section class="slide slide-white">
+        <div class="slide-content">
+            <h2>ZERO TO ONE TAX는<br>선영회계법인에서 서비스 합니다</h2>
+            <div class="company-section">
+                <img src="https://www.save-tax.co.kr/_next/image?url=%2Fassets%2Flogo.svg&w=384&q=75" alt="SAVETAX 로고" class="company-logo">
+                <p class="subtitle">
+                    선영회계법인은 SAVETAX 브랜드로 기장서비스를 제공합니다.<br>
+                    SAVETAX는 기장 시장 점유율 3위 사업자로<br>
+                    지난 8년간의 기장 노하우와 법인 전문 회계사가 결합하여<br>
+                    스타트업 전문 기장 서비스인 "ZERO TO ONE TAX"를 제공합니다.
+                </p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="emoji">📊</div>
+                        <h4 style="color: var(--primary-blue);">12,000+</h4>
+                        <p>고객사</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="emoji">📋</div>
+                        <h4 style="color: var(--primary-blue);">16,000+</h4>
+                        <p>연간 세금신고 건수</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="emoji">🏆</div>
+                        <h4 style="color: var(--primary-blue);">3위</h4>
+                        <p>기장 시장 점유율</p>
+                    </div>
+                </div>
+                
+                <div class="customer-logos">
+                    <h4>SAVETAX와 함께하는 고객사 12,000+</h4>
+                    <div class="logo-grid">
+                        <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_01.png" alt="고객사 로고">
+                        <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_02.png" alt="고객사 로고">
+                        <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_03.png" alt="고객사 로고">
+                        <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_04.png" alt="고객사 로고">
+                        <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_05.png" alt="고객사 로고">
+                        <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_06.png" alt="고객사 로고">
+                        <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_07.png" alt="고객사 로고">
+                        <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_08.png" alt="고객사 로고">
+                        <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_09.png" alt="고객사 로고">
+                        <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_10.png" alt="고객사 로고">
+                        <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_11.png" alt="고객사 로고">
+                        <img src="https://www.save-tax.co.kr/assets/customers-logos/logo_12.png" alt="고객사 로고">
+                    </div>
+                </div>
+                
+                <div class="company-links">
+                    <a href="https://www.save-tax.co.kr/" target="_blank" class="company-link-btn">
+                        SAVETAX 더 알아보기 →
+                    </a>
+                    <a href="https://www.syacc.co.kr/" target="_blank" class="company-link-btn">
+                        선영회계법인 더 알아보기 →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 16: CTA -->
+    <section class="slide slide-question">
+        <div class="slide-content">
+            <div class="cta-section">
+                <h3>Pre-A ~ Series A<br>고객 무료 진단</h3>
+                <p class="subtitle">지금 당신의 회사 숫자가<br>투자자 앞에 설 준비가 되어 있는지<br>무료로 진단해드립니다</p>
+                <a href="index.html?modal=consult" class="cta-btn">무료 상담 신청하기 →</a>
+                
+                <div class="contact-section">
+                    <h4>연락하기</h4>
+                    <div class="contact-links">
+                        <a href="mailto:lbg@0to1tax.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            E : lbg@0to1tax.com
+                        </a>
+                        <a href="tel:010-4395-1996" class="contact-link">
+                            <i class="fas fa-phone"></i>
+                            P : 010-4395-1996
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

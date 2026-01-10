@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제로투원택스 선영 회계법인 이용동의서</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            padding: 20mm 25mm 25mm 25mm;
+            position: relative;
+            page-break-after: always;
+        }
+
+        /* 페이지 헤더 */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .page-header h1 {
+            font-size: 18pt;
+            font-weight: 600;
+            color: #0066cc;
+            margin: 0;
+        }
+
+        .page-header .label {
+            font-size: 10pt;
+            color: #666;
+        }
+
+        /* 하단 로고 및 페이지 번호 */
+        .page-footer {
+            position: absolute;
+            bottom: 15mm;
+            left: 25mm;
+            right: 25mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 9pt;
+            color: #999;
+        }
+
+        .page-footer .logo {
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* 공통 기재사항 박스 */
+        .common-notice {
+            background: #f5f5f5;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-left: 3px solid #333;
+            font-size: 9.5pt;
+            line-height: 1.5;
+        }
+
+        .common-notice p {
+            margin: 0;
+        }
+
+        .common-notice strong {
+            font-weight: 600;
+        }
+
+        /* 조항 스타일 */
+        .article {
+            margin-bottom: 15px;
+            font-size: 9.5pt;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .article-title {
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 10pt;
+        }
+
+        .article-content {
+            margin-left: 0;
+        }
+
+        .clause {
+            margin-bottom: 8px;
+        }
+
+        .sub-clause {
+            margin-left: 18px;
+            margin-top: 4px;
+        }
+
+        /* 표 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 8.5pt;
+        }
+
+        table th {
+            background: #e8e8e8;
+            border: 1px solid #999;
+            padding: 8px 6px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 8.5pt;
+        }
+
+        table td {
+            border: 1px solid #999;
+            padding: 6px 8px;
+            text-align: center;
+            font-size: 8pt;
+            line-height: 1.4;
+        }
+
+        table td.left-align {
+            text-align: left;
+        }
+
+        /* 동의 박스 */
+        .consent-box {
+            border: 2px solid #333;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 9.5pt;
+        }
+
+        .consent-box p {
+            margin-bottom: 10px;
+        }
+
+        .consent-box .checkbox-row {
+            display: flex;
+            gap: 40px;
+            margin: 15px 0;
+        }
+
+        .consent-box .signature-line {
+            margin-top: 20px;
+            padding-top: 10px;
+        }
+
+        .consent-box .signature-line p {
+            margin: 8px 0;
+        }
+
+        /* 서명란 */
+        .signature-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #333;
+        }
+
+        .signature-grid {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 30px;
+        }
+
+        .signature-box {
+            flex: 1;
+        }
+
+        .signature-box h3 {
+            text-align: center;
+            font-size: 11pt;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .signature-box p {
+            font-size: 9.5pt;
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+
+        /* 저작권 페이지 */
+        .copyright-page {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 11pt;
+            color: #666;
+        }
+
+        /* 인쇄 스타일 */
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+            .page-footer {
+                position: fixed;
+                bottom: 15mm;
+            }
+        }
+
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            .page {
+                width: 100%;
+                padding: 15mm;
+                min-height: auto;
+            }
+            .signature-grid {
+                flex-direction: column;
+            }
+            .page-header h1 {
+                font-size: 16pt;
+            }
+        }
+
+        /* 특별 스타일 */
+        .highlight-box {
+            background: #fff9e6;
+            border: 1px solid #ffcc00;
+            padding: 12px;
+            margin: 15px 0;
+            font-size: 9pt;
+        }
+
+        .date-line {
+            text-align: center;
+            font-size: 11pt;
+            font-weight: 600;
+            margin: 30px 0;
+        }
+
+        .note-text {
+            font-size: 8.5pt;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .bold-text {
+            font-weight: 600;
+        }
+
+        /* 섹션 제목 */
+        .section-title {
+            font-size: 14pt;
+            font-weight: 600;
+            color: #0066cc;
+            margin: 25px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <!-- 페이지 1: 저작권 -->
+    <div class="page">
+        <div class="copyright-page">
+            copyright © Zero to One Tax All Rights Reserved.
+        </div>
+    </div>
+
+    <!-- 페이지 2: 이용 약관 시작 -->
+    <div class="page">
+        <div class="page-header">
+            <h1>이용 약관</h1>
+            <span class="label">공통기재사항</span>
+        </div>
+
+        <div class="common-notice">
+            제로투원택스 선영 회계법인 이용약관은 공정거래위원회의 「표준이용약관」을 기반으로 작성되었음을 알려드립니다.
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 1 조 (목적)</div>
+            <div class="article-content">
+                본 약관은 제로투원택스 선영 회계법인(이하 '회사'라 한다)와 제로투원택스 선영 회계법인 서비스(이하 '서비스'라 한다) 이용 회원(이하 '회원'이라 한다) 간에 서비스의 이용조건 및 절차, 정산, 회원과 회사의 권리, 의무, 책임 사고와 기타 필요한 사항에 관한 사항을 규정함을 목적으로 한다.
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 2 조 (약관의 효력과 변경)</div>
+            <div class="article-content">
+                <div class="clause">① 서비스 이용은 회원이 본 약관 내용에 동의하는 경우, 회사 서비스 제공 행위 및 회원의 서비스 사용 행위에 본 약관이 우선적으로 적용된다.</div>
+                <div class="clause">② 회사는 본 약관을 사전 고지 없이 변경할 수 있고, 변경된 약관은 사이트 내에 공지하거나 전자우편을 통하여 회원에게 공지하며, 공지와 동시에 그 효력이 발생한다. 이용자가 변경된 약관에 동의하지 않는 경우, 이용자는 본인의 회원 등록을 취소(회원탈퇴)할 수 있으며, 계속된 사용의 경우는 약관 변경에 대한 동의로 간주한다.</div>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 3 조 (약관 외 준칙)</div>
+            <div class="article-content">
+                <div class="clause">① 본 약관은 회사가 제공하는 별도의 이용에 관한 규정과 함께 적용될 수 있다.</div>
+                <div class="clause">② 본 약관에 명시되지 않은 사항에 관하여는 정보통신 윤리강령, 여신전문금융업법, 통신비밀 보호법, 정보통신망 이용 촉진 및 정보보호 등에 관한 법률 등 관계 법령 및 회사와 별도로 정한 개별 이용 계약서(동의서 등)의 규정을 적용한다.</div>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 4 조 (용어의 정의)</div>
+            <div class="article-content">
+                <div class="clause">① 본 약관에서 사용하는 용어의 정의는 다음 각호와 같다.</div>
+                <div class="sub-clause">1) 서비스 : 회사가 회원에게 회사를 활용한 매출/매입관리, 장부 작성, 회계 관리, 경영 컨설팅 등을 제공하는 '서비스'를 말한다.</div>
+                <div class="sub-clause">2) 회원 : 회사가 제공하는 서비스를 이용하기 위해 회원 ID와 사용자 암호를 정하는 등 소정의 가입 절차를 거쳐 본 약관을 승인하고, 회사로부터 가입 신청에 대한 승낙을 받아 서비스를 제공받는 사람을 의미한다.</div>
+                <div class="sub-clause">3) 서비스 이용 계약 : 서비스 이용과 관련하여 회사와 회원 간에 체결하는 계약을 말한다.</div>
+                <div class="sub-clause">4) 사이트 : 회사가 서비스를 제공하기 위하여 컴퓨터 등 정보통신 설비를 이용하여 운영하는 사이트를 말하며, 계정을 이용하여 서비스를 제공 받을 수 있는 사이트 및 애플리케이션을 말한다.</div>
+                <div class="clause">② 본 약관에서 정의하지 않은 용어는 관계 법령 및 개별 서비스에 대한 별도 약관 및 서비스별 안내 등에서 정하는 바에 의한다.</div>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 5 조 (계약 성립)</div>
+            <div class="article-content">
+                <div class="clause">① 이용계약은 회원가입 신청자가 온라인 등으로 회사에서 제공하는 가입 양식에 따라 회원 정보 사항을 기입한 후 이 약관에 동의한다는 의사표시를 함으로써 성립된다.</div>
+                <div class="sub-clause">1) 회원가입 계약의 성립 시기는 회사의 승낙이 회원에게 도달한 시점으로 한다.</div>
+                <div class="sub-clause">2) 회원은 등록사항에 변경이 있는 경우, 즉시 전자우편 및 기타 방법으로 회사에 대하여 그 변경사항을 알려야 한다.</div>
+                <div class="clause">② 회사는 다음 각호에 해당하는 이용계약에 대해서 가입을 취소할 수 있다.</div>
+                <div class="sub-clause">1) 가입 신청자가 이전에 회원자격을 상실한 적이 있는 경우</div>
+                <div class="sub-clause">2) 가입 시 등록한 내용을 허위로 기재하거나 누락이 있는 경우</div>
+                <div class="sub-clause">3) 타인의 명의를 도용하거나, 타인의 서비스 이용을 방해할 목적으로 이용할 경우</div>
+                <div class="clause">③ 회사는 다음 각호에 해당하는 경우 그 사유가 해결될 때까지 이용계약을 유보할 수 있다.</div>
+                <div class="sub-clause">1) 서비스 관련 제반 용량이 부족할 경우</div>
+                <div class="sub-clause">2) 기술상 장애 사유가 있어서 불가피하게 이용을 제한해야 할 경우</div>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 6 조 (서비스 상품 약관)</div>
+            <div class="article-content">
+                서비스 이용을 위하여 서비스 상품 약관 등 별도의 약관이 존재할 수 있다. 이 경우, 추가되는 서비스 상품에 따라 별도의 약관을 제정할 수 있으면, 이용 약관과 서비스 상품 약관의 내용이 상충할 경우 서비스상품 약관이 우선 적용된다.
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 7 조 (회원 정보 사용에 대한 동의)</div>
+            <div class="article-content">
+                <div class="clause">① 회원의 개인 정보는 「개인정보 보호법」에 의해 보호된다.</div>
+                <div class="clause">② 사이트 이용 회원 정보는 다음과 같이 사용, 관리, 보호된다.</div>
+                <div class="sub-clause">1) 개인 정보의 수집 : 회사는 회원 가입 시 제공하는 정보를 통하여 회원에 관한 정보를 수집한다.</div>
+                <div class="sub-clause">2) 개인 정보의 사용 : 서비스 제공과 관련해서 수집된 회원의 신상정보를 본인의 승낙 없이 제3자에게 누설, 배포하지 않는다. 단, 전기통신 기본법 등 법률의 규정에 따라 국가기관의 요구가 있는 경우, 범죄에 대한 수사상의 목적이 있거나 정보통신윤리위원회의 요청이 있는 경우 또는 기타 관계 법령에서 정한 절차에 따른 요청이 있는 경우, 회원이 회사에 제공한 개인 정보를 스스로 공개한 경우에는 그러하지 않는다.</div>
+                <div class="sub-clause">3) 개인 정보의 관리 : 회사는 개인 정보의 보호 및 관리를 위하여 서비스의 개인 정보관리에서 수시로 회원의 개인 정보를 수정/삭제할 수 있다.</div>
+                <div class="sub-clause">4) 개인 정보의 보호 : 회원의 개인 정보는 오직 회원만이 열람/수정/삭제할 수 있으며, 이는 전적으로 회원의 ID와 비밀번호에 의해 관리된다. 따라서 타인에게 본인의 ID와 비밀번호를 알려 주어서는 안 되며, 제3자가 ID와 비밀번호를 도용하여 무단으로 이용하고 있음을 인지하는 경우 즉시 회사에 통보하여 그 안내를 따라야 한다.</div>
+                <div class="clause">③ 회원이 본 약관에 따라 이용 신청을 하는 것은, 신청서에 기재된 회원 정보를 수집, 이용하는 것에 동의하는 것으로 간주된다.</div>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 8 조 (회원 정보 보안)</div>
+            <div class="article-content">
+                <div class="clause">① 가입 신청자가 사이트 서비스 가입 절차를 완료하는 순간부터 회원은 입력한 정보의 비밀을 유지할 책임이 있으며, 회원의 ID와 비밀번호를 사용하여 발생하는 모든 결과에 대한 책임은 회원 본인에게 있다.</div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="logo">SAVETAX</span>
+            <span>2</span>
+        </div>
+    </div>
+
+    <!-- 페이지 3: 이용 약관 계속 -->
+    <div class="page">
+        <div class="page-header">
+            <h1>이용 약관</h1>
+            <span class="label">공통기재사항</span>
+        </div>
+
+        <div class="article">
+            <div class="article-content">
+                <div class="clause">② ID와 비밀번호에 관한 모든 관리의 책임은 회원에게 있으며, 회원의 ID나 비밀번호가 부정하게 사용되었다는 사실을 발견한 경우에는 즉시 회사에 신고하여야 한다. 신고하지 않음으로 인한 모든 책임은 회원 본인에게 있다.</div>
+                <div class="clause">③ 이용자는 사이트 서비스의 사용 종료 시마다 정확히 접속을 종료해야 하며, 정확히 종료하지 아니함으로써 제3자가 회원에 관한 정보를 이용하게 되는 등의 결과로 인해 발생하는 손해 및 손실에 대하여 회사는 책임을 부담하지 아니한다.</div>
+                <div class="clause">④ 회사 사이트의 회원 정보는 사이트 및 애플리케이션 유지·보수를 위해서 혹은 e-mail, SMS, 우편물 등의 안내자료 발송을 위한 정보로 이용될 수 있다.</div>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 9 조 (서비스 이용 시간)</div>
+            <div class="article-content">
+                <div class="clause">① 서비스 이용 시간은 업무상 또는 기술상 특별한 지정이 없는 한 연중무휴로 1일 24시간 이용을 원칙으로 한다. 다만, 서비스의 종류 및 내용에 따라 일부의 서비스는 별도의 이용 시간을 정할 수 있으며, 이 경우 해당 내용을 서비스 화면에 공지하도록 한다.</div>
+                <div class="clause">② 제1항의 이용 시간에도 불구하고 통신장애, 서비스 개발, 정기점검, 긴급조치 등 불가피한 사유에 한해 서비스 제공이 일정기간 동안 제한되거나 중단될 수 있다.</div>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 10 조 (서비스의 중지 및 정보의 저장과 사용)</div>
+            <div class="article-content">
+                <div class="clause">① 회원은 서비스 이용 중에 보관되거나 전송된 메시지 및 기타 통신 메시지 등의 내용이 국가의 비상사태, 정전, 사이트의 관리 범위 외의 서비스 설비 장애 및 기타 불가항력에 의하여 보관되지 못하였거나 삭제된 경우, 전송되지 못한 경우 및 기타 통신 데이터의 손실이 있을 경우에 회사는 관련 책임을 부담하지 아니한다.</div>
+                <div class="clause">② 회사가 정상적인 서비스 제공의 어려움으로 인하여 일시적으로 서비스를 중지하여야 할 경우에는 서비스 중지 고지 후 서비스를 중지할 수 있으며, 이 기간 동안 회원이 고지내용을 인지하지 못한 데 대하여 회사는 책임을 부담하지 아니한다. 부득이한 사정이 있을 경우 사전 고지 기간은 감축되거나 생략될 수 있다. 또한 위 서비스 중지에 의하여 서비스에 보관되거나 전송된 메시지 및 기타 통신 메시지 등의 내용이 보관되지 못하였거나 삭제된 경우, 전송되지 못한 경우 및 기타 통신 데이터의 손실이 있을 경우에 대하여도 회사는 책임을 부담하지 아니한다.</div>
+                <div class="clause">③ 사이트는 사전 고지 후 서비스를 일시적으로 수정, 변경 및 중단할 수 있으며, 이에 대하여 회원 또는 제3자에게 어떠한 책임도 부담하지 아니한다.</div>
+                <div class="clause">④ 사이트는 이용자가 본 약관의 내용에 위배되는 행동을 한 경우, 임의로 서비스 사용을 제한 및 중지할 수 있다.</div>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 11 조 (서비스의 변경 및 해지)</div>
+            <div class="article-content">
+                <div class="clause">① 회사는 회원이 서비스를 이용하여 기대하는 손익이나 서비스를 통하여 얻은 자료로 인한 손해에 관하여 책임을 지지 않으며, 회원이 본 서비스에 게재한 정보, 자료, 사실의 신뢰도, 정확성 등 내용에 관하여는 책임을 지지 않는다.</div>
+                <div class="clause">② 회사는 서비스 이용과 관련하여 가입자에게 발생한 손해 중 가입자의 고의, 과실에 의한 손해에 대하여 책임을 부담하지 아니한다.</div>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 12 조 (정보 제공 및 홍보물 게재)</div>
+            <div class="article-content">
+                <div class="clause">① 사이트는 서비스를 운영함에 있어서 각종 정보를 서비스에 게재하는 방법 등으로 회원에게 제공할 수 있다.</div>
+                <div class="clause">② 사이트는 서비스에 적절하다고 판단되거나 활용 가능성이 있는 홍보물을 게재할 수 있다.</div>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 13 조 (게시물의 저작권)</div>
+            <div class="article-content">
+                <div class="clause">① 이용자가 게시한 게시물의 내용에 대한 권리는 이용자 본인에게 있다.</div>
+                <div class="clause">② 사이트는 게시된 내용을 사전 통지 없이 편집, 이동할 수 있는 권리를 보유하며, 다음의 경우 사전 통지 없이 삭제할 수 있다.</div>
+                <div class="sub-clause">1) 본 서비스 약관에 위배되거나 상용 또는 불법, 음란, 저속하다고 판단되는 게시물을 게시한 경우</div>
+                <div class="sub-clause">2) 다른 회원 또는 제3자를 비방하거나 중상모략으로 명예를 손상시키는 내용인 경우</div>
+                <div class="sub-clause">3) 공공질서 및 미풍양속에 위반되는 내용인 경우</div>
+                <div class="sub-clause">4) 범죄적 행위에 결부된다고 인정되는 내용일 경우</div>
+                <div class="sub-clause">5) 제3자의 저작권 등 기타 권리를 침해하는 내용인 경우</div>
+                <div class="sub-clause">6) 기타 관계 법령에 위배되는 경우</div>
+                <div class="clause">③ 이용자의 게시물이 타인의 저작권을 침해함으로써 발생하는 민, 형사상의 책임은 전적으로 이용자가 부담하여야 한다.</div>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 14 조 (사용자의 행동 규범 및 서비스 이용 제한)</div>
+            <div class="article-content">
+                <div class="clause">① 이용자가 제공하는 정보의 내용이 허위인 것으로 판명되거나, 그러하다고 의심할 만한 합리적인 사유가 발생할 경우 사이트는 이용자의 서비스 사용을 일부 또는 전부 중지할 수 있으며, 이로 인해 발생하는 불이익에 대한 책임을 부담하지 아니한다.</div>
+                <div class="clause">② 이용자가 서비스를 통하여 게시, 전송, 입수하였거나 전자메일, 기타 다른 수단에 의하여 게시, 전송 또는 입수한 모든 형태의 정보에 대하여는 회원이 모든 책임을 부담하며 사이트는 어떠한 책임도 부담하지 아니한다.</div>
+                <div class="clause">③ 사이트는 제공한 서비스가 아닌 가입자 또는 기타 유사 업체가 제공하는 서비스의 내용상의 정확성, 완전성 및 질에 대하여 보장하지 않는다. 따라서 회사는 회원이 위 내용을 이용함으로 인하여 입게 된 모든 종류의 손실이나 손해에 대하여 책임을 부담하지 아니한다.</div>
+                <div class="clause">④ 회원은 본 서비스를 통하여 다음과 같은 행동을 하지 않는데 동의한다.</div>
+                <div class="sub-clause">1) 타인의 ID와 비밀번호를 도용하는 행위</div>
+                <div class="sub-clause">2) 저속, 음란, 모욕적, 위협적이거나 타인의 프라이버시를 침해할 수 있는 내용을 전송, 게시, 게재, 전자메일 또는 기타의 방법으로 전송하는 행위</div>
+                <div class="sub-clause">3) 서비스를 통하여 전송된 내용의 출처를 위장하는 행위</div>
+                <div class="sub-clause">4) 법률, 계약에 의하여 이용할 수 없는 내용을 게시, 게재, 전자메일 또는 기타의 방법으로 전송하는 행위</div>
+                <div class="sub-clause">5) 타인의 특허, 상표, 영업 비밀, 저작권, 기타 지적재산권을 침해하는 내용을 게시, 게재, 전자메일 또는 기타의 방법으로 전송하는 행위</div>
+                <div class="sub-clause">6) 사이트 승인을 받지 아니한 광고, 판촉물, 정크메일, 스팸, 행운의 편지, 피라미드 조직, 기타 다른 형태의 권유를 게시, 게재, 전자메일 또는 기타의 방법으로 전송하는 행위</div>
+                <div class="sub-clause">7) 다른 사용자의 개인 정보를 수집 또는 저장하는 행위</div>
+                <div class="clause">⑤ 회사는 회원이 본 약관을 위배했다고 판단되면 서비스와 관련된 모든 정보를 이용자의 동의 없이 삭제할 수 있다.</div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="logo">SAVETAX</span>
+            <span>3</span>
+        </div>
+    </div>
+
+    <!-- 페이지 4: 개인정보 처리방침 -->
+    <div class="page">
+        <div class="page-header">
+            <h1>개인 정보 필수동의서</h1>
+            <span class="label">공통기재사항</span>
+        </div>
+
+        <div class="common-notice">
+            개인 정보 필수동의서는 제로투원택스 선영 회계법인 서비스 이용을 위한 필수사항입니다.
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 1 조 회원 가입 시 수집하는 개인 정보의 범위</div>
+            <div class="article-content">
+                - ID, 비밀번호, 전화번호, 주소
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 2 조 서비스 이용 시 수집하는 개인 정보의 범위</div>
+            <div class="article-content">
+                - 주민등록번호, 계좌번호, 전화번호, 주소, 홈택스 CMS 수임 동의와 관련된 항목<br>
+                - 개인/사업자/법인 인증서<br>
+                - 소유하고 있는 신용카드 및 금융협력 네트워크 정보<br>
+                - 사업자 재무데이터
+                <div class="sub-clause">- 국세청 데이터 : 세금계산서, 현금영수증세금계산서, 현금영수증, 카드 데이터 연동 조회</div>
+                <div class="sub-clause">- 여신금융협회 : 카드매출, 카드결제내역, 급여자료</div>
+                <div class="sub-clause">- 사업용 계좌(통장 계좌) : 사업용 계좌 거래내역</div>
+                <div class="sub-clause">- 이커머스(쿠팡, 11번가, 배달의 민족 등) 매출내역</div>
+                <div class="sub-clause">- 신용카드사 : 카드 매입자료</div>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 3 조 개인 정보 열람, 정정</div>
+            <div class="article-content">
+                언제든지 본인의 개인 정보를 열람하거나 정정할 수 있다. 개인 정보열람 및 정정은 직접 열람 및 수정하거나, 운영자에게 전화 또는 전자우편으로 연락하면 즉시 조치한다.
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 4 조 개인 정보 수집, 이용, 제공에 대한 동의 철회</div>
+            <div class="article-content">
+                개인 정보의 수집, 이용, 제공에 대해 언제든지 동의를 철회할 수 있다. 동의 철회는 직접 철회하거나, 관리자에게 유선, 무선으로 연락하면 즉시 삭제 등 필요한 조치를 한다.
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 5 조 개인 정보 수집목적 및 이용 목적</div>
+            <div class="article-content">
+                다음의 목적을 위하여 개인 정보를 수집하고 있다.
+                <div class="sub-clause">1) ID, 비밀번호 : 제공하는 서비스를 이용하는 본인 확인 절차에 이용</div>
+                <div class="sub-clause">2) 주소, 전화번호, 전자우편 주소 : 서비스 제공에서 커뮤니케이션 수단, 중요 공지사항 전달, 자사 상품/서비스, 제휴사에서 제공하는 상품/서비스, 타사로부터 의뢰받은 타사 상품/서비스에 대해 전화, SMS, MMS, 전자우편 등을 통해 정보/광고 발송, 서비스 제공 목적</div>
+                <div class="sub-clause">3) 홈택스 CMS : 수임인 동의 및 세무 대행 서비스를 위함, 단, 신규 서비스 개발 및 특화 서비스 제공을 위한 통계 분석</div>
+                <div class="sub-clause">4) 사업자 재무 데이터 : 안정적인 서비스 운영 제공을 위한 안정성 테스트 및 모니터링, 사업자별 특화 서비스 제공을 위한 통계 분석, 재무분석 예측 자료 제공, 신규 서비스 개발 및 기타 고객에게 유익하다고 판단되는 서비스 제공</div>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 6 조 개인 정보 목적 외 이용 및 제3자에 대한 제공 및 공유</div>
+            <div class="article-content">
+                ① 이용자의 개인 정보를 본 개인 정보 처리방침의 목적 및 목적에서 고지한 범위 내에서 사용하며, 이용자의 사전 동의 없이 본래의 목적 범위를 초과하거나 제3자에게 제공하지 않습니다.<br>
+                ② 서비스 이행을 위하여 다음과 같이 개인정보를 제3자에게 제공합니다.
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>제공 목적</th>
+                    <th>제공받는자</th>
+                    <th>제공하는 개인정보의 항목</th>
+                    <th>보유 및 이용기간</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>세무기장 상담<br>고객 관리</td>
+                    <td>(주)유저스토리<br>(주)유저스토리팩토리</td>
+                    <td>성명<br>휴대전화번호</td>
+                    <td class="left-align">수집일로부터 5개월도래 매월<br>(5개월 이내 결제고객 제외)<br>기본 세무 계약 기간<br>고객 상담 및 특화고객관리</td>
+                </tr>
+                <tr>
+                    <td colspan="4">관계 법령에 따른 보관 의무 기간 동안 보관</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="article">
+            <div class="article-title">제 11 조 (개인 정보관리 책임자)</div>
+            <div class="article-content">
+                <p><strong>개인정보 보호책임자</strong><br>
+                성명 : 박학수<br>
+                소속 : 총괄관리인<br>
+                전화 : 010-5084-7967<br>
+                전자우편 : admin@0to1tax.com</p>
+
+                <p style="margin-top: 15px;"><strong>개인정보취급자</strong><br>
+                성명 : 이범기<br>
+                소속 : 총괄관리인<br>
+                전화 : 010-4395-1996<br>
+                전자우편 : lbg@0to1tax.com</p>
+            </div>
+        </div>
+
+        <div class="consent-box">
+            <p><strong>▶ 제정일자: 2021-01-17</strong></p>
+            <p>▶ 본인은 개인 정보 수집・이용・제공에 관한 사항을 자세히 읽고 정확히 이해하였음.</p>
+            
+            <div class="checkbox-row">
+                <label><input type="checkbox"> 동의</label>
+                <label><input type="checkbox"> 미동의</label>
+            </div>
+
+            <div class="signature-line">
+                <p>성명 : _______________________</p>
+                <p>대표자 : _______________________ (서명 또는 인)</p>
+            </div>
+        </div>
+
+        <div class="consent-box">
+            <p><strong>[마케팅 동의 (광고성 정보 수신 동의 선택)]</strong></p>
+            <p>서비스 소식 및 이벤트 안내, 고객 혜택 제공, 제휴사 서비스 안내 등 다양한 정보를 SMS, 이메일 발송을 통해 제공합니다.</p>
+            
+            <div class="checkbox-row">
+                <label><input type="checkbox"> 동의</label>
+                <label><input type="checkbox"> 미동의</label>
+            </div>
+
+            <p style="margin-top: 20px; text-align: right;">20___년 ___월 ___일</p>
+        </div>
+
+        <div class="page-footer">
+            <span class="logo">SAVETAX</span>
+            <span>4</span>
+        </div>
+    </div>
+
+    <!-- 페이지 5: 세무대리 계약서 -->
+    <div class="page">
+        <div class="page-header">
+            <h1>세무대리 계약서</h1>
+            <span class="label">공통기재사항</span>
+        </div>
+
+        <div class="common-notice">
+            세무대리 계약서는 서비스 제공을 위한 필수사항입니다. 위 당사자는 수임인(을) 제로투원택스 선영 회계법인과 세무대리업무에 관한 위임계약을 다음과 같이 체결한다.
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 1 조 (업무)</div>
+            <div class="article-content">
+                갑은 을을 대리인으로 하여 세무대리업무를 위임하고, 을은 이를 수임한다.
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 2 조 (기간)</div>
+            <div class="article-content">
+                본 계약의 유효 기간은 계약일로부터 1년간으로 하고, 기간 만료 후 상호 통지가 없는 경우에는 자동적으로 본 계약을 1년 간 연장하는 것으로 한다.
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 3 조 (보수)</div>
+            <div class="article-content">
+                ① 본 계약에 따른 보수는 월 정액 금 ____________원(VAT 별도)로 한다.<br>
+                ② 당초 계약 당시에 상황과 변동 사항(매출 증대 및 노무업무 등)이 있는 경우 계약기간 내에 보수가 변경될 수 있다.<br>
+                ③ 특약사항
+            </div>
+        </div>
+
+        <h3 style="font-size: 11pt; font-weight: 600; margin: 20px 0 10px 0;">일반 및 법인 사업자 기장 보수표</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">과세기간 매출</th>
+                    <th style="width: 20%;">개인 기장료</th>
+                    <th style="width: 20%;">법인 기장료</th>
+                    <th style="width: 35%;">비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2억 원 미만</td>
+                    <td>80,000</td>
+                    <td>150,000</td>
+                    <td rowspan="11" class="left-align" style="font-size: 7.5pt; padding: 8px;">
+                        - 조특법 적용 세액감면(공제) : 감면세액의 20%<br>
+                        - 경정청구 : 환급 세액의 35%<br>
+                        - 가결산 : 2개월 분의 기장료 추가 청구<br>
+                        - 미수 페널티 : 상호 합의한 입금 기일에 미입금 시 월 1%의 가산 이자 추가 청구<br>
+                        - 매출대비 인건비 신고업무가 과다할 경우 기장료가 인상될 수 있음<br>
+                        - *²특정 업종 및 성실신고 사업자, 정부 지원금 적용, 소급/수정신고의 경우 별도의 비용이 발생됨을 알려 드립니다.<br><br>
+                        *¹ 개인사업자 인건비 신고 시<br>
+                        *² 전자상거래, 병의원, 건설, 제조, 수출입 등
+                    </td>
+                </tr>
+                <tr>
+                    <td>2억 원 ~ 4억 원 미만</td>
+                    <td>*¹100,000</td>
+                    <td>180,000</td>
+                </tr>
+                <tr>
+                    <td>4억 원 ~ 6억 원 미만</td>
+                    <td>120,000</td>
+                    <td>210,000</td>
+                </tr>
+                <tr>
+                    <td>6억 원 ~ 8억 원 미만</td>
+                    <td>140,000</td>
+                    <td>240,000</td>
+                </tr>
+                <tr>
+                    <td>8억 원 ~ 10억 원 미만</td>
+                    <td>160,000</td>
+                    <td>270,000</td>
+                </tr>
+                <tr>
+                    <td>10억 원 ~ 15억 원 미만</td>
+                    <td>180,000</td>
+                    <td>320,000</td>
+                </tr>
+                <tr>
+                    <td>15억 원 ~ 20억 원 미만</td>
+                    <td>210,000</td>
+                    <td>370,000</td>
+                </tr>
+                <tr>
+                    <td>20억 원 ~ 30억 원 미만</td>
+                    <td>260,000</td>
+                    <td>440,000</td>
+                </tr>
+                <tr>
+                    <td>30억 원 ~ 50억 원 미만</td>
+                    <td>330,000</td>
+                    <td>560,000</td>
+                </tr>
+                <tr>
+                    <td>50억 원 ~ 100억 원 미만</td>
+                    <td>450,000</td>
+                    <td>810,000</td>
+                </tr>
+                <tr>
+                    <td>100억 원 이상 시</td>
+                    <td>700,000</td>
+                    <td>별도 안내</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="note-text">(지면 여건 생략)</p>
+
+        <div class="page-footer">
+            <span class="logo">SAVETAX</span>
+            <span>5</span>
+        </div>
+    </div>
+
+    <!-- 페이지 6: 세무대리 계약서 계속 및 서명 -->
+    <div class="page">
+        <div class="page-header">
+            <h1>세무대리 계약서</h1>
+            <span class="label">공통기재사항</span>
+        </div>
+
+        <h3 style="font-size: 11pt; font-weight: 600; margin: 15px 0 10px 0;">일반 및 법인 사업자 조정 보수표</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%;">과세기간 매출</th>
+                    <th style="width: 35%;">개인조정료</th>
+                    <th style="width: 35%;">법인조정료</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1억 원 미만</td>
+                    <td>350,000</td>
+                    <td>500,000</td>
+                </tr>
+                <tr>
+                    <td>1억 원 ~ 2억 원 미만</td>
+                    <td>350,000 + 1억원초과액의 0.20%</td>
+                    <td>500,000 + 1억원초과액의 0.25%</td>
+                </tr>
+                <tr>
+                    <td>2억 원 ~ 3억 원 미만</td>
+                    <td>550,000 + 2억원초과액의 0.18%</td>
+                    <td>750,000 + 2억원초과액의 0.20%</td>
+                </tr>
+                <tr>
+                    <td>3억 원 ~ 5억 원 미만</td>
+                    <td>730,000 + 3억원초과액의 0.15%</td>
+                    <td>950,000 + 3억원초과액의 0.18%</td>
+                </tr>
+                <tr>
+                    <td>5억 원 ~ 10억 원 미만</td>
+                    <td>1,030,000 + 5억원초과액의 0.12%</td>
+                    <td>1,310,000 + 5억원초과액의 0.15%</td>
+                </tr>
+                <tr>
+                    <td>10억 원 ~ 20억 원 미만</td>
+                    <td>1,630,000 + 10억원초과액의 0.10%</td>
+                    <td>2,060,000 + 10억원초과액의 0.12%</td>
+                </tr>
+                <tr>
+                    <td>20억 원 ~ 30억 원 미만</td>
+                    <td>2,630,000 + 20억원초과액의 0.07%</td>
+                    <td>3,260,000 + 20억원초과액의 0.10%</td>
+                </tr>
+                <tr>
+                    <td>30억 원 ~ 50억 원 미만</td>
+                    <td>3,330,000 + 30억원초과액의 0.05%</td>
+                    <td>4,260,000 + 30억원초과액의 0.07%</td>
+                </tr>
+                <tr>
+                    <td>50억 원 ~ 100억 원 미만</td>
+                    <td>4,330,000 + 50억원초과액의 0.04%</td>
+                    <td>5,660,000 + 50억원초과액의 0.05%</td>
+                </tr>
+                <tr>
+                    <td>100억 원 이상 시</td>
+                    <td>6,330,000 + 100억원초과액의 0.03%</td>
+                    <td>8,160,000 + 100억원초과액의 0.04%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="note-text">* 성실신고 사업자의 경우 성실신고 선임 보수가 청구 됨을 알려 드립니다.</p>
+
+        <div class="article" style="margin-top: 20px;">
+            <div class="article-title">제 12 조 (기타) (특약 사항)</div>
+            <div class="article-content">
+                해당 업체는 _____개월 기장 유지 의무가 있으며, 중도해지 시 해지 정산금을 지급하여야 된다.
+                
+                <div class="highlight-box" style="margin-top: 15px;">
+                    <strong>해지 정산금</strong><br>
+                    할인 혜택 반환금(의무사용기간을 조건으로 할인 혜택 받은 서비스 금액) + 본 계약 체결시 지급받은 사은품 가액
+                </div>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">제 13 조(기타)</div>
+            <div class="article-content">
+                본 계약에 명시되지 아니한 사항은 일반 상관례에 따라 상호 협의하여 결정한다
+            </div>
+        </div>
+
+        <div class="signature-section">
+            <p style="font-weight: 600; margin-bottom: 20px; font-size: 9.5pt;">▶ 이 계약의 성립을 증명하기 위하여 계약서 2통을 작성하여 갑과 을이 각각 서명, 날인한 후 각 1통씩 보관한다.</p>
+
+            <div class="date-line">
+                20___년 ___월 ___일
+            </div>
+
+            <div class="signature-grid">
+                <div class="signature-box">
+                    <h3>위임인 (갑)</h3>
+                    <p>회사명 : _________________________________</p>
+                    <p>대표자 : ______________________ (서명 또는 인)</p>
+                </div>
+
+                <div class="signature-box">
+                    <h3>수임인 (을)</h3>
+                    <p>주 소 : 서울시 강남구 테헤란로70길 12 H타워, 2층</p>
+                    <p>회사명 : 제로투원택스 선영 회계법인 (서명 또는 인)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="logo">SAVETAX</span>
+            <span>6</span>
+        </div>
+    </div>
+
+</body>
+</html>

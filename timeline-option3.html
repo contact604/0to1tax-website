@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>옵션 3: 프로그레스 바 - Zero to one TAX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(to bottom, #0F172A 0%, #1E293B 100%);
+            min-height: 100vh;
+        }
+        
+        .journey-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        .header-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .progress-section {
+            position: sticky;
+            top: 20px;
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 60px;
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            z-index: 100;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .progress-stats {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 36px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #9CA3AF;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .progress-bar-wrapper {
+            position: relative;
+            height: 24px;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(to right, #3B82F6, #8B5CF6, #F97316, #10B981);
+            border-radius: 12px;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+            position: relative;
+        }
+        
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.3), 
+                transparent
+            );
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .progress-markers {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            padding: 0 4px;
+        }
+        
+        .progress-marker {
+            font-size: 12px;
+            color: #6B7280;
+            font-weight: 600;
+        }
+        
+        .milestone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+        
+        .milestone-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 32px;
+            border: 2px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .milestone-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .milestone-card.completed {
+            border-color: rgba(16, 185, 129, 0.5);
+            background: rgba(16, 185, 129, 0.1);
+        }
+        
+        .milestone-card:hover {
+            border-color: rgba(139, 92, 246, 0.6);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+        
+        .milestone-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .milestone-card.completed .milestone-icon {
+            background: linear-gradient(135deg, #10B981, #3B82F6);
+        }
+        
+        .milestone-number {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(59, 130, 246, 0.2);
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #3B82F6;
+            margin-bottom: 12px;
+        }
+        
+        .milestone-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        
+        .milestone-description {
+            font-size: 14px;
+            color: #9CA3AF;
+            line-height: 1.6;
+        }
+        
+        .check-icon {
+            float: right;
+            width: 24px;
+            height: 24px;
+            background: #10B981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .milestone-card.completed .check-icon {
+            opacity: 1;
+        }
+        
+        .end-celebration {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(16, 185, 129, 0.1));
+            border-radius: 32px;
+            border: 3px solid rgba(249, 115, 22, 0.3);
+            margin-top: 60px;
+        }
+        
+        .end-celebration.active {
+            animation: celebrate 1s ease-in-out;
+        }
+        
+        @keyframes celebrate {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 20px rgba(139, 92, 246, 0.6),
+                         0 0 40px rgba(59, 130, 246, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .progress-stats {
+                gap: 20px;
+            }
+            
+            .stat-value {
+                font-size: 24px;
+            }
+            
+            .milestone-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="journey-container">
+        <!-- Header -->
+        <div class="header-section">
+            <div class="text-6xl mb-6">📊</div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 glow-text">
+                옵션 3: 프로그레스 바
+            </h1>
+            <p class="text-xl text-gray-300">
+                0에서 1로, 진행 상황을 한눈에 확인하세요
+            </p>
+        </div>
+        
+        <!-- Progress Section -->
+        <div class="progress-section">
+            <div class="progress-header">
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-2">성장 진행도</h3>
+                    <p class="text-gray-400">스크롤하여 여정을 진행하세요</p>
+                </div>
+                <div class="progress-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="currentStep">0</div>
+                        <div class="stat-label">현재 단계</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">14</div>
+                        <div class="stat-label">전체 단계</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="progressPercent">0%</div>
+                        <div class="stat-label">진행률</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar-fill" id="progressBarFill" style="width: 0%"></div>
+            </div>
+            
+            <div class="progress-markers">
+                <span class="progress-marker">🌱 0</span>
+                <span class="progress-marker">🚀 1</span>
+            </div>
+        </div>
+        
+        <!-- Milestones -->
+        <div class="milestone-grid">
+            <div class="milestone-card" data-step="1">
+                <div class="milestone-number">STEP 1</div>
+                <div class="check-icon">✓</div>
+                <div class="milestone-icon">🏢</div>
+                <h3 class="milestone-title">법인설립</h3>
+                <p class="milestone-description">사업의 첫 발걸음을 함께 시작합니다</p>
+            </div>
+            
+            <div class="milestone-card" data-step="2">
+                <div class="milestone-number">STEP 2</div>
+                <div class="check-icon">✓</div>
+                <div class="milestone-icon">📊</div>
+                <h3 class="milestone-title">투자 유치에 적합한 기장</h3>
+                <p class="milestone-description">투자자들이 신뢰할 수 있는 재무제표 작성</p>
+            </div>
+            
+            <div class="milestone-card" data-step="3">
+                <div class="milestone-number">STEP 3</div>
+                <div class="check-icon">✓</div>
+                <div class="milestone-icon">👥</div>
+                <h3 class="milestone-title">노무 관리</h3>
+                <p class="milestone-description">인력 채용 시 필수적인 노무 관리</p>
+            </div>
+            
+            <div class="milestone-card" data-step="4">
+                <div class="milestone-number">STEP 4</div>
+                <div class="check-icon">✓</div>
+                <div class="milestone-icon">💰</div>
+                <h3 class="milestone-title">정부보조금 지원</h3>
+                <p class="milestone-description">활용 가능한 정부지원금 최대 확보</p>
+            </div>
+            
+            <div class="milestone-card" data-step="5">
+                <div class="milestone-number">STEP 5</div>
+                <div class="check-icon">✓</div>
+                <div class="milestone-icon">💼</div>
+                <h3 class="milestone-title">선제적 법인세 감면 적용</h3>
+                <p class="milestone-description">세금 최적화를 통한 자금 효율 극대화</p>
+            </div>
+            
+            <div class="milestone-card" data-step="6">
+                <div class="milestone-number">STEP 6</div>
+                <div class="check-icon">✓</div>
+                <div class="milestone-icon">📈</div>
+                <h3 class="milestone-title">IR DECK 작성</h3>
+                <p class="milestone-description">투자 유치를 위한 전문적인 IR 자료 준비</p>
+            </div>
+            
+            <div class="milestone-card" data-step="7">
+                <div class="milestone-number">STEP 7</div>
+                <div class="check-icon">✓</div>
+                <div class="milestone-icon">💎</div>
+                <h3 class="milestone-title">라운드 유치</h3>
+                <p class="milestone-description">시리즈 투자 유치 단계 지원</p>
+            </div>
+            
+            <div class="milestone-card" data-step="8">
+                <div class="milestone-number">STEP 8</div>
+                <div class="check-icon">✓</div>
+                <div class="milestone-icon">🌐</div>
+                <h3 class="milestone-title">IFRS 컨버전</h3>
+                <p class="milestone-description">국제회계기준 전환 지원</p>
+            </div>
+            
+            <div class="milestone-card" data-step="9">
+                <div class="milestone-number">STEP 9</div>
+                <div class="check-icon">✓</div>
+                <div class="milestone-icon">📋</div>
+                <h3 class="milestone-title">지정감사를 위한 재무제표 작성 지원</h3>
+                <p class="milestone-description">외부감사 대비 전문 지원</p>
+            </div>
+            
+            <div class="milestone-card" data-step="10">
+                <div class="milestone-number">STEP 10</div>
+                <div class="check-icon">✓</div>
+                <div class="milestone-icon">💹</div>
+                <h3 class="milestone-title">기업가치평가</h3>
+                <p class="milestone-description">객관적인 기업 가치 산정</p>
+            </div>
+            
+            <div class="milestone-card" data-step="11">
+                <div class="milestone-number">STEP 11</div>
+                <div class="check-icon">✓</div>
+                <div class="milestone-icon">🎯</div>
+                <h3 class="milestone-title">상장전략수립</h3>
+                <p class="milestone-description">IPO를 위한 전략적 로드맵 설계</p>
+            </div>
+            
+            <div class="milestone-card" data-step="12">
+                <div class="milestone-number">STEP 12</div>
+                <div class="check-icon">✓</div>
+                <div class="milestone-icon">🎁</div>
+                <h3 class="milestone-title">스톡옵션 부여</h3>
+                <p class="milestone-description">임직원 인센티브 제도 설계</p>
+            </div>
+            
+            <div class="milestone-card" data-step="13">
+                <div class="milestone-number">STEP 13</div>
+                <div class="check-icon">✓</div>
+                <div class="milestone-icon">🔍</div>
+                <h3 class="milestone-title">투자 목적의 임의 감사</h3>
+                <p class="milestone-description">투자자 신뢰 확보를 위한 자발적 감사</p>
+            </div>
+            
+            <div class="milestone-card" data-step="14">
+                <div class="milestone-number">STEP 14</div>
+                <div class="check-icon">✓</div>
+                <div class="milestone-icon">✅</div>
+                <h3 class="milestone-title">법정감사</h3>
+                <p class="milestone-description">상장 전 필수 외부감사 완료</p>
+            </div>
+        </div>
+        
+        <!-- End Celebration -->
+        <div class="end-celebration" id="endCelebration">
+            <div class="text-8xl mb-8">🎉</div>
+            <h2 class="text-6xl sm:text-7xl font-bold text-white mb-4 glow-text">1</h2>
+            <h3 class="text-4xl font-bold text-white mb-4">궤도 안착!</h3>
+            <p class="text-xl text-gray-300 mb-8">성공적인 성장을 축하합니다</p>
+            <a href="index.html" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition">
+                ← 메인으로 돌아가기
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        const milestoneCards = document.querySelectorAll('.milestone-card');
+        const progressBarFill = document.getElementById('progressBarFill');
+        const currentStepElement = document.getElementById('currentStep');
+        const progressPercentElement = document.getElementById('progressPercent');
+        const endCelebration = document.getElementById('endCelebration');
+        
+        let completedSteps = 0;
+        const totalSteps = 14;
+        
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const card = entry.target;
+                    card.classList.add('visible');
+                    
+                    // Mark as completed after a delay
+                    setTimeout(() => {
+                        if (!card.classList.contains('completed')) {
+                            card.classList.add('completed');
+                            completedSteps++;
+                            updateProgress();
+                        }
+                    }, 300);
+                }
+            });
+        }, observerOptions);
+        
+        milestoneCards.forEach(card => {
+            observer.observe(card);
+        });
+        
+        function updateProgress() {
+            const percent = Math.round((completedSteps / totalSteps) * 100);
+            progressBarFill.style.width = percent + '%';
+            currentStepElement.textContent = completedSteps;
+            progressPercentElement.textContent = percent + '%';
+            
+            // Trigger celebration when all steps are completed
+            if (completedSteps === totalSteps) {
+                setTimeout(() => {
+                    endCelebration.classList.add('active');
+                }, 500);
+            }
+        }
+        
+        // End celebration observer
+        const endObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        endObserver.observe(endCelebration);
+    </script>
+</body>
+</html>

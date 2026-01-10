@@ -3,12 +3,18 @@
 
 [build]
   # 정적 사이트이므로 빌드 명령 불필요
+  # Functions용 nodemailer 설치는 Netlify가 자동으로 처리
   command = ""
   publish = "."
   functions = "netlify/functions"
   
 [build.environment]
   NODE_VERSION = "18"
+
+# Functions 설정
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["netlify/functions/**"]
 
 # 리디렉션 설정
 [[redirects]]

@@ -1,0 +1,12 @@
+{
+  "name": "0to1tax",
+  "version": "8.10.1",
+  "description": "Zero to One TAX - 스타트업 재무 파트너",
+  "private": true,
+  "dependencies": {
+    "nodemailer": "^6.9.8"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

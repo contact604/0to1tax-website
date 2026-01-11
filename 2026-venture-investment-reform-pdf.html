@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026년 새해 달라지는 벤처투자 제도 한눈 정리</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #ffffff;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        
+        .page {
+            width: 210mm;
+            height: 297mm;
+            padding: 40mm 25mm;
+            background: white;
+            page-break-after: always;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .page:last-child {
+            page-break-after: auto;
+        }
+        
+        /* 표지 (1페이지) */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+            color: white;
+            padding: 60mm 30mm;
+        }
+        
+        .cover-badge {
+            display: inline-block;
+            padding: 8px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .cover-title {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cover-subtitle {
+            font-size: 20px;
+            font-weight: 500;
+            opacity: 0.95;
+            margin-bottom: 50px;
+            line-height: 1.5;
+        }
+        
+        .cover-divider {
+            width: 100px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 40px auto;
+        }
+        
+        .cover-info {
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+        
+        .cover-footer {
+            position: absolute;
+            bottom: 30mm;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* 페이지 헤더 */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3b82f6;
+        }
+        
+        .page-number {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3b82f6;
+        }
+        
+        .page-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        
+        /* 요약 박스 */
+        .summary-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 5px solid #3b82f6;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .summary-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .summary-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        .summary-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .summary-icon {
+            font-size: 22px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .summary-label {
+            font-weight: 700;
+            color: #1e40af;
+            min-width: 140px;
+        }
+        
+        .summary-text {
+            color: #334155;
+        }
+        
+        /* 키워드 카드 */
+        .keyword-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .keyword-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .keyword-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+        }
+        
+        .keyword-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .keyword-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+        
+        .keyword-desc {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        /* 인용 박스 */
+        .quote-box {
+            background: #f8fafc;
+            border-left: 4px solid #64748b;
+            padding: 20px 25px;
+            margin: 30px 0;
+            font-size: 16px;
+            font-style: italic;
+            color: #475569;
+            line-height: 1.8;
+        }
+        
+        /* 테이블 */
+        .table-container {
+            margin: 25px 0;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        
+        th {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #334155;
+            vertical-align: top;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:hover {
+            background: #f8fafc;
+        }
+        
+        .table-header {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        /* Before/After 스타일 */
+        .before-after {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .before {
+            color: #ef4444;
+            font-weight: 600;
+        }
+        
+        .arrow {
+            color: #3b82f6;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .after {
+            color: #22c55e;
+            font-weight: 600;
+        }
+        
+        /* 날짜 배지 */
+        .date-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .date-badge.active {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        /* 섹션 */
+        .section {
+            margin: 30px 0;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #3b82f6;
+        }
+        
+        .subsection-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e40af;
+            margin: 25px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* 하이라이트 박스 */
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .highlight-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #92400e;
+            line-height: 1.7;
+        }
+        
+        /* Footer */
+        .page-footer {
+            position: absolute;
+            bottom: 20mm;
+            left: 25mm;
+            right: 25mm;
+            text-align: center;
+            font-size: 12px;
+            color: #94a3b8;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        /* 인쇄 최적화 */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+        
+        /* 강조 텍스트 */
+        .highlight {
+            background: linear-gradient(transparent 60%, #fef08a 60%);
+            font-weight: 600;
+        }
+        
+        /* 리스트 */
+        .custom-list {
+            margin: 20px 0;
+        }
+        
+        .custom-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding: 12px 15px;
+            background: #f8fafc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        
+        .list-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1페이지: 표지 -->
+    <div class="page cover">
+        <div class="cover-badge">정부 정책 요약 자료</div>
+        <h1 class="cover-title">
+            2026년 새해 달라지는<br>
+            벤처투자 제도<br>
+            한눈 정리
+        </h1>
+        <p class="cover-subtitle">
+            벤처 4대 강국 도약 종합대책 후속 입법
+        </p>
+        <div class="cover-divider"></div>
+        <p class="cover-info">
+            📅 시행 시기: 2025~2026년
+        </p>
+        <div class="cover-footer">
+            Zero to One TAX | 스타트업 재무·세무 전문
+        </div>
+    </div>
+
+    <!-- 2페이지: 전체 요약 -->
+    <div class="page">
+        <div class="page-header">
+            <h2 class="page-title">전체 요약</h2>
+            <span class="page-number">02</span>
+        </div>
+        
+        <div class="keyword-cards">
+            <div class="keyword-card">
+                <div class="keyword-icon">🔓</div>
+                <h3 class="keyword-title">투자 규제 완화</h3>
+                <p class="keyword-desc">투자 의무 기간·비율 완화, 운용 자율성 확대</p>
+            </div>
+            <div class="keyword-card">
+                <div class="keyword-icon">💰</div>
+                <h3 class="keyword-title">세제 지원 확대</h3>
+                <p class="keyword-desc">민간 벤처모펀드 세액공제 확대, SPC 투자 동일 혜택</p>
+            </div>
+            <div class="keyword-card">
+                <div class="keyword-icon">🏦</div>
+                <h3 class="keyword-title">장기 자금 기반 강화</h3>
+                <p class="keyword-desc">기금 투자 범위 확대, 모태펀드 존속기간 연장</p>
+            </div>
+        </div>
+        
+        <div class="quote-box">
+            "투자 주체의 의무는 완화되고, 운용 선택지는 확대되는 방향의 개편"
+        </div>
+        
+        <div class="table-container">
+            <div class="table-header">2026년 벤처투자 제도 개편 핵심 요약</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">구분</th>
+                        <th style="width: 20%;">개편 방향</th>
+                        <th style="width: 65%;">핵심 내용</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>투자 규제</strong></td>
+                        <td><span class="highlight">완화</span></td>
+                        <td>투자 의무 기간·비율 완화, 운용 자율성 확대</td>
+                    </tr>
+                    <tr>
+                        <td><strong>세제 지원</strong></td>
+                        <td><span class="highlight">확대</span></td>
+                        <td>민간 벤처모펀드 세액공제 확대, SPC 투자 동일 혜택</td>
+                    </tr>
+                    <tr>
+                        <td><strong>투자 기반</strong></td>
+                        <td><span class="highlight">강화</span></td>
+                        <td>기금 투자 범위 확대, 모태펀드 존속기간 연장</td>
+                    </tr>
+                    <tr>
+                        <td><strong>정책 목적</strong></td>
+                        <td><span class="highlight">투자 활성화</span></td>
+                        <td>민간·해외·장기 자본 유입 기반 확대</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="page-footer">
+            자료: 중소벤처기업부 (2026.1.7 발표)
+        </div>
+    </div>
+
+    <!-- 3페이지: VC 제도 변경 -->
+    <div class="page">
+        <div class="page-header">
+            <h2 class="page-title">벤처투자회사(VC) 제도 변경</h2>
+            <span class="page-number">03</span>
+        </div>
+        
+        <div class="table-container">
+            <div class="table-header">벤처투자회사(VC) 관련 제도 변경 사항</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">구분</th>
+                        <th style="width: 25%;">변경 전</th>
+                        <th style="width: 25%;">변경 후</th>
+                        <th style="width: 15%;">시행 시기</th>
+                        <th style="width: 15%;">상태</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>투자의무<br>이행기간</strong></td>
+                        <td>3년</td>
+                        <td><span class="after">5년</span></td>
+                        <td>2026.7.1</td>
+                        <td><span class="date-badge">시행 예정</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>연도별<br>투자 의무</strong></td>
+                        <td>매년 1건 이상</td>
+                        <td><span class="after">3년까지 1건<br>5년까지 추가 1건</span></td>
+                        <td>2026.7.1</td>
+                        <td><span class="date-badge">시행 예정</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>상출제집단 편입 시 매각</strong></td>
+                        <td>5년 내 매각 의무</td>
+                        <td><span class="after">매각 의무 폐지</span></td>
+                        <td>2025.8.5</td>
+                        <td><span class="date-badge active">시행 중</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>CVC 투자기업<br>동일 집단 편입</strong></td>
+                        <td>즉시 처분 부담</td>
+                        <td><span class="after">9개월 매각 유예</span></td>
+                        <td>2026.7.1</td>
+                        <td><span class="date-badge">시행 예정</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>VC 간 M&A<br>행정처분 승계</strong></td>
+                        <td>무기한 승계</td>
+                        <td><span class="after">2년으로 제한</span></td>
+                        <td>2026.7.1</td>
+                        <td><span class="date-badge">시행 예정</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>예외 투자 가능 범위</strong></td>
+                        <td>제한적</td>
+                        <td><span class="after">비상장주식·<br>조각투자<br>플랫폼 포함</span></td>
+                        <td>2026.2</td>
+                        <td><span class="date-badge">시행 예정</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="page-footer">
+            자료: 중소벤처기업부 (2026.1.7 발표)
+        </div>
+    </div>
+
+    <!-- 4페이지: 벤처투자조합/민간 벤처모펀드 -->
+    <div class="page">
+        <div class="page-header">
+            <h2 class="page-title">벤처투자조합 · 민간 벤처모펀드</h2>
+            <span class="page-number">04</span>
+        </div>
+        
+        <div class="subsection-title">
+            <span>📊</span>
+            <span>(1) 벤처투자조합 운용 규제 변경</span>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">구분</th>
+                        <th style="width: 25%;">변경 전</th>
+                        <th style="width: 30%;">변경 후</th>
+                        <th style="width: 15%;">시행 시기</th>
+                        <th style="width: 10%;">상태</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>투자 의무<br>기준</strong></td>
+                        <td>개별 펀드 20%</td>
+                        <td><span class="after">전체 펀드 기준 40%</span></td>
+                        <td>2026.7.1</td>
+                        <td><span class="date-badge">예정</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>외국인 출자</strong></td>
+                        <td>환전 필요</td>
+                        <td><span class="after">미화 직접 출자 허용</span></td>
+                        <td>2025.8.5</td>
+                        <td><span class="date-badge active">시행 중</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="subsection-title">
+            <span>💼</span>
+            <span>(2) 민간 벤처모펀드 결성 요건 완화</span>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">구분</th>
+                        <th style="width: 25%;">변경 전</th>
+                        <th style="width: 30%;">변경 후</th>
+                        <th style="width: 15%;">시행 시기</th>
+                        <th style="width: 10%;">상태</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>최소 결성<br>규모</strong></td>
+                        <td>1,000억원</td>
+                        <td><span class="after">500억원</span></td>
+                        <td>2025.8.5</td>
+                        <td><span class="date-badge active">시행 중</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>최초 출자금액</strong></td>
+                        <td>200억원</td>
+                        <td><span class="after">100억원</span></td>
+                        <td>2025.8.5</td>
+                        <td><span class="date-badge active">시행 중</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>출자의무<br>인정 대상</strong></td>
+                        <td>벤처투자조합</td>
+                        <td><span class="after">개인투자조합 포함</span></td>
+                        <td>2026.7.1</td>
+                        <td><span class="date-badge">예정</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="page-footer">
+            자료: 중소벤처기업부 (2026.1.7 발표)
+        </div>
+    </div>
+
+    <!-- 5페이지: 개인투자조합/창업기획자/개인투자자 -->
+    <div class="page">
+        <div class="page-header">
+            <h2 class="page-title">개인투자조합 · 창업기획자 · 개인투자자</h2>
+            <span class="page-number">05</span>
+        </div>
+        
+        <div class="table-container">
+            <div class="table-header">개인·초기 투자 관련 제도 변경</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 22%;">구분</th>
+                        <th style="width: 28%;">변경 전</th>
+                        <th style="width: 28%;">변경 후</th>
+                        <th style="width: 12%;">시행 시기</th>
+                        <th style="width: 10%;">상태</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>투자 대상 기업</strong></td>
+                        <td>초기 창업기업 중심</td>
+                        <td><span class="after">투자유치 없는<br>4~5년차 기업까지<br>확대</span></td>
+                        <td>2026.7.1</td>
+                        <td><span class="date-badge">예정</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>상장법인<br>투자 비중</strong></td>
+                        <td>10%</td>
+                        <td><span class="after">20%</span></td>
+                        <td>2026.7.1</td>
+                        <td><span class="date-badge">예정</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>경영지배 목적<br>투자</strong></td>
+                        <td>제한적</td>
+                        <td><span class="after">예비창업자 등으로<br>확대</span></td>
+                        <td>2025.8.5</td>
+                        <td><span class="date-badge active">시행 중</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>전문<br>개인투자자<br>요건</strong></td>
+                        <td>최근 3년 1억원</td>
+                        <td><span class="after">5천만원</span></td>
+                        <td>2025.9.16</td>
+                        <td><span class="date-badge active">시행 중</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>법인 출자 한도<br>(일반)</strong></td>
+                        <td>30%</td>
+                        <td><span class="after">30% 유지</span></td>
+                        <td>-</td>
+                        <td><span class="date-badge active">현행 유지</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>법인 출자 한도<br>(지역 투자)</strong></td>
+                        <td>30%</td>
+                        <td><span class="after">40%</span></td>
+                        <td>2025.8.5</td>
+                        <td><span class="date-badge active">시행 중</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>법인 출자 한도<br>(지자체 연계)</strong></td>
+                        <td>30%</td>
+                        <td><span class="after">최대 49%</span></td>
+                        <td>2025.8.5<br>2026.7.1</td>
+                        <td><span class="date-badge">시행 중/<br>예정</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="page-footer">
+            자료: 중소벤처기업부 (2026.1.7 발표)
+        </div>
+    </div>
+
+    <!-- 6페이지: 세제 지원 & 기반 강화 -->
+    <div class="page">
+        <div class="page-header">
+            <h2 class="page-title">세제 지원 확대 & 기반 강화</h2>
+            <span class="page-number">06</span>
+        </div>
+        
+        <div class="subsection-title">
+            <span>💰</span>
+            <span>(1) 벤처투자 관련 세제 지원 변경</span>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">구분</th>
+                        <th style="width: 30%;">변경 전</th>
+                        <th style="width: 30%;">변경 후</th>
+                        <th style="width: 15%;">시행 시기</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>민간 벤처모펀드<br>세액공제</strong></td>
+                        <td>출자금액 5%<br>+<br>증가분 3%</td>
+                        <td><span class="after">출자금액 5%<br>+<br>증가분 5%</span></td>
+                        <td><span class="date-badge active">2026.1.1<br>시행 중</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>SPC 투자<br>세제 혜택</strong></td>
+                        <td>제한적</td>
+                        <td><span class="after">직접 투자와<br>동일 적용</span></td>
+                        <td><span class="date-badge active">2026.1.1<br>시행 중</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="subsection-title">
+            <span>🏦</span>
+            <span>(2) 벤처투자 생태계 기반 강화</span>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">구분</th>
+                        <th style="width: 30%;">변경 전</th>
+                        <th style="width: 30%;">변경 후</th>
+                        <th style="width: 15%;">시행 시기</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>벤처투자 가능<br>기금</strong></td>
+                        <td>일부 법정기금</td>
+                        <td><span class="after">국가재정법상<br>모든 기금</span></td>
+                        <td><span class="date-badge">2026.7.1<br>예정</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>모태펀드<br>존속기간</strong></td>
+                        <td>2035년까지</td>
+                        <td><span class="after">10년 단위<br>연장 가능</span></td>
+                        <td><span class="date-badge">2026.7.1<br>예정</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>제3자 연대책임</strong></td>
+                        <td>일부만 금지</td>
+                        <td><span class="after">전반 확대 적용</span></td>
+                        <td><span class="date-badge active">2025.12.30<br>시행 중</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="page-footer">
+            자료: 중소벤처기업부 (2026.1.7 발표) | 제작: Zero to One TAX
+        </div>
+    </div>
+
+    <!-- 7페이지: CTA -->
+    <div class="page">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; padding: 60mm 20mm;">
+            <div class="highlight-box" style="margin-top: 0; width: 100%; max-width: 600px;">
+                <p class="highlight-text" style="font-size: 20px; line-height: 1.8; margin-bottom: 30px;">
+                    💡 다음의 고민이 있다면 연락주세요
+                </p>
+                <div style="text-align: left; font-size: 16px; line-height: 2; color: #78350f; margin-bottom: 40px;">
+                    ✓ 투자 유치를 준비 중이거나 진행 중인 스타트업 대표<br><br>
+                    ✓ VC·벤처투자조합으로부터 투자 받을 계획이 있는 기업<br><br>
+                    ✓ 민간 벤처모펀드 출자를 통해 세액공제 혜택을 받고 싶은 법인<br><br>
+                    ✓ 투자 실사·재무 구조 점검이 필요한 스타트업
+                </div>
+                <div style="border-top: 2px solid #f59e0b; padding-top: 30px; margin-top: 30px;">
+                    <p style="font-size: 18px; font-weight: 700; color: #92400e; margin-bottom: 20px;">
+                        📞 <strong>Zero to One TAX</strong>에 문의하세요
+                    </p>
+                    <p style="font-size: 16px; color: #78350f; margin-bottom: 15px;">
+                        📧 lbg@0to1tax.com
+                    </p>
+                    <p style="font-size: 16px; color: #78350f; margin-bottom: 25px;">
+                        ☎️ 010-4395-1996
+                    </p>
+                    <p style="font-size: 15px; color: #92400e; font-weight: 600;">
+                        🚀 <a href="https://0to1tax.com/services.html" style="color: #1e40af; text-decoration: underline;">제로투원택스 서비스 소개서 보기 →</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

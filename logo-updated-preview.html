@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero to One TAX - Updated Logo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e293b;
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 18px;
+            margin-bottom: 50px;
+            font-weight: 500;
+        }
+
+        .update-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .logo-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            text-align: center;
+        }
+
+        .logo-preview {
+            width: 100%;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .logo-preview.dark {
+            background: #1e293b;
+        }
+
+        .logo-preview img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .comparison {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .comparison h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .comparison-item {
+            text-align: center;
+        }
+
+        .comparison-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748b;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .comparison-before {
+            color: #ef4444;
+        }
+
+        .comparison-after {
+            color: #10b981;
+        }
+
+        .comparison-box {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 30px;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-box {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .info-box h3 {
+            color: #3b82f6;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .info-box p {
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-box li {
+            padding: 8px 0;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .download-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .logo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="text-align: center;">
+            <span class="update-badge">✨ Updated - Inter Font & 0to1 Lowercase</span>
+        </div>
+        
+        <h1>Zero to One TAX - Updated Logo</h1>
+        <p class="subtitle">더 모던한 Inter 폰트 & "0to1" 소문자 적용</p>
+
+        <!-- Before & After 비교 -->
+        <div class="comparison">
+            <h2>📊 Before & After</h2>
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <div class="comparison-label comparison-before">Before (Arial, 0TO1)</div>
+                    <div class="comparison-box">
+                        <div style="font-family: Arial, sans-serif; font-size: 36px; font-weight: 800; color: #1e293b;">
+                            <span style="color: #3b82f6;">0TO1</span> TAX
+                        </div>
+                    </div>
+                </div>
+                <div class="comparison-item">
+                    <div class="comparison-label comparison-after">After (Inter, 0to1)</div>
+                    <div class="comparison-box">
+                        <div style="font-family: 'Inter', sans-serif; font-size: 36px; font-weight: 800; color: #1e293b;">
+                            <span style="color: #3b82f6;">0to1</span> TAX
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 업데이트된 로고들 -->
+        <div class="logo-grid">
+            <!-- 기본 로고 -->
+            <div class="logo-card">
+                <div class="logo-title">기본 로고 (0to1tax-logo.svg)</div>
+                <div class="logo-preview">
+                    <img src="0to1tax-logo.svg" alt="Zero to One TAX Logo" style="width: 250px;">
+                </div>
+            </div>
+
+            <!-- 다크 버전 -->
+            <div class="logo-card">
+                <div class="logo-title">다크 버전 (0to1tax-logo-dark.svg)</div>
+                <div class="logo-preview dark">
+                    <img src="0to1tax-logo-dark.svg" alt="Zero to One TAX Dark Logo" style="width: 250px;">
+                </div>
+            </div>
+
+            <!-- 아이콘 -->
+            <div class="logo-card">
+                <div class="logo-title">아이콘 (0to1tax-icon.svg)</div>
+                <div class="logo-preview">
+                    <img src="0to1tax-icon.svg" alt="Zero to One TAX Icon" style="width: 150px;">
+                </div>
+            </div>
+
+            <!-- 가로형 -->
+            <div class="logo-card">
+                <div class="logo-title">가로형 (0to1tax-horizontal.svg)</div>
+                <div class="logo-preview">
+                    <img src="0to1tax-horizontal.svg" alt="Zero to One TAX Horizontal" style="width: 350px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- 변경 사항 -->
+        <div class="info-box">
+            <h3>🎨 주요 변경 사항</h3>
+            <ul>
+                <li><strong>폰트 변경</strong>: Arial → Inter (모던한 기하학적 산세리프)</li>
+                <li><strong>텍스트 변경</strong>: 0TO1 → 0to1 (소문자로 더 친근하고 모던)</li>
+                <li><strong>가독성 향상</strong>: Inter 폰트의 명확한 글자 형태</li>
+                <li><strong>브랜드 톤</strong>: 전문적이면서도 친근한 느낌</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>✨ Inter 폰트의 장점</h3>
+            <ul>
+                <li>UI/UX에 최적화된 모던 폰트</li>
+                <li>숫자와 영문의 균형잡힌 디자인</li>
+                <li>다양한 스크린에서 높은 가독성</li>
+                <li>Google Fonts 무료 제공</li>
+                <li>웹, 앱, 인쇄물 모두 적합</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>💡 "0to1" 소문자의 의미</h3>
+            <p><strong>더 친근하고 접근하기 쉬운 느낌</strong></p>
+            <p>"0TO1"보다 "0to1"이 더 부드럽고 현대적인 느낌을 줍니다. 스타트업과 함께 성장한다는 동반자 이미지에 더 적합합니다.</p>
+        </div>
+
+        <div class="download-section">
+            <h2 style="color: #1e293b; margin-bottom: 20px; font-weight: 800;">📥 다운로드</h2>
+            <p style="color: #64748b; margin-bottom: 30px;">모든 로고 파일이 Inter 폰트와 "0to1" 소문자로 업데이트되었습니다</p>
+            <a href="0to1tax-logo.svg" download class="download-btn">기본 로고 다운로드</a>
+            <a href="0to1tax-logo-dark.svg" download class="download-btn">다크 버전 다운로드</a>
+            <a href="0to1tax-icon.svg" download class="download-btn">아이콘 다운로드</a>
+            <a href="0to1tax-horizontal.svg" download class="download-btn">가로형 다운로드</a>
+        </div>
+    </div>
+</body>
+</html>

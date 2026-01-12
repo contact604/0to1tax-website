@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+    <g transform="translate(100, 100)">
+        <!-- 로켓 몸체 -->
+        <path d="M -15 -50 Q -15 -70 0 -70 Q 15 -70 15 -50 L 15 20 L -15 20 Z" 
+              fill="url(#rocketGradientIcon)" />
+        
+        <!-- 창문 -->
+        <circle cx="0" cy="-40" r="12" fill="white"/>
+        
+        <!-- 왼쪽 날개 -->
+        <path d="M -15 20 L -30 20 L -15 -10 Z" fill="#f59e0b"/>
+        
+        <!-- 오른쪽 날개 -->
+        <path d="M 15 20 L 30 20 L 15 -10 Z" fill="#f59e0b"/>
+        
+        <!-- 불꽃 -->
+        <path d="M 0 20 L -10 45 L 0 35 L 10 45 Z" fill="url(#fireGradientIcon)"/>
+    </g>
+    
+    <defs>
+        <linearGradient id="rocketGradientIcon" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="fireGradientIcon" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f87171;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+</svg>

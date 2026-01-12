@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[0TO1 TAX LETTER] 2026년 벤처투자 제도 개편 안내</title>
+    <style>
+        /* Outlook 호환성을 위한 스타일 */
+        body, table, td, p, a, li, blockquote {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #333333;
+            line-height: 1.6;
+        }
+        
+        /* 메인 컨테이너 */
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* 헤더 */
+        .header {
+            background: #5b8fd6;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .rocket {
+            font-size: 28px;
+            margin-left: 10px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin: 0;
+        }
+        
+        /* 컨텐츠 영역 */
+        .content {
+            padding: 30px 25px;
+            text-align: left;
+        }
+        
+        /* 인사말 박스 */
+        .intro-box {
+            background-color: #f0f7fc;
+            border-left: 3px solid #7ba8d9;
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #444444;
+        }
+        
+        .intro-box strong {
+            color: #5b8fd6;
+            font-weight: 600;
+        }
+        
+        .intro-link {
+            display: block;
+            margin-top: 15px;
+            color: #2196f3;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        
+        .intro-link:hover {
+            color: #1565c0;
+            text-decoration: underline;
+        }
+        
+        /* 인사말 텍스트 */
+        .greeting {
+            font-size: 16px;
+            font-weight: 400;
+            color: #333333;
+            margin-bottom: 5px;
+        }
+        
+        .intro {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #4a5568;
+        }
+        
+        /* 섹션 스타일 */
+        .section {
+            margin-bottom: 35px;
+            border-left: 3px solid #a8c8e1;
+            padding-left: 20px;
+        }
+        
+        .section-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: #5a7a99;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .section-content {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #4a5568;
+        }
+        
+        /* 구분선 */
+        .divider {
+            border: none;
+            height: 1px;
+            background: #e5eef5;
+            margin: 30px 0;
+        }
+        
+        /* 요약 박스 */
+        .summary-box {
+            background-color: #f8fbfd;
+            border: 1px solid #b8d4ea;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .summary-item {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #5a7a99;
+        }
+        
+        .summary-number {
+            font-weight: bold;
+            color: #7ba8d9;
+            margin-right: 8px;
+        }
+        
+        /* 포인트 리스트 */
+        .point-list {
+            background-color: #f8fbfd;
+            border-left: 3px solid #b8d4ea;
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .point-item {
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .bullet {
+            color: #7ba8d9;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        /* 비교 테이블 */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th {
+            background: #d4e6f5;
+            color: #4a6785;
+            padding: 15px 10px;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .comparison-table td {
+            padding: 15px 10px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .before-text {
+            color: #94a3b8;
+            font-weight: 600;
+        }
+        
+        .after-text {
+            color: #5b8fd6;
+            font-weight: 600;
+        }
+        
+        /* 체크리스트 박스 */
+        .checklist-box {
+            background-color: #f8fbfd;
+            border: 1px solid #b8d4ea;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .checklist-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #5a7a99;
+            margin-bottom: 15px;
+        }
+        
+        .checklist-item {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #6b8299;
+        }
+        
+        /* CTA 버튼 */
+        .cta-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px 25px;
+            background: #f8fbfd;
+            border: 1px solid #b8d4ea;
+            border-radius: 8px;
+        }
+        
+        .cta-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #5a7a99;
+            margin-bottom: 10px;
+        }
+        
+        .cta-subtext {
+            font-size: 16px;
+            color: #6b8299;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #7ba8d9;
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 14px 35px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+        }
+        
+        .cta-button:hover {
+            background: #6a98c9;
+        }
+        
+        /* 푸터 */
+        .footer {
+            background-color: #1f2937;
+            color: #d1d5db;
+            padding: 30px 25px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .footer-logo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact {
+            margin: 10px 0;
+        }
+        
+        .footer-link {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        .footer-link:hover {
+            color: #93c5fd;
+        }
+        
+        /* 반응형 디자인 */
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                margin: 0 10px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .intro-box {
+                padding: 15px;
+                font-size: 14px;
+            }
+            
+            .intro-link {
+                font-size: 14px;
+            }
+            
+            .section {
+                padding-left: 15px;
+            }
+            
+            .section-title {
+                font-size: 18px;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px 5px;
+                font-size: 13px;
+            }
+            
+            .cta-section {
+                padding: 25px 20px;
+            }
+            
+            .cta-text {
+                font-size: 18px;
+            }
+            
+            .cta-subtext {
+                font-size: 16px;
+                font-weight: 700;
+            }
+            
+            .cta-button {
+                display: block;
+                margin: 10px 0;
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+        }
+        
+        /* Outlook 특별 처리 */
+        <!--[if mso]>
+        <style>
+            .email-container {
+                width: 600px !important;
+            }
+            
+            .intro-box, .summary-box, .point-list, .cta-section, .checklist-box {
+                border: 1px solid #e2e8f0;
+            }
+            
+            .cta-button {
+                padding: 16px 40px !important;
+            }
+        </style>
+        <![endif]-->
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0; background-color: #f8f9fa;">
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f8f9fa;">
+        <tr>
+            <td align="center" style="padding: 20px 0;">
+                <div class="email-container">
+        <!-- 헤더 -->
+        <div class="header">
+            <div class="logo">
+                ZERO TO ONE TAX<span class="rocket">🚀</span>
+            </div>
+            <p class="subtitle">스타트업 성장 세무회계 전문</p>
+        </div>
+        
+        <!-- 메인 컨텐츠 -->
+        <div class="content">
+            <!-- 제목 -->
+            <h1 style="color: #1e3a8a; font-size: 24px; font-weight: bold; margin-bottom: 10px; line-height: 1.3;">
+                2026년 벤처투자 제도가 이렇게 바뀝니다
+            </h1>
+            
+            <h2 style="color: #4a5568; font-size: 18px; font-weight: 600; margin-bottom: 30px; line-height: 1.4;">
+                투자 활성화를 위한 규제 완화·세제 확대
+            </h2>
+            
+            <!-- 인사말 -->
+            <div class="greeting">
+                안녕하세요,
+            </div>
+            
+            <!-- 인트로 박스 -->
+            <div class="intro-box">
+                스타트업 전문 세무회계 브랜드인 <strong>Zero to One TAX</strong> 대표 회계사 <strong>이범기</strong>입니다.<br><br>
+                
+                저희 팀은 스타트업이 <strong>0에서 1을 만들어가는 위대한 여정</strong>에서 <strong>곁에서 항상 도움</strong>이 되는 <strong>세무, 회계 서비스</strong>를 제공하고자 합니다.
+                
+                <a href="https://0to1tax.com/services.html" target="_blank" class="intro-link">
+                    🚀 제로투원택스 서비스 소개서 →
+                </a>
+            </div>
+            
+            <!-- 핵심 요약 박스 -->
+            <div class="summary-box">
+                <div style="font-size: 18px; font-weight: bold; color: #1e3a8a; margin-bottom: 15px;">
+                    📌 핵심 변화 요약
+                </div>
+                <div class="summary-item">
+                    <span class="summary-number">①</span>
+                    투자 규제 완화 - 의무 기간 연장 및 펀드별 유연성 강화
+                </div>
+                <div class="summary-item">
+                    <span class="summary-number">②</span>
+                    세제 지원 확대 - 민간 벤처모펀드 세액공제 및 SPC 투자 혜택
+                </div>
+                <div class="summary-item">
+                    <span class="summary-number">③</span>
+                    장기 자금 기반 강화 - 모태펀드 존속기간 연장 및 제3자 보호
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 1: VC 투자 의무 기간 연장 -->
+            <div class="section">
+                <div class="section-title">
+                    ① VC 투자 의무 기간 연장 (3년 → 5년)
+                </div>
+                <div class="section-content">
+                    <table class="comparison-table">
+                        <tr>
+                            <th style="width: 30%;">구분</th>
+                            <th style="width: 35%;">변경 전</th>
+                            <th style="width: 35%;">변경 후</th>
+                        </tr>
+                        <tr>
+                            <td><strong>의무 기간</strong></td>
+                            <td class="before-text">3년</td>
+                            <td class="after-text">5년</td>
+                        </tr>
+                        <tr>
+                            <td><strong>시행 시기</strong></td>
+                            <td colspan="2">2025년 시행 중</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="point-list">
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            <strong>벤처캐피탈</strong>과 <strong>벤처투자회사</strong>의 투자 의무 기간이 3년에서 5년으로 연장되었습니다.
+                        </div>
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            장기적이고 안정적인 투자 환경을 조성하기 위한 변화입니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 2: 펀드별 의무 완화 -->
+            <div class="section">
+                <div class="section-title">
+                    ② 펀드별 의무 완화 (개별 → 전체 기준)
+                </div>
+                <div class="section-content">
+                    <table class="comparison-table">
+                        <tr>
+                            <th style="width: 30%;">구분</th>
+                            <th style="width: 35%;">변경 전</th>
+                            <th style="width: 35%;">변경 후</th>
+                        </tr>
+                        <tr>
+                            <td><strong>투자 기준</strong></td>
+                            <td class="before-text">개별 펀드별</td>
+                            <td class="after-text">전체 40% 적용</td>
+                        </tr>
+                        <tr>
+                            <td><strong>시행 시기</strong></td>
+                            <td colspan="2">2025년 시행 중</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="point-list">
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            <strong>개별 펀드별 의무</strong>를 폐지하고 <strong>전체 40%</strong>만 충족하면 됩니다.
+                        </div>
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            VC의 펀드 운용 자율성이 크게 향상되어 투자 효율성이 높아집니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 3: 민간 벤처모펀드 세액공제 확대 -->
+            <div class="section">
+                <div class="section-title">
+                    ③ 민간 벤처모펀드 세액공제 확대
+                </div>
+                <div class="section-content">
+                    <table class="comparison-table">
+                        <tr>
+                            <th style="width: 30%;">구분</th>
+                            <th style="width: 35%;">변경 전</th>
+                            <th style="width: 35%;">변경 후</th>
+                        </tr>
+                        <tr>
+                            <td><strong>세액공제율</strong></td>
+                            <td class="before-text">3%</td>
+                            <td class="after-text">5% + 증가분 5%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>시행 시기</strong></td>
+                            <td colspan="2">2026년 시행 예정</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="point-list">
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            민간 벤처모펀드 출자에 대한 세액공제율이 <strong>3%에서 5%로 상향</strong>됩니다.
+                        </div>
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            전년 대비 증가분에 대해 <strong>추가 5%</strong>를 공제받을 수 있습니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 4: SPC 투자도 동일 세제 혜택 -->
+            <div class="section">
+                <div class="section-title">
+                    ④ SPC 투자도 동일 세제 혜택
+                </div>
+                <div class="section-content">
+                    <table class="comparison-table">
+                        <tr>
+                            <th style="width: 30%;">구분</th>
+                            <th style="width: 35%;">변경 전</th>
+                            <th style="width: 35%;">변경 후</th>
+                        </tr>
+                        <tr>
+                            <td><strong>세제 혜택</strong></td>
+                            <td class="before-text">직접 투자만</td>
+                            <td class="after-text">직접 투자 = SPC</td>
+                        </tr>
+                        <tr>
+                            <td><strong>시행 시기</strong></td>
+                            <td colspan="2">2026년 시행 예정</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="point-list">
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            <strong>SPC(특수목적회사)를 통한 투자</strong>도 직접 투자와 동일한 세제 혜택을 받습니다.
+                        </div>
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            투자 구조의 유연성이 높아지고 다양한 투자 방식이 가능해집니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 5: 모태펀드 존속기간 연장 -->
+            <div class="section">
+                <div class="section-title">
+                    ⑤ 모태펀드 존속기간 연장 근거 마련
+                </div>
+                <div class="section-content">
+                    <table class="comparison-table">
+                        <tr>
+                            <th style="width: 30%;">구분</th>
+                            <th style="width: 35%;">변경 전</th>
+                            <th style="width: 35%;">변경 후</th>
+                        </tr>
+                        <tr>
+                            <td><strong>존속기간</strong></td>
+                            <td class="before-text">고정</td>
+                            <td class="after-text">연장 가능</td>
+                        </tr>
+                        <tr>
+                            <td><strong>시행 시기</strong></td>
+                            <td colspan="2">2025년 시행 중</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="point-list">
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            모태펀드 존속기간을 <strong>10년 단위로 연장</strong>할 수 있는 근거가 마련되었습니다.
+                        </div>
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            장기적인 벤처투자 생태계 조성이 가능해집니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 대표 체크리스트 -->
+            <div class="checklist-box">
+                <div class="checklist-title">
+                    ✅ 대표가 점검해야 할 사항
+                </div>
+                <div class="checklist-item">
+                    <strong>1.</strong> 우리 회사는 벤처인증을 받았거나 받을 계획이 있나요?
+                </div>
+                <div class="checklist-item">
+                    <strong>2.</strong> 현재 투자 유치를 준비 중이거나 진행 중인가요?
+                </div>
+                <div class="checklist-item">
+                    <strong>3.</strong> VC 또는 벤처투자조합으로부터 투자받을 계획이 있나요?
+                </div>
+                <div class="checklist-item">
+                    <strong>4.</strong> 민간 벤처모펀드 출자를 통해 세액공제 혜택을 받을 수 있나요?
+                </div>
+                <div class="checklist-item">
+                    <strong>5.</strong> SPC 구조를 활용한 투자를 검토하고 계신가요?
+                </div>
+            </div>
+            
+            <!-- 비주얼 요약 박스 -->
+            <div class="summary-box" style="margin: 40px 0;">
+                <div style="font-size: 18px; font-weight: bold; color: #1e3a8a; margin-bottom: 25px; text-align: center;">
+                    📌 주요 변경 사항 한눈에 보기
+                </div>
+                
+                <!-- ① VC 투자의무 기간 확대 -->
+                <div style="margin-bottom: 30px; padding: 20px; background: #f8fafc; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <div style="font-size: 16px; font-weight: bold; color: #1e3a8a; margin-bottom: 15px;">
+                        ① VC 투자의무 기간 확대
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 6px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="flex: 1; text-align: center;">
+                                <div style="font-size: 24px; font-weight: bold; color: #dc2626;">3년</div>
+                                <div style="font-size: 12px; color: #64748b;">변경 전</div>
+                            </div>
+                            <div style="font-size: 20px; color: #3b82f6;">→</div>
+                            <div style="flex: 1; text-align: center;">
+                                <div style="font-size: 24px; font-weight: bold; color: #059669;">5년</div>
+                                <div style="font-size: 12px; color: #64748b;">변경 후</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="font-size: 14px; color: #475569; line-height: 1.6;">
+                        • 투자 의무 이행 기간이 3년에서 5년으로 확대되어, 보다 여유롭게 투자처를 발굴하고 검토할 수 있습니다.<br>
+                        • 연도별 투자 의무도 완화되어, 3년까지 1건, 5년까지 추가 1건 이상 투자하면 됩니다.
+                    </div>
+                </div>
+                
+                <!-- ② 펀드별 투자의무 완화 -->
+                <div style="margin-bottom: 30px; padding: 20px; background: #f8fafc; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <div style="font-size: 16px; font-weight: bold; color: #1e3a8a; margin-bottom: 15px;">
+                        ② 펀드별 투자의무 완화
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 6px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="flex: 1; text-align: center;">
+                                <div style="font-size: 20px; font-weight: bold; color: #dc2626;">개별 펀드 20%</div>
+                                <div style="font-size: 12px; color: #64748b;">변경 전</div>
+                            </div>
+                            <div style="font-size: 20px; color: #3b82f6;">→</div>
+                            <div style="flex: 1; text-align: center;">
+                                <div style="font-size: 20px; font-weight: bold; color: #059669;">전체 펀드 40%</div>
+                                <div style="font-size: 12px; color: #64748b;">변경 후</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="font-size: 14px; color: #475569; line-height: 1.6;">
+                        • 개별 펀드 20% 투자 의무가 폐지되고, 전체 펀드 기준 40%로 판단합니다.<br>
+                        • 펀드별 특성을 반영한 운용 전략 수립이 가능해집니다.
+                    </div>
+                </div>
+                
+                <!-- ③ 민간 벤처모펀드 세액공제 확대 -->
+                <div style="margin-bottom: 20px; padding: 20px; background: #f8fafc; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <div style="font-size: 16px; font-weight: bold; color: #1e3a8a; margin-bottom: 15px;">
+                        ③ 민간 벤처모펀드 세액공제 확대
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 6px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="flex: 1; text-align: center;">
+                                <div style="font-size: 18px; font-weight: bold; color: #dc2626;">5% + 증가분 3%</div>
+                                <div style="font-size: 12px; color: #64748b;">변경 전</div>
+                            </div>
+                            <div style="font-size: 20px; color: #3b82f6;">→</div>
+                            <div style="flex: 1; text-align: center;">
+                                <div style="font-size: 18px; font-weight: bold; color: #059669;">5% + 증가분 5%</div>
+                                <div style="font-size: 12px; color: #64748b;">변경 후</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="font-size: 14px; color: #475569; line-height: 1.6;">
+                        • 민간 벤처모태펀드 출자자에 대한 세액공제율이 출자금액 5% + 증가분 3%에서 출자금액 5% + 증가분 5%로 상향되었습니다.<br>
+                        • 민간 자금 유입이 촉진될 것으로 기대됩니다.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA 버튼 -->
+            <div class="cta-section">
+                <div class="cta-text">더 자세한 내용이 궁금하신가요?</div>
+                <div class="cta-subtext">변경 전후 비교 PDF 보기</div>
+                <!--[if mso]>
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                        <td align="center">
+                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://0to1tax.com/pdf/2026-venture-investment-reform.pdf" style="height:50px;v-text-anchor:middle;width:280px;" arcsize="60%" strokecolor="#2563eb" fillcolor="#3b82f6">
+                                <w:anchorlock/>
+                                <center style="color:#ffffff;font-family:sans-serif;font-size:17px;font-weight:bold;">변경 전후 비교 PDF 보기 →</center>
+                            </v:roundrect>
+                        </td>
+                    </tr>
+                </table>
+                <![endif]-->
+                <!--[if !mso]><!-->
+                <a href="https://0to1tax.com/pdf/2026-venture-investment-reform.pdf" class="cta-button" target="_blank">
+                    변경 전후 비교 PDF 보기 →
+                </a>
+                <!--<![endif]-->
+            </div>
+            
+        </div>
+        
+        <!-- 푸터 -->
+        <div class="footer">
+            <div class="footer-logo">
+                ZERO TO ONE TAX | 선영회계법인
+            </div>
+            
+            <div class="footer-contact">
+                📧 <a href="mailto:lbg@0to1tax.com" class="footer-link">lbg@0to1tax.com</a>
+            </div>
+            
+            <div class="footer-contact">
+                📞 <a href="tel:010-4395-1996" class="footer-link">010-4395-1996</a>
+            </div>
+            
+            <div class="footer-contact">
+                🏢 서울특별시 강남구 테헤란로70길 12 H타워 6층
+            </div>
+            
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #374151;">
+                <a href="https://0to1tax.com" class="footer-link">www.0to1tax.com</a>
+            </div>
+            
+            <div style="margin-top: 15px; font-size: 12px; color: #9ca3af;">
+                이 이메일은 ZERO TO ONE TAX 뉴스레터 구독자에게 발송되었습니다.
+            </div>
+        </div>
+    </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

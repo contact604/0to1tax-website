@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0to1 tax 로고 미리보기 (Blue)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .logo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .logo-card h2 {
+            color: #1e293b;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .logo-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .logo-display.white {
+            background: white;
+        }
+        
+        .logo-display.dark {
+            background: #1e293b;
+        }
+        
+        .logo-display.blue {
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+        }
+        
+        .logo-display img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .info-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+        
+        .info-section h2 {
+            color: #1e293b;
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .color-item {
+            text-align: center;
+        }
+        
+        .color-box {
+            width: 100%;
+            height: 100px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .color-name {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+        
+        .color-code {
+            font-size: 14px;
+            color: #64748b;
+            font-family: 'Monaco', monospace;
+        }
+        
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .usage-item {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .usage-item h3 {
+            color: #1e293b;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .usage-item p {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        code {
+            background: #1e293b;
+            color: #60a5fa;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: 'Monaco', monospace;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+            
+            .logo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .color-palette {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 0to1 tax 로고 (Blue Edition)</h1>
+        <p class="subtitle">신뢰감 있는 클래식 블루 계열 브랜드 로고</p>
+        
+        <!-- 로고 갤러리 -->
+        <div class="logo-grid">
+            <!-- 세로형 로고 (밝은 배경) -->
+            <div class="logo-card">
+                <h2>🎯 세로형 로고 (밝은 배경)</h2>
+                <div class="logo-display white">
+                    <img src="0to1tax-logo-blue.svg" alt="0to1 tax Logo" style="height: 280px;">
+                </div>
+            </div>
+            
+            <!-- 세로형 로고 (어두운 배경) -->
+            <div class="logo-card">
+                <h2>🌙 세로형 로고 (어두운 배경)</h2>
+                <div class="logo-display dark">
+                    <img src="0to1tax-logo-dark-blue.svg" alt="0to1 tax Logo Dark" style="height: 280px;">
+                </div>
+            </div>
+            
+            <!-- 가로형 로고 (밝은 배경) -->
+            <div class="logo-card">
+                <h2>📐 가로형 로고 (밝은 배경)</h2>
+                <div class="logo-display white">
+                    <img src="0to1tax-horizontal-blue.svg" alt="0to1 tax Horizontal" style="height: 100px;">
+                </div>
+            </div>
+            
+            <!-- 가로형 로고 (어두운 배경) -->
+            <div class="logo-card">
+                <h2>🎨 가로형 로고 (Blue 배경)</h2>
+                <div class="logo-display blue">
+                    <img src="0to1tax-horizontal-blue.svg" alt="0to1 tax Horizontal Blue" style="height: 100px; filter: brightness(0) invert(1);">
+                </div>
+            </div>
+            
+            <!-- 아이콘 로고 -->
+            <div class="logo-card">
+                <h2>⭐ 아이콘 (Favicon)</h2>
+                <div class="logo-display white">
+                    <img src="0to1tax-icon-blue.svg" alt="0to1 tax Icon" style="height: 150px;">
+                </div>
+            </div>
+            
+            <!-- 아이콘 어두운 배경 -->
+            <div class="logo-card">
+                <h2>🌟 아이콘 (어두운 배경)</h2>
+                <div class="logo-display dark">
+                    <img src="0to1tax-icon-blue.svg" alt="0to1 tax Icon Dark" style="height: 150px;">
+                </div>
+            </div>
+        </div>
+        
+        <!-- 브랜드 컬러 -->
+        <div class="info-section">
+            <h2>🎨 브랜드 컬러 팔레트</h2>
+            <div class="color-palette">
+                <div class="color-item">
+                    <div class="color-box" style="background: #2563eb;"></div>
+                    <div class="color-name">Primary Blue</div>
+                    <div class="color-code">#2563eb</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background: #3b82f6;"></div>
+                    <div class="color-name">Light Blue</div>
+                    <div class="color-code">#3b82f6</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background: #60a5fa;"></div>
+                    <div class="color-name">Sky Blue</div>
+                    <div class="color-code">#60a5fa</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background: #f59e0b;"></div>
+                    <div class="color-name">Accent Orange</div>
+                    <div class="color-code">#f59e0b</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background: #1e293b;"></div>
+                    <div class="color-name">Text Dark</div>
+                    <div class="color-code">#1e293b</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 사용 가이드 -->
+        <div class="info-section">
+            <h2>📖 로고 사용 가이드</h2>
+            <div class="usage-grid">
+                <div class="usage-item">
+                    <h3>🌐 웹사이트 헤더</h3>
+                    <p>가로형 로고 사용<br>
+                    <code>0to1tax-horizontal-blue.svg</code><br>
+                    권장 높이: 40-60px</p>
+                </div>
+                
+                <div class="usage-item">
+                    <h3>📱 모바일 앱</h3>
+                    <p>세로형 또는 아이콘 사용<br>
+                    <code>0to1tax-logo-blue.svg</code><br>
+                    <code>0to1tax-icon-blue.svg</code></p>
+                </div>
+                
+                <div class="usage-item">
+                    <h3>💼 명함/문서</h3>
+                    <p>세로형 로고 사용<br>
+                    <code>0to1tax-logo-blue.svg</code><br>
+                    최소 크기: 40mm (가로)</p>
+                </div>
+                
+                <div class="usage-item">
+                    <h3>🎯 Favicon</h3>
+                    <p>아이콘 버전 사용<br>
+                    <code>0to1tax-icon-blue.svg</code><br>
+                    권장 크기: 32x32px</p>
+                </div>
+                
+                <div class="usage-item">
+                    <h3>✉️ 이메일 서명</h3>
+                    <p>가로형 로고 사용<br>
+                    <code>0to1tax-horizontal-blue.svg</code><br>
+                    권장 높이: 40px</p>
+                </div>
+                
+                <div class="usage-item">
+                    <h3>📊 프레젠테이션</h3>
+                    <p>밝은 배경: 기본 로고<br>
+                    어두운 배경: 다크 버전<br>
+                    <code>*-dark-blue.svg</code></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 브랜드 개성 -->
+        <div class="info-section">
+            <h2>✨ 브랜드 개성 (Blue Edition)</h2>
+            <div class="usage-grid">
+                <div class="usage-item">
+                    <h3>🚀 성장 지향</h3>
+                    <p>로켓 모티브로 성장과 도약을 상징</p>
+                </div>
+                
+                <div class="usage-item">
+                    <h3>💙 신뢰감</h3>
+                    <p>클래식 블루로 전문성과 안정감 전달</p>
+                </div>
+                
+                <div class="usage-item">
+                    <h3>🤝 파트너십</h3>
+                    <p>따뜻한 블루 톤으로 친근하고 신뢰할 수 있는 이미지</p>
+                </div>
+                
+                <div class="usage-item">
+                    <h3>🌟 전문성</h3>
+                    <p>금융·회계 서비스에 최적화된 클래식한 디자인</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 색상 비교 -->
+        <div class="info-section">
+            <h2>🎨 Cyan vs Blue 비교</h2>
+            <div class="usage-grid">
+                <div class="usage-item">
+                    <h3>Cyan (청록색)</h3>
+                    <p><strong>특징:</strong> 모던하고 테크한 느낌<br>
+                    <strong>적합:</strong> 스타트업, IT 기업<br>
+                    <strong>톤:</strong> 밝고 세련된</p>
+                </div>
+                
+                <div class="usage-item">
+                    <h3>Blue (파란색) ✨ 현재</h3>
+                    <p><strong>특징:</strong> 신뢰감 있고 클래식한 느낌<br>
+                    <strong>적합:</strong> 금융, 회계, 법률<br>
+                    <strong>톤:</strong> 안정적이고 전문적인</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

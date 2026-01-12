@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[0TO1 TAX LETTER] 2026년 달라지는 벤처투자 제도</title>
+    <style>
+        /* Outlook 호환성을 위한 스타일 */
+        body, table, td, p, a, li, blockquote {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans KR', sans-serif;
+            color: #333333;
+            line-height: 1.6;
+        }
+        
+        /* 메인 컨테이너 */
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* 헤더 */
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .rocket {
+            font-size: 28px;
+            margin-left: 10px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin: 0;
+        }
+        
+        /* 컨텐츠 영역 */
+        .content {
+            padding: 30px 25px;
+            text-align: left;
+        }
+        
+        /* 인사말 박스 */
+        .intro-box {
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #333333;
+        }
+        
+        .intro-box strong {
+            color: #1e40af;
+            font-weight: 600;
+        }
+        
+        .intro-link {
+            display: block;
+            margin-top: 15px;
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        
+        .intro-link:hover {
+            color: #1e40af;
+            text-decoration: underline;
+        }
+        
+        /* 인사말 텍스트 */
+        .greeting {
+            font-size: 16px;
+            font-weight: 400;
+            color: #333333;
+            margin-bottom: 5px;
+        }
+        
+        .intro {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #4a5568;
+        }
+        
+        /* 섹션 스타일 */
+        .section {
+            margin-bottom: 35px;
+            border-left: 4px solid #3b82f6;
+            padding-left: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .section-content {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #4a5568;
+        }
+        
+        /* 구분선 */
+        .divider {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, #e2e8f0 0%, #3b82f6 50%, #e2e8f0 100%);
+            margin: 30px 0;
+        }
+        
+        /* 요약 박스 */
+        .summary-box {
+            background-color: #f0f9ff;
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .summary-item {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #1e3a8a;
+        }
+        
+        .summary-number {
+            font-weight: bold;
+            color: #3b82f6;
+            margin-right: 8px;
+        }
+        
+        /* 포인트 리스트 */
+        .point-list {
+            background-color: #fef7f0;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin: 15px 0 8px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .point-item {
+            margin-bottom: 8px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .point-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .bullet {
+            color: #f59e0b;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        /* CTA 버튼 */
+        .cta-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 35px 25px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            animation: ctaBoxPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes ctaBoxPulse {
+            0%, 100% {
+                box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 12px 32px rgba(59, 130, 246, 0.4);
+                transform: scale(1.02);
+            }
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+            animation: rotateGradient 6s linear infinite;
+            z-index: 0;
+        }
+        
+        @keyframes rotateGradient {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .cta-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-subtext {
+            font-size: 18px;
+            color: #1e3a8a;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 16px 40px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            animation: buttonShine 2s ease-in-out infinite;
+        }
+        
+        @keyframes buttonShine {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            }
+            50% {
+                box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+            }
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.5);
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        }
+        
+        /* 푸터 */
+        .footer {
+            background-color: #1f2937;
+            color: #d1d5db;
+            padding: 30px 25px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .footer-logo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact {
+            margin: 10px 0;
+        }
+        
+        .footer-link {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        .footer-link:hover {
+            color: #93c5fd;
+        }
+        
+        /* 반응형 디자인 */
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                margin: 0 10px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .intro-box {
+                padding: 15px;
+                font-size: 14px;
+            }
+            
+            .intro-link {
+                font-size: 14px;
+            }
+            
+            .section {
+                padding-left: 15px;
+            }
+            
+            .section-title {
+                font-size: 18px;
+            }
+            
+            .cta-section {
+                padding: 25px 20px;
+            }
+            
+            .cta-text {
+                font-size: 18px;
+            }
+            
+            .cta-subtext {
+                font-size: 16px;
+                font-weight: 700;
+            }
+            
+            .cta-button {
+                display: block;
+                margin: 10px 0;
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0; background-color: #f8f9fa;">
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f8f9fa;">
+        <tr>
+            <td align="center" style="padding: 20px 0;">
+                <div class="email-container">
+        <!-- 헤더 -->
+        <div class="header">
+            <div class="logo">
+                ZERO TO ONE TAX<span class="rocket">🚀</span>
+            </div>
+            <p class="subtitle">스타트업 성장 세무회계 전문</p>
+        </div>
+        
+        <!-- 메인 컨텐츠 -->
+        <div class="content">
+            <!-- 제목 -->
+            <h1 style="color: #1e3a8a; font-size: 24px; font-weight: bold; margin-bottom: 30px; line-height: 1.3;">
+                2026년 달라지는 벤처투자 제도
+            </h1>
+            
+            <!-- 인사말 -->
+            <div class="greeting">
+                안녕하세요,
+            </div>
+            
+            <div class="greeting" style="margin-bottom: 15px;">
+                스타트업 전문 세무회계 브랜드인 Zero to One TAX 대표 회계사 이범기입니다.
+            </div>
+            
+            <!-- 인트로 박스 -->
+            <div class="intro-box">
+                저희 팀은 스타트업이 <strong>0에서 1을 만들어가는 위대한 여정</strong>에서 <strong>곁에서 항상 도움</strong>이 되는 <strong>세무, 회계 서비스</strong>를 제공하고자 합니다.
+                
+                <a href="https://0to1tax.com/services.html" target="_blank" class="intro-link">
+                    🚀 제로투원택스 서비스 소개서 →
+                </a>
+            </div>
+            
+            <div class="intro">
+                2026년부터 <strong>벤처투자 제도가 대폭 개편</strong>됩니다.<br><br>
+                
+                투자 의무는 완화되고, 세제 지원은 확대되며, 장기 자금 기반이 강화됩니다.<br><br>
+                
+                투자 유치를 준비 중이거나, 투자자와의 협의를 앞두고 계신다면<br>
+                이번 제도 변경사항을 미리 확인해 두시는 것이 유리합니다.
+            </div>
+            
+            <!-- CTA 버튼 (상단) -->
+            <div class="cta-section">
+                <div class="cta-subtext">🤔 2026년 벤처투자 제도, 나에게 뭐가 달라질까?</div>
+                <a href="2026-venture-investment-reform-pdf.html" class="cta-button" target="_blank">
+                    상세 PDF 확인하기 →
+                </a>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 1: VC 투자의무 기간 확대 -->
+            <div class="section" style="border-left: none; padding-left: 0;">
+                <div class="section-title">
+                    ① VC 투자의무 기간 확대
+                </div>
+                <div class="section-content">
+                    <div class="point-list">
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            <strong>투자 의무 이행 기간</strong>이 3년에서 5년으로 확대되어, 보다 여유롭게 투자처를 발굴하고 검토할 수 있습니다.
+                        </div>
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            <strong>연도별 투자 의무</strong>도 완화되어, 3년까지 1건, 5년까지 추가 1건 이상 투자하면 됩니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 2: 펀드별 투자의무 완화 -->
+            <div class="section" style="border-left: none; padding-left: 0;">
+                <div class="section-title">
+                    ② 펀드별 투자의무 완화
+                </div>
+                <div class="section-content">
+                    <div class="point-list">
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            <strong>개별 펀드 20% 투자 의무</strong>가 폐지되고, <strong>전체 펀드 기준 40%</strong>로 판단합니다.
+                        </div>
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            펀드별 특성을 반영한 <strong>운용 전략 수립</strong>이 가능해집니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 섹션 3: 민간 벤처모펀드 세액공제 확대 -->
+            <div class="section" style="border-left: none; padding-left: 0;">
+                <div class="section-title">
+                    ③ 민간 벤처모펀드 세액공제 확대
+                </div>
+                <div class="section-content">
+                    <div class="point-list">
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            민간 벤처모태펀드 출자자에 대한 <strong>세액공제율</strong>이 출자금액 5% + 증가분 3%에서 <strong>출자금액 5% + 증가분 5%</strong>로 상향되었습니다.
+                        </div>
+                        <div class="point-item">
+                            <span class="bullet">•</span>
+                            <strong>민간 자금 유입</strong>이 촉진될 것으로 기대됩니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- 요약 박스 -->
+            <div class="summary-box">
+                <div style="font-size: 18px; font-weight: bold; color: #1e3a8a; margin-bottom: 15px;">
+                    📌 2026년 벤처투자 제도 핵심 요약
+                </div>
+                <div class="summary-item">
+                    투자 규제 완화 - VC 투자의무 기간 확대(3년 → 5년), 펀드별 의무 완화
+                </div>
+                <div class="summary-item">
+                    세제 지원 확대 - 민간 벤처모펀드 세액공제 확대(증가분 3% → 5%)
+                </div>
+                <div class="summary-item">
+                    장기 자금 기반 강화 - 기금 투자 범위 확대, 모태펀드 존속기간 연장
+                </div>
+            </div>
+            
+            <!-- CTA 버튼 (하단) -->
+            <div class="cta-section">
+                <div class="cta-text">더 자세한 내용이 궁금하신가요?</div>
+                <a href="2026-venture-investment-reform-pdf.html" class="cta-button" target="_blank">
+                    변경 전·후 비교 PDF 보기 →
+                </a>
+                <a href="mailto:lbg@0to1tax.com?subject=2026년%20벤처투자%20제도%20개편%20문의&body=안녕하세요,%20벤처투자%20제도%20개편%20관련하여%20문의드립니다." class="cta-button" target="_blank">
+                    📧 이메일로 문의하기 →
+                </a>
+            </div>
+            
+        </div>
+        
+        <!-- 푸터 -->
+        <div class="footer">
+            <div class="footer-logo">
+                ZERO TO ONE TAX | 선영회계법인
+            </div>
+            
+            <div class="footer-contact">
+                📧 <a href="mailto:lbg@0to1tax.com" class="footer-link">lbg@0to1tax.com</a>
+            </div>
+            
+            <div class="footer-contact">
+                📞 <a href="tel:010-4395-1996" class="footer-link">010-4395-1996</a>
+            </div>
+            
+            <div class="footer-contact">
+                🏢 서울특별시 강남구 테헤란로70길 12 H타워 6층
+            </div>
+            
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #374151;">
+                <a href="https://0to1tax.com" class="footer-link">www.0to1tax.com</a>
+            </div>
+            
+            <div style="margin-top: 15px; font-size: 12px; color: #9ca3af;">
+                이 이메일은 ZERO TO ONE TAX 뉴스레터 구독자에게 발송되었습니다.
+            </div>
+        </div>
+    </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

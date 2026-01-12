@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero to One TAX - 로고 디자인</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e293b;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 16px;
+            margin-bottom: 50px;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .logo-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-preview {
+            width: 100%;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .logo-variations {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .logo-variant {
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+        }
+
+        .logo-variant.dark {
+            background: #1e293b;
+        }
+
+        .logo-variant.white {
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+
+        .logo-variant.blue {
+            background: #3b82f6;
+        }
+
+        /* 로고 1: 0→1 로켓 */
+        .logo-1 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 48px;
+            font-weight: 800;
+        }
+
+        .logo-1 .zero {
+            color: #3b82f6;
+            position: relative;
+        }
+
+        .logo-1 .rocket {
+            color: #f59e0b;
+            animation: rocketFly 2s ease-in-out infinite;
+        }
+
+        @keyframes rocketFly {
+            0%, 100% { transform: translate(0, 0) rotate(-45deg); }
+            50% { transform: translate(5px, -5px) rotate(-45deg); }
+        }
+
+        .logo-1 .one {
+            color: #3b82f6;
+        }
+
+        /* 로고 2: 세로형 로켓 */
+        .logo-2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-2 .rocket-icon {
+            width: 60px;
+            height: 60px;
+            position: relative;
+        }
+
+        .logo-2 .rocket-body {
+            width: 30px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+            border-radius: 15px 15px 0 0;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .logo-2 .rocket-window {
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .logo-2 .rocket-wing {
+            width: 15px;
+            height: 20px;
+            background: #f59e0b;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .logo-2 .rocket-wing.left {
+            left: 0;
+            clip-path: polygon(0 100%, 100% 100%, 100% 0);
+        }
+
+        .logo-2 .rocket-wing.right {
+            right: 0;
+            clip-path: polygon(0 0, 0 100%, 100% 100%);
+        }
+
+        .logo-2 .rocket-fire {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(180deg, #fbbf24 0%, #f87171 100%);
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+            animation: fire 0.5s ease-in-out infinite;
+        }
+
+        @keyframes fire {
+            0%, 100% { height: 20px; opacity: 1; }
+            50% { height: 15px; opacity: 0.8; }
+        }
+
+        .logo-2 .text {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1e293b;
+            text-align: center;
+        }
+
+        .logo-2 .text .highlight {
+            color: #3b82f6;
+        }
+
+        .logo-2 .tagline {
+            font-size: 12px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* 로고 3: 가로형 로켓 + 텍스트 */
+        .logo-3 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-3 .rocket-circle {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .logo-3 .rocket-symbol {
+            font-size: 28px;
+            transform: rotate(-45deg);
+        }
+
+        .logo-3 .text-group {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .logo-3 .main-text {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1e293b;
+            line-height: 1;
+        }
+
+        .logo-3 .main-text .blue {
+            color: #3b82f6;
+        }
+
+        .logo-3 .sub-text {
+            font-size: 11px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* 로고 4: 미니멀 로켓 */
+        .logo-4 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-4 .rocket-minimal {
+            width: 40px;
+            height: 50px;
+            position: relative;
+        }
+
+        .logo-4 .rocket-path {
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 0%, #3b82f6 50%, transparent 100%);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .logo-4 .rocket-shape {
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .logo-4 .text-stack {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-4 .brand-name {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1e293b;
+            line-height: 1;
+        }
+
+        .logo-4 .brand-name span {
+            color: #3b82f6;
+        }
+
+        .logo-4 .brand-tag {
+            font-size: 10px;
+            color: #64748b;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* 로고 5: 0→1 통합형 */
+        .logo-5 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-5 .number-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 56px;
+            font-weight: 900;
+        }
+
+        .logo-5 .number-zero {
+            color: #3b82f6;
+        }
+
+        .logo-5 .arrow-rocket {
+            font-size: 36px;
+            color: #f59e0b;
+            transform: rotate(-45deg);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: rotate(-45deg) scale(1); }
+            50% { transform: rotate(-45deg) scale(1.2); }
+        }
+
+        .logo-5 .number-one {
+            color: #3b82f6;
+        }
+
+        .logo-5 .brand-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+            letter-spacing: 0.5px;
+        }
+
+        /* 다운로드 버튼 */
+        .download-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #3b82f6;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        /* 색상 팔레트 */
+        .color-palette {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .color-palette h2 {
+            font-size: 20px;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .colors {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .color-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .color-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-label {
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Zero to One TAX 로고 디자인</h1>
+        <p class="subtitle">스타트업이 0에서 1을 만들어가는 여정, 로켓처럼 빠르게</p>
+
+        <div class="logo-grid">
+            <!-- 로고 1: 0→1 로켓 -->
+            <div class="logo-card">
+                <div class="logo-title">Option 1: Number Rocket</div>
+                <div class="logo-preview">
+                    <div class="logo-1">
+                        <span class="zero">0</span>
+                        <span class="rocket">🚀</span>
+                        <span class="one">1</span>
+                    </div>
+                </div>
+                <div class="logo-variations">
+                    <div class="logo-variant white">
+                        <div class="logo-1" style="font-size: 32px;">
+                            <span class="zero">0</span>
+                            <span class="rocket">🚀</span>
+                            <span class="one">1</span>
+                        </div>
+                    </div>
+                    <div class="logo-variant dark">
+                        <div class="logo-1" style="font-size: 32px;">
+                            <span class="zero" style="color: #60a5fa;">0</span>
+                            <span class="rocket">🚀</span>
+                            <span class="one" style="color: #60a5fa;">1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 로고 2: 세로형 로켓 -->
+            <div class="logo-card">
+                <div class="logo-title">Option 2: Vertical Rocket</div>
+                <div class="logo-preview">
+                    <div class="logo-2">
+                        <div class="rocket-icon">
+                            <div class="rocket-body">
+                                <div class="rocket-window"></div>
+                            </div>
+                            <div class="rocket-wing left"></div>
+                            <div class="rocket-wing right"></div>
+                            <div class="rocket-fire"></div>
+                        </div>
+                        <div class="text">
+                            <div><span class="highlight">0TO1</span> TAX</div>
+                        </div>
+                        <div class="tagline">Growth Together</div>
+                    </div>
+                </div>
+                <div class="logo-variations">
+                    <div class="logo-variant white">
+                        <div class="logo-2" style="transform: scale(0.7);">
+                            <div class="rocket-icon">
+                                <div class="rocket-body">
+                                    <div class="rocket-window"></div>
+                                </div>
+                                <div class="rocket-wing left"></div>
+                                <div class="rocket-wing right"></div>
+                                <div class="rocket-fire"></div>
+                            </div>
+                            <div class="text">
+                                <div><span class="highlight">0TO1</span> TAX</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-variant blue">
+                        <div class="logo-2" style="transform: scale(0.7);">
+                            <div class="rocket-icon">
+                                <div class="rocket-body" style="background: white;">
+                                    <div class="rocket-window" style="background: #3b82f6;"></div>
+                                </div>
+                                <div class="rocket-wing left"></div>
+                                <div class="rocket-wing right"></div>
+                                <div class="rocket-fire"></div>
+                            </div>
+                            <div class="text" style="color: white;">
+                                <div><span class="highlight" style="color: #fbbf24;">0TO1</span> TAX</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 로고 3: 가로형 로켓 + 텍스트 -->
+            <div class="logo-card">
+                <div class="logo-title">Option 3: Horizontal Badge</div>
+                <div class="logo-preview">
+                    <div class="logo-3">
+                        <div class="rocket-circle">
+                            <span class="rocket-symbol">🚀</span>
+                        </div>
+                        <div class="text-group">
+                            <div class="main-text">
+                                <span class="blue">0TO1</span> TAX
+                            </div>
+                            <div class="sub-text">Growth Partner</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-variations">
+                    <div class="logo-variant white">
+                        <div class="logo-3" style="transform: scale(0.8);">
+                            <div class="rocket-circle">
+                                <span class="rocket-symbol">🚀</span>
+                            </div>
+                            <div class="text-group">
+                                <div class="main-text">
+                                    <span class="blue">0TO1</span> TAX
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-variant dark">
+                        <div class="logo-3" style="transform: scale(0.8);">
+                            <div class="rocket-circle">
+                                <span class="rocket-symbol">🚀</span>
+                            </div>
+                            <div class="text-group">
+                                <div class="main-text" style="color: white;">
+                                    <span class="blue">0TO1</span> TAX
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 로고 4: 미니멀 로켓 -->
+            <div class="logo-card">
+                <div class="logo-title">Option 4: Minimal Rocket</div>
+                <div class="logo-preview">
+                    <div class="logo-4">
+                        <div class="rocket-minimal">
+                            <div class="rocket-path"></div>
+                            <div class="rocket-shape"></div>
+                        </div>
+                        <div class="text-stack">
+                            <div class="brand-name">
+                                <span>0→1</span> TAX
+                            </div>
+                            <div class="brand-tag">STARTUP TAX</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-variations">
+                    <div class="logo-variant white">
+                        <div class="logo-4" style="transform: scale(0.8);">
+                            <div class="rocket-minimal">
+                                <div class="rocket-path"></div>
+                                <div class="rocket-shape"></div>
+                            </div>
+                            <div class="text-stack">
+                                <div class="brand-name">
+                                    <span>0→1</span> TAX
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-variant blue">
+                        <div class="logo-4" style="transform: scale(0.8);">
+                            <div class="rocket-minimal">
+                                <div class="rocket-path" style="background: linear-gradient(180deg, transparent 0%, white 50%, transparent 100%);"></div>
+                                <div class="rocket-shape" style="background: white;"></div>
+                            </div>
+                            <div class="text-stack">
+                                <div class="brand-name" style="color: white;">
+                                    <span style="color: #fbbf24;">0→1</span> TAX
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 로고 5: 0→1 통합형 -->
+            <div class="logo-card">
+                <div class="logo-title">Option 5: Integrated</div>
+                <div class="logo-preview">
+                    <div class="logo-5">
+                        <div class="number-group">
+                            <span class="number-zero">0</span>
+                            <span class="arrow-rocket">🚀</span>
+                            <span class="number-one">1</span>
+                        </div>
+                        <div class="brand-text">TAX</div>
+                    </div>
+                </div>
+                <div class="logo-variations">
+                    <div class="logo-variant white">
+                        <div class="logo-5" style="transform: scale(0.6);">
+                            <div class="number-group">
+                                <span class="number-zero">0</span>
+                                <span class="arrow-rocket">🚀</span>
+                                <span class="number-one">1</span>
+                            </div>
+                            <div class="brand-text">TAX</div>
+                        </div>
+                    </div>
+                    <div class="logo-variant dark">
+                        <div class="logo-5" style="transform: scale(0.6);">
+                            <div class="number-group">
+                                <span class="number-zero" style="color: #60a5fa;">0</span>
+                                <span class="arrow-rocket">🚀</span>
+                                <span class="number-one" style="color: #60a5fa;">1</span>
+                            </div>
+                            <div class="brand-text" style="color: white;">TAX</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 색상 팔레트 -->
+        <div class="color-palette">
+            <h2>브랜드 컬러 팔레트</h2>
+            <div class="colors">
+                <div class="color-item">
+                    <div class="color-box" style="background: #3b82f6;"></div>
+                    <div class="color-label">Primary Blue<br>#3b82f6</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background: #60a5fa;"></div>
+                    <div class="color-label">Light Blue<br>#60a5fa</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background: #1e40af;"></div>
+                    <div class="color-label">Dark Blue<br>#1e40af</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background: #f59e0b;"></div>
+                    <div class="color-label">Accent Orange<br>#f59e0b</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background: #fbbf24;"></div>
+                    <div class="color-label">Light Orange<br>#fbbf24</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background: #1e293b;"></div>
+                    <div class="color-label">Text Dark<br>#1e293b</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="download-section">
+            <p style="color: #64748b; margin-bottom: 20px;">
+                마음에 드는 로고를 선택하시면 SVG, PNG 파일로 제작해드립니다
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero to One TAX Logo - Option 2</title>
+</head>
+<body>
+    <!-- SVG 로고 (다운로드용) -->
+    <svg id="logo-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="300" height="400">
+        <!-- 로켓 아이콘 -->
+        <g id="rocket">
+            <!-- 로켓 몸체 -->
+            <path d="M 135 50 Q 135 30 150 30 Q 165 30 165 50 L 165 120 L 135 120 Z" 
+                  fill="url(#rocketGradient)" />
+            
+            <!-- 창문 -->
+            <circle cx="150" cy="60" r="12" fill="white"/>
+            
+            <!-- 왼쪽 날개 -->
+            <path d="M 135 120 L 120 120 L 135 90 Z" fill="#f59e0b"/>
+            
+            <!-- 오른쪽 날개 -->
+            <path d="M 165 120 L 180 120 L 165 90 Z" fill="#f59e0b"/>
+            
+            <!-- 불꽃 -->
+            <g id="fire">
+                <path d="M 150 120 L 140 145 L 150 135 L 160 145 Z" fill="url(#fireGradient)">
+                    <animateTransform
+                        attributeName="transform"
+                        type="scale"
+                        values="1 1; 1 0.8; 1 1"
+                        dur="0.5s"
+                        repeatCount="indefinite"/>
+                </path>
+            </g>
+        </g>
+        
+        <!-- 텍스트 -->
+        <g id="text">
+            <text x="150" y="220" 
+                  font-family="Arial, sans-serif" 
+                  font-size="48" 
+                  font-weight="800" 
+                  text-anchor="middle" 
+                  fill="#1e293b">
+                <tspan fill="#3b82f6">0TO1</tspan> TAX
+            </text>
+            
+            <text x="150" y="245" 
+                  font-family="Arial, sans-serif" 
+                  font-size="14" 
+                  font-weight="500" 
+                  text-anchor="middle" 
+                  fill="#64748b"
+                  letter-spacing="2">
+                GROWTH TOGETHER
+            </text>
+        </g>
+        
+        <!-- 그라데이션 정의 -->
+        <defs>
+            <linearGradient id="rocketGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+            </linearGradient>
+            
+            <linearGradient id="fireGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#f87171;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- 다크 버전 SVG -->
+    <svg id="logo-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="300" height="400" style="display:none;">
+        <rect width="300" height="400" fill="#1e293b"/>
+        
+        <!-- 로켓 아이콘 -->
+        <g id="rocket-dark">
+            <path d="M 135 50 Q 135 30 150 30 Q 165 30 165 50 L 165 120 L 135 120 Z" 
+                  fill="url(#rocketGradientDark)" />
+            <circle cx="150" cy="60" r="12" fill="white"/>
+            <path d="M 135 120 L 120 120 L 135 90 Z" fill="#f59e0b"/>
+            <path d="M 165 120 L 180 120 L 165 90 Z" fill="#f59e0b"/>
+            <g id="fire-dark">
+                <path d="M 150 120 L 140 145 L 150 135 L 160 145 Z" fill="url(#fireGradientDark)">
+                    <animateTransform
+                        attributeName="transform"
+                        type="scale"
+                        values="1 1; 1 0.8; 1 1"
+                        dur="0.5s"
+                        repeatCount="indefinite"/>
+                </path>
+            </g>
+        </g>
+        
+        <!-- 텍스트 (다크 버전) -->
+        <g id="text-dark">
+            <text x="150" y="220" 
+                  font-family="Arial, sans-serif" 
+                  font-size="48" 
+                  font-weight="800" 
+                  text-anchor="middle" 
+                  fill="white">
+                <tspan fill="#60a5fa">0TO1</tspan> TAX
+            </text>
+            
+            <text x="150" y="245" 
+                  font-family="Arial, sans-serif" 
+                  font-size="14" 
+                  font-weight="500" 
+                  text-anchor="middle" 
+                  fill="#94a3b8"
+                  letter-spacing="2">
+                GROWTH TOGETHER
+            </text>
+        </g>
+        
+        <defs>
+            <linearGradient id="rocketGradientDark" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+            </linearGradient>
+            
+            <linearGradient id="fireGradientDark" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#f87171;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- 아이콘 전용 (정사각형) -->
+    <svg id="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" style="display:none;">
+        <g transform="translate(100, 100)">
+            <!-- 로켓 몸체 -->
+            <path d="M -15 -50 Q -15 -70 0 -70 Q 15 -70 15 -50 L 15 20 L -15 20 Z" 
+                  fill="url(#rocketGradientIcon)" />
+            
+            <!-- 창문 -->
+            <circle cx="0" cy="-40" r="12" fill="white"/>
+            
+            <!-- 왼쪽 날개 -->
+            <path d="M -15 20 L -30 20 L -15 -10 Z" fill="#f59e0b"/>
+            
+            <!-- 오른쪽 날개 -->
+            <path d="M 15 20 L 30 20 L 15 -10 Z" fill="#f59e0b"/>
+            
+            <!-- 불꽃 -->
+            <g id="fire-icon">
+                <path d="M 0 20 L -10 45 L 0 35 L 10 45 Z" fill="url(#fireGradientIcon)">
+                    <animateTransform
+                        attributeName="transform"
+                        type="scale"
+                        values="1 1; 1 0.8; 1 1"
+                        dur="0.5s"
+                        repeatCount="indefinite"/>
+                </path>
+            </g>
+        </g>
+        
+        <defs>
+            <linearGradient id="rocketGradientIcon" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+            </linearGradient>
+            
+            <linearGradient id="fireGradientIcon" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#f87171;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- 가로형 버전 -->
+    <svg id="logo-horizontal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" width="500" height="150" style="display:none;">
+        <!-- 로켓 아이콘 -->
+        <g transform="translate(75, 75)">
+            <path d="M -15 -35 Q -15 -50 0 -50 Q 15 -50 15 -35 L 15 20 L -15 20 Z" 
+                  fill="url(#rocketGradientHoriz)" />
+            <circle cx="0" cy="-25" r="10" fill="white"/>
+            <path d="M -15 20 L -27 20 L -15 -5 Z" fill="#f59e0b"/>
+            <path d="M 15 20 L 27 20 L 15 -5 Z" fill="#f59e0b"/>
+            <g>
+                <path d="M 0 20 L -8 40 L 0 32 L 8 40 Z" fill="url(#fireGradientHoriz)">
+                    <animateTransform
+                        attributeName="transform"
+                        type="scale"
+                        values="1 1; 1 0.8; 1 1"
+                        dur="0.5s"
+                        repeatCount="indefinite"/>
+                </path>
+            </g>
+        </g>
+        
+        <!-- 텍스트 (가로형) -->
+        <text x="180" y="85" 
+              font-family="Arial, sans-serif" 
+              font-size="54" 
+              font-weight="800" 
+              text-anchor="start" 
+              fill="#1e293b">
+            <tspan fill="#3b82f6">0TO1</tspan> TAX
+        </text>
+        
+        <text x="180" y="110" 
+              font-family="Arial, sans-serif" 
+              font-size="12" 
+              font-weight="500" 
+              text-anchor="start" 
+              fill="#64748b"
+              letter-spacing="2">
+            GROWTH TOGETHER
+        </text>
+        
+        <defs>
+            <linearGradient id="rocketGradientHoriz" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+            </linearGradient>
+            
+            <linearGradient id="fireGradientHoriz" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#f87171;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <script>
+        // SVG를 PNG로 변환하는 함수
+        function downloadSVG(svgId, filename) {
+            const svg = document.getElementById(svgId);
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+            const svgUrl = URL.createObjectURL(svgBlob);
+            
+            const downloadLink = document.createElement('a');
+            downloadLink.href = svgUrl;
+            downloadLink.download = filename;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+
+        function downloadPNG(svgId, filename, width, height) {
+            const svg = document.getElementById(svgId);
+            const svgData = new XMLSerializer().serializeToString(svg);
+            
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            
+            const img = new Image();
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0, width, height);
+                canvas.toBlob(function(blob) {
+                    const url = URL.createObjectURL(blob);
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = url;
+                    downloadLink.download = filename;
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                });
+            };
+            
+            img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+        }
+
+        // 자동 다운로드
+        window.onload = function() {
+            // SVG 파일들
+            setTimeout(() => downloadSVG('logo-main', '0to1tax-logo-main.svg'), 100);
+            setTimeout(() => downloadSVG('logo-dark', '0to1tax-logo-dark.svg'), 200);
+            setTimeout(() => downloadSVG('logo-icon', '0to1tax-logo-icon.svg'), 300);
+            setTimeout(() => downloadSVG('logo-horizontal', '0to1tax-logo-horizontal.svg'), 400);
+            
+            // PNG 파일들 (고해상도)
+            setTimeout(() => downloadPNG('logo-main', '0to1tax-logo-main.png', 600, 800), 500);
+            setTimeout(() => downloadPNG('logo-dark', '0to1tax-logo-dark.png', 600, 800), 600);
+            setTimeout(() => downloadPNG('logo-icon', '0to1tax-logo-icon.png', 512, 512), 700);
+            setTimeout(() => downloadPNG('logo-horizontal', '0to1tax-logo-horizontal.png', 1000, 300), 800);
+        };
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        svg {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #1e293b;
+            text-align: center;
+        }
+
+        .info {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+
+        .info h2 {
+            color: #3b82f6;
+            margin-bottom: 15px;
+        }
+
+        .info p {
+            color: #64748b;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .download-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .download-list li {
+            padding: 10px;
+            background: #f1f5f9;
+            border-radius: 6px;
+            margin: 8px 0;
+            color: #475569;
+            font-weight: 500;
+        }
+
+        .download-list li::before {
+            content: "✅ ";
+            color: #10b981;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 Zero to One TAX - Logo Package</h1>
+    
+    <div class="info">
+        <h2>📦 다운로드 파일</h2>
+        <p>다음 파일들이 자동으로 다운로드됩니다:</p>
+        <ul class="download-list">
+            <li>0to1tax-logo-main.svg - 기본 로고 (SVG)</li>
+            <li>0to1tax-logo-main.png - 기본 로고 (PNG, 600x800)</li>
+            <li>0to1tax-logo-dark.svg - 다크 버전 (SVG)</li>
+            <li>0to1tax-logo-dark.png - 다크 버전 (PNG, 600x800)</li>
+            <li>0to1tax-logo-icon.svg - 아이콘 전용 (SVG)</li>
+            <li>0to1tax-logo-icon.png - 아이콘 전용 (PNG, 512x512)</li>
+            <li>0to1tax-logo-horizontal.svg - 가로형 (SVG)</li>
+            <li>0to1tax-logo-horizontal.png - 가로형 (PNG, 1000x300)</li>
+        </ul>
+        
+        <h2>🎨 사용 가이드</h2>
+        <p><strong>기본 로고 (Main)</strong>: 웹사이트 메인, 명함, 브로슈어</p>
+        <p><strong>다크 버전 (Dark)</strong>: 어두운 배경에서 사용</p>
+        <p><strong>아이콘 (Icon)</strong>: 파비콘, SNS 프로필, 앱 아이콘</p>
+        <p><strong>가로형 (Horizontal)</strong>: 헤더, 이메일 서명, 레터헤드</p>
+        
+        <h2>🎯 브랜드 컬러</h2>
+        <p>Primary Blue: <strong>#3b82f6</strong></p>
+        <p>Accent Orange: <strong>#f59e0b</strong></p>
+        <p>Text Dark: <strong>#1e293b</strong></p>
+    </div>
+</body>
+</html>

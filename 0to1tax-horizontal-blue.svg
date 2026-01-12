@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+    <!-- 로켓 아이콘 (왼쪽) -->
+    <g id="rocket" transform="translate(0, 10) scale(0.6)">
+        <!-- 로켓 몸체 -->
+        <path d="M 30 20 Q 30 10 40 10 Q 50 10 50 20 L 50 60 L 30 60 Z" 
+              fill="url(#rocketGradient)" />
+        
+        <!-- 창문 -->
+        <circle cx="40" cy="27" r="6" fill="white"/>
+        
+        <!-- 왼쪽 날개 -->
+        <path d="M 30 60 L 20 60 L 30 45 Z" fill="#f59e0b"/>
+        
+        <!-- 오른쪽 날개 -->
+        <path d="M 50 60 L 60 60 L 50 45 Z" fill="#f59e0b"/>
+        
+        <!-- 불꽃 -->
+        <path d="M 40 60 L 35 75 L 40 68 L 45 75 Z" fill="url(#fireGradient)"/>
+    </g>
+    
+    <!-- 텍스트 (오른쪽) -->
+    <g id="text">
+        <text x="95" y="60" 
+              font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" 
+              font-size="42" 
+              font-weight="800" 
+              text-anchor="start" 
+              fill="#1e293b">
+            <tspan fill="#2563eb">0to1</tspan> tax
+        </text>
+    </g>
+    
+    <!-- 그라데이션 정의 -->
+    <defs>
+        <linearGradient id="rocketGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="fireGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f87171;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+</svg>

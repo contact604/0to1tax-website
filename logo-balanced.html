@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0to1tax 로고 - 비율 조정 완료!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .badge-before {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+        
+        .badge-after {
+            background: #dbeafe;
+            color: #2563eb;
+        }
+        
+        .logo-display {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            min-height: 120px;
+        }
+        
+        .specs {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .spec-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .spec-label {
+            color: #64748b;
+        }
+        
+        .spec-value {
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .full-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .changes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .change-item {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .change-item h3 {
+            font-size: 16px;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        
+        .change-item ul {
+            list-style: none;
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.8;
+        }
+        
+        .change-item li:before {
+            content: "✓ ";
+            color: #2563eb;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .changes {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 0to1tax 로고 비율 조정</h1>
+            <p>로켓과 텍스트 크기 균형 맞추기</p>
+        </div>
+        
+        <div class="comparison">
+            <!-- Before -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge badge-before">Before</span>
+                </div>
+                
+                <div class="logo-display">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" width="320" height="100">
+                        <g id="rocket" transform="translate(0, 10) scale(0.6)">
+                            <path d="M 30 20 Q 30 10 40 10 Q 50 10 50 20 L 50 60 L 30 60 Z" fill="#2563eb" />
+                            <circle cx="40" cy="27" r="6" fill="white"/>
+                            <path d="M 30 60 L 20 60 L 30 45 Z" fill="#f59e0b"/>
+                            <path d="M 50 60 L 60 60 L 50 45 Z" fill="#f59e0b"/>
+                            <path d="M 40 60 L 35 75 L 40 68 L 45 75 Z" fill="#fbbf24"/>
+                        </g>
+                        <g id="text">
+                            <text x="32" y="60" font-family="'Inter', sans-serif" font-size="42" font-weight="800" fill="#1e293b">
+                                <tspan fill="#2563eb">0to1</tspan> tax
+                            </text>
+                        </g>
+                    </svg>
+                </div>
+                
+                <div class="specs">
+                    <div class="spec-row">
+                        <span class="spec-label">로켓 크기</span>
+                        <span class="spec-value">scale(0.6) - 작음</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">텍스트 크기</span>
+                        <span class="spec-value">42px - 큼</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">간격</span>
+                        <span class="spec-value">거의 없음</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">문제점</span>
+                        <span class="spec-value" style="color: #dc2626;">❌ 비율 안 맞음</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- After -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge badge-after">After (최종) ✨</span>
+                </div>
+                
+                <div class="logo-display">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" width="320" height="100">
+                        <g id="rocket" transform="translate(5, 15) scale(0.9)">
+                            <path d="M 30 20 Q 30 10 40 10 Q 50 10 50 20 L 50 60 L 30 60 Z" fill="url(#rocketGradient)" />
+                            <circle cx="40" cy="27" r="6" fill="white"/>
+                            <path d="M 30 60 L 20 60 L 30 45 Z" fill="#f59e0b"/>
+                            <path d="M 50 60 L 60 60 L 50 45 Z" fill="#f59e0b"/>
+                            <path d="M 40 60 L 35 75 L 40 68 L 45 75 Z" fill="url(#fireGradient)"/>
+                        </g>
+                        <g id="text">
+                            <text x="65" y="58" font-family="'Inter', sans-serif" font-size="36" font-weight="800" fill="#1e293b">
+                                <tspan fill="#2563eb">0to1</tspan> tax
+                            </text>
+                        </g>
+                        <defs>
+                            <linearGradient id="rocketGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="fireGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#f87171;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                
+                <div class="specs">
+                    <div class="spec-row">
+                        <span class="spec-label">로켓 크기</span>
+                        <span class="spec-value">scale(0.9) - 증가</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">텍스트 크기</span>
+                        <span class="spec-value">36px - 감소</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">간격</span>
+                        <span class="spec-value">적절함 (11px)</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">결과</span>
+                        <span class="spec-value" style="color: #2563eb;">✅ 비율 균형!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="full-card">
+            <h2 style="font-size: 24px; color: #1e293b; margin-bottom: 20px;">📊 변경 사항 요약</h2>
+            
+            <div class="changes">
+                <div class="change-item">
+                    <h3>🚀 로켓 조정</h3>
+                    <ul>
+                        <li>크기: scale(0.6) → scale(0.9)</li>
+                        <li>위치: translate(0, 10) → translate(5, 15)</li>
+                        <li>결과: 50% 크기 증가</li>
+                    </ul>
+                </div>
+                
+                <div class="change-item">
+                    <h3>📝 텍스트 조정</h3>
+                    <ul>
+                        <li>크기: 42px → 36px</li>
+                        <li>위치: x="32" → x="65"</li>
+                        <li>결과: 적절한 간격 확보</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px;">
+                <h3 style="font-size: 16px; color: #1e293b; margin-bottom: 10px;">✅ 최종 결과</h3>
+                <p style="font-size: 14px; color: #475569; line-height: 1.8;">
+                    • 로켓과 "0to1" 텍스트가 비슷한 크기로 균형 잡힘<br>
+                    • 적절한 간격(약 11px)으로 가독성 향상<br>
+                    • 전체적으로 조화로운 로고 완성!
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

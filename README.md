@@ -3,7 +3,7 @@
 > **Zero to One TAX** - 스타트업의 첫 번째 CFO  
 > 선영회계법인의 스타트업 전문 브랜드
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.9.0-blue)
 ![Status](https://img.shields.io/badge/status-production-green)
 ![SEO](https://img.shields.io/badge/SEO-optimized-brightgreen)
 ![Responsive](https://img.shields.io/badge/responsive-✓-success)
@@ -49,11 +49,25 @@ VC 투자유치, 재무실사, IR 자료 작성부터 상장 준비까지 스타
 
 ## 🎨 주요 기능
 
+### ✨ **NEW (v1.8.0): 로고 최종 완성!**
+- **텍스트 크기 48px**: 로켓 길이와 완벽히 일치
+- **"1"과 "t" 띄어쓰기 제거**: "0to1tax" 하나로 통합
+- **letter-spacing="-2"**: 글자들이 촘촘하게 붙음
+- **로켓 불꽃 정렬**: "0"의 위쪽과 완벽히 일치
+- **3곳 적용**: Header, Solution Section, Final Guidance
+
+### 🏠 **히어로 전용 첫 페이지 (v1.5.0)**
+- **첫 페이지 히어로만 표시**: 페이지 로드 시 히어로 섹션만 보이고 스크롤 불가
+- **"같이 성장하기" 버튼**: 클릭 시 About 섹션으로 진행
+- **히어로 높이 고정**: `height: calc(100vh - 60px)` (헤더 60px 제외)
+- **body 스크롤 제어**: 히어로에서는 `overflow: hidden`
+
 ### 1️⃣ Hero 섹션
 - 대형 타이틀과 설명
-- 5가지 핵심 메시지 자동 슬라이드 (20초 사이클)
-- "같이 성장하기" CTA 버튼
+- 6가지 핵심 메시지 자동 슬라이드 (4초 사이클)
+- "같이 성장하기" CTA 버튼 → About 섹션 시작
 - 3D 떠다니는 요소 (글래스모피즘)
+- **전체 화면 고정 - 스크롤 없음**
 
 ### 2️⃣ About 섹션 (3단계)
 - 로딩 애니메이션 (1/3 → 2/3 → 3/3)

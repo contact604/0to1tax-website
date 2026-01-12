@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" width="320" height="100">
-    <!-- 로켓 아이콘 (왼쪽) -->
-    <g id="rocket" transform="translate(5, 5) scale(0.9)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+    <!-- 로켓 아이콘 (상단 중앙) - 크기 증가 -->
+    <g id="rocket" transform="translate(60, 15) scale(1.0)">
         <!-- 로켓 몸체 -->
         <path d="M 30 20 Q 30 10 40 10 Q 50 10 50 20 L 50 60 L 30 60 Z" 
               fill="url(#rocketGradient)" />
@@ -18,16 +18,23 @@
         <path d="M 40 60 L 35 75 L 40 68 L 45 75 Z" fill="url(#fireGradient)"/>
     </g>
     
-    <!-- 텍스트 (오른쪽) - 크기 증가 -->
+    <!-- 텍스트 (하단 중앙) - 크기 조정, 적절한 간격 -->
     <g id="text">
-        <text x="65" y="63" 
+        <text x="90" y="125" 
               font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" 
-              font-size="48" 
+              font-size="32" 
               font-weight="800" 
-              text-anchor="start" 
-              fill="#1e293b"
-              letter-spacing="-2">
-            <tspan fill="#2563eb">0to1</tspan><tspan>tax</tspan>
+              text-anchor="middle" 
+              fill="#1e293b">
+            <tspan fill="#2563eb">0to1</tspan>
+        </text>
+        <text x="90" y="153" 
+              font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" 
+              font-size="32" 
+              font-weight="800" 
+              text-anchor="middle" 
+              fill="#1e293b">
+            tax
         </text>
     </g>
     

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0to1tax 로고 - 로켓 불꽃이 "0" 위로!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 24px;
+            padding: 60px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 100%;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        
+        .title {
+            font-size: 32px;
+            color: #1e293b;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #64748b;
+            margin-bottom: 50px;
+        }
+        
+        .logo-wrapper {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 60px 40px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .alignment-guides {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 5;
+        }
+        
+        .guide-line {
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background: repeating-linear-gradient(
+                90deg,
+                #ef4444 0px,
+                #ef4444 10px,
+                transparent 10px,
+                transparent 20px
+            );
+        }
+        
+        .guide-label {
+            position: absolute;
+            right: 30px;
+            background: #ef4444;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #10b981;
+        }
+        
+        .feature-card h3 {
+            font-size: 16px;
+            color: #065f46;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .feature-card p {
+            font-size: 14px;
+            color: #047857;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            background: #fef3c7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+            color: #92400e;
+        }
+        
+        .comparison {
+            background: #f1f5f9;
+            padding: 30px;
+            border-radius: 12px;
+        }
+        
+        .comparison h3 {
+            font-size: 18px;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .comparison-item {
+            text-align: center;
+        }
+        
+        .comparison-label {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .comparison-value {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .before-value {
+            color: #dc2626;
+        }
+        
+        .after-value {
+            color: #10b981;
+        }
+        
+        .arrow {
+            font-size: 32px;
+            color: #2563eb;
+        }
+        
+        @media (max-width: 768px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+            
+            .container {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="text-align: center;">
+            <span class="badge">✨ 최종 버전</span>
+        </div>
+        
+        <h1 class="title">🚀 0to1tax 로고 완성!</h1>
+        <p class="subtitle">로켓 불꽃이 "0"의 위쪽과 일치</p>
+        
+        <div class="logo-wrapper">
+            <div class="logo-display">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" width="400" height="125">
+                    <g id="rocket" transform="translate(5, 5) scale(0.9)">
+                        <path d="M 30 20 Q 30 10 40 10 Q 50 10 50 20 L 50 60 L 30 60 Z" 
+                              fill="url(#rocketGradient)" />
+                        <circle cx="40" cy="27" r="6" fill="white"/>
+                        <path d="M 30 60 L 20 60 L 30 45 Z" fill="#f59e0b"/>
+                        <path d="M 50 60 L 60 60 L 50 45 Z" fill="#f59e0b"/>
+                        <path d="M 40 60 L 35 75 L 40 68 L 45 75 Z" fill="url(#fireGradient)"/>
+                    </g>
+                    <g id="text">
+                        <text x="65" y="48" 
+                              font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" 
+                              font-size="36" 
+                              font-weight="800" 
+                              text-anchor="start" 
+                              fill="#1e293b"
+                              letter-spacing="-1">
+                            <tspan fill="#2563eb">0to1</tspan><tspan letter-spacing="0"> tax</tspan>
+                        </text>
+                    </g>
+                    <defs>
+                        <linearGradient id="rocketGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="fireGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#f87171;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            
+            <div class="alignment-guides">
+                <div class="guide-line" style="top: 26%;">
+                    <span class="guide-label" style="top: -10px;">"0" 위쪽</span>
+                </div>
+                <div class="guide-line" style="top: 68%;">
+                    <span class="guide-label" style="top: -10px;">로켓 불꽃</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <h3>🔥 로켓 불꽃 정렬</h3>
+                <p>
+                    로켓을 <span class="highlight">y=25 → y=5</span>로 위로 이동하고,<br>
+                    텍스트를 <span class="highlight">y=68 → y=48</span>로 조정하여<br>
+                    <strong>로켓 불꽃이 "0"의 위쪽과 일치!</strong>
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>✍️ "1"과 "t" 붙이기</h3>
+                <p>
+                    <span class="highlight">letter-spacing="-1"</span> 적용으로<br>
+                    "0to1" 부분의 자간을 좁혀<br>
+                    <strong>"1"과 "t"가 거의 붙음!</strong>
+                </p>
+            </div>
+        </div>
+        
+        <div class="comparison">
+            <h3>📊 위치 변경 비교</h3>
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <div class="comparison-label">Before</div>
+                    <div class="comparison-value before-value">y=25</div>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 5px;">로켓 너무 아래</div>
+                </div>
+                
+                <div class="arrow">→</div>
+                
+                <div class="comparison-item">
+                    <div class="comparison-label">After</div>
+                    <div class="comparison-value after-value">y=5</div>
+                    <div style="font-size: 12px; color: #10b981; margin-top: 5px;">완벽한 위치!</div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 30px; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-radius: 12px; border-left: 4px solid #2563eb;">
+            <div style="font-size: 18px; font-weight: 700; color: #1e3a8a; margin-bottom: 12px;">
+                🎉 완벽한 정렬 완성!
+            </div>
+            <div style="font-size: 14px; color: #1e40af; line-height: 1.8;">
+                ✅ 로켓 불꽃이 "0"의 위쪽과 일치<br>
+                ✅ "1"과 "t"가 거의 붙음 (letter-spacing: -1)<br>
+                ✅ 로켓과 텍스트 크기 균형<br>
+                ✅ 전체적으로 조화로운 로고!
+            </div>
+        </div>
+    </div>
+</body>
+</html>

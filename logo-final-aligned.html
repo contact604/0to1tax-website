@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0to1tax 로고 - 최종 정렬!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 24px;
+            padding: 60px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 100%;
+        }
+        
+        .title {
+            font-size: 32px;
+            color: #1e293b;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .logo-display {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 60px 40px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .guide-lines {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+        
+        .guide-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #ef4444;
+            opacity: 0.5;
+        }
+        
+        .guide-label {
+            position: absolute;
+            right: 10px;
+            font-size: 11px;
+            color: #ef4444;
+            font-weight: 600;
+            background: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .feature-card h3 {
+            font-size: 16px;
+            color: #1e293b;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .feature-card p {
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.6;
+        }
+        
+        .specs-table {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 25px;
+        }
+        
+        .specs-table h3 {
+            font-size: 18px;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        td {
+            padding: 10px;
+            font-size: 14px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        td:first-child {
+            font-weight: 600;
+            color: #475569;
+            width: 40%;
+        }
+        
+        td:last-child {
+            color: #1e293b;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .highlight {
+            background: #fef3c7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #92400e;
+        }
+        
+        @media (max-width: 768px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🚀 0to1tax 최종 로고</h1>
+        <p class="subtitle">로켓 정렬 + "1"과 "t" 붙이기</p>
+        
+        <div class="logo-display">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" width="400" height="125">
+                <g id="rocket" transform="translate(5, 25) scale(0.9)">
+                    <path d="M 30 20 Q 30 10 40 10 Q 50 10 50 20 L 50 60 L 30 60 Z" 
+                          fill="url(#rocketGradient)" />
+                    <circle cx="40" cy="27" r="6" fill="white"/>
+                    <path d="M 30 60 L 20 60 L 30 45 Z" fill="#f59e0b"/>
+                    <path d="M 50 60 L 60 60 L 50 45 Z" fill="#f59e0b"/>
+                    <path d="M 40 60 L 35 75 L 40 68 L 45 75 Z" fill="url(#fireGradient)"/>
+                </g>
+                <g id="text">
+                    <text x="65" y="68" 
+                          font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" 
+                          font-size="36" 
+                          font-weight="800" 
+                          text-anchor="start" 
+                          fill="#1e293b"
+                          letter-spacing="-1">
+                        <tspan fill="#2563eb">0to1</tspan><tspan letter-spacing="0"> tax</tspan>
+                    </text>
+                </g>
+                <defs>
+                    <linearGradient id="rocketGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="fireGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#f87171;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            
+            <div class="guide-lines">
+                <div class="guide-line" style="top: 35%;">
+                    <span class="guide-label">로켓 끝</span>
+                </div>
+                <div class="guide-line" style="top: 70%;">
+                    <span class="guide-label">"0" 아래</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <h3>✅ "1"과 "t" 붙이기</h3>
+                <p>
+                    <span class="highlight">letter-spacing="-1"</span>을 적용하여<br>
+                    "0to1" 부분의 자간을 좁혔습니다.<br>
+                    특히 "1"과 "t" 사이가 거의 붙었습니다!
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>✅ 로켓 정렬</h3>
+                <p>
+                    로켓 위치를 <span class="highlight">y=15 → y=25</span>로 이동하고,<br>
+                    텍스트를 <span class="highlight">y=58 → y=68</span>로 이동하여<br>
+                    로켓 끝부분이 "0"의 아래부분과 일치!
+                </p>
+            </div>
+        </div>
+        
+        <div class="specs-table">
+            <h3>📊 상세 스펙</h3>
+            <table>
+                <tr>
+                    <td>로켓 위치</td>
+                    <td>translate(5, 25) - 아래로 10px 이동</td>
+                </tr>
+                <tr>
+                    <td>로켓 크기</td>
+                    <td>scale(0.9)</td>
+                </tr>
+                <tr>
+                    <td>텍스트 위치</td>
+                    <td>x="65" y="68" - 아래로 10px 이동</td>
+                </tr>
+                <tr>
+                    <td>텍스트 크기</td>
+                    <td>36px</td>
+                </tr>
+                <tr>
+                    <td>자간 조정</td>
+                    <td>"0to1": letter-spacing="-1" (좁게)</td>
+                </tr>
+                <tr>
+                    <td>자간 조정</td>
+                    <td>" tax": letter-spacing="0" (정상)</td>
+                </tr>
+                <tr>
+                    <td>정렬</td>
+                    <td>로켓 끝 = "0" 아래부분</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 25px; background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border-radius: 12px; border-left: 4px solid #10b981;">
+            <div style="font-size: 16px; font-weight: 600; color: #065f46; margin-bottom: 8px;">
+                🎉 완료!
+            </div>
+            <div style="font-size: 14px; color: #047857; line-height: 1.8;">
+                ✅ "1"과 "t"가 거의 붙었습니다 (letter-spacing: -1)<br>
+                ✅ 로켓 끝부분이 "0"의 아래부분과 정렬되었습니다<br>
+                ✅ 전체적으로 균형 잡힌 로고 완성!
+            </div>
+        </div>
+    </div>
+</body>
+</html>

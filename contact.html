@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의하기 - 0to1tax</title>
+    <meta name="description" content="0to1tax 스타트업 전문 세무회계 서비스 문의하기. 빠른 시일 내에 연락드리겠습니다.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="rocket-icon.svg">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="문의하기 - 0to1tax">
+    <meta property="og:description" content="스타트업의 첫 번째 CFO, 0to1tax에 문의하세요">
+    <meta property="og:image" content="https://0to1tax.com/images/og-image.jpg">
+    <meta property="og:url" content="https://0to1tax.com/contact.html">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Background Animation */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: backgroundScroll 20s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes backgroundScroll {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .container {
+            background: white;
+            border-radius: 32px;
+            padding: 60px 50px;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+
+        
+        h1 {
+            font-size: 36px;
+            font-weight: 900;
+            color: #1e293b;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .info-text {
+            font-size: 15px;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+        
+        .contact-form {
+            margin-top: 40px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 10px;
+        }
+        
+        .form-label .required {
+            color: #ef4444;
+            margin-left: 4px;
+        }
+        
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 16px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: all 0.3s;
+            outline: none;
+            background: #f8fafc;
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus {
+            border-color: #3b82f6;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+        
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: #cbd5e1;
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+        
+        .form-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            color: white;
+            border: none;
+            padding: 20px 32px;
+            font-size: 18px;
+            font-weight: 900;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.4);
+            margin-top: 10px;
+        }
+        
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.5);
+        }
+        
+        .form-submit:active {
+            transform: translateY(-1px);
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #f1f5f9;
+            text-align: center;
+        }
+        
+        .footer-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+        
+        .footer-info {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.8;
+        }
+        
+        .footer-divider {
+            margin: 0 12px;
+            color: #cbd5e1;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+                border-radius: 24px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+            
+            .logo {
+                width: 160px;
+            }
+            
+            .form-submit {
+                padding: 18px 28px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            
+            .container {
+                padding: 30px 25px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .subtitle {
+                font-size: 15px;
+            }
+            
+            .logo {
+                width: 140px;
+            }
+            
+            .badge {
+                font-size: 12px;
+                padding: 6px 16px;
+            }
+            
+            .footer-divider {
+                display: none;
+            }
+            
+            .footer-info {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="0to1tax-horizontal-blue.svg" alt="0to1tax" class="logo">
+
+            <h1>0to1tax와<br>함께 시작하세요</h1>
+            <p class="subtitle">
+                스타트업의 첫 번째 CFO,<br>
+                0to1tax가 성장의 든든한 파트너가 되겠습니다
+            </p>
+            <p class="info-text">
+                빠른 시일 내에 연락드리겠습니다
+            </p>
+        </div>
+
+        <form class="contact-form" name="contact-pdf" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact-pdf">
+            <input type="hidden" name="source" value="PDF 서비스 소개서">
+            
+            <!-- Honeypot for spam protection -->
+            <p style="display: none;">
+                <label>Don't fill this out: <input name="bot-field" /></label>
+            </p>
+            
+            <div class="form-group">
+                <label class="form-label">회사명 <span class="required">*</span></label>
+                <input type="text" class="form-input" name="company" required placeholder="회사명을 입력해주세요">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">담당자명 <span class="required">*</span></label>
+                <input type="text" class="form-input" name="name" required placeholder="성함을 입력해주세요">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">연락처 <span class="required">*</span></label>
+                <input type="tel" class="form-input" name="phone" required placeholder="010-0000-0000">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">이메일 <span class="required">*</span></label>
+                <input type="email" class="form-input" name="email" required placeholder="example@company.com">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">문의 내용</label>
+                <textarea class="form-textarea" name="message" placeholder="궁금하신 사항을 자유롭게 작성해주세요"></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">문의하기</button>
+        </form>
+
+        <div class="footer">
+            <div class="footer-title">Zero to One TAX 선영 회계법인</div>
+            <div class="footer-info">
+                이메일: contact@0to1tax.com<span class="footer-divider">|</span>전화: 070-8065-3619
+                <br>
+                주소: 서울시 강남구 테헤란로70길 12 H타워 2층
+                <br>
+                평일 09:00 - 18:00
+            </div>
+            <a href="/" class="back-link">← 홈페이지로 돌아가기</a>
+        </div>
+    </div>
+</body>
+</html>

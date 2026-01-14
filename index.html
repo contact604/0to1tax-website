@@ -4102,8 +4102,19 @@
                 showAboutSlide(0);
             }, 100);
             
-            // Start auto slide after 1 second
-            aboutInterval = setInterval(nextAboutSlide, 1000);
+            // Start auto slide after 1.5 seconds
+            aboutInterval = setInterval(nextAboutSlide, 1500);
+        });
+
+        // Click/Touch to next slide
+        aboutSection.addEventListener('click', (e) => {
+            // X 버튼 클릭은 제외
+            if (e.target.closest('.close-about')) return;
+            
+            // 다음 슬라이드로
+            clearInterval(aboutInterval);
+            nextAboutSlide();
+            aboutInterval = setInterval(nextAboutSlide, 1500);
         });
 
         closeAbout.addEventListener('click', () => {

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form Test - 0to1tax</title>
+</head>
+<body>
+    <h1>0to1tax Contact Form Test</h1>
+    <p>This is a test page to verify Netlify Forms integration.</p>
+    
+    <form name="contact" method="POST" data-netlify="true">
+        <p>
+            <label>회사명: <input type="text" name="company" required /></label>
+        </p>
+        <p>
+            <label>담당자명: <input type="text" name="name" required /></label>
+        </p>
+        <p>
+            <label>연락처: <input type="tel" name="phone" required /></label>
+        </p>
+        <p>
+            <label>이메일: <input type="email" name="email" required /></label>
+        </p>
+        <p>
+            <label>문의 내용: <textarea name="message"></textarea></label>
+        </p>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+</body>
+</html>

@@ -15,11 +15,12 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
         }
         
-        /* Cosmic Theme Colors - Light Mode */
+        /* 0to1tax Theme Colors - Homepage Matching */
         :root {
-            --cosmic-blue: #3B82F6;
-            --stellar-purple: #8B5CF6;
-            --rocket-orange: #F97316;
+            --primary-blue: #1e40af;
+            --mid-blue: #2563eb;
+            --light-blue: #3b82f6;
+            --rocket-orange: #f59e0b;
             --bg-primary: #FFFFFF;
             --bg-secondary: #F8FAFC;
             --text-primary: #1E293B;
@@ -33,11 +34,11 @@
         }
         
         .gradient-cosmic {
-            background: linear-gradient(135deg, var(--stellar-purple) 0%, var(--cosmic-blue) 50%, var(--rocket-orange) 100%);
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
         }
         
         .text-gradient-cosmic {
-            background: linear-gradient(135deg, var(--stellar-purple) 0%, var(--cosmic-blue) 50%, var(--rocket-orange) 100%);
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -67,7 +68,7 @@
         
         .category-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 12px 24px rgba(37, 99, 235, 0.3);
         }
         
         .article-card {
@@ -77,10 +78,10 @@
         }
         
         .article-card:hover {
-            border-left-color: var(--cosmic-blue);
-            background: #F0F9FF;
+            border-left-color: var(--mid-blue);
+            background: #dbeafe;
             transform: translateX(4px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
         }
         
         .search-input {
@@ -94,8 +95,8 @@
         }
         
         .search-input:focus {
-            border-color: var(--cosmic-blue);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            border-color: var(--mid-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
             outline: none;
         }
         

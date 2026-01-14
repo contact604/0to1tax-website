@@ -11,6 +11,24 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Forms 설정 - Netlify Forms 활성화
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
 # Functions 설정
 [functions]
   node_bundler = "esbuild"

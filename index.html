@@ -3807,7 +3807,11 @@
             ">스타트업 전문 세무회계 서비스</p>
             
             <!-- Contact Form -->
-            <form id="newContactForm" onsubmit="submitNewForm(event)" style="display: flex; flex-direction: column; gap: 20px;">
+            <form id="newContactForm" name="contact-modal" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field" style="display: flex; flex-direction: column; gap: 20px;">
+                <input type="hidden" name="form-name" value="contact-modal">
+                <p style="display: none;">
+                    <label>Don't fill this out: <input name="bot-field" /></label>
+                </p>
                 <div>
                     <label style="display: block; font-size: 14px; font-weight: 600; color: #475569; margin-bottom: 8px;">회사명 *</label>
                     <input type="text" name="company" required placeholder="회사명을 입력해주세요" style="
@@ -3932,22 +3936,8 @@
             }
         }
         
-        function submitNewForm(event) {
-            event.preventDefault();
-            const form = document.getElementById('newContactForm');
-            const formData = new FormData(form);
-            const data = {
-                company: formData.get('company'),
-                name: formData.get('name'),
-                phone: formData.get('phone'),
-                email: formData.get('email'),
-                message: formData.get('message')
-            };
-            console.log('📧 Form Data:', data);
-            alert('✅ 문의가 접수되었습니다!\n빠른 시일 내에 연락드리겠습니다.');
-            form.reset();
-            closeNewModal();
-        }
+        // submitNewForm 함수 제거 - Netlify Forms가 자동 처리
+        // 폼 제출 시 자동으로 /success.html로 리다이렉트됨
         
         // Close on ESC key
         document.addEventListener('keydown', function(e) {

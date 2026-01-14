@@ -3668,7 +3668,14 @@
             <h2 class="final-info-title">0to1tax는<br>선영회계법인의 스타트업 전문 브랜드입니다</h2>
             <p class="final-info-subtitle">스타트업 성장의 든든한 파트너,<br>0to1tax와 함께 시작하세요</p>
 
-            <form class="contact-form" id="contactForm">
+            <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact">
+                
+                <!-- Honeypot for spam protection -->
+                <p style="display: none;">
+                    <label>Don't fill this out: <input name="bot-field" /></label>
+                </p>
+                
                 <h3 class="contact-form-title">문의하기</h3>
                 
                 <div class="form-group">
@@ -4552,30 +4559,36 @@
             });
         }
 
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
             // Get form data
             const formData = new FormData(contactForm);
-            const data = {
-                company: formData.get('company'),
-                name: formData.get('name'),
-                phone: formData.get('phone'),
-                email: formData.get('email'),
-                message: formData.get('message')
-            };
             
-            // TODO: Send to backend API
-            console.log('Form submitted:', data);
-            
-            // Show success message
-            alert('문의가 접수되었습니다!\n빠른 시일 내에 연락드리겠습니다. 😊');
-            
-            // Reset form
-            contactForm.reset();
-            
-            // Close final info section
-            window.closeContactModal();
+            try {
+                // Submit to Netlify Forms
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    alert('✅ 문의가 접수되었습니다!\n빠른 시일 내에 연락드리겠습니다. 😊');
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Close modal
+                    window.closeContactModal();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('❌ 문의 접수 중 오류가 발생했습니다.\n잠시 후 다시 시도해주세요.');
+            }
         });
         
         // Debug: 페이지 로드 완료 시 모든 요소 확인

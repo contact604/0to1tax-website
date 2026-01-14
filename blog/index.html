@@ -2,14 +2,52 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="description" content="스타트업을 위한 회계, 세무, 보조금 정보 블로그">
-    <title>회계·세무 블로그 - Zero to One TAX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Primary Meta Tags -->
+    <title>0to1tax 블로그 | 스타트업 세무·회계·투자 인사이트</title>
+    <meta name="title" content="0to1tax 블로그 | 스타트업 세무·회계·투자 인사이트">
+    <meta name="description" content="스타트업 창업자를 위한 세무, 회계, 투자유치, 재무관리 실전 노하우. VC 투자, 재무실사, IR 준비, 법인세 절감까지 전문 회계사가 알려드립니다.">
+    <meta name="keywords" content="스타트업 블로그, 세무 블로그, 회계 블로그, 투자유치, 재무관리, VC 투자, 법인세, 스톡옵션, RCPS, 재무실사, 0to1tax">
+    <meta name="author" content="0to1tax - 선영회계법인">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.0to1tax.com/blog/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.0to1tax.com/blog/">
+    <meta property="og:title" content="0to1tax 블로그 | 스타트업 세무·회계·투자 인사이트">
+    <meta property="og:description" content="스타트업 창업자를 위한 세무, 회계, 투자유치, 재무관리 실전 노하우">
+    <meta property="og:image" content="https://www.0to1tax.com/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.0to1tax.com/blog/">
+    <meta property="twitter:title" content="0to1tax 블로그 | 스타트업 세무·회계·투자 인사이트">
+    <meta property="twitter:description" content="스타트업 창업자를 위한 세무, 회계, 투자유치, 재무관리 실전 노하우">
+    <meta property="twitter:image" content="https://www.0to1tax.com/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/rocket-icon.svg">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "0to1tax 블로그",
+      "description": "스타트업 세무·회계·투자 인사이트",
+      "url": "https://www.0to1tax.com/blog/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "0to1tax",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.0to1tax.com/0to1tax-horizontal-blue.svg"
+        }
+      }
+    }
+    </script>
     
     <style>
         * {
@@ -17,79 +55,149 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Noto Sans KR', 'Inter', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
             line-height: 1.6;
             color: #1a1a1a;
             background: #ffffff;
         }
-
+        
         :root {
-            --primary-blue: #0066FF;
-            --dark-blue: #0052CC;
-            --light-blue: #E6F0FF;
+            --primary-blue: #2563eb;
+            --dark-blue: #1e40af;
+            --light-blue: #dbeafe;
             --dark-gray: #1a1a1a;
             --medium-gray: #666666;
             --light-gray: #f5f5f5;
         }
-
+        
         /* Header */
-        .header {
-            background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
-            padding: 80px 20px 60px;
-            text-align: center;
+        header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 32px;
+            width: auto;
+        }
+        
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+        
+        nav a {
+            color: #374151;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover,
+        nav a.active {
+            color: var(--primary-blue);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
             color: white;
+            padding: 80px 30px;
+            text-align: center;
         }
-
-        .header h1 {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 16px;
-            line-height: 1.3;
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
-
-        .header p {
-            font-size: 16px;
-            opacity: 0.9;
+        
+        .hero p {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+        
+        /* Search Box */
+        .search-box {
             max-width: 600px;
             margin: 0 auto;
+            position: relative;
         }
-
-        .back-link {
-            display: inline-block;
+        
+        .search-input {
+            width: 100%;
+            padding: 18px 60px 18px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-blue);
             color: white;
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 20px;
-            opacity: 0.9;
-            transition: opacity 0.3s;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
         }
-
-        .back-link:hover {
-            opacity: 1;
+        
+        .search-btn:hover {
+            background: var(--dark-blue);
         }
-
+        
         /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 60px 30px;
         }
-
-        /* Filter Tags */
+        
+        /* Filter Section */
         .filter-section {
-            margin-bottom: 40px;
-            text-align: center;
+            margin-bottom: 50px;
         }
-
+        
+        .filter-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+        
         .filter-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            justify-content: center;
         }
-
+        
         .filter-tag {
             padding: 10px 20px;
             background: var(--light-gray);
@@ -101,263 +209,551 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-
+        
         .filter-tag:hover {
-            background: #E8F5E9;
-            border-color: #4CAF50;
-            color: #4CAF50;
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
         }
-
+        
         .filter-tag.active {
-            background: #4CAF50;
+            background: var(--primary-blue);
             color: white;
+            border-color: var(--primary-blue);
         }
-
+        
         /* Blog Grid */
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            gap: 40px;
+            margin-bottom: 60px;
         }
-
+        
         .blog-card {
             background: white;
-            border: 1px solid #e0e0e0;
             border-radius: 16px;
-            padding: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             transition: all 0.3s;
             cursor: pointer;
             text-decoration: none;
             color: inherit;
             display: block;
         }
-
+        
         .blog-card:hover {
-            border-color: #4CAF50;
-            box-shadow: 0 8px 24px rgba(76, 175, 80, 0.15);
-            transform: translateY(-4px);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
         }
-
-        .card-tag {
+        
+        .blog-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--light-blue) 0%, #e0e7ff 100%);
+        }
+        
+        .blog-content {
+            padding: 28px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .blog-category {
             display: inline-block;
-            padding: 6px 12px;
-            background: #E8F5E9;
-            color: #4CAF50;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
+            padding: 5px 14px;
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .blog-date {
+            display: inline-block;
+            color: var(--medium-gray);
+            font-size: 13px;
+            padding: 5px 0;
+        }
+        
+        .blog-title {
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            color: var(--dark-gray);
+        }
+        
+        .blog-excerpt {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--medium-gray);
             margin-bottom: 16px;
         }
-
-        .card-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--dark-gray);
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .card-summary {
+        
+        .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 14px;
             color: var(--medium-gray);
-            line-height: 1.6;
+        }
+        
+        .author-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        
+        /* Featured Post */
+        .featured-post {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            color: white;
+            border-radius: 24px;
+            padding: 60px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .featured-title {
+            font-size: 36px;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+        
+        .featured-excerpt {
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+        
+        .read-more-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: white;
+            color: var(--primary-blue);
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .read-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Newsletter Section */
+        .newsletter-section {
+            background: var(--light-gray);
+            padding: 60px;
+            border-radius: 24px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .newsletter-title {
+            font-size: 32px;
+            font-weight: 900;
             margin-bottom: 16px;
         }
-
-        .card-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
+        
+        .newsletter-desc {
+            font-size: 18px;
             color: var(--medium-gray);
-            padding-top: 16px;
-            border-top: 1px solid #f0f0f0;
+            margin-bottom: 30px;
         }
-
-        .read-time {
-            font-weight: 500;
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 12px;
         }
-
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 16px 24px;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .newsletter-input:focus {
+            border-color: var(--primary-blue);
+        }
+        
+        .newsletter-btn {
+            padding: 16px 32px;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-btn:hover {
+            background: var(--dark-blue);
+        }
+        
         /* Footer */
         footer {
             background: #1a1a1a;
             color: white;
-            padding: 40px 20px;
-            text-align: center;
+            padding: 60px 30px 30px;
             margin-top: 80px;
         }
-
-        footer a {
-            color: #4CAF50;
-            text-decoration: none;
-            font-weight: 600;
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
         }
-
-        /* Mobile Responsive */
+        
+        .footer-logo {
+            height: 36px;
+            margin-bottom: 24px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-text {
+            font-size: 15px;
+            color: #9ca3af;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-copyright {
+            font-size: 14px;
+            color: #6b7280;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
-            .header {
-                padding: 60px 20px 40px;
+            .hero h1 {
+                font-size: 32px;
             }
-
-            .header h1 {
-                font-size: 26px;
+            
+            .hero p {
+                font-size: 16px;
             }
-
-            .header p {
-                font-size: 14px;
-            }
-
-            .container {
-                padding: 40px 20px;
-            }
-
+            
             .blog-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .featured-post {
+                padding: 40px 30px;
+            }
+            
+            .featured-title {
+                font-size: 28px;
+            }
+            
+            .newsletter-section {
+                padding: 40px 30px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            nav {
                 gap: 20px;
-            }
-
-            .blog-card {
-                padding: 24px;
-            }
-
-            .card-title {
-                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <div class="header">
-        <a href="../index.html" class="back-link">← 홈으로 돌아가기</a>
-        <h1>회계·세무 블로그</h1>
-        <p>스타트업을 위한 회계, 세무, 보조금 정보</p>
-    </div>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="/">
+                    <img src="/0to1tax-horizontal-blue.svg" alt="0to1tax">
+                </a>
+            </div>
+            <nav>
+                <a href="/">홈</a>
+                <a href="/blog/" class="active">블로그</a>
+                <a href="/#contact">문의하기</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>스타트업을 위한<br>세무·회계 인사이트</h1>
+        <p>투자유치부터 상장까지, 스타트업 성장의 모든 단계에서 필요한<br>세무·회계·재무 노하우를 전문 회계사가 알려드립니다</p>
+        
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="궁금한 내용을 검색해보세요 (예: 투자유치, 법인세, 스톡옵션)">
+            <button class="search-btn" onclick="searchBlog()">검색</button>
+        </div>
+    </section>
 
     <!-- Main Content -->
     <div class="container">
         <!-- Filter Section -->
         <div class="filter-section">
+            <h2 class="filter-title">카테고리</h2>
             <div class="filter-tags">
-                <div class="filter-tag active" data-filter="all">전체</div>
-                <div class="filter-tag" data-filter="subsidy">보조금</div>
-                <div class="filter-tag" data-filter="tax">세무 상식</div>
-                <div class="filter-tag" data-filter="accounting">회계 일반</div>
-                <div class="filter-tag" data-filter="startup">스타트업 팁</div>
+                <span class="filter-tag active" data-category="전체">전체</span>
+                <span class="filter-tag" data-category="투자유치">투자유치</span>
+                <span class="filter-tag" data-category="세무">세무</span>
+                <span class="filter-tag" data-category="회계">회계</span>
+                <span class="filter-tag" data-category="M&A">M&A</span>
+                <span class="filter-tag" data-category="법인">법인</span>
+                <span class="filter-tag" data-category="스타트업">스타트업</span>
             </div>
         </div>
 
+        <!-- Featured Post -->
+        <div class="featured-post" id="featuredPost">
+            <div class="featured-badge">⭐ 추천 글</div>
+            <h2 class="featured-title">서치펀드(Search Fund): 0→1을 만든 창업자를 위한 새로운 Exit 전략</h2>
+            <p class="featured-excerpt">유니콘을 꿈꾸지 않아도 괜찮습니다. 10~30년간 쌓아온 당신의 중소기업이 '서치펀드'를 통해 안정적으로 다음 세대로 이어질 수 있습니다.</p>
+            <a href="#" class="read-more-btn">자세히 읽기 →</a>
+        </div>
+
         <!-- Blog Grid -->
-        <div class="blog-grid">
-            <!-- Blog Card 1 -->
-            <a href="startup-subsidy-guide.html" class="blog-card" data-category="subsidy">
-                <span class="card-tag">보조금</span>
-                <h3 class="card-title">2025년 스타트업이 신청할 수 있는 정부 보조금 정리</h3>
-                <p class="card-summary">
-                    창업 지원금부터 R&D 보조금까지, 초기 스타트업이 알아야 할 정부 지원 사업
-                </p>
-                <div class="card-meta">
-                    <span class="read-time">📖 4분 읽기</span>
-                    <span>2025.01.10</span>
-                </div>
-            </a>
+        <div class="blog-grid" id="blogGrid">
+            <!-- Blog posts will be dynamically loaded here -->
+        </div>
 
-            <!-- Blog Card 2 -->
-            <a href="year-end-tax-tips.html" class="blog-card" data-category="tax">
-                <span class="card-tag">세무 상식</span>
-                <h3 class="card-title">연말정산 앞두고 사업자가 꼭 체크해야 할 세무 항목</h3>
-                <p class="card-summary">
-                    법인과 개인사업자가 연말에 챙겨야 할 세금 절약 포인트와 신고 일정
-                </p>
-                <div class="card-meta">
-                    <span class="read-time">📖 5분 읽기</span>
-                    <span>2025.01.09</span>
-                </div>
-            </a>
-
-            <!-- Blog Card 3 -->
-            <a href="accounting-basics-startup.html" class="blog-card" data-category="accounting">
-                <span class="card-tag">회계 일반</span>
-                <h3 class="card-title">스타트업 대표가 알아야 할 회계 기본 용어 정리</h3>
-                <p class="card-summary">
-                    손익계산서, 재무상태표, 현금흐름표 등 실무에서 자주 보는 회계 용어 해설
-                </p>
-                <div class="card-meta">
-                    <span class="read-time">📖 6분 읽기</span>
-                    <span>2025.01.08</span>
-                </div>
-            </a>
-
-            <!-- Blog Card 4 -->
-            <a href="startup-bookkeeping-tips.html" class="blog-card" data-category="startup">
-                <span class="card-tag">스타트업 팁</span>
-                <h3 class="card-title">초기 스타트업, 기장은 언제부터 시작해야 할까?</h3>
-                <p class="card-summary">
-                    법인 설립 후 기장 시작 시기와 회계사를 선택하는 기준
-                </p>
-                <div class="card-meta">
-                    <span class="read-time">📖 4분 읽기</span>
-                    <span>2025.01.07</span>
-                </div>
-            </a>
-
-            <!-- Blog Card 5 -->
-            <a href="vat-return-guide.html" class="blog-card" data-category="tax">
-                <span class="card-tag">세무 상식</span>
-                <h3 class="card-title">부가가치세 신고, 처음 하는 사업자를 위한 가이드</h3>
-                <p class="card-summary">
-                    부가세 신고 절차와 실수하기 쉬운 포인트, 환급 받는 방법
-                </p>
-                <div class="card-meta">
-                    <span class="read-time">📖 5분 읽기</span>
-                    <span>2025.01.06</span>
-                </div>
-            </a>
-
-            <!-- Blog Card 6 -->
-            <a href="financial-report-reading.html" class="blog-card" data-category="accounting">
-                <span class="card-tag">회계 일반</span>
-                <h3 class="card-title">재무제표 읽는 법: 비재무 담당자도 이해하는 해석 가이드</h3>
-                <p class="card-summary">
-                    손익계산서와 재무상태표를 보고 회사의 재무 상태를 판단하는 방법
-                </p>
-                <div class="card-meta">
-                    <span class="read-time">📖 7분 읽기</span>
-                    <span>2025.01.05</span>
-                </div>
-            </a>
+        <!-- Newsletter Section -->
+        <div class="newsletter-section">
+            <h2 class="newsletter-title">📬 0to1tax 뉴스레터</h2>
+            <p class="newsletter-desc">스타트업을 위한 최신 세무·회계 소식을 이메일로 받아보세요</p>
+            <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                <input type="email" class="newsletter-input" placeholder="이메일 주소를 입력하세요" required>
+                <button type="submit" class="newsletter-btn">구독하기</button>
+            </form>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>더 자세한 상담이 필요하시면 <a href="../index.html#contact">문의하기</a></p>
-        <p style="margin-top: 20px; opacity: 0.7; font-size: 14px;">© 2025 Zero to One TAX. All rights reserved.</p>
+        <div class="footer-container">
+            <img src="/0to1tax-horizontal-blue.svg" alt="0to1tax" class="footer-logo">
+            <p class="footer-text">
+                Zero to One TAX 선영 회계법인<br>
+                서울시 강남구 테헤란로70길 12 H타워 2층<br>
+                이메일: contact@0to1tax.com | 전화: 070-8065-3619
+            </p>
+            <div class="footer-links">
+                <a href="/">홈</a>
+                <a href="/blog/">블로그</a>
+                <a href="/#contact">문의하기</a>
+                <a href="/privacy">개인정보처리방침</a>
+            </div>
+            <p class="footer-copyright">
+                © 2024 0to1tax. All rights reserved.
+            </p>
+        </div>
     </footer>
 
     <script>
-        // Filter functionality
-        const filterTags = document.querySelectorAll('.filter-tag');
-        const blogCards = document.querySelectorAll('.blog-card');
+        // Blog posts data
+        const blogPosts = [
+            {
+                title: "서치펀드(Search Fund): 0→1을 만든 창업자를 위한 새로운 Exit 전략",
+                excerpt: "유니콘을 꿈꾸지 않아도 괜찮습니다. 10~30년간 쌓아온 당신의 중소기업이 '서치펀드'를 통해 안정적으로 다음 세대로 이어질 수 있습니다.",
+                category: "M&A",
+                date: "2024-11-23",
+                author: "이범기 회계사",
+                slug: "searchfund-exit-strategy"
+            },
+            {
+                title: "스타트업을 위한 연말정산 체크리스트",
+                excerpt: "스타트업 대표님들을 위한 연말정산 필수 체크리스트. 놓치기 쉬운 항목들을 정리했습니다.",
+                category: "세무",
+                date: "2024-11-17",
+                author: "이범기 회계사",
+                slug: "startup-year-end-settlement-checklist"
+            },
+            {
+                title: "스타트업 기장전략: 초기부터 제대로 관리하는 법",
+                excerpt: "스타트업 초기부터 체계적인 기장 관리가 왜 중요한지, 그리고 어떻게 해야 하는지 알려드립니다.",
+                category: "회계",
+                date: "2024-11-07",
+                author: "이범기 회계사",
+                slug: "startup-bookkeeping-strategy"
+            },
+            {
+                title: "흑자도산을 피하는 법: 현금흐름 관리의 중요성",
+                excerpt: "장부상 흑자인데 왜 파산하는 기업이 생길까요? 현금흐름 관리의 핵심을 알려드립니다.",
+                category: "회계",
+                date: "2024-11-02",
+                author: "이범기 회계사",
+                slug: "black-ink-bankruptcy"
+            },
+            {
+                title: "스타트업 투자유치 시 세무관리 핵심 포인트",
+                excerpt: "VC 투자를 받을 때 반드시 알아야 할 세무 관리 포인트를 정리했습니다.",
+                category: "투자유치",
+                date: "2024-10-31",
+                author: "이범기 회계사",
+                slug: "startup-investment-tax-management"
+            },
+            {
+                title: "스타트업 법인세 절감 전략 10가지",
+                excerpt: "합법적으로 법인세를 절감할 수 있는 10가지 실전 전략을 소개합니다.",
+                category: "세무",
+                date: "2024-10-30",
+                author: "이범기 회계사",
+                slug: "startup-corporate-tax-savings"
+            },
+            {
+                title: "2026년 세법 개정안: 스타트업이 알아야 할 변화",
+                excerpt: "2026년 세법 개정으로 달라지는 내용 중 스타트업에 영향을 주는 핵심 사항들을 정리했습니다.",
+                category: "세무",
+                date: "2024-12-28",
+                author: "이범기 회계사",
+                slug: "2026-tax-reform"
+            },
+            {
+                title: "0to1tax 블로그에 오신 것을 환영합니다",
+                excerpt: "스타트업을 위한 세무·회계 인사이트를 공유하는 0to1tax 블로그를 시작합니다.",
+                category: "공지",
+                date: "2024-10-27",
+                author: "이범기 회계사",
+                slug: "welcome"
+            }
+        ];
 
-        filterTags.forEach(tag => {
-            tag.addEventListener('click', () => {
-                // Update active state
-                filterTags.forEach(t => t.classList.remove('active'));
-                tag.classList.add('active');
+        // Render blog posts
+        function renderBlogPosts(posts = blogPosts) {
+            const blogGrid = document.getElementById('blogGrid');
+            blogGrid.innerHTML = '';
+            
+            posts.forEach(post => {
+                const card = document.createElement('a');
+                card.href = `/blog/${post.slug}.html`;
+                card.className = 'blog-card';
+                
+                card.innerHTML = `
+                    <div class="blog-image"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">${post.category}</span>
+                            <span class="blog-date">${post.date}</span>
+                        </div>
+                        <h3 class="blog-title">${post.title}</h3>
+                        <p class="blog-excerpt">${post.excerpt}</p>
+                        <div class="blog-author">
+                            <div class="author-avatar">${post.author[0]}</div>
+                            <span>${post.author}</span>
+                        </div>
+                    </div>
+                `;
+                
+                blogGrid.appendChild(card);
+            });
+        }
 
-                // Filter cards
-                const filter = tag.dataset.filter;
-                blogCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+        // Filter by category
+        document.querySelectorAll('.filter-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                // Remove active class from all tags
+                document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tag
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                
+                if (category === '전체') {
+                    renderBlogPosts(blogPosts);
+                } else {
+                    const filtered = blogPosts.filter(post => post.category === category);
+                    renderBlogPosts(filtered);
+                }
             });
         });
+
+        // Search functionality
+        function searchBlog() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            if (searchTerm === '') {
+                renderBlogPosts(blogPosts);
+                return;
+            }
+            
+            const filtered = blogPosts.filter(post => 
+                post.title.toLowerCase().includes(searchTerm) ||
+                post.excerpt.toLowerCase().includes(searchTerm) ||
+                post.category.toLowerCase().includes(searchTerm)
+            );
+            
+            renderBlogPosts(filtered);
+        }
+
+        // Newsletter subscription
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            alert('뉴스레터 구독 기능은 곧 출시됩니다!');
+        }
+
+        // Enter key search
+        document.getElementById('searchInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchBlog();
+            }
+        });
+
+        // Initialize
+        renderBlogPosts();
     </script>
 </body>
 </html>

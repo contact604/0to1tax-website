@@ -3239,6 +3239,13 @@
         <input type="text" name="bot-field" />
     </form>
 
+    <!-- Quick contact form for solution final button -->
+    <form name="quick-contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="source" />
+        <input type="text" name="timestamp" />
+        <input type="text" name="bot-field" />
+    </form>
+
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <!-- 3D Floating Shapes -->
@@ -3678,7 +3685,7 @@
             <h2 class="final-info-title">0to1tax는<br>선영회계법인의 스타트업 전문 브랜드입니다</h2>
             <p class="final-info-subtitle">스타트업 성장의 든든한 파트너,<br>0to1tax와 함께 시작하세요</p>
 
-            <form class="contact-form" id="contactForm" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+            <form class="contact-form" id="contactForm" name="contact" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field">
                 <input type="hidden" name="form-name" value="contact">
                 
                 <!-- Honeypot for spam protection -->
@@ -4569,51 +4576,39 @@
             });
         });
 
-        // Final Guidance Contact Button (backup)
+        // Final Guidance Contact Button - Quick notification + Open modal
         const finalGuidanceContactBtn = document.getElementById('finalGuidanceContactBtn');
         
         if (finalGuidanceContactBtn) {
             console.log('✅ Final Guidance 문의하기 버튼 찾음!');
             finalGuidanceContactBtn.addEventListener('click', (e) => {
-                console.log('✅ Final Guidance 지금 문의하기 클릭 (addEventListener)');
+                e.preventDefault();
+                console.log('✅ Final Guidance 지금 문의하기 클릭');
+                
+                // Pre-fill the contact form with source information
+                const messageField = contactForm.querySelector('textarea[name="message"]');
+                if (messageField && !messageField.value) {
+                    messageField.value = '💡 Solution 마지막 페이지의 주황색 버튼을 통해 문의드립니다.';
+                }
+                
+                // Open contact modal
                 openNewModal();
             });
         }
 
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        // Contact form submission - Let Netlify handle it naturally (NO preventDefault!)
+        contactForm.addEventListener('submit', function(e) {
+            console.log('📝 Form submitting to Netlify...');
             
-            // Get form data
-            const formData = new FormData(contactForm);
+            // Add timestamp for tracking
+            const timestamp = document.createElement('input');
+            timestamp.type = 'hidden';
+            timestamp.name = 'submission-time';
+            timestamp.value = new Date().toLocaleString('ko-KR');
+            contactForm.appendChild(timestamp);
             
-            try {
-                // Submit to Netlify Forms with proper encoding
-                const body = new URLSearchParams(formData).toString();
-                
-                const response = await fetch('/', {
-                    method: 'POST',
-                    headers: { 
-                        "Content-Type": "application/x-www-form-urlencoded" 
-                    },
-                    body: body
-                });
-                
-                if (response.ok) {
-                    // Show success message
-                    alert('✅ 문의가 접수되었습니다!\n빠른 시일 내에 연락드리겠습니다. 😊');
-                    
-                    // Reset form
-                    contactForm.reset();
-                    
-                    // Close modal
-                    window.closeContactModal();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                console.error('Form submission error:', error);
-                alert('❌ 문의 접수 중 오류가 발생했습니다.\n잠시 후 다시 시도해주세요.');
-            }
+            // Let form submit naturally to Netlify - DO NOT prevent default!
+            // Netlify will redirect to /success.html after submission
         });
         
         // Debug: 페이지 로드 완료 시 모든 요소 확인

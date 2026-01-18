@@ -398,24 +398,25 @@
                 display: none !important;
             }
 
-            /* 플로팅 상담 버튼 - PDF 기준 맨 위 오른쪽 */
+            /* 플로팅 상담 버튼 - PDF 우측 상단 */
             .floating-contact-btn {
                 position: fixed;
                 top: 1rem; /* PDF 상단에서 약간 아래 */
-                right: 1rem; /* 오른쪽에서 약간 안쪽 */
-                transform: rotate(90deg); /* 회전 적용 */
+                right: 0.5rem; /* 오른쪽 끝으로 더 이동 */
+                transform: rotate(90deg);
+                transform-origin: center center;
                 z-index: 999;
-                padding: 0.75rem 1.5rem;
+                padding: 0.65rem 1.25rem; /* 높이 약간 줄임 */
                 background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
                 color: white;
                 border: none;
                 border-radius: 50px;
                 font-weight: 700;
-                font-size: 0.875rem;
+                font-size: 0.8rem; /* 폰트 크기 약간 줄임 */
                 text-decoration: none;
                 display: flex;
                 align-items: center;
-                gap: 0.5rem;
+                gap: 0.4rem;
                 box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
                 transition: all 0.3s ease;
                 white-space: nowrap;
@@ -720,26 +721,33 @@
 
         // 모바일 클릭으로 페이지 넘기기
         if (window.innerWidth <= 768) {
-            const container = document.querySelector('.pdf-canvas-container');
-            
-            container.addEventListener('click', function(e) {
+            canvas.addEventListener('click', function(e) {
                 // 상담하기 버튼 클릭은 제외
                 if (e.target.closest('.floating-contact-btn')) {
                     return;
                 }
                 
-                const containerWidth = container.clientWidth;
-                const clickX = e.clientX;
+                // 90도 회전을 고려한 좌표 계산
+                const rect = canvas.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const canvasWidth = rect.width;
+                
+                console.log('클릭 위치:', clickX, '/', canvasWidth); // 디버깅용
                 
                 // 왼쪽 1/3 클릭 = 이전 페이지
-                if (clickX < containerWidth / 3) {
+                if (clickX < canvasWidth / 3) {
+                    console.log('이전 페이지');
                     onPrevPage();
                 }
                 // 오른쪽 1/3 클릭 = 다음 페이지
-                else if (clickX > (containerWidth * 2 / 3)) {
+                else if (clickX > (canvasWidth * 2 / 3)) {
+                    console.log('다음 페이지');
                     onNextPage();
                 }
                 // 중앙 1/3 클릭 = 아무 동작 없음 (스크롤용)
+                else {
+                    console.log('중앙 클릭 - 스크롤 영역');
+                }
             });
         }
 

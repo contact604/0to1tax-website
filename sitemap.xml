@@ -31,9 +31,17 @@
   <!-- 블로그 메인 -->
   <url>
     <loc>https://0to1tax.com/0to1log.html</loc>
-    <lastmod>2026-01-04</lastmod>
+    <lastmod>2026-01-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+  </url>
+  
+  <!-- 4대보험 계산기 -->
+  <url>
+    <loc>https://0to1tax.com/insurance-calculator.html</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <!-- 인사이트 개별 페이지 -->

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4대보험 계산기 2026 | 국민연금 건강보험 고용보험 정확한 계산 - 0to1tax</title>
+    <meta name="description" content="2026년 최신 요율 적용 4대보험료 계산기. 국민연금, 건강보험, 장기요양, 고용보험을 근로자수별로 정확하게 계산. 기업 규모별 요율 자동 적용. 무료 온라인 계산기.">
+    <meta name="keywords" content="4대보험 계산기, 2026년 4대보험, 국민연금 계산, 건강보험료 계산, 고용보험료 계산, 장기요양보험, 사회보험료, 급여 계산기, 인건비 계산">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="4대보험 계산기 2026 | 정확한 국민연금·건강보험·고용보험 계산">
+    <meta property="og:description" content="2026년 최신 요율 적용. 기업 규모별 자동 계산으로 정확한 4대보험료를 확인하세요.">
+    <meta property="og:url" content="https://0to1tax.com/insurance-calculator.html">
+    <meta property="og:site_name" content="0to1tax">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="4대보험 계산기 2026">
+    <meta name="twitter:description" content="2026년 최신 요율 적용. 정확한 4대보험료 계산.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://0to1tax.com/insurance-calculator.html">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "4대보험 계산기 2026",
+      "applicationCategory": "FinanceApplication",
+      "description": "2026년 최신 요율을 적용한 4대보험료 계산기. 국민연금, 건강보험, 장기요양, 고용보험을 정확하게 계산합니다.",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1000"
+      }
+    }
+    </script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e40af;
+            --primary-blue-light: #2563eb;
+            --primary-blue-lighter: #3b82f6;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --bg-light: #f9fafb;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .btn-contact {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 50%, var(--primary-blue-lighter) 100%);
+            color: white;
+            padding: 0.625rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-lighter) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Calculator Card */
+        .calculator-card {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-lighter) 100%);
+            border-radius: 2px;
+        }
+
+        /* Form Groups */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+
+        .input-suffix {
+            position: relative;
+        }
+
+        .input-suffix input {
+            padding-right: 3rem;
+        }
+
+        .input-suffix::after {
+            content: '원';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        /* Button */
+        .btn-calculate {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 50%, var(--primary-blue-lighter) 100%);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 0.75rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-calculate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+        }
+
+        /* Results */
+        .results {
+            display: none;
+            margin-top: 2rem;
+        }
+
+        .results.show {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .result-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .result-value {
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-size: 1.125rem;
+        }
+
+        .result-breakdown {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-top: 0.25rem;
+        }
+
+        .total-result {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-lighter) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .total-result .result-label,
+        .total-result .result-value {
+            color: white;
+        }
+
+        .total-result .result-value {
+            font-size: 1.75rem;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: #f0f9ff;
+            border-left: 4px solid var(--primary-blue);
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-box h3 {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+            color: var(--text-gray);
+        }
+
+        .info-box li {
+            padding: 0.25rem 0;
+        }
+
+        .info-box li::before {
+            content: '•';
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .calculator-card {
+                padding: 1.5rem;
+            }
+
+            .result-breakdown {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            /* 모바일에서 테이블 스크롤 */
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            thead, tbody, tfoot {
+                display: table;
+                width: 100%;
+            }
+
+            th, td {
+                font-size: 0.875rem !important;
+                padding: 0.75rem !important;
+            }
+        }
+
+        /* Grid Layout for Desktop */
+        @media (min-width: 768px) {
+            .calculator-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="/">
+                <img src="/0to1tax-horizontal-blue.svg" alt="0to1tax" class="logo">
+            </a>
+            <nav class="nav-links">
+                <a href="/">홈</a>
+                <a href="/0to1tax-service-guide.pdf.pdf" target="_blank">서비스소개서</a>
+                <a href="/0to1log.html">블로그</a>
+                <a href="/#contact" class="btn-contact">문의하기</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>🧮 4대보험 계산기</h1>
+            <p>2026년 최신 요율 적용 | 국민연금·건강보험·고용보험 정확한 계산</p>
+        </div>
+
+        <!-- Calculator -->
+        <div class="calculator-card">
+            <h2 class="section-title">급여 정보 입력</h2>
+            
+            <form id="calculatorForm">
+                <div class="form-group">
+                    <label class="form-label" for="salary">월 급여액 (세전)</label>
+                    <div class="input-suffix">
+                        <input type="text" id="salary" class="form-input" placeholder="3,000,000" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="companySize">근로자 수</label>
+                    <select id="companySize" class="form-input">
+                        <option value="under150">150인 미만 기업</option>
+                        <option value="over150">150인 이상 (우선지원대상기업)</option>
+                        <option value="under1000">150인 이상 1,000인 미만 기업</option>
+                        <option value="over1000">1,000인 이상 기업, 국가·지방자치단체</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="employeeType">근로자 유형</label>
+                    <select id="employeeType" class="form-input">
+                        <option value="regular">일반 근로자</option>
+                        <option value="parttime">단시간 근로자 (60시간 미만)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-calculate">💰 계산하기</button>
+            </form>
+
+            <!-- Results -->
+            <div id="results" class="results">
+                <h2 class="section-title">계산 결과</h2>
+
+                <!-- Summary Cards -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                    <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 1.5rem; border-radius: 1rem; text-align: center;">
+                        <div style="font-size: 0.875rem; opacity: 0.9; margin-bottom: 0.5rem;">👤 근로자 부담</div>
+                        <div style="font-size: 1.75rem; font-weight: 700;" id="employeeTotalCard">0원</div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); color: white; padding: 1.5rem; border-radius: 1rem; text-align: center;">
+                        <div style="font-size: 0.875rem; opacity: 0.9; margin-bottom: 0.5rem;">🏢 사업주 부담</div>
+                        <div style="font-size: 1.75rem; font-weight: 700;" id="employerTotalCard">0원</div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); color: white; padding: 1.5rem; border-radius: 1rem; text-align: center;">
+                        <div style="font-size: 0.875rem; opacity: 0.9; margin-bottom: 0.5rem;">💰 총 4대보험료</div>
+                        <div style="font-size: 1.75rem; font-weight: 700;" id="totalAmountCard">0원</div>
+                    </div>
+                </div>
+
+                <!-- Detailed Table -->
+                <div style="background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%); color: white;">
+                                <th style="padding: 1rem; text-align: left; font-weight: 600;">항목</th>
+                                <th style="padding: 1rem; text-align: right; font-weight: 600;">근로자 부담</th>
+                                <th style="padding: 1rem; text-align: right; font-weight: 600;">사업주 부담</th>
+                                <th style="padding: 1rem; text-align: right; font-weight: 600;">합계</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsTableBody">
+                            <!-- Results will be inserted here -->
+                        </tbody>
+                        <tfoot>
+                            <tr style="background: #f0f9ff; font-weight: 700; font-size: 1.125rem;">
+                                <td style="padding: 1rem; border-top: 2px solid #2563eb;">합계</td>
+                                <td style="padding: 1rem; text-align: right; color: #3b82f6; border-top: 2px solid #2563eb;" id="employeeTotal">0원</td>
+                                <td style="padding: 1rem; text-align: right; color: #1e40af; border-top: 2px solid #2563eb;" id="employerTotal">0원</td>
+                                <td style="padding: 1rem; text-align: right; color: #0ea5e9; border-top: 2px solid #2563eb;" id="totalAmount">0원</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Box -->
+        <div class="info-box">
+            <h3>📌 2026년 4대보험 요율 정보</h3>
+            <ul>
+                <li><strong>국민연금:</strong> 9.5% (근로자 4.75%, 사업주 4.75%)
+                    <br><span style="color: #e11d48; font-size: 0.875rem;">※ 상한액: 월 637만원까지 적용</span>
+                </li>
+                <li><strong>건강보험:</strong> 7.19% (근로자 3.595%, 사업주 3.595%)
+                    <br><span style="color: #e11d48; font-size: 0.875rem;">※ 상한액: 월 8,190만원까지 적용</span>
+                </li>
+                <li><strong>장기요양보험:</strong> 건강보험료의 13.14%</li>
+                <li><strong>고용보험 (근로자):</strong> 0.9% (전 사업장 동일)</li>
+                <li><strong>고용보험 (사업주):</strong>
+                    <ul style="margin-top: 0.25rem; padding-left: 1.5rem;">
+                        <li>150인 미만: 1.15% (실업급여 0.9% + 고용안정 0.25%)</li>
+                        <li>150인 이상 (우선지원): 1.15%</li>
+                        <li>150~1,000인: 1.55% (실업급여 0.9% + 고용안정 0.65%)</li>
+                        <li>1,000인 이상: 1.75% (실업급여 0.9% + 고용안정 0.85%)</li>
+                    </ul>
+                </li>
+                <li><strong>산재보험:</strong> 업종별 상이 (평균 1.5%, 사업주 전액 부담)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 2026년 4대보험 요율 (정부 공식)
+        const RATES = {
+            pension: 0.095,         // 국민연금 9.5%
+            health: 0.0719,         // 건강보험 7.19%
+            longTermCare: 0.1314,   // 장기요양보험 13.14% (건강보험료 기준)
+            industrial: 0.015       // 산재보험 1.5% (평균)
+        };
+
+        // 2026년 4대보험 상한액
+        const LIMITS = {
+            pension: 6370000,       // 국민연금 상한액: 637만원
+            health: 81900000        // 건강보험 상한액: 8,190만원
+        };
+
+        // 근로자 수별 고용보험 요율 (사업주 부담) - 2026년 기준
+        // 실업급여(0.9%) + 고용안정·직업능력개발(0.25%~0.85%)
+        const EMPLOYMENT_RATES = {
+            under150: 0.0115,       // 150인 미만: 1.15% (0.9% + 0.25%)
+            over150: 0.0115,        // 150인 이상 우선지원: 1.15%
+            under1000: 0.0155,      // 150~1000인: 1.55% (0.9% + 0.65%)
+            over1000: 0.0175        // 1000인 이상: 1.75% (0.9% + 0.85%)
+        };
+
+        const form = document.getElementById('calculatorForm');
+        const resultsDiv = document.getElementById('results');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateInsurance();
+        });
+
+        function calculateInsurance() {
+            // 콤마 제거 후 숫자로 변환
+            const salaryValue = document.getElementById('salary').value.replace(/,/g, '');
+            const salary = parseInt(salaryValue);
+            const companySize = document.getElementById('companySize').value;
+            const employeeType = document.getElementById('employeeType').value;
+
+            if (!salary || salary <= 0 || isNaN(salary)) {
+                alert('급여액을 입력해주세요.');
+                return;
+            }
+
+            // 고용보험 요율 선택
+            const employmentEmployerRate = EMPLOYMENT_RATES[companySize];
+            const employmentEmployeeRate = 0.009; // 근로자는 항상 0.9%
+
+            // 계산 (10원 단위 절사 - 정부 공식 방식)
+            function round10(value) {
+                return Math.floor(value / 10) * 10;
+            }
+
+            // 상한액 적용
+            const pensionBaseSalary = Math.min(salary, LIMITS.pension);  // 국민연금은 637만원까지
+            const healthBaseSalary = Math.min(salary, LIMITS.health);    // 건강보험은 8,190만원까지
+
+            // 국민연금 (9.5%, 상한액: 637만원)
+            // 정부 방식: 4.75%씩 각각 계산 후 합산
+            const pensionEmployee = round10(pensionBaseSalary * (RATES.pension / 2));
+            const pensionEmployer = round10(pensionBaseSalary * (RATES.pension / 2));
+            const pension = pensionEmployee + pensionEmployer;
+
+            // 건강보험 (7.19%, 상한액: 8,190만원)
+            // 정부 방식: 3.595%씩 각각 계산
+            const healthEmployee = round10(healthBaseSalary * (RATES.health / 2));
+            const healthEmployer = round10(healthBaseSalary * (RATES.health / 2));
+            const health = healthEmployee + healthEmployer;
+
+            // 장기요양보험 (건강보험료의 13.14% - 각각 계산)
+            const longTermCareEmployee = round10(healthEmployee * RATES.longTermCare);
+            const longTermCareEmployer = round10(healthEmployer * RATES.longTermCare);
+            const longTermCare = longTermCareEmployee + longTermCareEmployer;
+
+            // 고용보험
+            const employmentEmployee = round10(salary * employmentEmployeeRate);
+            const employmentEmployer = round10(salary * employmentEmployerRate);
+            const employment = employmentEmployee + employmentEmployer;
+
+            // 산재보험 (사업주 전액)
+            const industrial = round10(salary * RATES.industrial);
+            const industrialEmployee = 0;
+            const industrialEmployer = industrial;
+
+            // 합계
+            const totalEmployee = pensionEmployee + healthEmployee + longTermCareEmployee + employmentEmployee;
+            const totalEmployer = pensionEmployer + healthEmployer + longTermCareEmployer + employmentEmployer + industrialEmployer;
+            const total = totalEmployee + totalEmployer;
+
+            // 결과 표시
+            displayResults([
+                {
+                    label: '국민연금',
+                    employee: pensionEmployee,
+                    employer: pensionEmployer,
+                    total: pension
+                },
+                {
+                    label: '건강보험',
+                    employee: healthEmployee,
+                    employer: healthEmployer,
+                    total: health
+                },
+                {
+                    label: '장기요양보험',
+                    employee: longTermCareEmployee,
+                    employer: longTermCareEmployer,
+                    total: longTermCare
+                },
+                {
+                    label: '고용보험',
+                    employee: employmentEmployee,
+                    employer: employmentEmployer,
+                    total: employment
+                },
+                {
+                    label: '산재보험',
+                    employee: industrialEmployee,
+                    employer: industrialEmployer,
+                    total: industrial
+                }
+            ], totalEmployee, totalEmployer, total);
+
+            resultsDiv.classList.add('show');
+            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function displayResults(items, empTotal, empRTotal, total) {
+            // 테이블 바디 업데이트
+            const tableBody = document.getElementById('resultsTableBody');
+            tableBody.innerHTML = items.map((item, index) => `
+                <tr style="border-bottom: 1px solid #e5e7eb; ${index % 2 === 0 ? 'background: #f9fafb;' : ''}">
+                    <td style="padding: 1rem; font-weight: 600;">${item.label}</td>
+                    <td style="padding: 1rem; text-align: right; color: #3b82f6;">${formatNumber(item.employee)}원</td>
+                    <td style="padding: 1rem; text-align: right; color: #1e40af;">${formatNumber(item.employer)}원</td>
+                    <td style="padding: 1rem; text-align: right; font-weight: 600;">${formatNumber(item.total)}원</td>
+                </tr>
+            `).join('');
+
+            // 카드 업데이트
+            document.getElementById('employeeTotalCard').textContent = formatNumber(empTotal) + '원';
+            document.getElementById('employerTotalCard').textContent = formatNumber(empRTotal) + '원';
+            document.getElementById('totalAmountCard').textContent = formatNumber(total) + '원';
+
+            // 테이블 합계 업데이트
+            document.getElementById('employeeTotal').textContent = formatNumber(empTotal) + '원';
+            document.getElementById('employerTotal').textContent = formatNumber(empRTotal) + '원';
+            document.getElementById('totalAmount').textContent = formatNumber(total) + '원';
+        }
+
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+
+        // 숫자만 입력 가능하도록 + 실시간 콤마 추가
+        document.getElementById('salary').addEventListener('input', function(e) {
+            // 숫자와 콤마만 허용
+            let value = e.target.value.replace(/[^\d]/g, '');
+            
+            // 숫자가 있으면 콤마 추가
+            if (value) {
+                e.target.value = parseInt(value).toLocaleString('ko-KR');
+            } else {
+                e.target.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

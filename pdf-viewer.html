@@ -117,6 +117,8 @@
             background: white;
             max-width: 100%;
             height: auto;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
 
         /* PDF Navigation - 하단 고정 */
@@ -399,7 +401,8 @@
         let pageNum = 1;
         let pageRendering = false;
         let pageNumPending = null;
-        let scale = 1.5;
+        let scale = 2.0; // 기본 스케일 증가
+        const pixelRatio = window.devicePixelRatio || 1; // Retina 디스플레이 지원
 
         const canvas = document.getElementById('pdf-canvas');
         const ctx = canvas.getContext('2d');
@@ -430,14 +433,23 @@
             console.error('PDF 로드 오류:', error);
         });
 
-        // 페이지 렌더링
+        // 페이지 렌더링 (고해상도)
         function renderPage(num) {
             pageRendering = true;
             
             pdfDoc.getPage(num).then(function(page) {
                 const viewport = page.getViewport({ scale: scale });
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
+                
+                // Retina 디스플레이 지원 - 캔버스 해상도 증가
+                canvas.height = viewport.height * pixelRatio;
+                canvas.width = viewport.width * pixelRatio;
+                
+                // CSS 크기는 원래대로 유지
+                canvas.style.height = viewport.height + 'px';
+                canvas.style.width = viewport.width + 'px';
+                
+                // 컨텍스트 스케일 조정
+                ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
                 const renderContext = {
                     canvasContext: ctx,
@@ -488,15 +500,15 @@
 
         // 줌 인
         function onZoomIn() {
-            if (scale >= 3) return;
-            scale += 0.2;
+            if (scale >= 4) return; // 최대 줌 증가
+            scale += 0.25;
             queueRenderPage(pageNum);
         }
 
         // 줌 아웃
         function onZoomOut() {
-            if (scale <= 0.5) return;
-            scale -= 0.2;
+            if (scale <= 0.8) return; // 최소 줌 조정
+            scale -= 0.25;
             queueRenderPage(pageNum);
         }
 

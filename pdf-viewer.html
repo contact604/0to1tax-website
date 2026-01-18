@@ -420,35 +420,120 @@
                 box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
             }
 
-            /* 플로팅 상담 버튼 - 우측 하단 (노란색 영역) */
+
+            /* 기존 플로팅 버튼 제거 */
             .floating-contact-btn {
-                position: fixed;
-                bottom: 4rem; /* 프로그레스 바 위 */
-                right: 1rem; /* 우측 하단 */
-                transform: rotate(90deg); /* 회전 */
-                transform-origin: center center;
-                z-index: 1000;
-                padding: 0.75rem 1.5rem;
-                background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); /* 노란색 그라데이션 */
-                color: #1f2937;
-                border: none;
-                border-radius: 50px;
-                font-weight: 700;
-                font-size: 0.875rem;
-                text-decoration: none;
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                box-shadow: 0 4px 20px rgba(251, 191, 36, 0.5);
-                transition: all 0.3s ease;
-                white-space: nowrap;
+                display: none !important;
             }
 
-            .floating-contact-btn:hover,
-            .floating-contact-btn:active {
-                transform: rotate(90deg) scale(1.05);
-                box-shadow: 0 6px 24px rgba(251, 191, 36, 0.6);
-                background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%);
+            /* 프로그레스 바 제거 */
+            .progress-bar-container {
+                display: none !important;
+            }
+
+            /* 새로운 컨트롤 패널 - 우측 중앙 (읽기 방해 최소화) */
+            .pdf-controls-mobile {
+                position: fixed;
+                right: 0.75rem; /* 우측에서 약간 안쪽 */
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 1000;
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            /* 컨트롤 버튼 기본 스타일 */
+            .control-btn {
+                width: 3rem;
+                height: 3rem;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.25rem;
+                font-weight: 700;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                backdrop-filter: blur(10px);
+            }
+
+            /* 이전 페이지 버튼 */
+            .prev-btn-mobile {
+                background: rgba(255, 255, 255, 0.95);
+                color: #1e40af;
+                border: 2px solid #e5e7eb;
+            }
+
+            .prev-btn-mobile:active {
+                transform: scale(0.95);
+                background: #f3f4f6;
+            }
+
+            /* 페이지 번호 표시 */
+            .page-indicator-mobile {
+                background: rgba(255, 255, 255, 0.95);
+                color: #1f2937;
+                border: 2px solid #e5e7eb;
+                font-size: 0.75rem;
+                line-height: 1.2;
+                padding: 0.5rem;
+                min-height: 3rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border-radius: 1.5rem;
+            }
+
+            .page-indicator-mobile .current {
+                font-size: 1rem;
+                font-weight: 800;
+                color: #2563eb;
+            }
+
+            .page-indicator-mobile .total {
+                font-size: 0.65rem;
+                color: #6b7280;
+            }
+
+            /* 다음 페이지 버튼 */
+            .next-btn-mobile {
+                background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+                color: white;
+                border: none;
+            }
+
+            .next-btn-mobile:active {
+                transform: scale(0.95);
+                box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+            }
+
+            /* 상담하기 버튼 - 가장 눈에 띄게 */
+            .contact-btn-mobile {
+                background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+                color: #1f2937;
+                width: 3.5rem;
+                height: 3.5rem;
+                font-size: 1.5rem;
+                box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
+                animation: pulse 2s infinite;
+            }
+
+            .contact-btn-mobile:active {
+                transform: scale(0.95);
+            }
+
+            /* 펄스 애니메이션 - 상담 버튼 강조 */
+            @keyframes pulse {
+                0%, 100% {
+                    box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
+                }
+                50% {
+                    box-shadow: 0 8px 28px rgba(251, 191, 36, 0.6);
+                }
             }
         }
 
@@ -512,14 +597,32 @@
         <a href="/contact-form.html" class="mobile-btn">💬 상담</a>
     </div>
 
-    <!-- 플로팅 상담 버튼 (모바일 전용) -->
-    <a href="/contact-form.html" class="floating-contact-btn" id="floatingContactBtn" style="display: none;">
-        💬 상담하기
-    </a>
+    <!-- 플로팅 상담 버튼 (모바일 전용) - 제거됨 -->
+    
+    <!-- 프로그레스 바 (모바일 전용) - 제거됨 -->
 
-    <!-- 프로그레스 바 (모바일 전용) -->
-    <div class="progress-bar-container" id="progressBarContainer" style="display: none;">
-        <div class="progress-bar" id="progressBar"></div>
+    <!-- 모바일 컨트롤 패널 (신규) -->
+    <div class="pdf-controls-mobile" id="pdfControlsMobile" style="display: none;">
+        <!-- 이전 페이지 -->
+        <button class="control-btn prev-btn-mobile" id="prevBtnMobile" title="이전 페이지">
+            ↑
+        </button>
+        
+        <!-- 페이지 번호 -->
+        <div class="control-btn page-indicator-mobile" id="pageIndicatorMobile">
+            <span class="current" id="currentPageMobile">1</span>
+            <span class="total" id="totalPageMobile">/ 10</span>
+        </div>
+        
+        <!-- 다음 페이지 -->
+        <button class="control-btn next-btn-mobile" id="nextBtnMobile" title="다음 페이지">
+            ↓
+        </button>
+        
+        <!-- 상담하기 (가장 강조) -->
+        <a href="/contact-form.html" class="control-btn contact-btn-mobile" title="상담하기">
+            💬
+        </a>
     </div>
 
     <!-- Header -->
@@ -594,30 +697,34 @@
         // PDF 로드
         const url = '/0to1tax-service-guide.pdf';
 
-        // 모바일 플로팅 버튼 & 프로그레스 바 표시
-        const floatingBtn = document.getElementById('floatingContactBtn');
-        const progressBarContainer = document.getElementById('progressBarContainer');
-        const progressBar = document.getElementById('progressBar');
+        // 모바일 컨트롤 패널 표시
+        const pdfControlsMobile = document.getElementById('pdfControlsMobile');
+        const prevBtnMobile = document.getElementById('prevBtnMobile');
+        const nextBtnMobile = document.getElementById('nextBtnMobile');
+        const currentPageMobile = document.getElementById('currentPageMobile');
+        const totalPageMobile = document.getElementById('totalPageMobile');
         
         if (window.innerWidth <= 768) {
-            floatingBtn.style.display = 'flex';
-            progressBarContainer.style.display = 'block';
+            pdfControlsMobile.style.display = 'flex';
         }
 
-        // 윈도우 리사이즈 시 플로팅 버튼 & 프로그레스 바 표시/숨김
+        // 윈도우 리사이즈 시 컨트롤 패널 표시/숨김
         window.addEventListener('resize', function() {
             if (window.innerWidth <= 768) {
-                floatingBtn.style.display = 'flex';
-                progressBarContainer.style.display = 'block';
+                pdfControlsMobile.style.display = 'flex';
             } else {
-                floatingBtn.style.display = 'none';
-                progressBarContainer.style.display = 'none';
+                pdfControlsMobile.style.display = 'none';
             }
         });
 
         pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
             pdfDoc = pdfDoc_;
             pageCountElement.textContent = pdfDoc.numPages;
+            
+            // 모바일 페이지 번호 업데이트
+            if (window.innerWidth <= 768) {
+                totalPageMobile.textContent = '/ ' + pdfDoc.numPages;
+            }
             
             // 로딩 숨기고 네비게이션 표시
             loading.style.display = 'none';
@@ -665,6 +772,12 @@
             });
 
             pageNumElement.textContent = num;
+            
+            // 모바일 페이지 번호 업데이트
+            if (window.innerWidth <= 768) {
+                currentPageMobile.textContent = num;
+            }
+            
             updateButtons();
         }
 
@@ -713,6 +826,29 @@
         function updateButtons() {
             prevButton.disabled = pageNum <= 1;
             nextButton.disabled = pageNum >= pdfDoc.numPages;
+            
+            // 모바일 버튼 상태 업데이트
+            if (window.innerWidth <= 768) {
+                prevBtnMobile.disabled = pageNum <= 1;
+                nextBtnMobile.disabled = pageNum >= pdfDoc.numPages;
+                
+                // 비활성화 스타일
+                if (pageNum <= 1) {
+                    prevBtnMobile.style.opacity = '0.3';
+                    prevBtnMobile.style.cursor = 'not-allowed';
+                } else {
+                    prevBtnMobile.style.opacity = '1';
+                    prevBtnMobile.style.cursor = 'pointer';
+                }
+                
+                if (pageNum >= pdfDoc.numPages) {
+                    nextBtnMobile.style.opacity = '0.3';
+                    nextBtnMobile.style.cursor = 'not-allowed';
+                } else {
+                    nextBtnMobile.style.opacity = '1';
+                    nextBtnMobile.style.cursor = 'pointer';
+                }
+            }
         }
 
         // 이벤트 리스너
@@ -720,6 +856,10 @@
         nextButton.addEventListener('click', onNextPage);
         zoomInButton.addEventListener('click', onZoomIn);
         zoomOutButton.addEventListener('click', onZoomOut);
+        
+        // 모바일 버튼 이벤트
+        prevBtnMobile.addEventListener('click', onPrevPage);
+        nextBtnMobile.addEventListener('click', onNextPage);
 
         // 모바일 스와이프
         let touchStartX = 0;
@@ -785,7 +925,8 @@
             
             // 캔버스에도 추가로 이벤트 연결 (이중 안전장치)
             canvas.addEventListener('click', function(e) {
-                if (e.target.closest('.floating-contact-btn')) {
+                // 컨트롤 패널 클릭 제외
+                if (e.target.closest('.pdf-controls-mobile')) {
                     return;
                 }
                 
@@ -798,36 +939,6 @@
                     onPrevPage();
                 } else {
                     onNextPage();
-                }
-            });
-
-            // 스크롤 감지 및 프로그레스 바 업데이트
-            let scrollTimeout;
-            container.addEventListener('scroll', function() {
-                // 스크롤 위치 계산
-                const scrollTop = container.scrollTop;
-                const scrollHeight = container.scrollHeight - container.clientHeight;
-                const scrollPercent = (scrollTop / scrollHeight) * 100;
-                
-                // 프로그레스 바 업데이트
-                progressBar.style.width = scrollPercent + '%';
-                
-                console.log('스크롤:', scrollPercent.toFixed(1) + '%');
-                
-                // 스크롤이 90% 이상이면 다음 페이지로
-                if (scrollPercent >= 90) {
-                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(function() {
-                        console.log('스크롤 끝 - 다음 페이지로 이동');
-                        if (pageNum < pdfDoc.numPages) {
-                            onNextPage();
-                            // 스크롤을 맨 위로 리셋
-                            setTimeout(function() {
-                                container.scrollTop = 0;
-                                progressBar.style.width = '0%';
-                            }, 300);
-                        }
-                    }, 500); // 0.5초 대기 후 페이지 넘김
                 }
             });
         }

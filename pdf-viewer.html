@@ -300,6 +300,7 @@
             z-index: 1000;
             transition: all 0.3s;
             border: none;
+            text-decoration: none;
         }
 
         .floating-contact:hover {
@@ -346,15 +347,15 @@
     <header class="header">
         <div class="header-container">
             <a href="/">
-                <img src="/0to1tax-horizontal-blue.svg" alt="0to1tax" class="logo">
+                <img src="/images/0to1tax-horizontal-blue.svg" alt="0to1tax" class="logo">
             </a>
             <div class="header-actions">
                 <a href="/" class="btn btn-secondary">
                     ← 홈으로
                 </a>
-                <button onclick="openContactModal()" class="btn btn-primary">
+                <a href="/index.html#contact" class="btn btn-primary">
                     📞 상담하기
-                </button>
+                </a>
             </div>
         </div>
     </header>
@@ -370,9 +371,9 @@
                     <a href="/0to1tax-service-guide.pdf" download class="btn btn-secondary">
                         ⬇️ 다운로드
                     </a>
-                    <button onclick="openContactModal()" class="btn btn-primary">
+                    <a href="/index.html#contact" class="btn btn-primary">
                         📞 상담하기
-                    </button>
+                    </a>
                 </div>
             </div>
             <iframe 
@@ -384,9 +385,9 @@
     </div>
 
     <!-- Floating Contact Button -->
-    <button class="floating-contact" onclick="openContactModal()">
+    <a href="/index.html#contact" class="floating-contact">
         💬 상담 신청하기
-    </button>
+    </a>
 
     <!-- Contact Modal -->
     <div id="contactModal" class="modal">

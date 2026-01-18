@@ -765,9 +765,9 @@
             <div class="nav-menu">
                 <a href="/" class="nav-link">홈</a>
                 <a href="/pdf-viewer.html" target="_blank" class="nav-link">서비스소개서</a>
-                <a href="/0to1log-new.html" class="nav-link active">블로그</a>
+                <a href="/0to1log.html" class="nav-link active">블로그</a>
                 <a href="/insurance-calculator.html" class="nav-link">4대보험 계산기</a>
-                <a href="/#contact" class="nav-cta">문의하기</a>
+                <a href="/contact.html" class="nav-cta">문의하기</a>
             </div>
             
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
@@ -780,9 +780,9 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="/">홈</a>
         <a href="/pdf-viewer.html" target="_blank">서비스소개서</a>
-        <a href="/0to1log-new.html" class="active">블로그</a>
+        <a href="/0to1log.html" class="active">블로그</a>
         <a href="/insurance-calculator.html">4대보험 계산기</a>
-        <a href="/#contact" style="color: var(--primary-blue); font-weight: 700;">문의하기</a>
+        <a href="/contact.html" style="color: var(--primary-blue); font-weight: 700;">문의하기</a>
     </div>
     
     <!-- 로딩 상태 -->
@@ -796,7 +796,7 @@
         <div class="error-icon">⚠️</div>
         <div class="error-text">게시글을 불러오는데 실패했습니다</div>
         <p style="margin-top: 16px; color: var(--text-tertiary);">
-            <a href="/0to1log-new.html" style="color: var(--primary-blue);">블로그 목록으로 돌아가기</a>
+            <a href="/0to1log.html" style="color: var(--primary-blue);">블로그 목록으로 돌아가기</a>
         </p>
     </div>
     
@@ -1084,7 +1084,7 @@
             if (post.tags && post.tags.length > 0) {
                 footerHTML += '<div class="post-tags">';
                 post.tags.forEach(tag => {
-                    footerHTML += `<a href="/0to1log-new.html?search=${encodeURIComponent(tag)}" class="post-tag">#${tag}</a>`;
+                    footerHTML += `<a href="/0to1log.html?search=${encodeURIComponent(tag)}" class="post-tag">#${tag}</a>`;
                 });
                 footerHTML += '</div>';
             }
@@ -1115,7 +1115,7 @@
                         스타트업 세무·회계 전문가가<br>
                         빠르고 정확하게 답변해드립니다
                     </p>
-                    <a href="/#contact" class="post-cta-btn">
+                    <a href="/contact.html" class="post-cta-btn">
                         <i class="fas fa-comment-dots"></i>
                         무료 상담 신청하기
                     </a>

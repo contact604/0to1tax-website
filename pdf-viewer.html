@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0to1tax 서비스 소개서 | PDF 뷰어</title>
+    
+    <!-- SEO -->
+    <meta name="description" content="0to1tax 스타트업 전문 세무서비스 소개서. 투자유치, 재무실사, IR 자료 작성을 지원합니다.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f8fafc;
+            color: #1f2937;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 48px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1e40af;
+            border: 2px solid #1e40af;
+        }
+
+        .btn-secondary:hover {
+            background: #f0f9ff;
+        }
+
+        /* PDF Container */
+        .pdf-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .pdf-wrapper {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .pdf-controls {
+            background: #f8fafc;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .pdf-info {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .pdf-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .pdf-iframe {
+            width: 100%;
+            height: calc(100vh - 200px);
+            border: none;
+        }
+
+        /* Contact Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: #f3f4f6;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            font-size: 1.5rem;
+            color: #6b7280;
+        }
+
+        .modal-close:hover {
+            background: #e5e7eb;
+            transform: rotate(90deg);
+        }
+
+        .modal-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-subtitle {
+            font-size: 1rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .success-text {
+            color: #6b7280;
+        }
+
+        /* Floating Contact Button */
+        .floating-contact {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 9999px;
+            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.3);
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 1000;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .floating-contact:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(30, 64, 175, 0.4);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .pdf-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .pdf-actions {
+                flex-direction: column;
+            }
+
+            .modal-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .floating-contact {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.875rem 1.25rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="/">
+                <img src="/0to1tax-horizontal-blue.svg" alt="0to1tax" class="logo">
+            </a>
+            <div class="header-actions">
+                <a href="/" class="btn btn-secondary">
+                    ← 홈으로
+                </a>
+                <button onclick="openContactModal()" class="btn btn-primary">
+                    📞 상담하기
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- PDF Container -->
+    <div class="pdf-container">
+        <div class="pdf-wrapper">
+            <div class="pdf-controls">
+                <div class="pdf-info">
+                    <strong>0to1tax 서비스 소개서</strong> | 스타트업 전문 세무서비스
+                </div>
+                <div class="pdf-actions">
+                    <a href="/0to1tax-service-guide.pdf" download class="btn btn-secondary">
+                        ⬇️ 다운로드
+                    </a>
+                    <button onclick="openContactModal()" class="btn btn-primary">
+                        📞 상담하기
+                    </button>
+                </div>
+            </div>
+            <iframe 
+                src="/0to1tax-service-guide.pdf" 
+                class="pdf-iframe"
+                title="0to1tax 서비스 소개서"
+            ></iframe>
+        </div>
+    </div>
+
+    <!-- Floating Contact Button -->
+    <button class="floating-contact" onclick="openContactModal()">
+        💬 상담 신청하기
+    </button>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeContactModal()">×</button>
+            
+            <div id="contactForm">
+                <h2 class="modal-title">💼 무료 상담 신청</h2>
+                <p class="modal-subtitle">스타트업 세무·회계 전문가가 직접 상담해드립니다</p>
+
+                <form name="pdf-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+                    <input type="hidden" name="form-name" value="pdf-contact">
+                    <input type="hidden" name="bot-field">
+                    <input type="hidden" name="source" value="PDF Viewer">
+
+                    <div class="form-group">
+                        <label class="form-label" for="company">회사명 *</label>
+                        <input type="text" id="company" name="company" class="form-input" required placeholder="예: 스타트업 주식회사">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="name">담당자명 *</label>
+                        <input type="text" id="name" name="name" class="form-input" required placeholder="예: 홍길동">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="phone">연락처 *</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required placeholder="예: 010-1234-5678">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="email">이메일</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="예: contact@startup.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="message">문의 내용</label>
+                        <textarea id="message" name="message" class="form-textarea" placeholder="궁금하신 점이나 상담받고 싶은 내용을 자유롭게 작성해주세요"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        상담 신청하기
+                    </button>
+                </form>
+            </div>
+
+            <div id="successMessage" class="success-message">
+                <div class="success-icon">✅</div>
+                <h3 class="success-title">상담 신청이 완료되었습니다!</h3>
+                <p class="success-text">빠른 시일 내에 담당자가 연락드리겠습니다.</p>
+                <button onclick="closeContactModal()" class="btn btn-primary" style="margin-top: 1.5rem;">
+                    확인
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 모달 열기
+        function openContactModal() {
+            document.getElementById('contactModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 모달 닫기
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // 폼 초기화
+            setTimeout(() => {
+                document.getElementById('contactForm').style.display = 'block';
+                document.getElementById('successMessage').classList.remove('active');
+                document.querySelector('form[name="pdf-contact"]').reset();
+            }, 300);
+        }
+
+        // 모달 외부 클릭 시 닫기
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContactModal();
+            }
+        });
+
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeContactModal();
+            }
+        });
+
+        // 폼 제출 처리
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(() => {
+                // 성공 메시지 표시
+                document.getElementById('contactForm').style.display = 'none';
+                document.getElementById('successMessage').classList.add('active');
+            })
+            .catch((error) => {
+                alert('전송 중 오류가 발생했습니다. 다시 시도해주세요.');
+                console.error('Error:', error);
+            });
+        }
+
+        // URL 파라미터로 자동 모달 열기
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('contact') === 'true') {
+            openContactModal();
+        }
+    </script>
+</body>
+</html>

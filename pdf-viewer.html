@@ -128,11 +128,38 @@
             display: flex;
             gap: 1rem;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             padding: 1.5rem;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* 네비게이션 그룹 */
+        .nav-left-group,
+        .nav-center-group,
+        .nav-right-group {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .nav-left-group {
+            flex-shrink: 0;
+        }
+
+        .nav-center-group {
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-right-group {
+            flex-shrink: 0;
+        }
+
+        /* 모바일 버튼 - 데스크톱에서 숨김 */
+        .mobile-btn {
+            display: none;
         }
 
         .pdf-nav-btn {
@@ -173,7 +200,6 @@
         .pdf-zoom-controls {
             display: flex;
             gap: 0.5rem;
-            margin-left: 2rem;
         }
 
         .zoom-btn {
@@ -208,7 +234,6 @@
             align-items: center;
             gap: 0.5rem;
             text-decoration: none;
-            margin-left: auto;
         }
 
         .download-btn:hover {
@@ -295,7 +320,7 @@
                 left: 50%;
                 bottom: 0;
                 margin-left: calc(-100vh / 2);
-                padding: 0.75rem;
+                padding: 0.625rem 0.75rem;
                 background: rgba(255, 255, 255, 0.98);
                 backdrop-filter: blur(20px);
                 border-top: 1px solid #e5e7eb;
@@ -303,84 +328,80 @@
                 flex-wrap: nowrap;
                 gap: 0.5rem;
                 align-items: center;
+                justify-content: space-between;
+            }
+
+            /* 왼쪽 그룹: 홈, 상담 */
+            .nav-left-group {
+                display: flex;
+                gap: 0.5rem;
+                flex-shrink: 0;
+            }
+
+            /* 중앙 그룹: 이전, 페이지, 다음 */
+            .nav-center-group {
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
                 justify-content: center;
+                flex: 1;
+            }
+
+            /* 오른쪽 그룹: 줌, 다운로드 */
+            .nav-right-group {
+                display: flex;
+                gap: 0.5rem;
+                flex-shrink: 0;
             }
 
             .pdf-nav-btn {
-                padding: 0.75rem 1.5rem;
-                font-size: 0.95rem;
+                padding: 0.625rem 1rem;
+                font-size: 0.875rem;
                 flex: 0 0 auto;
+                min-width: auto;
             }
 
             .pdf-page-info {
-                font-size: 1rem;
+                font-size: 0.95rem;
                 padding: 0 0.75rem;
                 min-width: auto;
                 flex-shrink: 0;
                 font-weight: 700;
             }
 
-            .pdf-zoom-controls {
-                display: flex;
-                gap: 0.5rem;
-                margin-left: 0.5rem;
-                flex-shrink: 0;
-            }
-
             .zoom-btn {
-                padding: 0.75rem 1rem;
+                padding: 0.625rem 0.875rem;
                 font-size: 1.125rem;
-                min-width: 45px;
+                min-width: 42px;
             }
 
-            /* 다운로드 버튼 */
             .download-btn {
-                padding: 0.75rem 1.25rem;
-                font-size: 0.95rem;
-                margin-left: 0.5rem;
+                padding: 0.625rem 1rem;
+                font-size: 0.875rem;
                 flex-shrink: 0;
             }
 
-            /* 로딩 화면 회전 */
-            .loading {
-                transform: rotate(90deg);
-                padding: 2rem;
-                font-size: 1.25rem;
-            }
-
-            .loading-spinner {
-                width: 45px;
-                height: 45px;
-                border-width: 4px;
-            }
-
-            /* 모바일 헤더 버튼 - 회전하여 배치 */
-            .mobile-header-actions {
-                position: fixed;
-                bottom: 50%;
-                right: 0.75rem;
-                transform: translateY(50%) rotate(90deg);
-                z-index: 150;
-                display: flex;
-                gap: 0.5rem;
-            }
-
+            /* 모바일 헤더 버튼을 네비게이션에 통합 */
             .mobile-btn {
-                padding: 0.625rem 1.25rem;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
+                padding: 0.625rem 1rem;
+                background: white;
                 color: #1e40af;
                 border: 2px solid #e5e7eb;
                 border-radius: 0.5rem;
                 font-weight: 600;
-                font-size: 0.95rem;
+                font-size: 0.875rem;
                 text-decoration: none;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
                 white-space: nowrap;
+                flex-shrink: 0;
             }
 
             .mobile-btn:active {
                 background: #f0f9ff;
+            }
+
+            /* 원래 헤더 버튼 숨김 */
+            .mobile-header-actions {
+                display: none !important;
             }
         }
 
@@ -466,20 +487,29 @@
         </div>
         
         <div class="pdf-navigation" id="pdf-navigation" style="display: none;">
-            <button class="pdf-nav-btn" id="prev-page">← 이전</button>
-            <span class="pdf-page-info">
-                <span id="page-num">1</span> / <span id="page-count">0</span>
-            </span>
-            <button class="pdf-nav-btn" id="next-page">다음 →</button>
-            
-            <div class="pdf-zoom-controls">
-                <button class="zoom-btn" id="zoom-out">-</button>
-                <button class="zoom-btn" id="zoom-in">+</button>
+            <!-- 왼쪽 그룹: 홈, 상담 -->
+            <div class="nav-left-group">
+                <a href="/index.html" class="mobile-btn">← 홈</a>
+                <a href="/contact-form.html" class="mobile-btn">💬 상담</a>
             </div>
             
-            <a href="/0to1tax-service-guide.pdf" download class="download-btn">
-                ⬇️ 다운로드
-            </a>
+            <!-- 중앙 그룹: 이전, 페이지, 다음 -->
+            <div class="nav-center-group">
+                <button class="pdf-nav-btn" id="prev-page">←</button>
+                <span class="pdf-page-info">
+                    <span id="page-num">1</span> / <span id="page-count">0</span>
+                </span>
+                <button class="pdf-nav-btn" id="next-page">→</button>
+            </div>
+            
+            <!-- 오른쪽 그룹: 줌, 다운로드 -->
+            <div class="nav-right-group">
+                <button class="zoom-btn" id="zoom-out">-</button>
+                <button class="zoom-btn" id="zoom-in">+</button>
+                <a href="/0to1tax-service-guide.pdf" download class="download-btn">
+                    ⬇️
+                </a>
+            </div>
         </div>
     </div>
 

@@ -193,6 +193,30 @@
             border-color: #3b82f6;
         }
 
+        /* 다운로드 버튼 - 네비게이션 오른쪽 */
+        .download-btn {
+            padding: 0.875rem 1.75rem;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            margin-left: auto;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+        }
+
         /* Loading */
         .loading {
             text-align: center;
@@ -215,54 +239,44 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Floating Download Button */
-        .floating-download {
+        /* 모바일 회전 안내 */
+        .rotate-notice {
+            display: none;
             position: fixed;
-            bottom: 120px;
-            right: 2rem;
-            background: white;
-            color: #1e40af;
-            padding: 1rem 1.5rem;
-            border-radius: 3rem;
-            font-weight: 700;
-            font-size: 1rem;
-            text-decoration: none;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            transition: all 0.3s;
-            z-index: 90;
-            border: 2px solid #3b82f6;
-        }
-
-        .floating-download:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.4);
-            background: #f0f9ff;
-        }
-
-        /* Floating Contact Button */
-        .floating-contact {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
+            top: 0;
+            left: 0;
+            width: 100%;
             background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
             color: white;
-            padding: 1.25rem 2rem;
-            border-radius: 3rem;
-            font-weight: 700;
-            font-size: 1.125rem;
-            text-decoration: none;
-            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.4);
-            transition: all 0.3s;
-            z-index: 99;
+            padding: 0.75rem 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+            z-index: 200;
+            animation: slideDown 0.3s ease;
         }
 
-        .floating-contact:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(30, 64, 175, 0.5);
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .rotate-notice {
+                display: block;
+            }
         }
 
         /* Mobile */
         @media (max-width: 768px) {
+            body {
+                overflow: hidden;
+            }
+
             .header-container {
                 padding: 0.875rem 1rem;
                 flex-wrap: wrap;
@@ -281,60 +295,82 @@
                 font-size: 0.875rem;
             }
 
+            /* PDF 가로 모드 강제 (90도 회전) */
             .pdf-canvas-container {
-                padding: 1rem;
-            }
-
-            .pdf-navigation {
-                padding: 1rem;
-                flex-wrap: wrap;
-                gap: 0.75rem;
-            }
-
-            .pdf-nav-btn {
-                padding: 0.75rem 1.5rem;
-                font-size: 0.95rem;
-                flex: 1;
-                min-width: 100px;
-            }
-
-            .pdf-page-info {
-                font-size: 1rem;
-                padding: 0.5rem;
-                min-width: auto;
-                width: 100%;
-                order: -1;
-            }
-
-            .pdf-zoom-controls {
-                margin-left: 0;
-                width: 100%;
-                justify-content: center;
-            }
-
-            .zoom-btn {
-                flex: 1;
-                padding: 0.625rem 0.875rem;
-                font-size: 1rem;
-            }
-
-            .floating-download {
-                bottom: 120px;
-                right: 1rem;
-                padding: 0.875rem 1.25rem;
-                font-size: 0.95rem;
-            }
-
-            .floating-contact {
-                bottom: 1.5rem;
-                right: 1rem;
-                padding: 1rem 1.5rem;
-                font-size: 1rem;
+                padding: 0;
+                transform: rotate(90deg);
+                transform-origin: center center;
+                width: 100vh;
+                height: calc(100vw - 72px);
+                position: fixed;
+                left: 50%;
+                top: calc(50% + 36px);
+                margin-left: calc(-100vh / 2);
+                margin-top: calc((72px - 100vw) / 2);
             }
 
             #pdf-canvas {
                 width: 100% !important;
                 height: auto !important;
+                max-height: calc(100vh - 160px);
+                object-fit: contain;
+            }
+
+            .pdf-navigation {
+                padding: 0.75rem;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                transform: rotate(90deg);
+                transform-origin: center center;
+                width: 100vh;
+                position: fixed;
+                bottom: calc(50vh - 40px);
+                left: 50%;
+                margin-left: calc(-100vh / 2);
+            }
+
+            .pdf-nav-btn {
+                padding: 0.625rem 1.25rem;
+                font-size: 0.875rem;
+                flex: 1;
+                min-width: 80px;
+            }
+
+            .pdf-page-info {
+                font-size: 0.95rem;
+                padding: 0.5rem;
+                min-width: auto;
+                width: auto;
+                order: 0;
+            }
+
+            .pdf-zoom-controls {
+                margin-left: auto;
+                width: auto;
+                justify-content: flex-end;
+            }
+
+            .zoom-btn {
+                flex: none;
+                padding: 0.625rem 0.875rem;
+                font-size: 1rem;
+                min-width: 50px;
+            }
+
+            /* 다운로드 버튼 모바일 */
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+                margin-left: 0;
+                margin-top: 0.5rem;
+                order: 10;
+            }
+
+            /* 로딩 화면도 회전 */
+            .loading {
+                transform: rotate(90deg);
+                padding: 2rem;
+                font-size: 1.25rem;
             }
         }
 
@@ -348,6 +384,11 @@
     </style>
 </head>
 <body>
+    <!-- 모바일 회전 안내 -->
+    <div class="rotate-notice">
+        📱 최적의 보기를 위해 화면이 가로 모드로 자동 조정됩니다
+    </div>
+
     <!-- Header -->
     <div class="header">
         <div class="header-container">
@@ -380,18 +421,12 @@
                 <button class="zoom-btn" id="zoom-out">-</button>
                 <button class="zoom-btn" id="zoom-in">+</button>
             </div>
+            
+            <a href="/0to1tax-service-guide.pdf" download class="download-btn">
+                ⬇️ 다운로드
+            </a>
         </div>
     </div>
-
-    <!-- Floating Download Button -->
-    <a href="/0to1tax-service-guide.pdf" download class="floating-download">
-        ⬇️ 다운로드
-    </a>
-
-    <!-- Floating Contact Button -->
-    <a href="/contact-form.html" class="floating-contact">
-        💬 문의하기
-    </a>
 
     <script>
         // PDF.js 설정

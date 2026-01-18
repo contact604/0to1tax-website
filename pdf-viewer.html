@@ -53,15 +53,18 @@
         }
 
         .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            font-size: 1.125rem;
             cursor: pointer;
             transition: all 0.3s;
-            text-decoration: none;
+            text-decoration: none !important;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
+            min-width: 140px;
         }
 
         .btn-primary {
@@ -288,19 +291,22 @@
             bottom: 2rem;
             right: 2rem;
             background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
-            color: white;
-            padding: 1rem 1.5rem;
+            color: white !important;
+            padding: 1.25rem 2rem;
             border-radius: 9999px;
             box-shadow: 0 10px 30px rgba(30, 64, 175, 0.3);
             cursor: pointer;
-            font-weight: 600;
-            display: flex;
+            font-weight: 700;
+            font-size: 1.125rem;
+            display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
             z-index: 1000;
             transition: all 0.3s;
             border: none;
-            text-decoration: none;
+            text-decoration: none !important;
+            min-width: 180px;
         }
 
         .floating-contact:hover {
@@ -313,11 +319,14 @@
             .header-actions {
                 flex-direction: column;
                 width: 100%;
+                gap: 0.75rem;
             }
 
             .btn {
                 width: 100%;
                 justify-content: center;
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
             }
 
             .pdf-controls {
@@ -327,6 +336,7 @@
 
             .pdf-actions {
                 flex-direction: column;
+                gap: 0.75rem;
             }
 
             .modal-content {
@@ -334,10 +344,13 @@
             }
 
             .floating-contact {
-                bottom: 1rem;
-                right: 1rem;
-                padding: 0.875rem 1.25rem;
-                font-size: 0.875rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
+                left: 1.5rem;
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+                width: auto;
+                min-width: auto;
             }
         }
     </style>
@@ -353,7 +366,7 @@
                 <a href="/" class="btn btn-secondary">
                     ← 홈으로
                 </a>
-                <a href="/index.html#contact" class="btn btn-primary">
+                <a href="/contact-form.html" class="btn btn-primary">
                     📞 상담하기
                 </a>
             </div>
@@ -371,7 +384,7 @@
                     <a href="/0to1tax-service-guide.pdf" download class="btn btn-secondary">
                         ⬇️ 다운로드
                     </a>
-                    <a href="/index.html#contact" class="btn btn-primary">
+                    <a href="/contact-form.html" class="btn btn-primary">
                         📞 상담하기
                     </a>
                 </div>
@@ -385,7 +398,7 @@
     </div>
 
     <!-- Floating Contact Button -->
-    <a href="/index.html#contact" class="floating-contact">
+    <a href="/contact-form.html" class="floating-contact">
         💬 상담 신청하기
     </a>
 

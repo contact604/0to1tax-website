@@ -143,6 +143,75 @@
             display: flex;
             gap: 35px;
         }
+        
+        /* 햄버거 메뉴 */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+        
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #1e293b;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+        
+        /* 모바일 메뉴 */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            padding: 100px 30px 40px;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            color: white;
+            padding: 18px 20px;
+            margin-bottom: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        
+        .mobile-menu a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(-5px);
+        }
 
         nav a {
             color: #1e293b;
@@ -1005,6 +1074,18 @@
         }
 
         @media (max-width: 768px) {
+            header nav {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
             .about-slide {
                 font-size: 32px;
                 padding: 40px 25px;
@@ -3292,9 +3373,25 @@
         <nav>
             <a href="#hero">홈</a>
             <a href="/0to1log.html">블로그</a>
+            <a href="/pdf-viewer.html">서비스 소개서</a>
             <a href="#contact" onclick="event.preventDefault(); openNewModal()">문의하기</a>
         </nav>
+        
+        <!-- 햄버거 메뉴 버튼 (모바일) -->
+        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
+    
+    <!-- 모바일 메뉴 -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#hero" onclick="closeMobileMenu()">🏠 홈</a>
+        <a href="/0to1log.html">📚 블로그</a>
+        <a href="/pdf-viewer.html">📄 서비스 소개서</a>
+        <a href="#contact" onclick="event.preventDefault(); closeMobileMenu(); openNewModal()">💬 문의하기</a>
+    </div>
 
     <!-- Hidden form for Netlify detection -->
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
@@ -3378,7 +3475,6 @@
             <!-- CTA Buttons Container -->
             <div class="hero-cta-container">
                 <a href="#" class="cta-button" id="ctaButton">성장하기</a>
-                <a href="/0to1log.html" class="blog-nav-button">블로그</a>
             </div>
         </div>
     </section>
@@ -4697,6 +4793,36 @@
                         window.openContactModal();
                     }
                 }, 500); // 페이지 로드 후 0.5초 뒤 실행
+            }
+        });
+        // ============================================
+        
+        // ============================================
+        // 모바일 메뉴 토글
+        // ============================================
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.getElementById('hamburger');
+            
+            mobileMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+        
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.getElementById('hamburger');
+            
+            mobileMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+        
+        // 모바일 메뉴 외부 클릭 시 닫기
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.getElementById('hamburger');
+            
+            if (!mobileMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                closeMobileMenu();
             }
         });
         // ============================================

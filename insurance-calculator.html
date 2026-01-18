@@ -91,7 +91,7 @@
         }
 
         .logo {
-            height: 32px;
+            height: 48px;
         }
 
         .nav-links {
@@ -109,6 +109,55 @@
 
         .nav-links a:hover {
             color: var(--primary-blue);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-checkbox {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: white;
+            border-top: 1px solid var(--border-color);
+            padding: 1rem 1.5rem;
+        }
+
+        .mobile-menu-checkbox:checked ~ .mobile-menu {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .mobile-menu a:hover {
+            background: var(--bg-light);
+            color: var(--primary-blue);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            min-width: 48px;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .mobile-menu-btn:active {
+            background: rgba(59, 130, 246, 0.1);
+            transform: scale(0.95);
         }
 
         .btn-contact {
@@ -343,14 +392,73 @@
             margin-right: 0.5rem;
         }
 
+        /* Mobile Result Cards (모바일 전용) */
+        .mobile-result-cards {
+            display: none;
+        }
+
+        .mobile-card-item {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .mobile-card-item:last-child {
+            margin-bottom: 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .mobile-card-title {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .mobile-card-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.625rem 0;
+        }
+
+        .mobile-card-label {
+            font-weight: 500;
+            color: var(--text-gray);
+            font-size: 0.9375rem;
+        }
+
+        .mobile-card-value {
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-size: 1.0625rem;
+        }
+
+        .mobile-card-total .mobile-card-value {
+            font-size: 1.25rem;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
 
+            .mobile-menu-btn {
+                display: flex;
+            }
+
             .hero h1 {
                 font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
             }
 
             .calculator-card {
@@ -362,21 +470,31 @@
                 gap: 0.25rem;
             }
 
-            /* 모바일에서 테이블 스크롤 */
-            table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
+            /* 모바일에서 테이블 숨기고 카드 표시 */
+            .results-table-container {
+                display: none !important;
             }
 
-            thead, tbody, tfoot {
-                display: table;
-                width: 100%;
+            .mobile-result-cards {
+                display: block !important;
             }
 
-            th, td {
-                font-size: 0.875rem !important;
-                padding: 0.75rem !important;
+            /* Summary Cards 모바일 최적화 */
+            .summary-cards {
+                grid-template-columns: 1fr !important;
+                gap: 0.75rem !important;
+            }
+
+            .summary-cards > div {
+                padding: 1.25rem !important;
+            }
+
+            .summary-cards > div > div:first-child {
+                font-size: 0.8125rem !important;
+            }
+
+            .summary-cards > div > div:last-child {
+                font-size: 1.5rem !important;
             }
         }
 
@@ -392,6 +510,7 @@
 </head>
 <body>
     <!-- Header -->
+    <input type="checkbox" id="mobileMenuToggle" class="mobile-menu-checkbox">
     <header class="header">
         <div class="header-container">
             <a href="/">
@@ -403,6 +522,35 @@
                 <a href="/0to1log.html">블로그</a>
                 <a href="/#contact" class="btn-contact">문의하기</a>
             </nav>
+            <label for="mobileMenuToggle" class="mobile-menu-btn">
+                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </label>
+        </div>
+        <div class="mobile-menu">
+            <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color); margin-bottom: 0.5rem;">
+                <p style="font-size: 0.875rem; font-weight: 600; color: var(--text-gray); text-transform: uppercase; letter-spacing: 0.05em;">메뉴</p>
+            </div>
+            <a href="/" style="display: flex; align-items: center; gap: 0.75rem;">
+                <span style="font-size: 1.25rem;">🏠</span>
+                <span>홈</span>
+            </a>
+            <a href="/0to1tax-service-guide.pdf.pdf" target="_blank" style="display: flex; align-items: center; gap: 0.75rem;">
+                <span style="font-size: 1.25rem;">📄</span>
+                <span>서비스소개서</span>
+            </a>
+            <a href="/0to1log.html" style="display: flex; align-items: center; gap: 0.75rem;">
+                <span style="font-size: 1.25rem;">📚</span>
+                <span>블로그</span>
+            </a>
+            <a href="/insurance-calculator.html" style="display: flex; align-items: center; gap: 0.75rem; background: var(--bg-light); color: var(--primary-blue); font-weight: 600;">
+                <span style="font-size: 1.25rem;">🧮</span>
+                <span>4대보험 계산기</span>
+            </a>
+            <a href="/#contact" class="btn-contact" style="display: block; text-align: center; margin-top: 1rem;">
+                문의하기
+            </a>
         </div>
     </header>
 
@@ -436,14 +584,6 @@
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label" for="employeeType">근로자 유형</label>
-                    <select id="employeeType" class="form-input">
-                        <option value="regular">일반 근로자</option>
-                        <option value="parttime">단시간 근로자 (60시간 미만)</option>
-                    </select>
-                </div>
-
                 <button type="submit" class="btn-calculate">💰 계산하기</button>
             </form>
 
@@ -452,7 +592,7 @@
                 <h2 class="section-title">계산 결과</h2>
 
                 <!-- Summary Cards -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                <div class="summary-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
                     <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 1.5rem; border-radius: 1rem; text-align: center;">
                         <div style="font-size: 0.875rem; opacity: 0.9; margin-bottom: 0.5rem;">👤 근로자 부담</div>
                         <div style="font-size: 1.75rem; font-weight: 700;" id="employeeTotalCard">0원</div>
@@ -467,8 +607,8 @@
                     </div>
                 </div>
 
-                <!-- Detailed Table -->
-                <div style="background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <!-- Detailed Table (Desktop) -->
+                <div class="results-table-container" style="background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                     <table style="width: 100%; border-collapse: collapse;">
                         <thead>
                             <tr style="background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%); color: white;">
@@ -490,6 +630,105 @@
                             </tr>
                         </tfoot>
                     </table>
+                </div>
+
+                <!-- Mobile Result Cards (Mobile Only) -->
+                <div class="mobile-result-cards">
+                    <div class="mobile-card-item">
+                        <div class="mobile-card-title">🏦 국민연금</div>
+                        <div class="mobile-card-row">
+                            <span class="mobile-card-label">👤 근로자 부담</span>
+                            <span class="mobile-card-value" id="mobile-pension-employee">0원</span>
+                        </div>
+                        <div class="mobile-card-row">
+                            <span class="mobile-card-label">🏢 사업주 부담</span>
+                            <span class="mobile-card-value" id="mobile-pension-employer">0원</span>
+                        </div>
+                        <div class="mobile-card-row mobile-card-total" style="border-top: 1px solid #e5e7eb; margin-top: 0.5rem; padding-top: 0.75rem;">
+                            <span class="mobile-card-label" style="font-weight: 700; color: var(--text-dark);">합계</span>
+                            <span class="mobile-card-value" id="mobile-pension-total">0원</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-card-item">
+                        <div class="mobile-card-title">🏥 건강보험</div>
+                        <div class="mobile-card-row">
+                            <span class="mobile-card-label">👤 근로자 부담</span>
+                            <span class="mobile-card-value" id="mobile-health-employee">0원</span>
+                        </div>
+                        <div class="mobile-card-row">
+                            <span class="mobile-card-label">🏢 사업주 부담</span>
+                            <span class="mobile-card-value" id="mobile-health-employer">0원</span>
+                        </div>
+                        <div class="mobile-card-row mobile-card-total" style="border-top: 1px solid #e5e7eb; margin-top: 0.5rem; padding-top: 0.75rem;">
+                            <span class="mobile-card-label" style="font-weight: 700; color: var(--text-dark);">합계</span>
+                            <span class="mobile-card-value" id="mobile-health-total">0원</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-card-item">
+                        <div class="mobile-card-title">🧑‍⚕️ 장기요양보험</div>
+                        <div class="mobile-card-row">
+                            <span class="mobile-card-label">👤 근로자 부담</span>
+                            <span class="mobile-card-value" id="mobile-longterm-employee">0원</span>
+                        </div>
+                        <div class="mobile-card-row">
+                            <span class="mobile-card-label">🏢 사업주 부담</span>
+                            <span class="mobile-card-value" id="mobile-longterm-employer">0원</span>
+                        </div>
+                        <div class="mobile-card-row mobile-card-total" style="border-top: 1px solid #e5e7eb; margin-top: 0.5rem; padding-top: 0.75rem;">
+                            <span class="mobile-card-label" style="font-weight: 700; color: var(--text-dark);">합계</span>
+                            <span class="mobile-card-value" id="mobile-longterm-total">0원</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-card-item">
+                        <div class="mobile-card-title">💼 고용보험</div>
+                        <div class="mobile-card-row">
+                            <span class="mobile-card-label">👤 근로자 부담</span>
+                            <span class="mobile-card-value" id="mobile-employment-employee">0원</span>
+                        </div>
+                        <div class="mobile-card-row">
+                            <span class="mobile-card-label">🏢 사업주 부담</span>
+                            <span class="mobile-card-value" id="mobile-employment-employer">0원</span>
+                        </div>
+                        <div class="mobile-card-row mobile-card-total" style="border-top: 1px solid #e5e7eb; margin-top: 0.5rem; padding-top: 0.75rem;">
+                            <span class="mobile-card-label" style="font-weight: 700; color: var(--text-dark);">합계</span>
+                            <span class="mobile-card-value" id="mobile-employment-total">0원</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-card-item">
+                        <div class="mobile-card-title">⚒️ 산재보험</div>
+                        <div class="mobile-card-row">
+                            <span class="mobile-card-label">👤 근로자 부담</span>
+                            <span class="mobile-card-value" id="mobile-industrial-employee">0원</span>
+                        </div>
+                        <div class="mobile-card-row">
+                            <span class="mobile-card-label">🏢 사업주 부담</span>
+                            <span class="mobile-card-value" id="mobile-industrial-employer">0원</span>
+                        </div>
+                        <div class="mobile-card-row mobile-card-total" style="border-top: 1px solid #e5e7eb; margin-top: 0.5rem; padding-top: 0.75rem;">
+                            <span class="mobile-card-label" style="font-weight: 700; color: var(--text-dark);">합계</span>
+                            <span class="mobile-card-value" id="mobile-industrial-total">0원</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-card-item" style="background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);">
+                        <div class="mobile-card-title" style="color: var(--primary-blue); font-size: 1.25rem;">📊 총 합계</div>
+                        <div class="mobile-card-row">
+                            <span class="mobile-card-label">👤 근로자 부담</span>
+                            <span class="mobile-card-value" style="color: #3b82f6; font-size: 1.125rem;" id="mobile-total-employee">0원</span>
+                        </div>
+                        <div class="mobile-card-row">
+                            <span class="mobile-card-label">🏢 사업주 부담</span>
+                            <span class="mobile-card-value" style="color: #1e40af; font-size: 1.125rem;" id="mobile-total-employer">0원</span>
+                        </div>
+                        <div class="mobile-card-row mobile-card-total" style="border-top: 2px solid var(--primary-blue); margin-top: 0.75rem; padding-top: 0.75rem;">
+                            <span class="mobile-card-label" style="font-weight: 700; color: var(--text-dark); font-size: 1.0625rem;">합계</span>
+                            <span class="mobile-card-value" style="color: #0ea5e9; font-size: 1.375rem;" id="mobile-total-amount">0원</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -556,7 +795,6 @@
             const salaryValue = document.getElementById('salary').value.replace(/,/g, '');
             const salary = parseInt(salaryValue);
             const companySize = document.getElementById('companySize').value;
-            const employeeType = document.getElementById('employeeType').value;
 
             if (!salary || salary <= 0 || isNaN(salary)) {
                 alert('급여액을 입력해주세요.');
@@ -647,7 +885,7 @@
         }
 
         function displayResults(items, empTotal, empRTotal, total) {
-            // 테이블 바디 업데이트
+            // 테이블 바디 업데이트 (데스크톱)
             const tableBody = document.getElementById('resultsTableBody');
             tableBody.innerHTML = items.map((item, index) => `
                 <tr style="border-bottom: 1px solid #e5e7eb; ${index % 2 === 0 ? 'background: #f9fafb;' : ''}">
@@ -658,7 +896,7 @@
                 </tr>
             `).join('');
 
-            // 카드 업데이트
+            // Summary 카드 업데이트
             document.getElementById('employeeTotalCard').textContent = formatNumber(empTotal) + '원';
             document.getElementById('employerTotalCard').textContent = formatNumber(empRTotal) + '원';
             document.getElementById('totalAmountCard').textContent = formatNumber(total) + '원';
@@ -667,6 +905,37 @@
             document.getElementById('employeeTotal').textContent = formatNumber(empTotal) + '원';
             document.getElementById('employerTotal').textContent = formatNumber(empRTotal) + '원';
             document.getElementById('totalAmount').textContent = formatNumber(total) + '원';
+
+            // 모바일 카드 업데이트
+            // 국민연금
+            document.getElementById('mobile-pension-employee').textContent = formatNumber(items[0].employee) + '원';
+            document.getElementById('mobile-pension-employer').textContent = formatNumber(items[0].employer) + '원';
+            document.getElementById('mobile-pension-total').textContent = formatNumber(items[0].total) + '원';
+
+            // 건강보험
+            document.getElementById('mobile-health-employee').textContent = formatNumber(items[1].employee) + '원';
+            document.getElementById('mobile-health-employer').textContent = formatNumber(items[1].employer) + '원';
+            document.getElementById('mobile-health-total').textContent = formatNumber(items[1].total) + '원';
+
+            // 장기요양보험
+            document.getElementById('mobile-longterm-employee').textContent = formatNumber(items[2].employee) + '원';
+            document.getElementById('mobile-longterm-employer').textContent = formatNumber(items[2].employer) + '원';
+            document.getElementById('mobile-longterm-total').textContent = formatNumber(items[2].total) + '원';
+
+            // 고용보험
+            document.getElementById('mobile-employment-employee').textContent = formatNumber(items[3].employee) + '원';
+            document.getElementById('mobile-employment-employer').textContent = formatNumber(items[3].employer) + '원';
+            document.getElementById('mobile-employment-total').textContent = formatNumber(items[3].total) + '원';
+
+            // 산재보험
+            document.getElementById('mobile-industrial-employee').textContent = formatNumber(items[4].employee) + '원';
+            document.getElementById('mobile-industrial-employer').textContent = formatNumber(items[4].employer) + '원';
+            document.getElementById('mobile-industrial-total').textContent = formatNumber(items[4].total) + '원';
+
+            // 총 합계
+            document.getElementById('mobile-total-employee').textContent = formatNumber(empTotal) + '원';
+            document.getElementById('mobile-total-employer').textContent = formatNumber(empRTotal) + '원';
+            document.getElementById('mobile-total-amount').textContent = formatNumber(total) + '원';
         }
 
         function formatNumber(num) {

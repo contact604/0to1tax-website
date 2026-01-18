@@ -194,13 +194,20 @@
         }
         
         .mobile-menu-btn {
-            min-width: 44px;
-            min-height: 44px;
+            min-width: 48px;
+            min-height: 48px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             touch-action: manipulation;
             -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+        }
+        
+        .mobile-menu-btn:active {
+            background: rgba(59, 130, 246, 0.1);
+            transform: scale(0.95);
         }
         
         /* 모바일 최적화 */
@@ -284,7 +291,7 @@
         <div class="container mx-auto px-4 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="/" class="flex items-center space-x-2">
-                    <img src="/0to1tax-horizontal-blue.svg" alt="0to1tax" class="h-8">
+                    <img src="/0to1tax-horizontal-blue.svg" alt="0to1tax" class="h-12">
                 </a>
                 
                 <div class="hidden lg:flex items-center space-x-8">
@@ -298,18 +305,41 @@
                 </div>
                 
                 <label for="mobileMenuToggle" class="mobile-menu-btn lg:hidden text-gray-900 hover:text-cosmic-blue cursor-pointer p-2 -mr-2">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </label>
             </div>
             
             <div class="mobile-menu lg:hidden pb-4 space-y-3">
-                <a href="/" class="block text-gray-600 hover:text-gray-900 transition font-medium py-2">홈</a>
-                <a href="/0to1tax-service-guide.pdf.pdf" target="_blank" class="block text-gray-600 hover:text-gray-900 transition font-medium py-2">서비스소개서</a>
-                <a href="/0to1log.html" class="block text-cosmic-blue font-semibold py-2">블로그</a>
-                <a href="/insurance-calculator.html" class="block text-gray-600 hover:text-gray-900 transition font-medium py-2">🧮 4대보험 계산기</a>
-                <a href="/#contact" class="w-full block gradient-cosmic text-white px-6 py-3 rounded-full hover:shadow-xl transition font-medium text-center">
+                <div class="pt-4 pb-2 px-2 border-b border-gray-200">
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide">메뉴</p>
+                </div>
+                <a href="/" class="block text-gray-600 hover:text-gray-900 transition font-medium py-3 px-2 rounded-lg hover:bg-gray-50">
+                    <span class="flex items-center gap-3">
+                        <span class="text-xl">🏠</span>
+                        <span>홈</span>
+                    </span>
+                </a>
+                <a href="/0to1tax-service-guide.pdf.pdf" target="_blank" class="block text-gray-600 hover:text-gray-900 transition font-medium py-3 px-2 rounded-lg hover:bg-gray-50">
+                    <span class="flex items-center gap-3">
+                        <span class="text-xl">📄</span>
+                        <span>서비스소개서</span>
+                    </span>
+                </a>
+                <a href="/0to1log.html" class="block text-cosmic-blue font-semibold py-3 px-2 rounded-lg bg-blue-50">
+                    <span class="flex items-center gap-3">
+                        <span class="text-xl">📚</span>
+                        <span>블로그</span>
+                    </span>
+                </a>
+                <a href="/insurance-calculator.html" class="block text-gray-600 hover:text-gray-900 transition font-medium py-3 px-2 rounded-lg hover:bg-gray-50">
+                    <span class="flex items-center gap-3">
+                        <span class="text-xl">🧮</span>
+                        <span>4대보험 계산기</span>
+                    </span>
+                </a>
+                <a href="/#contact" class="block gradient-cosmic text-white px-6 py-3 rounded-full hover:shadow-xl transition font-medium text-center mt-4">
                     문의하기
                 </a>
             </div>

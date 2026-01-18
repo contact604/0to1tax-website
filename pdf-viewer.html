@@ -398,26 +398,48 @@
                 display: none !important;
             }
 
-            /* 플로팅 상담 버튼 - PDF 우측 상단 */
+            /* 프로그레스 바 - 하단 고정 (주황색 영역) */
+            .progress-bar-container {
+                position: fixed;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%) rotate(90deg);
+                width: 100vh; /* 회전하면 세로 길이 = 화면 높이 */
+                height: 0.5rem;
+                background: rgba(249, 115, 22, 0.2); /* 주황색 배경 */
+                z-index: 999;
+                transform-origin: center center;
+            }
+
+            .progress-bar {
+                height: 100%;
+                background: linear-gradient(90deg, #f97316 0%, #ea580c 100%); /* 주황색 그라데이션 */
+                width: 0%; /* 초기값 */
+                transition: width 0.3s ease;
+                border-radius: 0.25rem;
+                box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+            }
+
+            /* 플로팅 상담 버튼 - 우측 하단 (노란색 영역) */
             .floating-contact-btn {
                 position: fixed;
-                top: 1rem; /* PDF 상단에서 약간 아래 */
-                right: 0.5rem; /* 오른쪽 끝으로 더 이동 */
-                transform: rotate(90deg);
+                bottom: 4rem; /* 프로그레스 바 위 */
+                right: 1rem; /* 우측 하단 */
+                transform: rotate(90deg); /* 회전 */
                 transform-origin: center center;
-                z-index: 999;
-                padding: 0.65rem 1.25rem; /* 높이 약간 줄임 */
-                background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-                color: white;
+                z-index: 1000;
+                padding: 0.75rem 1.5rem;
+                background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); /* 노란색 그라데이션 */
+                color: #1f2937;
                 border: none;
                 border-radius: 50px;
                 font-weight: 700;
-                font-size: 0.8rem; /* 폰트 크기 약간 줄임 */
+                font-size: 0.875rem;
                 text-decoration: none;
                 display: flex;
                 align-items: center;
-                gap: 0.4rem;
-                box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+                gap: 0.5rem;
+                box-shadow: 0 4px 20px rgba(251, 191, 36, 0.5);
                 transition: all 0.3s ease;
                 white-space: nowrap;
             }
@@ -425,7 +447,8 @@
             .floating-contact-btn:hover,
             .floating-contact-btn:active {
                 transform: rotate(90deg) scale(1.05);
-                box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5);
+                box-shadow: 0 6px 24px rgba(251, 191, 36, 0.6);
+                background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%);
             }
         }
 
@@ -493,6 +516,11 @@
     <a href="/contact-form.html" class="floating-contact-btn" id="floatingContactBtn" style="display: none;">
         💬 상담하기
     </a>
+
+    <!-- 프로그레스 바 (모바일 전용) -->
+    <div class="progress-bar-container" id="progressBarContainer" style="display: none;">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
 
     <!-- Header -->
     <div class="header">
@@ -566,18 +594,24 @@
         // PDF 로드
         const url = '/0to1tax-service-guide.pdf';
 
-        // 모바일 플로팅 버튼 표시
+        // 모바일 플로팅 버튼 & 프로그레스 바 표시
         const floatingBtn = document.getElementById('floatingContactBtn');
+        const progressBarContainer = document.getElementById('progressBarContainer');
+        const progressBar = document.getElementById('progressBar');
+        
         if (window.innerWidth <= 768) {
             floatingBtn.style.display = 'flex';
+            progressBarContainer.style.display = 'block';
         }
 
-        // 윈도우 리사이즈 시 플로팅 버튼 표시/숨김
+        // 윈도우 리사이즈 시 플로팅 버튼 & 프로그레스 바 표시/숨김
         window.addEventListener('resize', function() {
             if (window.innerWidth <= 768) {
                 floatingBtn.style.display = 'flex';
+                progressBarContainer.style.display = 'block';
             } else {
                 floatingBtn.style.display = 'none';
+                progressBarContainer.style.display = 'none';
             }
         });
 
@@ -719,34 +753,81 @@
             }
         }
 
-        // 모바일 클릭으로 페이지 넘기기
+        // 모바일 클릭으로 페이지 넘기기 - 전체 화면
         if (window.innerWidth <= 768) {
-            canvas.addEventListener('click', function(e) {
+            const container = document.querySelector('.pdf-canvas-container');
+            
+            // 컨테이너 전체에 클릭 이벤트
+            container.addEventListener('click', function(e) {
                 // 상담하기 버튼 클릭은 제외
                 if (e.target.closest('.floating-contact-btn')) {
                     return;
                 }
                 
-                // 90도 회전을 고려한 좌표 계산
+                // 컨테이너 기준 좌표 계산
+                const rect = container.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const containerWidth = rect.width;
+                
+                console.log('클릭 위치:', clickX, '/', containerWidth); // 디버깅용
+                
+                // 왼쪽 절반 클릭 = 이전 페이지
+                if (clickX < containerWidth / 2) {
+                    console.log('이전 페이지');
+                    onPrevPage();
+                }
+                // 오른쪽 절반 클릭 = 다음 페이지
+                else {
+                    console.log('다음 페이지');
+                    onNextPage();
+                }
+            });
+            
+            // 캔버스에도 추가로 이벤트 연결 (이중 안전장치)
+            canvas.addEventListener('click', function(e) {
+                if (e.target.closest('.floating-contact-btn')) {
+                    return;
+                }
+                
                 const rect = canvas.getBoundingClientRect();
                 const clickX = e.clientX - rect.left;
                 const canvasWidth = rect.width;
                 
-                console.log('클릭 위치:', clickX, '/', canvasWidth); // 디버깅용
-                
-                // 왼쪽 1/3 클릭 = 이전 페이지
-                if (clickX < canvasWidth / 3) {
-                    console.log('이전 페이지');
+                // 왼쪽 절반 = 이전, 오른쪽 절반 = 다음
+                if (clickX < canvasWidth / 2) {
                     onPrevPage();
-                }
-                // 오른쪽 1/3 클릭 = 다음 페이지
-                else if (clickX > (canvasWidth * 2 / 3)) {
-                    console.log('다음 페이지');
+                } else {
                     onNextPage();
                 }
-                // 중앙 1/3 클릭 = 아무 동작 없음 (스크롤용)
-                else {
-                    console.log('중앙 클릭 - 스크롤 영역');
+            });
+
+            // 스크롤 감지 및 프로그레스 바 업데이트
+            let scrollTimeout;
+            container.addEventListener('scroll', function() {
+                // 스크롤 위치 계산
+                const scrollTop = container.scrollTop;
+                const scrollHeight = container.scrollHeight - container.clientHeight;
+                const scrollPercent = (scrollTop / scrollHeight) * 100;
+                
+                // 프로그레스 바 업데이트
+                progressBar.style.width = scrollPercent + '%';
+                
+                console.log('스크롤:', scrollPercent.toFixed(1) + '%');
+                
+                // 스크롤이 90% 이상이면 다음 페이지로
+                if (scrollPercent >= 90) {
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(function() {
+                        console.log('스크롤 끝 - 다음 페이지로 이동');
+                        if (pageNum < pdfDoc.numPages) {
+                            onNextPage();
+                            // 스크롤을 맨 위로 리셋
+                            setTimeout(function() {
+                                container.scrollTop = 0;
+                                progressBar.style.width = '0%';
+                            }, 300);
+                        }
+                    }, 500); // 0.5초 대기 후 페이지 넘김
                 }
             });
         }

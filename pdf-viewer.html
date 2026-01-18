@@ -298,7 +298,7 @@
                 top: 50%;
                 margin-left: calc(-100vh / 2);
                 margin-top: calc(-100vw / 2);
-                padding: 1rem 1rem 5rem 1rem; /* 하단 네비게이션 공간 확보 */
+                padding: 1rem 1rem 4.5rem 1rem; /* 하단 네비게이션 공간 확보 */
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
             }
@@ -311,16 +311,16 @@
                 margin: 0 auto;
             }
 
-            /* 네비게이션 - 회전하여 하단 고정 */
+            /* 네비게이션 - 회전하여 맨 하단 고정 */
             .pdf-navigation {
                 transform: rotate(90deg);
                 transform-origin: center center;
                 width: 100vh;
                 position: fixed;
                 left: 50%;
-                bottom: 0;
+                bottom: -1px; /* 맨 하단에 완전히 붙임 */
                 margin-left: calc(-100vh / 2);
-                padding: 0.625rem 0.75rem;
+                padding: 0.5rem 0.75rem;
                 background: rgba(255, 255, 255, 0.98);
                 backdrop-filter: blur(20px);
                 border-top: 1px solid #e5e7eb;
@@ -329,6 +329,7 @@
                 gap: 0.5rem;
                 align-items: center;
                 justify-content: space-between;
+                z-index: 1000;
             }
 
             /* 왼쪽 그룹: 홈, 상담 */
@@ -403,6 +404,35 @@
             .mobile-header-actions {
                 display: none !important;
             }
+
+            /* 플로팅 상담 버튼 (모바일) */
+            .floating-contact-btn {
+                position: fixed;
+                top: 50%; /* 화면 중앙 */
+                right: 1rem;
+                transform: translateY(-50%) rotate(90deg); /* 회전 적용 */
+                z-index: 999;
+                padding: 0.75rem 1.25rem;
+                background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+                color: white;
+                border: none;
+                border-radius: 50px;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+                transition: all 0.3s ease;
+                white-space: nowrap;
+            }
+
+            .floating-contact-btn:hover,
+            .floating-contact-btn:active {
+                transform: translateY(-50%) rotate(90deg) scale(1.05);
+                box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5);
+            }
         }
 
         /* 가로 모드 (landscape) 최적화 */
@@ -465,6 +495,11 @@
         <a href="/contact-form.html" class="mobile-btn">💬 상담</a>
     </div>
 
+    <!-- 플로팅 상담 버튼 (모바일 전용) -->
+    <a href="/contact-form.html" class="floating-contact-btn" id="floatingContactBtn" style="display: none;">
+        💬 상담하기
+    </a>
+
     <!-- Header -->
     <div class="header">
         <div class="header-container">
@@ -487,10 +522,9 @@
         </div>
         
         <div class="pdf-navigation" id="pdf-navigation" style="display: none;">
-            <!-- 왼쪽 그룹: 홈, 상담 -->
+            <!-- 왼쪽 그룹: 홈 -->
             <div class="nav-left-group">
                 <a href="/index.html" class="mobile-btn">← 홈</a>
-                <a href="/contact-form.html" class="mobile-btn">💬 상담</a>
             </div>
             
             <!-- 중앙 그룹: 이전, 페이지, 다음 -->
@@ -537,6 +571,21 @@
 
         // PDF 로드
         const url = '/0to1tax-service-guide.pdf';
+
+        // 모바일 플로팅 버튼 표시
+        const floatingBtn = document.getElementById('floatingContactBtn');
+        if (window.innerWidth <= 768) {
+            floatingBtn.style.display = 'flex';
+        }
+
+        // 윈도우 리사이즈 시 플로팅 버튼 표시/숨김
+        window.addEventListener('resize', function() {
+            if (window.innerWidth <= 768) {
+                floatingBtn.style.display = 'flex';
+            } else {
+                floatingBtn.style.display = 'none';
+            }
+        });
 
         pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
             pdfDoc = pdfDoc_;

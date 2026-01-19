@@ -56,7 +56,7 @@ published: true
 
 ---
 
-## 돈 받기 전에 세금계산서를 발행해도 될까?
+## 일을 하기 전에 세금계산서를 발행해도 될까?
 
 실무에서 자주 나오는 질문입니다.
 원칙적으로 세금계산서는 공급 시점 이전에 발행하는 것은 허용되지 않습니다.
@@ -129,6 +129,13 @@ published: true
 이 기준만 명확히 알고 있어도
 불필요한 가산세와 실무 혼란은 충분히 줄일 수 있습니다.
 
+---
+함께보면 좋은 글
+1. [매입세액 불공제 항목, 이것만은 꼭 구분하세요](/blog-post.html?slug=2026-01-18-startup-vat-non-deductible)
+2. [PG사 매출, 그대로 신고하면 위험합니다 (플랫폼 스타트업 필독)](/blog-post.html?slug=2026-01-18-startup-pg-vat-warning)
+3. [스타트업 수출·영세율 매출, 자동이 아닙니다](/blog-post.html?slug=2026-01-18-startup-export-zero-rate)
+4. [면세 매출이 있는 스타트업의 부가세 함정](/blog-post.html?slug=2026-01-18-startup-tax-exempt-trap)
+5. [부가세 불성실 신고 추징 사례 (국세청 실제 적발 사례)]( /blog-post.html?slug=2026-01-18-startup-vat-penalty-cases)
 ---
 
 **💬 상담 문의**: [contact@0to1tax.com](mailto:contact@0to1tax.com)  

@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선영회계법인 - 전문 회계 서비스</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 30px;
+            z-index: 1000;
+        }
+
+        nav a {
+            display: block;
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            margin: 10px 0;
+            transition: all 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            background: white;
+            transform: scale(1.5);
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        /* Section 1: 가격은 낮게 */
+        #price {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+        }
+
+        #price .content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        #price h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            line-height: 1.3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        #price h1 .price-text {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        #price h1 .emphasis {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #fbbf24;
+            text-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            display: inline-block;
+            animation: bounceIn 1s ease;
+        }
+        
+        #price h1 .arrow {
+            font-size: 8rem;
+            color: #fbbf24;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+            animation: arrowBounce 1.5s ease-in-out infinite;
+            line-height: 1;
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes arrowBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        #price .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 35px;
+            background: rgba(255,255,255,0.25);
+            border-radius: 30px;
+            font-size: 1.3rem;
+            margin-top: 20px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        #price .badge .ai-icon {
+            font-size: 1.8rem;
+            animation: rotate 3s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        #price .description {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            line-height: 1.8;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        
+        #price .ai-visual {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            font-size: 2.5rem;
+        }
+        
+        #price .ai-box {
+            background: rgba(255,255,255,0.2);
+            padding: 20px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            font-weight: 700;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+        }
+
+        /* Section 2: 퀄리티는 높게 */
+        #quality {
+            background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+            color: white;
+        }
+
+        #quality .content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        #quality h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            line-height: 1.3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        #quality h1 .quality-text {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        #quality h1 .emphasis {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #fbbf24;
+            text-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            display: inline-block;
+            animation: bounceIn 1s ease;
+        }
+        
+        #quality h1 .arrow {
+            font-size: 8rem;
+            color: #fbbf24;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+            animation: arrowBounceUp 1.5s ease-in-out infinite;
+            line-height: 1;
+        }
+        
+        @keyframes arrowBounceUp {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(10px);
+            }
+        }
+
+        #quality .badge {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 30px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        #quality .description {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* Section 2.5: 업무 방식 비교 */
+        #workflow-comparison {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 100px 20px;
+        }
+        
+        #workflow-comparison .container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        #workflow-comparison h2 {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 80px;
+            font-weight: 900;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 80px 1fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+        
+        .workflow-box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 50px 40px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .workflow-box:hover {
+            transform: translateY(-10px);
+            border-color: rgba(59,130,246,0.5);
+        }
+        
+        .workflow-box.old {
+            border-left: 5px solid #ef4444;
+        }
+        
+        .workflow-box.new {
+            border-left: 5px solid #22c55e;
+        }
+        
+        .workflow-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .workflow-title.old {
+            color: #fca5a5;
+        }
+        
+        .workflow-title.new {
+            color: #86efac;
+        }
+        
+        /* 사람 아이콘 시각화 */
+        .people-visualization {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            margin: 20px 0;
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            min-height: 180px;
+            position: relative;
+        }
+        
+        .people-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            max-width: 400px;
+        }
+        
+        .person-icon {
+            font-size: 3.5rem;
+            animation: personFade 2s ease-in-out infinite;
+            filter: grayscale(0.3);
+        }
+        
+        .person-icon:nth-child(1) { animation-delay: 0s; }
+        .person-icon:nth-child(2) { animation-delay: 0.2s; }
+        .person-icon:nth-child(3) { animation-delay: 0.4s; }
+        .person-icon:nth-child(4) { animation-delay: 0.6s; }
+        .person-icon:nth-child(5) { animation-delay: 0.8s; }
+        .person-icon:nth-child(6) { animation-delay: 1s; }
+        .person-icon:nth-child(7) { animation-delay: 1.2s; }
+        .person-icon:nth-child(8) { animation-delay: 1.4s; }
+        
+        @keyframes personFade {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        .ai-team {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .ai-team .person-icon {
+            font-size: 4rem;
+            animation: none;
+            filter: none;
+        }
+        
+        .ai-team .plus {
+            font-size: 3rem;
+            color: #3b82f6;
+            font-weight: 900;
+        }
+        
+        .ai-team .ai-icon {
+            font-size: 4.5rem;
+            animation: aiGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes aiGlow {
+            0%, 100% { 
+                transform: scale(1);
+                filter: drop-shadow(0 0 10px rgba(59,130,246,0.5));
+            }
+            50% { 
+                transform: scale(1.15);
+                filter: drop-shadow(0 0 30px rgba(59,130,246,0.8));
+            }
+        }
+        
+        .team-label {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+        
+        .workflow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+        }
+        
+        .workflow-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            padding: 18px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+        }
+        
+        .workflow-step .icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+        
+        .workflow-step .text {
+            flex: 1;
+        }
+        
+        .workflow-step .highlight {
+            color: #fbbf24;
+            font-weight: 700;
+        }
+        
+        .vs-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #3b82f6;
+            text-shadow: 0 0 20px rgba(59,130,246,0.5);
+        }
+        
+        @media (max-width: 1024px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .vs-divider {
+                transform: rotate(90deg);
+                font-size: 2.5rem;
+            }
+            
+            .person-icon {
+                font-size: 2.5rem;
+            }
+            
+            .ai-team .person-icon,
+            .ai-team .ai-icon {
+                font-size: 3rem;
+            }
+        }
+
+        /* Section 2.7: 실제 성과 */
+        #results {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+            padding: 100px 20px;
+        }
+        
+        #results .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        #results h2 {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+        
+        #results .subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 70px;
+            opacity: 0.9;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            margin-top: 60px;
+        }
+        
+        .result-card {
+            text-align: center;
+            padding: 50px 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+        }
+        
+        .result-card:hover {
+            transform: translateY(-15px);
+            border-color: rgba(251,191,36,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .result-icon {
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        .result-card:nth-child(1) .result-icon { animation-delay: 0s; }
+        .result-card:nth-child(2) .result-icon { animation-delay: 0.5s; }
+        .result-card:nth-child(3) .result-icon { animation-delay: 1s; }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .result-number {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: #fbbf24;
+            margin-bottom: 15px;
+            line-height: 1;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        
+        .result-label {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .result-description {
+            font-size: 1rem;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 1024px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .result-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Section 3: 고객 만족 */
+        #testimonials {
+            background: #f8fafc;
+        }
+
+        #testimonials .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        #testimonials h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 50px;
+            color: #1e293b;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .review-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            margin-bottom: 20px;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: #3b82f6;
+        }
+
+        /* Section 4: 이범기 회계사 */
+        #profile {
+            background: white;
+        }
+
+        #profile .container {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        #profile h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #1e293b;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .profile-title {
+            font-size: 1.5rem;
+            color: #64748b;
+            margin-top: 10px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: 25px;
+            background: #f1f5f9;
+            border-radius: 10px;
+            margin: 0 30px;
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: #3b82f6;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-position {
+            font-size: 1.1rem;
+            color: #1e293b;
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #3b82f6;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Profile Layout: 2 columns */
+        .profile-two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1400px;
+            margin: 50px auto 0;
+            align-items: start;
+        }
+        
+        /* Case Study Styles */
+        .case-study-container {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid #3b82f6;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .case-study-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .case-study-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        
+        .case-study-badge {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        
+        .case-study-company {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3b82f6;
+        }
+        
+        .case-study-role {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .case-versus {
+            background: #fee2e2;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 700;
+            color: #dc2626;
+            margin: 20px 0;
+            font-size: 1.1rem;
+        }
+        
+        .case-issues {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 4px solid #22c55e;
+        }
+        
+        .case-issue-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .case-issue-item:last-child {
+            border-bottom: none;
+        }
+        
+        .case-issue-text {
+            color: #1e293b;
+            font-weight: 600;
+        }
+        
+        .case-issue-result {
+            color: #22c55e;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .case-conclusion {
+            background: #fef3c7;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            color: #92400e;
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+        
+        .case-strategies {
+            margin-top: 25px;
+        }
+        
+        .case-strategy-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid #3b82f6;
+            transition: transform 0.3s;
+        }
+        
+        .case-strategy-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .case-strategy-title {
+            font-weight: 700;
+            color: #3b82f6;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+        
+        .case-strategy-desc {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 1200px) {
+            .profile-two-column {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .case-study-container {
+                position: static;
+            }
+        }
+
+        /* Section 5: 제공 프로덕트 */
+        #services {
+            background: #f8fafc;
+        }
+
+        #services .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        #services h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 50px;
+            color: #1e293b;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+
+        .service-desc {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #64748b;
+        }
+
+        .differentiator {
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .differentiator h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .differentiator ul {
+            list-style: none;
+        }
+
+        .differentiator li {
+            padding: 10px 0;
+            font-size: 1.1rem;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .differentiator li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Section 6: 엔딩 메시지 */
+        #closing {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+        }
+
+        #closing .content {
+            text-align: center;
+            max-width: 900px;
+        }
+
+        #closing h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 30px;
+        }
+
+        #closing .subtitle {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 50px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #2563eb;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
+        }
+
+        .contact-info {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            font-size: 1.2rem;
+            line-height: 2;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #price h1, #quality h1 {
+                font-size: 3rem;
+            }
+
+            #testimonials h2, #profile h2, #services h2 {
+                font-size: 2rem;
+            }
+
+            #closing h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                flex-direction: row;
+            }
+
+            .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#price" title="가격"></a>
+        <a href="#quality" title="퀄리티"></a>
+        <a href="#workflow-comparison" title="업무방식"></a>
+        <a href="#results" title="실제성과"></a>
+        <a href="#testimonials" title="고객 후기"></a>
+        <a href="#profile" title="소개"></a>
+        <a href="#services" title="서비스"></a>
+        <a href="#closing" title="문의"></a>
+    </nav>
+
+    <!-- Section 1: 가격은 낮게 -->
+    <section id="price">
+        <div class="content">
+            <h1>
+                <span style="font-size: 3.5rem;">가격은</span>
+                <div class="price-text">
+                    <span class="emphasis">낮게</span>
+                    <span class="arrow">⬇️</span>
+                </div>
+            </h1>
+            <div class="badge">
+                <span class="ai-icon">🤖</span>
+                Powered by AI
+            </div>
+            <p class="description">
+                높은 AI 활용도로 반복 작업을 자동화하여<br>
+                속도와 정확도를 향상시키고<br>
+                비용 효율을 극대화합니다
+            </p>
+            <div class="ai-visual">
+                <div class="ai-box">⚡ AI 자동화</div>
+                <div style="font-size: 3rem;">→</div>
+                <div class="ai-box">💰 비용 절감</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: 퀄리티는 높게 -->
+    <section id="quality">
+        <div class="content">
+            <h1>
+                <span style="font-size: 3.5rem;">퀄리티는</span>
+                <div class="quality-text">
+                    <span class="emphasis">높게</span>
+                    <span class="arrow">⬆️</span>
+                </div>
+            </h1>
+            <div class="badge">Expert Quality Control</div>
+            <p class="description">
+                파트너 레벨의 전문가가<br>
+                깐깐하게 검토하여<br>
+                결과물의 완성도를 보증합니다
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 2.5: 업무 방식 비교 -->
+    <section id="workflow-comparison">
+        <div class="container">
+            <h2>업무 방식의 혁신</h2>
+            
+            <div class="comparison-grid">
+                <!-- 기존 업무방식 -->
+                <div class="workflow-box old">
+                    <div class="workflow-title old">
+                        <span>❌</span>
+                        <span>기존 업무방식</span>
+                    </div>
+                    
+                    <!-- 많은 사람들 시각화 -->
+                    <div class="people-visualization">
+                        <div class="people-group">
+                            <div class="person-icon">👨‍💼</div>
+                            <div class="person-icon">👩‍💼</div>
+                            <div class="person-icon">👨‍💼</div>
+                            <div class="person-icon">👩‍💼</div>
+                            <div class="person-icon">👨‍💼</div>
+                            <div class="person-icon">👩‍💼</div>
+                            <div class="person-icon">👨‍💼</div>
+                            <div class="person-icon">👩‍💼</div>
+                        </div>
+                    </div>
+                    <div class="team-label">8명의 팀원 필요</div>
+                    
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <span class="icon">📋</span>
+                            <span class="text">자료 수집 및 정리 <span class="highlight">(수작업)</span></span>
+                        </div>
+                        <div class="workflow-step">
+                            <span class="icon">🧹</span>
+                            <span class="text">자료 클렌징 <span class="highlight">(수작업)</span></span>
+                        </div>
+                        <div class="workflow-step">
+                            <span class="icon">✍️</span>
+                            <span class="text">보고서 작성 <span class="highlight">(수작업)</span></span>
+                        </div>
+                        <div class="workflow-step">
+                            <span class="icon">⏱️</span>
+                            <span class="text">많은 시간 소요 및 높은 인건비</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- VS -->
+                <div class="vs-divider">
+                    VS
+                </div>
+                
+                <!-- AI 시대의 업무방식 -->
+                <div class="workflow-box new">
+                    <div class="workflow-title new">
+                        <span>✅</span>
+                        <span>AI 시대의 업무방식</span>
+                    </div>
+                    
+                    <!-- 1명 + AI 시각화 -->
+                    <div class="people-visualization">
+                        <div class="ai-team">
+                            <div class="person-icon">👨‍💼</div>
+                            <div class="plus">+</div>
+                            <div class="ai-icon">🤖</div>
+                        </div>
+                    </div>
+                    <div class="team-label">1명 + AI로 충분</div>
+                    
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <span class="icon">🤖</span>
+                            <span class="text">AI에게 지시 <span class="highlight">(자동화)</span></span>
+                        </div>
+                        <div class="workflow-step">
+                            <span class="icon">⚡</span>
+                            <span class="text">자료 클렌징 자동화 <span class="highlight">(AI 처리)</span></span>
+                        </div>
+                        <div class="workflow-step">
+                            <span class="icon">📊</span>
+                            <span class="text">보고서 자동 작성 <span class="highlight">(AI 생성)</span></span>
+                        </div>
+                        <div class="workflow-step">
+                            <span class="icon">✏️</span>
+                            <span class="text"><span class="highlight">80% 완성</span>된 산출물에서 <span class="highlight">20%만 수정</span></span>
+                        </div>
+                        <div class="workflow-step">
+                            <span class="icon">💰</span>
+                            <span class="text">시간과 비용 획기적 절감</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2.7: 실제 성과 -->
+    <section id="results">
+        <div class="container">
+            <h2>선영회계법인의 실제 성과</h2>
+            <p class="subtitle">AI 기술과 전문성의 결합으로 만들어낸 확실한 결과</p>
+            
+            <div class="results-grid">
+                <!-- 비용 절감 -->
+                <div class="result-card">
+                    <div class="result-icon">💰</div>
+                    <div class="result-number">60%</div>
+                    <div class="result-label">평균 비용 절감</div>
+                    <p class="result-description">
+                        AI 자동화로 인건비를 대폭 절감하여<br>
+                        같은 품질을 더 낮은 가격으로 제공
+                    </p>
+                </div>
+                
+                <!-- 작업 속도 -->
+                <div class="result-card">
+                    <div class="result-icon">⚡</div>
+                    <div class="result-number">24시간</div>
+                    <div class="result-label">초안 완성 시간</div>
+                    <p class="result-description">
+                        AI가 80%를 자동 완성하여<br>
+                        빠른 초안 제공 및 피드백 가능
+                    </p>
+                </div>
+                
+                <!-- 고객 만족도 -->
+                <div class="result-card">
+                    <div class="result-icon">⭐</div>
+                    <div class="result-number">95%</div>
+                    <div class="result-label">고객 재계약률</div>
+                    <p class="result-description">
+                        전문가의 깐깐한 검토로<br>
+                        높은 품질과 만족도 보장
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: 고객 만족 -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>고객 만족이 최우선</h2>
+            <div class="review-grid">
+                <div class="review-card">
+                    <p class="review-text">
+                        "감사인 질의에 즉시 대응해 주셔서 일정 리스크가 크게 줄었습니다. 
+                        빠른 응답 속도가 인상적이었습니다."
+                    </p>
+                    <p class="review-author">— 현대엘리베이터 회계팀장</p>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">
+                        "가격 대비 산출물 퀄리티가 탁월합니다. 
+                        공시 및 메모 문안이 바로 사용할 수 있는 수준이었습니다."
+                    </p>
+                    <p class="review-author">— 샘표식품 회계팀장</p>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">
+                        "감사인의 집착에도 지치지 않고 
+                        끝까지 수검 받을 수 있었습니다."
+                    </p>
+                    <p class="review-author">— DH오토웨어 회계부장</p>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">
+                        "업무 범위보다 더 많은 것을 해주셔서 감사합니다. 
+                        기대 이상의 서비스를 받았습니다."
+                    </p>
+                    <p class="review-author">— ADT캡스 회계팀장</p>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">
+                        "책임감이 높고 끝까지 완성도를 높이려는 자세가 
+                        정말 인상적이었습니다."
+                    </p>
+                    <p class="review-author">— 한진중공업홀딩스 회계팀장</p>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">
+                        "전문 지식이 풍부하고 실무 경험도 많아서 
+                        복잡한 이슈도 쉽게 해결해 주셨습니다."
+                    </p>
+                    <p class="review-author">— 페퍼저축은행 회계팀장</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: 이범기 회계사 소개 -->
+    <section id="profile">
+        <div class="container">
+            <div class="profile-header">
+                <h2>이범기 회계사</h2>
+                <p class="profile-title">선영회계법인 파트너 · 공인회계사</p>
+                <p class="profile-subtitle" style="font-size: 1.3rem; color: #3b82f6; margin-top: 15px; font-weight: 700;">
+                    🏆 삼일회계법인 출신 · 상장사 PA 경력 다수
+                </p>
+                <p style="font-size: 1.15rem; color: #64748b; margin-top: 10px; font-weight: 600;">
+                    Big4에서 대기업 감사를 수행한 지정감사 수검 전문가
+                </p>
+            </div>
+            
+            <!-- 케이스 스터디만 -->
+            <div style="max-width: 900px; margin: 50px auto 0;">
+                <div class="case-study-container">
+                    <div class="case-study-header">
+                        <div class="case-study-title">지정감사 수검 Case Study</div>
+                        <div class="case-study-badge">실제 프로젝트</div>
+                    </div>
+                    
+                    <div class="case-study-company">
+                        🚗 현대차 1차 벤더사
+                    </div>
+                    
+                    <div class="case-study-role">
+                        <strong>Role:</strong> PA, CGU 손상평가
+                    </div>
+                    
+                    <div class="case-versus">
+                        Big4 회계법인 지정감사 VS 1인 PA
+                    </div>
+                    
+                    <div class="case-issues">
+                        <h4 style="font-weight: 700; color: #1e293b; margin-bottom: 15px; font-size: 1.2rem;">
+                            주요 이슈 대응 결과
+                        </h4>
+                        <div class="case-issue-item">
+                            <span class="case-issue-text">매출 총액 VS 순액 이슈</span>
+                            <span class="case-issue-result">✅ 방어 성공</span>
+                        </div>
+                        <div class="case-issue-item">
+                            <span class="case-issue-text">CGU 손상평가 이슈</span>
+                            <span class="case-issue-result">✅ 방어 성공</span>
+                        </div>
+                        <div class="case-issue-item">
+                            <span class="case-issue-text">이연법인세 자산성 이슈</span>
+                            <span class="case-issue-result">✅ 방어 성공</span>
+                        </div>
+                    </div>
+                    
+                    <div class="case-conclusion">
+                        💡 결과: 아직도 내 고객!
+                    </div>
+                    
+                    <div class="case-strategies">
+                        <h4 style="font-weight: 700; color: #1e293b; margin-bottom: 15px; font-size: 1.2rem;">
+                            핵심 전략
+                        </h4>
+                        
+                        <div class="case-strategy-item">
+                            <div class="case-strategy-title">1️⃣ 전략적 협상</div>
+                            <div class="case-strategy-desc">
+                                회사와의 긴밀한 전략 설정을 통한 감사인 대응<br>
+                                (내어줄 건 내어주고, 지킬 건 지키고)
+                            </div>
+                        </div>
+                        
+                        <div class="case-strategy-item">
+                            <div class="case-strategy-title">2️⃣ 빠른 산출물</div>
+                            <div class="case-strategy-desc">
+                                넉넉하지 않은 결산 일정에<br>
+                                빠르게 산출물 제공
+                            </div>
+                        </div>
+                        
+                        <div class="case-strategy-item">
+                            <div class="case-strategy-title">3️⃣ 감사인 관계 관리</div>
+                            <div class="case-strategy-desc">
+                                감사인 질문에 신속 대응 및<br>
+                                친화적으로 다가가서 감사 난이도 하락
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: PA 서비스 핵심 -->
+    <section id="services">
+        <div class="container">
+            <!-- 메인 메시지 -->
+            <div style="text-align: center; max-width: 1000px; margin: 0 auto 80px;">
+                <h2 style="font-size: 3.5rem; font-weight: 900; color: #1e293b; line-height: 1.4; margin-bottom: 60px;">
+                    PA 업무의 핵심은<br>
+                    <span style="color: #3b82f6;">실무진의 업무량 감소</span>입니다.
+                </h2>
+            </div>
+            
+            <!-- 차별화 포인트 -->
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <h3 style="font-size: 2.5rem; font-weight: 900; color: #1e293b; text-align: center; margin-bottom: 50px;">
+                    차별화 포인트
+                </h3>
+                
+                <div style="display: flex; flex-direction: column; gap: 30px;">
+                    <!-- 포인트 1: 든든한 우리 편 -->
+                    <div style="background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%); padding: 40px 45px; border-radius: 20px; border-left: 6px solid #3b82f6; transition: transform 0.3s;">
+                        <div style="display: flex; align-items: flex-start; gap: 25px;">
+                            <div style="font-size: 3rem; flex-shrink: 0;">🛡️</div>
+                            <div style="flex: 1;">
+                                <h4 style="font-size: 1.8rem; font-weight: 700; color: #3b82f6; margin-bottom: 20px;">
+                                    든든한 우리 편
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="font-size: 1.15rem; color: #1e293b; line-height: 1.8; margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0;">✓</span>
+                                        이슈사항 선제적 파악
+                                    </li>
+                                    <li style="font-size: 1.15rem; color: #1e293b; line-height: 1.8; margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0;">✓</span>
+                                        이슈사항에 대한 사전 방어논리 구축
+                                    </li>
+                                    <li style="font-size: 1.15rem; color: #1e293b; line-height: 1.8; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0;">✓</span>
+                                        감사 시 백업데이터 적극 제공
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 포인트 2: 책임감 높은 서비스 -->
+                    <div style="background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%); padding: 40px 45px; border-radius: 20px; border-left: 6px solid #8b5cf6; transition: transform 0.3s;">
+                        <div style="display: flex; align-items: flex-start; gap: 25px;">
+                            <div style="font-size: 3rem; flex-shrink: 0;">💪</div>
+                            <div style="flex: 1;">
+                                <h4 style="font-size: 1.8rem; font-weight: 700; color: #8b5cf6; margin-bottom: 20px;">
+                                    책임감 높은 서비스
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="font-size: 1.15rem; color: #1e293b; line-height: 1.8; margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0;">✓</span>
+                                        단순 재무제표 대리 작성이 아닌 내 장부처럼 작성
+                                    </li>
+                                    <li style="font-size: 1.15rem; color: #1e293b; line-height: 1.8; margin-bottom: 12px; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0;">✓</span>
+                                        급박한 결산시기 24/7 연락 가능
+                                    </li>
+                                    <li style="font-size: 1.15rem; color: #1e293b; line-height: 1.8; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0;">✓</span>
+                                        회사에 이득되는 방향의 재무제표 제공
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 포인트 3: 높은 실무지식 -->
+                    <div style="background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%); padding: 40px 45px; border-radius: 20px; border-left: 6px solid #06b6d4; transition: transform 0.3s;">
+                        <div style="display: flex; align-items: flex-start; gap: 25px;">
+                            <div style="font-size: 3rem; flex-shrink: 0;">📚</div>
+                            <div style="flex: 1;">
+                                <h4 style="font-size: 1.8rem; font-weight: 700; color: #06b6d4; margin-bottom: 20px;">
+                                    높은 실무지식
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="font-size: 1.15rem; color: #1e293b; line-height: 1.8; padding-left: 25px; position: relative;">
+                                        <span style="position: absolute; left: 0;">✓</span>
+                                        10년차 감사 전문가로 감사인 실시간 대응이 가능
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: 엔딩 메시지 -->
+    <section id="closing">
+        <div class="content">
+            <h1>회계는 변합니다.<br>꾸준히 변화하는 사람과<br>함께하세요.</h1>
+            <p class="subtitle">
+                규정은 진화하고, 비즈니스는 변합니다.<br>
+                변화에 맞춘 실질적 해법을 약속드립니다.
+            </p>
+            <a href="#contact" class="cta-button">지금 논의 시작하기</a>
+            <div class="contact-info">
+                <h3>선영회계법인 SEONYEONG Accounting Corp.</h3>
+                <div class="contact-details">
+                    📍 서울특별시 강남구 테헤란로 70길 12 H타워 6층<br>
+                    📞 010-4395-1996<br>
+                    ✉️ lbg@syacc.co.kr
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Active navigation indicator
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

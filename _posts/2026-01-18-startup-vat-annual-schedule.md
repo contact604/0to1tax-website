@@ -68,13 +68,13 @@ published: true
 아래 글들은 이 1년 일정 속에서  
 **스타트업이 가장 많이 실수하는 지점**을 하나씩 다룹니다.
 
-1. [적자인데 왜 부가세를 낼까? (스타트업이 가장 많이 헷갈리는 구조)](#)
-2. [스타트업 세금계산서 실무 체크리스트 (이게 안 되면 환급도 없다)](#)
-3. [매입세액 불공제 항목, 이것만은 꼭 구분하세요](#)
-4. [PG사 매출, 그대로 신고하면 위험합니다 (플랫폼 스타트업 필독)](#)
-5. [스타트업 수출·영세율 매출, 자동이 아닙니다](#)
-6. [면세 매출이 있는 스타트업의 부가세 함정](#)
-7. [부가세 불성실 신고 추징 사례 (국세청 실제 적발 사례)](#)
+1. [적자인데 왜 부가세를 낼까? (스타트업이 가장 많이 헷갈리는 구조)](/blog-post.html?slug=2026-01-18-startup-vat-deficit-paradox)
+2. [스타트업 세금계산서 실무 체크리스트 (이게 안 되면 환급도 없다)]( /blog-post.html?slug=2026-01-18-startup-tax-invoice-checklist)
+3. [매입세액 불공제 항목, 이것만은 꼭 구분하세요](/blog-post.html?slug=2026-01-18-startup-vat-non-deductible)
+4. [PG사 매출, 그대로 신고하면 위험합니다 (플랫폼 스타트업 필독)](/blog-post.html?slug=2026-01-18-startup-pg-vat-warning)
+5. [스타트업 수출·영세율 매출, 자동이 아닙니다](/blog-post.html?slug=2026-01-18-startup-export-zero-rate)
+6. [면세 매출이 있는 스타트업의 부가세 함정](/blog-post.html?slug=2026-01-18-startup-tax-exempt-trap)
+7. [부가세 불성실 신고 추징 사례 (국세청 실제 적발 사례)]( /blog-post.html?slug=2026-01-18-startup-vat-penalty-cases)
 
 ---
 

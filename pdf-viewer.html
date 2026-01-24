@@ -739,8 +739,10 @@
             loading.style.display = 'none';
             navigation.style.display = 'flex';
             
-            // 첫 페이지 렌더링
-            renderPage(pageNum);
+            // 컨테이너가 완전히 렌더링된 후 첫 페이지 렌더링
+            setTimeout(function() {
+                renderPage(pageNum);
+            }, 100);
         }).catch(function(error) {
             loading.innerHTML = '<div class="loading-spinner"></div><div>PDF 로드 실패: ' + error.message + '</div>';
             console.error('PDF 로드 오류:', error);
@@ -751,20 +753,21 @@
             pageRendering = true;
             
             pdfDoc.getPage(num).then(function(page) {
-                // 첫 렌더링 시 화면 크기에 맞게 스케일 자동 조정
+                // 컨테이너 크기 가져오기
+                const container = document.querySelector('.pdf-canvas-container');
+                const containerWidth = container.clientWidth - 80; // 패딩 고려 (좌우 40px씩)
+                const containerHeight = container.clientHeight - 80; // 패딩 고려 (상하 40px씩)
+                
+                // 원본 페이지 크기 확인
+                const originalViewport = page.getViewport({ scale: 1.0 });
+                
+                // 컨테이너에 맞는 스케일 계산
+                const scaleX = containerWidth / originalViewport.width;
+                const scaleY = containerHeight / originalViewport.height;
+                
+                // 첫 렌더링이거나 리사이즈된 경우 스케일 재계산
                 if (isFirstRender) {
-                    const container = document.querySelector('.pdf-canvas-container');
-                    const containerWidth = container.clientWidth - 64; // 패딩 고려
-                    const containerHeight = container.clientHeight - 64;
-                    
-                    // 원본 페이지 크기 확인
-                    const originalViewport = page.getViewport({ scale: 1.0 });
-                    
-                    // 컨테이너에 맞는 스케일 계산 (여백 고려)
-                    const scaleX = containerWidth / originalViewport.width;
-                    const scaleY = containerHeight / originalViewport.height;
-                    scale = Math.min(scaleX, scaleY) * 0.95; // 95% 크기로 여백 확보
-                    
+                    scale = Math.min(scaleX, scaleY) * 0.9; // 90% 크기로 여백 확보
                     isFirstRender = false;
                 }
                 

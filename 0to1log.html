@@ -285,7 +285,7 @@
         
         /* ==================== 메인 콘텐츠 ==================== */
         .main-content {
-            max-width: 1080px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 60px 24px 120px;
         }
@@ -313,16 +313,24 @@
             font-weight: 600;
         }
         
+        /* 포스트 그리드 컨테이너 */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        
         /* 포스트 카드 - 택스가이드 스타일 */
         .post-card {
             background: white;
             border: 1px solid var(--border-light);
             border-radius: 12px;
-            padding: 32px;
-            margin-bottom: 24px;
+            padding: 24px;
             transition: all 0.2s;
             text-decoration: none;
-            display: block;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         
         .post-card:hover {
@@ -353,11 +361,11 @@
         }
         
         .post-title {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             line-height: 1.4;
             color: var(--text-primary);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         
         .post-card:hover .post-title {
@@ -365,10 +373,15 @@
         }
         
         .post-excerpt {
-            font-size: 16px;
-            line-height: 1.7;
+            font-size: 15px;
+            line-height: 1.6;
             color: var(--text-secondary);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex-grow: 1;
         }
         
         .post-tags {
@@ -764,6 +777,17 @@
         
         // ===== 블로그 포스트 목록 =====
         const BLOG_POSTS = [
+            '2026-02-03-ifrs-18-asset-disposal-classification.md',
+            '2026-02-02-ifrs-18-derivatives-classification.md',
+            '2026-02-01-ifrs-18-consolidated-main-business-activities.md',
+            '2026-01-31-ifrs-18-interest-dividend-fx-classification.md',
+            '2026-01-30-ifrs-18-investing-category-definition.md',
+            '2026-01-29-coupang-mpm-adjusted-ebitda-case-study.md',
+            '2026-01-28-ifrs-18-mpm-management-performance-measures.md',
+            '2026-01-25-ifrs-18-doozone-customization.md',
+            '2026-01-24-ifrs-18-mpm-system-guide.md',
+            '2026-01-23-ifrs-18-accounting-preparation.md',
+            '2026-01-22-kifrs-1118-modified-adoption.md',
             '2026-01-21-ifrs-18-income-statement-structure.md',
             '2026-01-20-ifrs-18-operating-income-change.md',
             '2026-01-19-tax-invoice-timing.md',

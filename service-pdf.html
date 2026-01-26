@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0to1tax 서비스 소개서 | PDF 미리보기</title>
+    
+    <!-- SEO -->
+    <meta name="description" content="0to1tax 스타트업 전문 세무서비스 소개서. 투자유치, 재무실사, IR 자료 작성을 지원합니다.">
+    <meta name="keywords" content="0to1tax, 서비스 소개서, 스타트업 세무, 투자유치, 재무실사">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="rocket-icon.svg">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+            background: #1e293b;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1e40af;
+            border: 2px solid #e5e7eb;
+        }
+
+        .btn-secondary:hover {
+            background: #f8fafc;
+            border-color: #1e40af;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3);
+        }
+
+        /* PDF Container */
+        .pdf-wrapper {
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #2d3748;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pdf-embed {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Loading */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #2563eb;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0.75rem 1rem;
+            }
+
+            .logo {
+                height: 32px;
+            }
+
+            .btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .header-actions {
+                gap: 0.5rem;
+            }
+
+            .btn-text {
+                display: none;
+            }
+
+            .pdf-wrapper {
+                top: 60px;
+            }
+        }
+
+        /* Error Message */
+        .error-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .error-message h3 {
+            color: #dc2626;
+            margin-bottom: 1rem;
+        }
+
+        .error-message p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Mobile Notice */
+        .mobile-notice {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .notice-content {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+        }
+
+        .notice-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .notice-content h3 {
+            color: #1e293b;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .notice-content p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-container">
+            <img src="0to1tax-horizontal-blue.svg" alt="0to1tax" class="logo" onclick="window.location.href='/'">
+            
+            <div class="header-actions">
+                <a href="/" class="btn btn-secondary">
+                    <span>🏠</span>
+                    <span class="btn-text">홈으로</span>
+                </a>
+                <a href="/pdf/0to1tax-service-introduction.pdf" download="0to1tax-서비스소개서.pdf" class="btn btn-primary">
+                    <span>📥</span>
+                    <span class="btn-text">다운로드</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF Wrapper -->
+    <div class="pdf-wrapper">
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>PDF 로딩 중...</p>
+        </div>
+        
+        <!-- Mobile: 직접 다운로드 안내 -->
+        <div class="mobile-notice" id="mobileNotice" style="display: none;">
+            <div class="notice-content">
+                <div class="notice-icon">📱</div>
+                <h3>모바일에서 PDF 보기</h3>
+                <p>모바일 브라우저에서 PDF를 더 편하게 보시려면<br>아래 버튼을 눌러주세요</p>
+                <a href="/pdf/0to1tax-service-introduction.pdf" target="_blank" class="btn btn-primary" style="width: 100%; max-width: 300px; margin: 1rem auto;">
+                    📄 PDF 열기
+                </a>
+                <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 1rem;">
+                    * PDF가 새 탭에서 열립니다
+                </p>
+            </div>
+        </div>
+        
+        <!-- Desktop: PDF Embed -->
+        <embed 
+            id="pdfEmbed"
+            src="/pdf/0to1tax-service-introduction.pdf#toolbar=1&navpanes=1&scrollbar=1&view=FitH"
+            type="application/pdf"
+            class="pdf-embed"
+            onload="hideLoading()"
+            onerror="showError()"
+        />
+    </div>
+
+    <script>
+        // 모바일 감지
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        function hideLoading() {
+            const loading = document.getElementById('loading');
+            if (loading) {
+                loading.style.display = 'none';
+            }
+        }
+
+        function showError() {
+            const wrapper = document.querySelector('.pdf-wrapper');
+            wrapper.innerHTML = `
+                <div class="error-message">
+                    <h3>⚠️ PDF를 불러올 수 없습니다</h3>
+                    <p>브라우저에서 PDF를 지원하지 않거나 파일을 찾을 수 없습니다.</p>
+                    <a href="/pdf/0to1tax-service-introduction.pdf" target="_blank" class="btn btn-primary">
+                        📥 PDF 다운로드
+                    </a>
+                </div>
+            `;
+        }
+
+        // 페이지 로드 시 모바일 체크
+        window.addEventListener('DOMContentLoaded', function() {
+            if (isMobileDevice()) {
+                // 모바일이면 안내 메시지 표시
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('mobileNotice').style.display = 'flex';
+                document.getElementById('pdfEmbed').style.display = 'none';
+            } else {
+                // 데스크톱이면 PDF embed 사용
+                setTimeout(hideLoading, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -84,59 +84,98 @@
             box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3);
         }
 
-        /* PDF Container */
-        .pdf-container {
+        /* Main Container */
+        .main-container {
             position: fixed;
             top: 72px;
             left: 0;
             right: 0;
-            bottom: 80px;
+            bottom: 0;
+            display: flex;
+        }
+
+        /* Left Controls Panel (Mobile Landscape) */
+        .controls-panel {
+            display: none;
+            width: 120px;
+            background: linear-gradient(180deg, #1e40af 0%, #1e3a8a 100%);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem 0;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.3);
+        }
+
+        .control-btn-large {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 1.8rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .control-btn-large:active {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(0.95);
+        }
+
+        .control-btn-large:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .page-display {
+            background: white;
+            color: #1e40af;
+            padding: 1rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            min-width: 80px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .page-display .current {
+            font-size: 1.5rem;
+        }
+
+        .page-display .total {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* PDF Container */
+        .pdf-container {
+            flex: 1;
             background: #2d3748;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            padding: 0;
-        }
-
-        .pdf-wrapper {
             position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: auto;
         }
 
         #pdf-canvas {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            box-shadow: none;
             cursor: pointer;
         }
 
-        /* Touch Areas */
-        .touch-area {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 40%;
-            z-index: 10;
-            cursor: pointer;
-        }
-
-        .touch-area-left {
-            left: 0;
-        }
-
-        .touch-area-right {
-            right: 0;
-        }
-
-        /* Controls */
+        /* Bottom Controls (Desktop & Mobile Portrait) */
         .pdf-controls {
             position: fixed;
             bottom: 0;
@@ -260,60 +299,33 @@
             }
             
             .header,
-            .pdf-container,
+            .main-container,
             .pdf-controls {
                 display: none;
             }
         }
 
-        /* Mobile styles */
-        @media (max-width: 768px) {
-            .header-container {
-                padding: 0.5rem 1rem;
-            }
-
-            .logo {
-                height: 28px;
-            }
-
-            .btn-text {
+        /* Mobile Landscape - Split View */
+        @media (max-width: 950px) and (orientation: landscape) {
+            .header {
                 display: none;
             }
 
-            .btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 1.1rem;
+            .main-container {
+                top: 0;
             }
 
-            .pdf-container {
-                top: 50px;
-                bottom: 60px;
-                padding: 0;
+            .controls-panel {
+                display: flex;
             }
 
             .pdf-controls {
-                padding: 0.5rem;
-                gap: 0.5rem;
-            }
-
-            .control-btn {
-                width: 36px;
-                height: 36px;
-                font-size: 0.9rem;
-            }
-
-            .page-info {
-                font-size: 0.85rem;
-                min-width: 70px;
+                display: none;
             }
         }
 
-        /* Desktop styles */
-        @media (min-width: 769px) {
-            .touch-area {
-                display: none;
-            }
-
+        /* Desktop */
+        @media (min-width: 951px) {
             .control-btn:hover {
                 background: #1e3a8a;
                 transform: scale(1.1);
@@ -323,6 +335,30 @@
                 transform: scale(1);
             }
         }
+
+        /* Small Mobile Landscape */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .controls-panel {
+                width: 100px;
+                gap: 1.5rem;
+                padding: 1.5rem 0;
+            }
+
+            .control-btn-large {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .page-display {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .page-display .current {
+                font-size: 1.3rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -330,10 +366,10 @@
     <div class="rotate-message">
         <div class="rotate-icon">📱➡️</div>
         <h2>화면을 가로로 돌려주세요</h2>
-        <p>PDF를 더 편하게 보실 수 있습니다</p>
+        <p>서비스 소개서를 더 편하게 보실 수 있습니다</p>
     </div>
 
-    <!-- Header -->
+    <!-- Header (Desktop & Mobile Portrait) -->
     <div class="header">
         <div class="header-container">
             <img src="/0to1tax-horizontal-blue.svg" alt="0to1tax" class="logo" onclick="window.location.href='/'">
@@ -353,17 +389,31 @@
         <p>PDF를 불러오는 중...</p>
     </div>
 
-    <!-- PDF Container -->
-    <div class="pdf-container" id="pdf-container">
-        <div class="pdf-wrapper">
-            <!-- Touch Areas for Mobile -->
-            <div class="touch-area touch-area-left" id="touch-left"></div>
-            <div class="touch-area touch-area-right" id="touch-right"></div>
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Left Controls Panel (Mobile Landscape Only) -->
+        <div class="controls-panel" id="controls-panel">
+            <button class="control-btn-large" id="prev-page-left" title="이전 페이지">
+                ◀
+            </button>
+            
+            <div class="page-display">
+                <div class="current" id="page-num-left">1</div>
+                <div class="total">/ <span id="page-count-left">-</span></div>
+            </div>
+            
+            <button class="control-btn-large" id="next-page-left" title="다음 페이지">
+                ▶
+            </button>
+        </div>
+
+        <!-- PDF Container -->
+        <div class="pdf-container" id="pdf-container">
             <canvas id="pdf-canvas"></canvas>
         </div>
     </div>
 
-    <!-- PDF Controls -->
+    <!-- Bottom Controls (Desktop & Mobile Portrait) -->
     <div class="pdf-controls" id="pdf-controls" style="display: none;">
         <button class="control-btn" id="prev-page" title="이전 페이지">
             ◀
@@ -384,18 +434,12 @@
         let pageNum = 1;
         let pageRendering = false;
         let pageNumPending = null;
-        let scale = 2.0; // 기본 고화질
 
         const canvas = document.getElementById('pdf-canvas');
         const ctx = canvas.getContext('2d');
 
         // 모바일 감지
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-        // 모바일일 경우 더 높은 해상도
-        if (isMobile) {
-            scale = 2.5;
-        }
 
         // PDF 렌더링
         function renderPage(num) {
@@ -410,13 +454,13 @@
                 // 페이지의 원본 비율로 viewport 생성
                 let viewport = page.getViewport({scale: 1.0});
                 
-                // 컨테이너에 맞게 스케일 계산 (꽉 차게)
+                // 컨테이너에 맞게 스케일 계산
                 const scaleX = containerWidth / viewport.width;
                 const scaleY = containerHeight / viewport.height;
-                const optimalScale = Math.max(scaleX, scaleY); // 꽉 차게 하려면 Math.max
+                const optimalScale = Math.min(scaleX, scaleY); // 여백 없이 맞춤
                 
                 // 고해상도를 위해 추가 배율 적용
-                const finalScale = optimalScale * (isMobile ? 2.0 : 1.5);
+                const finalScale = optimalScale * (isMobile ? 2.5 : 2.0);
                 
                 viewport = page.getViewport({scale: finalScale});
                 
@@ -439,7 +483,9 @@
                 });
             });
 
+            // 모든 페이지 번호 업데이트
             document.getElementById('page-num').textContent = num;
+            document.getElementById('page-num-left').textContent = num;
         }
 
         // 페이지 렌더링 대기열
@@ -473,28 +519,24 @@
 
         // 버튼 상태 업데이트
         function updateButtons() {
+            // 하단 컨트롤
             document.getElementById('prev-page').disabled = (pageNum <= 1);
             document.getElementById('next-page').disabled = (pageNum >= pdfDoc.numPages);
+            
+            // 왼쪽 패널 컨트롤
+            document.getElementById('prev-page-left').disabled = (pageNum <= 1);
+            document.getElementById('next-page-left').disabled = (pageNum >= pdfDoc.numPages);
         }
 
-        // 이벤트 리스너
+        // 이벤트 리스너 - 하단 컨트롤
         document.getElementById('prev-page').addEventListener('click', onPrevPage);
         document.getElementById('next-page').addEventListener('click', onNextPage);
 
-        // 터치 영역 이벤트 (모바일)
-        if (isMobile) {
-            document.getElementById('touch-left').addEventListener('click', function(e) {
-                e.stopPropagation();
-                onPrevPage();
-            });
+        // 이벤트 리스너 - 왼쪽 패널
+        document.getElementById('prev-page-left').addEventListener('click', onPrevPage);
+        document.getElementById('next-page-left').addEventListener('click', onNextPage);
 
-            document.getElementById('touch-right').addEventListener('click', function(e) {
-                e.stopPropagation();
-                onNextPage();
-            });
-        }
-
-        // 키보드 단축키 (데스크톱)
+        // 키보드 단축키
         document.addEventListener('keydown', function(e) {
             if (e.key === 'ArrowLeft') {
                 onPrevPage();
@@ -509,6 +551,7 @@
         pdfjsLib.getDocument(url).promise.then(function(pdf) {
             pdfDoc = pdf;
             document.getElementById('page-count').textContent = pdf.numPages;
+            document.getElementById('page-count-left').textContent = pdf.numPages;
             
             // 로딩 숨기기
             document.getElementById('loading').style.display = 'none';

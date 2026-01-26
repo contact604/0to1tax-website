@@ -135,6 +135,31 @@
             cursor: not-allowed;
         }
 
+        .control-btn-large.home-btn {
+            background: rgba(255, 255, 255, 0.95);
+            color: #1e40af;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            font-size: 2rem;
+        }
+
+        .control-btn-large.contact-btn {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #1f2937;
+            border: none;
+            font-size: 2rem;
+            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
+            animation: pulse-btn 2s infinite;
+        }
+
+        @keyframes pulse-btn {
+            0%, 100% {
+                box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 28px rgba(251, 191, 36, 0.6);
+            }
+        }
+
         .page-display {
             background: white;
             color: #1e40af;
@@ -295,20 +320,19 @@
         /* Mobile Portrait Detection */
         @media (max-width: 768px) and (orientation: portrait) {
             .rotate-message {
-                display: none;
+                display: flex; /* 세로 모드에서 회전 메시지 표시 */
             }
             
-            .header-container {
-                padding: 0.5rem 1rem;
-            }
-
-            .logo {
-                height: 28px;
+            .header {
+                display: none; /* 세로 모드에서 헤더 숨김 */
             }
 
             .main-container {
-                top: 50px;
-                bottom: 60px;
+                display: none; /* 세로 모드에서 PDF 숨김 */
+            }
+
+            .pdf-controls {
+                display: none !important; /* 세로 모드에서 컨트롤 숨김 */
             }
         }
 
@@ -417,6 +441,14 @@
             <button class="control-btn-large" id="next-page-left" title="다음 페이지">
                 ▶
             </button>
+
+            <a href="/" class="control-btn-large home-btn" title="홈으로">
+                🏠
+            </a>
+            
+            <a href="/contact-form.html" class="control-btn-large contact-btn" title="문의하기">
+                💬
+            </a>
         </div>
 
         <!-- PDF Container -->

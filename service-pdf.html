@@ -97,13 +97,13 @@
         /* Left Controls Panel (Mobile Landscape) */
         .controls-panel {
             display: none;
-            width: 120px;
+            width: 90px; /* 120px → 90px */
             background: linear-gradient(180deg, #1e40af 0%, #1e3a8a 100%);
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 2rem;
-            padding: 2rem 0;
+            gap: 1rem; /* 2rem → 1rem */
+            padding: 1rem 0; /* 2rem → 1rem */
             box-shadow: 4px 0 20px rgba(0,0,0,0.3);
         }
 
@@ -111,15 +111,15 @@
             background: rgba(255, 255, 255, 0.2);
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            width: 70px;
-            height: 70px;
+            width: 50px; /* 70px → 50px */
+            height: 50px; /* 70px → 50px */
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
-            font-size: 1.8rem;
+            font-size: 1.3rem; /* 1.8rem → 1.3rem */
             font-weight: bold;
             flex-shrink: 0;
             backdrop-filter: blur(10px);
@@ -139,14 +139,14 @@
             background: rgba(255, 255, 255, 0.95);
             color: #1e40af;
             border: 2px solid rgba(255, 255, 255, 0.5);
-            font-size: 2rem;
+            font-size: 1.5rem; /* 2rem → 1.5rem */
         }
 
         .control-btn-large.contact-btn {
             background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
             color: #1f2937;
             border: none;
-            font-size: 2rem;
+            font-size: 1.5rem; /* 2rem → 1.5rem */
             box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
             animation: pulse-btn 2s infinite;
         }
@@ -163,21 +163,21 @@
         .page-display {
             background: white;
             color: #1e40af;
-            padding: 1rem 1.5rem;
-            border-radius: 2rem;
+            padding: 0.75rem 1rem; /* 1rem 1.5rem → 0.75rem 1rem */
+            border-radius: 1.5rem; /* 2rem → 1.5rem */
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.85rem; /* 1rem → 0.85rem */
             text-align: center;
-            min-width: 80px;
+            min-width: 60px; /* 80px → 60px */
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .page-display .current {
-            font-size: 1.5rem;
+            font-size: 1.2rem; /* 1.5rem → 1.2rem */
         }
 
         .page-display .total {
-            font-size: 0.85rem;
+            font-size: 0.7rem; /* 0.85rem → 0.7rem */
             opacity: 0.7;
         }
 
@@ -375,24 +375,34 @@
         /* Small Mobile Landscape */
         @media (max-height: 500px) and (orientation: landscape) {
             .controls-panel {
-                width: 100px;
-                gap: 1.5rem;
-                padding: 1.5rem 0;
+                width: 75px; /* 100px → 75px */
+                gap: 0.75rem; /* 1.5rem → 0.75rem */
+                padding: 0.75rem 0; /* 1.5rem → 0.75rem */
             }
 
             .control-btn-large {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
+                width: 45px; /* 60px → 45px */
+                height: 45px; /* 60px → 45px */
+                font-size: 1.1rem; /* 1.5rem → 1.1rem */
+            }
+
+            .control-btn-large.home-btn,
+            .control-btn-large.contact-btn {
+                font-size: 1.2rem; /* 아이콘 크기 */
             }
 
             .page-display {
-                padding: 0.75rem 1rem;
-                font-size: 0.9rem;
+                padding: 0.5rem 0.75rem; /* 0.75rem 1rem → 0.5rem 0.75rem */
+                font-size: 0.75rem; /* 0.9rem → 0.75rem */
+                min-width: 50px;
             }
 
             .page-display .current {
-                font-size: 1.3rem;
+                font-size: 1rem; /* 1.3rem → 1rem */
+            }
+
+            .page-display .total {
+                font-size: 0.65rem;
             }
         }
     </style>
@@ -638,30 +648,24 @@
             14: { // 페이지 14 - 이범기 회계사 알아보기
                 url: 'https://colorful-wealth-23f.notion.site/0to1tax-2a2bcf028220803294c6e3dbc45c2f78',
                 // 영역: PDF 페이지 기준 비율 (0.0 ~ 1.0)
-                // 버튼이 대략 페이지 하단 중앙에 있다고 가정
-                x: 0.25,      // 왼쪽에서 25% 위치
-                y: 0.85,      // 위에서 85% 위치 (하단)
-                width: 0.5,   // 너비 50%
-                height: 0.08  // 높이 8%
+                // 버튼이 페이지 하단에 있음 - 영역을 넓게 설정
+                x: 0.2,       // 왼쪽에서 20% 위치
+                y: 0.80,      // 위에서 80% 위치 (하단)
+                width: 0.6,   // 너비 60%
+                height: 0.15  // 높이 15%
             },
             20: { // 페이지 20 - 문의하기
                 url: '/contact-form.html',
                 // 영역: PDF 페이지 기준 비율
-                x: 0.25,
-                y: 0.85,
-                width: 0.5,
-                height: 0.08
+                x: 0.2,
+                y: 0.80,
+                width: 0.6,
+                height: 0.15
             }
         };
 
         // 캔버스 클릭 이벤트
         canvas.addEventListener('click', function(e) {
-            // 현재 페이지에 클릭 가능한 영역이 있는지 확인
-            if (!clickableAreas[pageNum]) {
-                return;
-            }
-
-            const area = clickableAreas[pageNum];
             const rect = canvas.getBoundingClientRect();
             
             // 클릭 좌표 (캔버스 기준)
@@ -671,24 +675,38 @@
             // 캔버스 크기
             const canvasWidth = rect.width;
             const canvasHeight = rect.height;
+
+            // 비율 계산 (디버깅용)
+            const clickRatioX = (clickX / canvasWidth).toFixed(2);
+            const clickRatioY = (clickY / canvasHeight).toFixed(2);
             
-            // 클릭 가능한 영역의 실제 좌표 계산
-            const areaX = canvasWidth * area.x;
-            const areaY = canvasHeight * area.y;
-            const areaWidth = canvasWidth * area.width;
-            const areaHeight = canvasHeight * area.height;
-            
-            // 클릭이 영역 내에 있는지 확인
-            if (clickX >= areaX && clickX <= areaX + areaWidth &&
-                clickY >= areaY && clickY <= areaY + areaHeight) {
+            console.log(`📍 페이지 ${pageNum} 클릭 - X: ${clickRatioX}, Y: ${clickRatioY}`);
+
+            // 현재 페이지에 클릭 가능한 영역이 있는지 확인
+            if (clickableAreas[pageNum]) {
+                const area = clickableAreas[pageNum];
                 
-                console.log('✅ 클릭 가능한 영역 클릭됨:', area.url);
+                // 클릭 가능한 영역의 실제 좌표 계산
+                const areaX = canvasWidth * area.x;
+                const areaY = canvasHeight * area.y;
+                const areaWidth = canvasWidth * area.width;
+                const areaHeight = canvasHeight * area.height;
                 
-                // 외부 링크는 새 탭, 내부 링크는 현재 탭
-                if (area.url.startsWith('http')) {
-                    window.open(area.url, '_blank');
-                } else {
-                    window.location.href = area.url;
+                console.log(`🎯 클릭 가능 영역 - X: ${area.x}-${area.x + area.width}, Y: ${area.y}-${area.y + area.height}`);
+                
+                // 클릭이 영역 내에 있는지 확인
+                if (clickX >= areaX && clickX <= areaX + areaWidth &&
+                    clickY >= areaY && clickY <= areaY + areaHeight) {
+                    
+                    console.log('✅ 클릭 가능한 영역 클릭됨:', area.url);
+                    
+                    // 외부 링크는 새 탭, 내부 링크는 현재 탭
+                    if (area.url.startsWith('http')) {
+                        window.open(area.url, '_blank');
+                    } else {
+                        window.location.href = area.url;
+                    }
+                    return; // 링크 이동 후 종료
                 }
             }
         });

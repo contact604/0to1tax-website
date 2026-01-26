@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=3.0">
     <title>0to1tax 서비스 소개서 | PDF 미리보기</title>
     
     <!-- SEO -->
@@ -20,12 +20,14 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
             background: #1e293b;
             overflow: hidden;
+            touch-action: pan-y pinch-zoom;
         }
 
         /* Header */
@@ -72,17 +74,6 @@
             gap: 0.5rem;
         }
 
-        .btn-secondary {
-            background: white;
-            color: #1e40af;
-            border: 2px solid #e5e7eb;
-        }
-
-        .btn-secondary:hover {
-            background: #f8fafc;
-            border-color: #1e40af;
-        }
-
         .btn-primary {
             background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
             color: white;
@@ -99,35 +90,65 @@
             top: 72px;
             left: 0;
             right: 0;
-            bottom: 0;
+            bottom: 80px;
             background: #2d3748;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             overflow: auto;
-            padding: 2rem;
+            padding: 1rem;
+        }
+
+        .pdf-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         #pdf-canvas {
             max-width: 100%;
+            max-height: 100%;
+            width: auto;
             height: auto;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            margin-bottom: 2rem;
+            cursor: pointer;
+        }
+
+        /* Touch Areas */
+        .touch-area {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 40%;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .touch-area-left {
+            left: 0;
+        }
+
+        .touch-area-right {
+            right: 0;
         }
 
         /* Controls */
         .pdf-controls {
             position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 0;
+            left: 0;
+            right: 0;
             background: white;
-            padding: 1rem 2rem;
-            border-radius: 3rem;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            padding: 1rem;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
             display: flex;
             gap: 1rem;
             align-items: center;
+            justify-content: center;
             z-index: 50;
         }
 
@@ -135,19 +156,21 @@
             background: #1e40af;
             color: white;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
-        .control-btn:hover {
+        .control-btn:active {
             background: #1e3a8a;
-            transform: scale(1.1);
+            transform: scale(0.95);
         }
 
         .control-btn:disabled {
@@ -159,9 +182,10 @@
         .page-info {
             color: #1e293b;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1rem;
             min-width: 100px;
             text-align: center;
+            flex-shrink: 0;
         }
 
         /* Loading */
@@ -190,10 +214,66 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* Rotate Message for Portrait Mobile */
+        .rotate-message {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #1e40af;
+            color: white;
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .rotate-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: rotate-animation 2s ease-in-out infinite;
+        }
+
+        @keyframes rotate-animation {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(90deg); }
+        }
+
+        .rotate-message h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .rotate-message p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Mobile Portrait Detection */
+        @media (max-width: 768px) and (orientation: portrait) {
+            .rotate-message {
+                display: flex;
+            }
+            
+            .header,
+            .pdf-container,
+            .pdf-controls {
+                display: none;
+            }
+        }
+
         /* Mobile styles */
         @media (max-width: 768px) {
             .header-container {
-                padding: 1rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .logo {
+                height: 32px;
             }
 
             .btn-text {
@@ -206,27 +286,53 @@
             }
 
             .pdf-container {
-                padding: 1rem;
+                top: 60px;
+                bottom: 70px;
+                padding: 0.5rem;
             }
 
             .pdf-controls {
-                padding: 0.75rem 1.5rem;
+                padding: 0.75rem;
                 gap: 0.75rem;
             }
 
             .control-btn {
-                width: 36px;
-                height: 36px;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
             }
 
             .page-info {
-                font-size: 0.875rem;
+                font-size: 0.9rem;
                 min-width: 80px;
+            }
+        }
+
+        /* Desktop styles */
+        @media (min-width: 769px) {
+            .touch-area {
+                display: none;
+            }
+
+            .control-btn:hover {
+                background: #1e3a8a;
+                transform: scale(1.1);
+            }
+
+            .control-btn:disabled:hover {
+                transform: scale(1);
             }
         }
     </style>
 </head>
 <body>
+    <!-- Rotate Message (Portrait Mobile Only) -->
+    <div class="rotate-message">
+        <div class="rotate-icon">📱➡️</div>
+        <h2>화면을 가로로 돌려주세요</h2>
+        <p>PDF를 더 편하게 보실 수 있습니다</p>
+    </div>
+
     <!-- Header -->
     <div class="header">
         <div class="header-container">
@@ -249,7 +355,12 @@
 
     <!-- PDF Container -->
     <div class="pdf-container" id="pdf-container">
-        <canvas id="pdf-canvas"></canvas>
+        <div class="pdf-wrapper">
+            <!-- Touch Areas for Mobile -->
+            <div class="touch-area touch-area-left" id="touch-left"></div>
+            <div class="touch-area touch-area-right" id="touch-right"></div>
+            <canvas id="pdf-canvas"></canvas>
+        </div>
     </div>
 
     <!-- PDF Controls -->
@@ -273,10 +384,18 @@
         let pageNum = 1;
         let pageRendering = false;
         let pageNumPending = null;
-        let scale = 1.5;
+        let scale = 2.0; // 기본 고화질
 
         const canvas = document.getElementById('pdf-canvas');
         const ctx = canvas.getContext('2d');
+
+        // 모바일 감지
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        // 모바일일 경우 더 높은 해상도
+        if (isMobile) {
+            scale = 2.5;
+        }
 
         // PDF 렌더링
         function renderPage(num) {
@@ -341,54 +460,74 @@
             document.getElementById('next-page').disabled = (pageNum >= pdfDoc.numPages);
         }
 
-        // 모바일 감지 및 처리
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            // 모바일이면 PDF 파일을 직접 열기
-            window.location.href = '/pdf/0to1tax-service-introduction.pdf';
-        } else {
-            // 데스크톱에서만 PDF.js 뷰어 사용
-            scale = 1.5;
-            
-            // 이벤트 리스너
-            document.getElementById('prev-page').addEventListener('click', onPrevPage);
-            document.getElementById('next-page').addEventListener('click', onNextPage);
+        // 이벤트 리스너
+        document.getElementById('prev-page').addEventListener('click', onPrevPage);
+        document.getElementById('next-page').addEventListener('click', onNextPage);
 
-            // 키보드 단축키
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'ArrowLeft') {
-                    onPrevPage();
-                } else if (e.key === 'ArrowRight') {
-                    onNextPage();
-                }
+        // 터치 영역 이벤트 (모바일)
+        if (isMobile) {
+            document.getElementById('touch-left').addEventListener('click', function(e) {
+                e.stopPropagation();
+                onPrevPage();
             });
-            
-            // PDF 로드
-            const url = '/pdf/0to1tax-service-introduction.pdf';
 
-            pdfjsLib.getDocument(url).promise.then(function(pdf) {
-                pdfDoc = pdf;
-                document.getElementById('page-count').textContent = pdf.numPages;
-                
-                // 로딩 숨기기
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('pdf-controls').style.display = 'flex';
-                
-                // 첫 페이지 렌더링
-                renderPage(pageNum);
-                updateButtons();
-            }).catch(function(error) {
-                console.error('PDF 로딩 실패:', error);
-                document.getElementById('loading').innerHTML = `
-                    <div style="background: white; padding: 2rem; border-radius: 1rem; color: #1e293b;">
-                        <h3 style="margin-bottom: 1rem;">⚠️ PDF를 불러올 수 없습니다</h3>
-                        <p style="margin-bottom: 1.5rem; color: #64748b;">브라우저에서 PDF를 지원하지 않거나 파일을 찾을 수 없습니다.</p>
-                        <a href="/pdf/0to1tax-service-introduction.pdf" target="_blank" class="btn btn-primary">
-                            📥 PDF 다운로드
-                        </a>
-                    </div>
-                `;
+            document.getElementById('touch-right').addEventListener('click', function(e) {
+                e.stopPropagation();
+                onNextPage();
             });
         }
+
+        // 키보드 단축키 (데스크톱)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                onPrevPage();
+            } else if (e.key === 'ArrowRight') {
+                onNextPage();
+            }
+        });
+
+        // PDF 로드
+        const url = '/pdf/0to1tax-service-introduction.pdf';
+
+        pdfjsLib.getDocument(url).promise.then(function(pdf) {
+            pdfDoc = pdf;
+            document.getElementById('page-count').textContent = pdf.numPages;
+            
+            // 로딩 숨기기
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('pdf-controls').style.display = 'flex';
+            
+            // 첫 페이지 렌더링
+            renderPage(pageNum);
+            updateButtons();
+        }).catch(function(error) {
+            console.error('PDF 로딩 실패:', error);
+            document.getElementById('loading').innerHTML = `
+                <div style="background: white; padding: 2rem; border-radius: 1rem; color: #1e293b;">
+                    <h3 style="margin-bottom: 1rem;">⚠️ PDF를 불러올 수 없습니다</h3>
+                    <p style="margin-bottom: 1.5rem; color: #64748b;">브라우저에서 PDF를 지원하지 않거나 파일을 찾을 수 없습니다.</p>
+                    <a href="/pdf/0to1tax-service-introduction.pdf" target="_blank" class="btn btn-primary">
+                        📥 PDF 다운로드
+                    </a>
+                </div>
+            `;
+        });
+
+        // 화면 방향 변경 감지
+        window.addEventListener('orientationchange', function() {
+            setTimeout(function() {
+                if (pdfDoc) {
+                    renderPage(pageNum);
+                }
+            }, 100);
+        });
+
+        // 리사이즈 이벤트
+        window.addEventListener('resize', function() {
+            if (pdfDoc) {
+                renderPage(pageNum);
+            }
+        });
     </script>
 </body>
 </html>

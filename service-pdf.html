@@ -600,6 +600,99 @@
                 renderPage(pageNum);
             }
         });
+
+        // 클릭 가능한 영역 정의 (페이지별)
+        const clickableAreas = {
+            14: { // 페이지 14 - 이범기 회계사 알아보기
+                url: 'https://colorful-wealth-23f.notion.site/0to1tax-2a2bcf028220803294c6e3dbc45c2f78',
+                // 영역: PDF 페이지 기준 비율 (0.0 ~ 1.0)
+                // 버튼이 대략 페이지 하단 중앙에 있다고 가정
+                x: 0.25,      // 왼쪽에서 25% 위치
+                y: 0.85,      // 위에서 85% 위치 (하단)
+                width: 0.5,   // 너비 50%
+                height: 0.08  // 높이 8%
+            },
+            20: { // 페이지 20 - 문의하기
+                url: '/contact-form.html',
+                // 영역: PDF 페이지 기준 비율
+                x: 0.25,
+                y: 0.85,
+                width: 0.5,
+                height: 0.08
+            }
+        };
+
+        // 캔버스 클릭 이벤트
+        canvas.addEventListener('click', function(e) {
+            // 현재 페이지에 클릭 가능한 영역이 있는지 확인
+            if (!clickableAreas[pageNum]) {
+                return;
+            }
+
+            const area = clickableAreas[pageNum];
+            const rect = canvas.getBoundingClientRect();
+            
+            // 클릭 좌표 (캔버스 기준)
+            const clickX = e.clientX - rect.left;
+            const clickY = e.clientY - rect.top;
+            
+            // 캔버스 크기
+            const canvasWidth = rect.width;
+            const canvasHeight = rect.height;
+            
+            // 클릭 가능한 영역의 실제 좌표 계산
+            const areaX = canvasWidth * area.x;
+            const areaY = canvasHeight * area.y;
+            const areaWidth = canvasWidth * area.width;
+            const areaHeight = canvasHeight * area.height;
+            
+            // 클릭이 영역 내에 있는지 확인
+            if (clickX >= areaX && clickX <= areaX + areaWidth &&
+                clickY >= areaY && clickY <= areaY + areaHeight) {
+                
+                console.log('✅ 클릭 가능한 영역 클릭됨:', area.url);
+                
+                // 외부 링크는 새 탭, 내부 링크는 현재 탭
+                if (area.url.startsWith('http')) {
+                    window.open(area.url, '_blank');
+                } else {
+                    window.location.href = area.url;
+                }
+            }
+        });
+
+        // 클릭 가능한 영역 시각적 표시 (개발용 - 나중에 제거 가능)
+        canvas.style.cursor = 'pointer';
+        
+        // 마우스 이동 시 커서 변경
+        canvas.addEventListener('mousemove', function(e) {
+            if (!clickableAreas[pageNum]) {
+                canvas.style.cursor = 'default';
+                return;
+            }
+
+            const area = clickableAreas[pageNum];
+            const rect = canvas.getBoundingClientRect();
+            
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+            
+            const canvasWidth = rect.width;
+            const canvasHeight = rect.height;
+            
+            const areaX = canvasWidth * area.x;
+            const areaY = canvasHeight * area.y;
+            const areaWidth = canvasWidth * area.width;
+            const areaHeight = canvasHeight * area.height;
+            
+            // 마우스가 클릭 가능한 영역 위에 있는지 확인
+            if (mouseX >= areaX && mouseX <= areaX + areaWidth &&
+                mouseY >= areaY && mouseY <= areaY + areaHeight) {
+                canvas.style.cursor = 'pointer';
+            } else {
+                canvas.style.cursor = 'default';
+            }
+        });
     </script>
 </body>
 </html>

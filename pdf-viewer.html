@@ -512,6 +512,21 @@
                 box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
             }
 
+            /* 홈 버튼 - 90도 회전 */
+            .home-btn-mobile {
+                background: rgba(255, 255, 255, 0.95);
+                color: #1e40af;
+                border: 2px solid #e5e7eb;
+                font-size: 1.25rem;
+                transform: rotate(90deg); /* 시계방향 90도 회전 */
+                text-decoration: none;
+            }
+
+            .home-btn-mobile:active {
+                transform: scale(0.95) rotate(90deg);
+                background: #f0f9ff;
+            }
+
             /* 상담하기 버튼 - 가장 눈에 띄게 + 90도 회전 */
             .contact-btn-mobile {
                 background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
@@ -525,7 +540,7 @@
             }
 
             .contact-btn-mobile:active {
-                transform: scale(0.95);
+                transform: scale(0.95) rotate(90deg);
             }
 
             /* 펄스 애니메이션 - 상담 버튼 강조 */
@@ -620,6 +635,11 @@
         <button class="control-btn next-btn-mobile" id="nextBtnMobile" title="다음 페이지">
             ↓
         </button>
+        
+        <!-- 홈으로 -->
+        <a href="/index.html" class="control-btn home-btn-mobile" title="홈으로">
+            🏠
+        </a>
         
         <!-- 상담하기 (가장 강조) -->
         <a href="/contact-form.html" class="control-btn contact-btn-mobile" title="상담하기">
@@ -922,52 +942,103 @@
             }
         }
 
-        // 모바일 클릭으로 페이지 넘기기 - 전체 화면
-        if (window.innerWidth <= 768) {
-            const container = document.querySelector('.pdf-canvas-container');
-            
-            // 컨테이너 전체에 클릭 이벤트
-            container.addEventListener('click', function(e) {
-                // 상담하기 버튼 클릭은 제외
-                if (e.target.closest('.floating-contact-btn')) {
-                    return;
+        // 클릭 가능한 영역 정의 (페이지별)
+        const clickableAreas = {
+            14: { // 페이지 14 - 이범기 회계사 알아보기
+                url: 'https://colorful-wealth-23f.notion.site/0to1tax-2a2bcf028220803294c6e3dbc45c2f78',
+                // 영역: PDF 페이지 기준 비율 (0.0 ~ 1.0)
+                x: 0.25,      // 왼쪽에서 25% 위치
+                y: 0.85,      // 위에서 85% 위치 (하단)
+                width: 0.5,   // 너비 50%
+                height: 0.08  // 높이 8%
+            },
+            20: { // 페이지 20 - 문의하기
+                url: '/contact-form.html',
+                x: 0.25,
+                y: 0.85,
+                width: 0.5,
+                height: 0.08
+            }
+        };
+
+        // 캔버스 클릭 이벤트 (데스크톱 & 모바일 공통)
+        canvas.addEventListener('click', function(e) {
+            // 컨트롤 패널 클릭 제외 (모바일)
+            if (e.target.closest('.pdf-controls-mobile')) {
+                return;
+            }
+
+            const rect = canvas.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const clickY = e.clientY - rect.top;
+            const canvasWidth = rect.width;
+            const canvasHeight = rect.height;
+
+            // 현재 페이지에 클릭 가능한 영역이 있는지 확인
+            if (clickableAreas[pageNum]) {
+                const area = clickableAreas[pageNum];
+                
+                // 클릭 가능한 영역의 실제 좌표 계산
+                const areaX = canvasWidth * area.x;
+                const areaY = canvasHeight * area.y;
+                const areaWidth = canvasWidth * area.width;
+                const areaHeight = canvasHeight * area.height;
+                
+                // 클릭이 영역 내에 있는지 확인
+                if (clickX >= areaX && clickX <= areaX + areaWidth &&
+                    clickY >= areaY && clickY <= areaY + areaHeight) {
+                    
+                    console.log('✅ 클릭 가능한 영역 클릭됨:', area.url);
+                    
+                    // 외부 링크는 새 탭, 내부 링크는 현재 탭
+                    if (area.url.startsWith('http')) {
+                        window.open(area.url, '_blank');
+                    } else {
+                        window.location.href = area.url;
+                    }
+                    return; // 페이지 넘기기 방지
                 }
-                
-                // 컨테이너 기준 좌표 계산
-                const rect = container.getBoundingClientRect();
-                const clickX = e.clientX - rect.left;
-                const containerWidth = rect.width;
-                
-                console.log('클릭 위치:', clickX, '/', containerWidth); // 디버깅용
-                
-                // 왼쪽 절반 클릭 = 이전 페이지
-                if (clickX < containerWidth / 2) {
-                    console.log('이전 페이지');
-                    onPrevPage();
-                }
-                // 오른쪽 절반 클릭 = 다음 페이지
-                else {
-                    console.log('다음 페이지');
-                    onNextPage();
-                }
-            });
-            
-            // 캔버스에도 추가로 이벤트 연결 (이중 안전장치)
-            canvas.addEventListener('click', function(e) {
-                // 컨트롤 패널 클릭 제외
-                if (e.target.closest('.pdf-controls-mobile')) {
-                    return;
-                }
-                
-                const rect = canvas.getBoundingClientRect();
-                const clickX = e.clientX - rect.left;
-                const canvasWidth = rect.width;
-                
+            }
+
+            // 모바일에서만 좌우 클릭으로 페이지 넘기기
+            if (window.innerWidth <= 768) {
                 // 왼쪽 절반 = 이전, 오른쪽 절반 = 다음
                 if (clickX < canvasWidth / 2) {
                     onPrevPage();
                 } else {
                     onNextPage();
+                }
+            }
+        });
+
+        // 데스크톱에서 마우스 커서 변경
+        if (window.innerWidth > 768) {
+            canvas.addEventListener('mousemove', function(e) {
+                if (!clickableAreas[pageNum]) {
+                    canvas.style.cursor = 'default';
+                    return;
+                }
+
+                const area = clickableAreas[pageNum];
+                const rect = canvas.getBoundingClientRect();
+                
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+                
+                const canvasWidth = rect.width;
+                const canvasHeight = rect.height;
+                
+                const areaX = canvasWidth * area.x;
+                const areaY = canvasHeight * area.y;
+                const areaWidth = canvasWidth * area.width;
+                const areaHeight = canvasHeight * area.height;
+                
+                // 마우스가 클릭 가능한 영역 위에 있는지 확인
+                if (mouseX >= areaX && mouseX <= areaX + areaWidth &&
+                    mouseY >= areaY && mouseY <= areaY + areaHeight) {
+                    canvas.style.cursor = 'pointer';
+                } else {
+                    canvas.style.cursor = 'default';
                 }
             });
         }

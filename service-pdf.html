@@ -341,49 +341,53 @@
             document.getElementById('next-page').disabled = (pageNum >= pdfDoc.numPages);
         }
 
-        // PDF 로드
-        const url = '/pdf/0to1tax-service-introduction.pdf';
-
-        pdfjsLib.getDocument(url).promise.then(function(pdf) {
-            pdfDoc = pdf;
-            document.getElementById('page-count').textContent = pdf.numPages;
-            
-            // 로딩 숨기기
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('pdf-controls').style.display = 'flex';
-            
-            // 첫 페이지 렌더링
-            renderPage(pageNum);
-            updateButtons();
-        }).catch(function(error) {
-            console.error('PDF 로딩 실패:', error);
-            document.getElementById('loading').innerHTML = `
-                <div style="background: white; padding: 2rem; border-radius: 1rem; color: #1e293b;">
-                    <h3 style="margin-bottom: 1rem;">⚠️ PDF를 불러올 수 없습니다</h3>
-                    <p style="margin-bottom: 1.5rem; color: #64748b;">브라우저에서 PDF를 지원하지 않거나 파일을 찾을 수 없습니다.</p>
-                    <a href="/pdf/0to1tax-service-introduction.pdf" target="_blank" class="btn btn-primary">
-                        📥 PDF 다운로드
-                    </a>
-                </div>
-            `;
-        });
-
-        // 이벤트 리스너
-        document.getElementById('prev-page').addEventListener('click', onPrevPage);
-        document.getElementById('next-page').addEventListener('click', onNextPage);
-
-        // 키보드 단축키
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowLeft') {
-                onPrevPage();
-            } else if (e.key === 'ArrowRight') {
-                onNextPage();
-            }
-        });
-
-        // 모바일 감지 및 스케일 조정
+        // 모바일 감지 및 처리
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            scale = 1.0;
+            // 모바일이면 PDF 파일을 직접 열기
+            window.location.href = '/pdf/0to1tax-service-introduction.pdf';
+        } else {
+            // 데스크톱에서만 PDF.js 뷰어 사용
+            scale = 1.5;
+            
+            // 이벤트 리스너
+            document.getElementById('prev-page').addEventListener('click', onPrevPage);
+            document.getElementById('next-page').addEventListener('click', onNextPage);
+
+            // 키보드 단축키
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') {
+                    onPrevPage();
+                } else if (e.key === 'ArrowRight') {
+                    onNextPage();
+                }
+            });
+            
+            // PDF 로드
+            const url = '/pdf/0to1tax-service-introduction.pdf';
+
+            pdfjsLib.getDocument(url).promise.then(function(pdf) {
+                pdfDoc = pdf;
+                document.getElementById('page-count').textContent = pdf.numPages;
+                
+                // 로딩 숨기기
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('pdf-controls').style.display = 'flex';
+                
+                // 첫 페이지 렌더링
+                renderPage(pageNum);
+                updateButtons();
+            }).catch(function(error) {
+                console.error('PDF 로딩 실패:', error);
+                document.getElementById('loading').innerHTML = `
+                    <div style="background: white; padding: 2rem; border-radius: 1rem; color: #1e293b;">
+                        <h3 style="margin-bottom: 1rem;">⚠️ PDF를 불러올 수 없습니다</h3>
+                        <p style="margin-bottom: 1.5rem; color: #64748b;">브라우저에서 PDF를 지원하지 않거나 파일을 찾을 수 없습니다.</p>
+                        <a href="/pdf/0to1tax-service-introduction.pdf" target="_blank" class="btn btn-primary">
+                            📥 PDF 다운로드
+                        </a>
+                    </div>
+                `;
+            });
         }
     </script>
 </body>

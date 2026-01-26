@@ -295,13 +295,20 @@
         /* Mobile Portrait Detection */
         @media (max-width: 768px) and (orientation: portrait) {
             .rotate-message {
-                display: flex;
+                display: none;
             }
             
-            .header,
-            .main-container,
-            .pdf-controls {
-                display: none;
+            .header-container {
+                padding: 0.5rem 1rem;
+            }
+
+            .logo {
+                height: 28px;
+            }
+
+            .main-container {
+                top: 50px;
+                bottom: 60px;
             }
         }
 
@@ -313,6 +320,7 @@
 
             .main-container {
                 top: 0;
+                bottom: 0;
             }
 
             .controls-panel {
@@ -320,7 +328,11 @@
             }
 
             .pdf-controls {
-                display: none;
+                display: none !important;
+            }
+
+            .pdf-container {
+                bottom: 0;
             }
         }
 

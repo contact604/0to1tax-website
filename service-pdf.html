@@ -10,7 +10,10 @@
     <meta name="keywords" content="0to1tax, 서비스 소개서, 스타트업 세무, 투자유치, 재무실사">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="rocket-icon.svg">
+    <link rel="icon" type="image/svg+xml" href="/rocket-icon.svg">
+    
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     
     <style>
         * {
@@ -91,7 +94,7 @@
         }
 
         /* PDF Container */
-        .pdf-wrapper {
+        .pdf-container {
             position: fixed;
             top: 72px;
             left: 0;
@@ -99,138 +102,127 @@
             bottom: 0;
             background: #2d3748;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            overflow: auto;
+            padding: 2rem;
         }
 
-        .pdf-embed {
-            width: 100%;
-            height: 100%;
+        #pdf-canvas {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+        }
+
+        /* Controls */
+        .pdf-controls {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 3rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            z-index: 50;
+        }
+
+        .control-btn {
+            background: #1e40af;
+            color: white;
             border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .control-btn:hover {
+            background: #1e3a8a;
+            transform: scale(1.1);
+        }
+
+        .control-btn:disabled {
+            background: #cbd5e1;
+            cursor: not-allowed;
+            transform: scale(1);
+        }
+
+        .page-info {
+            color: #1e293b;
+            font-weight: 600;
+            font-size: 0.95rem;
+            min-width: 100px;
+            text-align: center;
         }
 
         /* Loading */
         .loading {
-            position: absolute;
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: white;
-            font-size: 1.2rem;
             text-align: center;
+            color: white;
+            z-index: 1000;
         }
 
         .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
             width: 50px;
             height: 50px;
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            border-top-color: #2563eb;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+            animation: spin 1s linear infinite;
             margin: 0 auto 1rem;
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        /* Mobile Responsive */
+        /* Mobile styles */
         @media (max-width: 768px) {
             .header-container {
-                padding: 0.75rem 1rem;
-            }
-
-            .logo {
-                height: 32px;
-            }
-
-            .btn {
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
-            }
-
-            .header-actions {
-                gap: 0.5rem;
+                padding: 1rem;
             }
 
             .btn-text {
                 display: none;
             }
 
-            .pdf-wrapper {
-                top: 60px;
+            .btn {
+                padding: 0.5rem 1rem;
+                font-size: 1.2rem;
             }
-        }
 
-        /* Error Message */
-        .error-message {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            text-align: center;
-            max-width: 400px;
-        }
+            .pdf-container {
+                padding: 1rem;
+            }
 
-        .error-message h3 {
-            color: #dc2626;
-            margin-bottom: 1rem;
-        }
+            .pdf-controls {
+                padding: 0.75rem 1.5rem;
+                gap: 0.75rem;
+            }
 
-        .error-message p {
-            color: #64748b;
-            margin-bottom: 1.5rem;
-        }
+            .control-btn {
+                width: 36px;
+                height: 36px;
+            }
 
-        /* Mobile Notice */
-        .mobile-notice {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-
-        .notice-content {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 1.5rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            text-align: center;
-            max-width: 450px;
-            width: 100%;
-        }
-
-        .notice-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .notice-content h3 {
-            color: #1e293b;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .notice-content p {
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
+            .page-info {
+                font-size: 0.875rem;
+                min-width: 80px;
+            }
         }
     </style>
 </head>
@@ -238,92 +230,161 @@
     <!-- Header -->
     <div class="header">
         <div class="header-container">
-            <img src="0to1tax-horizontal-blue.svg" alt="0to1tax" class="logo" onclick="window.location.href='/'">
+            <img src="/0to1tax-horizontal-blue.svg" alt="0to1tax" class="logo" onclick="window.location.href='/'">
             
             <div class="header-actions">
-                <a href="/" class="btn btn-secondary">
+                <a href="/" class="btn btn-primary">
                     <span>🏠</span>
                     <span class="btn-text">홈으로</span>
                 </a>
-                <a href="/pdf/0to1tax-service-introduction.pdf" download="0to1tax-서비스소개서.pdf" class="btn btn-primary">
-                    <span>📥</span>
-                    <span class="btn-text">다운로드</span>
-                </a>
             </div>
         </div>
     </div>
 
-    <!-- PDF Wrapper -->
-    <div class="pdf-wrapper">
-        <div class="loading" id="loading">
-            <div class="spinner"></div>
-            <p>PDF 로딩 중...</p>
+    <!-- Loading -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>PDF를 불러오는 중...</p>
+    </div>
+
+    <!-- PDF Container -->
+    <div class="pdf-container" id="pdf-container">
+        <canvas id="pdf-canvas"></canvas>
+    </div>
+
+    <!-- PDF Controls -->
+    <div class="pdf-controls" id="pdf-controls" style="display: none;">
+        <button class="control-btn" id="prev-page" title="이전 페이지">
+            ◀
+        </button>
+        <div class="page-info">
+            <span id="page-num">1</span> / <span id="page-count">-</span>
         </div>
-        
-        <!-- Mobile: 직접 다운로드 안내 -->
-        <div class="mobile-notice" id="mobileNotice" style="display: none;">
-            <div class="notice-content">
-                <div class="notice-icon">📱</div>
-                <h3>모바일에서 PDF 보기</h3>
-                <p>모바일 브라우저에서 PDF를 더 편하게 보시려면<br>아래 버튼을 눌러주세요</p>
-                <a href="/pdf/0to1tax-service-introduction.pdf" target="_blank" class="btn btn-primary" style="width: 100%; max-width: 300px; margin: 1rem auto;">
-                    📄 PDF 열기
-                </a>
-                <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 1rem;">
-                    * PDF가 새 탭에서 열립니다
-                </p>
-            </div>
-        </div>
-        
-        <!-- Desktop: PDF Embed -->
-        <embed 
-            id="pdfEmbed"
-            src="/pdf/0to1tax-service-introduction.pdf#toolbar=1&navpanes=1&scrollbar=1&view=FitH"
-            type="application/pdf"
-            class="pdf-embed"
-            onload="hideLoading()"
-            onerror="showError()"
-        />
+        <button class="control-btn" id="next-page" title="다음 페이지">
+            ▶
+        </button>
     </div>
 
     <script>
-        // 모바일 감지
-        function isMobileDevice() {
-            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        // PDF.js 설정
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        let pdfDoc = null;
+        let pageNum = 1;
+        let pageRendering = false;
+        let pageNumPending = null;
+        let scale = 1.5;
+
+        const canvas = document.getElementById('pdf-canvas');
+        const ctx = canvas.getContext('2d');
+
+        // PDF 렌더링
+        function renderPage(num) {
+            pageRendering = true;
+            
+            pdfDoc.getPage(num).then(function(page) {
+                const viewport = page.getViewport({scale: scale});
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                const renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+
+                const renderTask = page.render(renderContext);
+
+                renderTask.promise.then(function() {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+            });
+
+            document.getElementById('page-num').textContent = num;
         }
 
-        function hideLoading() {
-            const loading = document.getElementById('loading');
-            if (loading) {
-                loading.style.display = 'none';
+        // 페이지 렌더링 대기열
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
             }
         }
 
-        function showError() {
-            const wrapper = document.querySelector('.pdf-wrapper');
-            wrapper.innerHTML = `
-                <div class="error-message">
-                    <h3>⚠️ PDF를 불러올 수 없습니다</h3>
-                    <p>브라우저에서 PDF를 지원하지 않거나 파일을 찾을 수 없습니다.</p>
+        // 이전 페이지
+        function onPrevPage() {
+            if (pageNum <= 1) {
+                return;
+            }
+            pageNum--;
+            queueRenderPage(pageNum);
+            updateButtons();
+        }
+
+        // 다음 페이지
+        function onNextPage() {
+            if (pageNum >= pdfDoc.numPages) {
+                return;
+            }
+            pageNum++;
+            queueRenderPage(pageNum);
+            updateButtons();
+        }
+
+        // 버튼 상태 업데이트
+        function updateButtons() {
+            document.getElementById('prev-page').disabled = (pageNum <= 1);
+            document.getElementById('next-page').disabled = (pageNum >= pdfDoc.numPages);
+        }
+
+        // PDF 로드
+        const url = '/pdf/0to1tax-service-introduction.pdf';
+
+        pdfjsLib.getDocument(url).promise.then(function(pdf) {
+            pdfDoc = pdf;
+            document.getElementById('page-count').textContent = pdf.numPages;
+            
+            // 로딩 숨기기
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('pdf-controls').style.display = 'flex';
+            
+            // 첫 페이지 렌더링
+            renderPage(pageNum);
+            updateButtons();
+        }).catch(function(error) {
+            console.error('PDF 로딩 실패:', error);
+            document.getElementById('loading').innerHTML = `
+                <div style="background: white; padding: 2rem; border-radius: 1rem; color: #1e293b;">
+                    <h3 style="margin-bottom: 1rem;">⚠️ PDF를 불러올 수 없습니다</h3>
+                    <p style="margin-bottom: 1.5rem; color: #64748b;">브라우저에서 PDF를 지원하지 않거나 파일을 찾을 수 없습니다.</p>
                     <a href="/pdf/0to1tax-service-introduction.pdf" target="_blank" class="btn btn-primary">
                         📥 PDF 다운로드
                     </a>
                 </div>
             `;
-        }
+        });
 
-        // 페이지 로드 시 모바일 체크
-        window.addEventListener('DOMContentLoaded', function() {
-            if (isMobileDevice()) {
-                // 모바일이면 안내 메시지 표시
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('mobileNotice').style.display = 'flex';
-                document.getElementById('pdfEmbed').style.display = 'none';
-            } else {
-                // 데스크톱이면 PDF embed 사용
-                setTimeout(hideLoading, 3000);
+        // 이벤트 리스너
+        document.getElementById('prev-page').addEventListener('click', onPrevPage);
+        document.getElementById('next-page').addEventListener('click', onNextPage);
+
+        // 키보드 단축키
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                onPrevPage();
+            } else if (e.key === 'ArrowRight') {
+                onNextPage();
             }
         });
+
+        // 모바일 감지 및 스케일 조정
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            scale = 1.0;
+        }
     </script>
 </body>
 </html>

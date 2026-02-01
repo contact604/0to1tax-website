@@ -641,6 +641,195 @@
             margin-top: 20px;
         }
         
+        /* ==================== PDF 다운로드 모달 ==================== */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .pdf-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .pdf-modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease;
+        }
+        
+        .pdf-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 32px;
+            color: #999;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            border-radius: 50%;
+        }
+        
+        .pdf-modal-close:hover {
+            background: #f5f5f5;
+            color: #333;
+        }
+        
+        .pdf-modal-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .pdf-icon {
+            font-size: 48px;
+            color: #1e40af;
+            margin-bottom: 16px;
+        }
+        
+        .pdf-modal-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        
+        .pdf-modal-header p {
+            font-size: 15px;
+            color: #666;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="email"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #1e40af;
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            cursor: pointer;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .checkbox-group span {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .privacy-note {
+            font-size: 13px;
+            color: #999;
+            margin-top: 8px;
+            margin-left: 26px;
+        }
+        
+        .pdf-download-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+        
+        .pdf-download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3);
+        }
+        
+        .pdf-download-btn:active {
+            transform: translateY(0);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .pdf-modal-content {
+                padding: 32px 24px;
+            }
+            
+            .pdf-modal-header h2 {
+                font-size: 20px;
+            }
+            
+            .pdf-icon {
+                font-size: 40px;
+            }
+        }
+        
         /* ==================== 로딩 & 에러 ==================== */
         .loading-state,
         .error-state {
@@ -844,6 +1033,60 @@
             
             <!-- 빈 공간 (레이아웃 균형) -->
             <div></div>
+        </div>
+    </div>
+    
+    <!-- PDF 다운로드 모달 -->
+    <div id="pdfDownloadModal" class="pdf-modal">
+        <div class="pdf-modal-content">
+            <button class="pdf-modal-close" onclick="closePdfModal()">&times;</button>
+            <div class="pdf-modal-header">
+                <i class="fas fa-file-pdf pdf-icon"></i>
+                <h2>IFRS 18 완벽 가이드 다운로드</h2>
+                <p>뉴스레터 구독하고 무료 PDF 가이드를 받아보세요</p>
+            </div>
+            <form id="pdfDownloadForm" name="pdf-download" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="pdf-download">
+                <p style="display:none;">
+                    <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                </p>
+                
+                <div class="form-group">
+                    <label for="userName">이름 *</label>
+                    <input type="text" id="userName" name="name" required placeholder="홍길동">
+                </div>
+                
+                <div class="form-group">
+                    <label for="userEmail">이메일 *</label>
+                    <input type="email" id="userEmail" name="email" required placeholder="example@company.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="userCompany">회사명 (선택)</label>
+                    <input type="text" id="userCompany" name="company" placeholder="회사명">
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="subscribeNewsletter" name="newsletter" value="yes" checked>
+                        <span>0to1tax 뉴스레터 구독 (세무·회계 인사이트 무료 발송)</span>
+                    </label>
+                    <p class="privacy-note">매주 스타트업에 필요한 세무 정보를 이메일로 보내드립니다.</p>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="agreePrivacy" required>
+                        <span>개인정보 수집 및 이용에 동의합니다 *</span>
+                    </label>
+                    <p class="privacy-note">수집된 정보는 뉴스레터 발송 및 세무 자료 제공 목적으로만 사용됩니다.</p>
+                </div>
+                
+                <button type="submit" class="pdf-download-btn">
+                    <i class="fas fa-envelope"></i>
+                    뉴스레터 구독 & PDF 받기
+                </button>
+            </form>
         </div>
     </div>
     
@@ -1131,6 +1374,77 @@
                 alert('링크가 복사되었습니다!');
             });
         }
+        
+        // ===== PDF 다운로드 모달 =====
+        function openPdfModal() {
+            document.getElementById('pdfDownloadModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closePdfModal() {
+            document.getElementById('pdfDownloadModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // 모달 외부 클릭시 닫기
+        document.getElementById('pdfDownloadModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePdfModal();
+            }
+        });
+        
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePdfModal();
+            }
+        });
+        
+        // ===== PDF 다운로드 폼 제출 =====
+        document.getElementById('pdfDownloadForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            // Netlify로 폼 데이터 전송
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(() => {
+                // PDF 다운로드 시작
+                const link = document.createElement('a');
+                link.href = '/pdf/ifrs-18-complete-guide.pdf';
+                link.download = 'IFRS18_완벽가이드_0to1tax.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // 모달 닫기 및 폼 초기화
+                setTimeout(() => {
+                    closePdfModal();
+                    this.reset();
+                    alert('PDF 다운로드가 시작되었습니다!\n이메일로도 자료를 보내드렸습니다.');
+                }, 500);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // 에러가 나도 다운로드는 진행
+                const link = document.createElement('a');
+                link.href = '/pdf/ifrs-18-complete-guide.pdf';
+                link.download = 'IFRS18_완벽가이드_0to1tax.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                setTimeout(() => {
+                    closePdfModal();
+                    this.reset();
+                    alert('PDF 다운로드가 시작되었습니다!');
+                }, 500);
+            });
+        });
     </script>
     
 </body>

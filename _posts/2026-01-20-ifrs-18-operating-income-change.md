@@ -51,7 +51,7 @@ published: true
 
 예를 들어, 부동산 처분이익이나 영업권 손상은 영업외손익으로 반영되었으나 IFRS 18에서는 영업손익에 포함됩니다.
 
-👉 [IFRS 18 손익계산서 구조 변화](/blog-post.html?slug=2026-01-21-ifrs-18-income-statement-structure)에서 새로운 손익계산서 구조를 자세히 설명합니다.
+→ 참고: [IFRS 18 손익계산서 구조 변화](/blog-post.html?slug=2026-01-21-ifrs-18-income-statement-structure) - 새로운 3가지 범주 설명
 
 ---
 
@@ -63,13 +63,13 @@ IFRS 18 도입으로 비경상적 손익이 영업이익에 포함되면서 투�
 
 K-IFRS 하에서는 기존의 영업이익을 주석 기재하여 손익계산서의 영업이익과 기존의 영업이익 간의 차이내역(Reconciliation)을 제공하기로 하였습니다.
 
-👉 [K-IFRS 1118호 수정도입 정리](/blog-post.html?slug=2026-01-22-kifrs-1118-modified-adoption)에서 한국의 수정도입 방식을 자세히 설명합니다.
+→ 참고: [K-IFRS 1118호 수정도입 정리](/blog-post.html?slug=2026-01-22-kifrs-1118-modified-adoption) - 한국의 수정도입 방식
 
 ### MPM(경영성과지표)
 
 IFRS 18에서도 정의된 영업이익 외에 경영진이 바라보는 회사의 실질 이익, 즉 MPM을 공시할 수 있게 하면서 IFRS 18 하의 영업이익의 단점을 보완할 수 있습니다.
 
-👉 [MPM이란 무엇인가](/blog-post.html?slug=2026-01-28-ifrs-18-mpm-management-performance-measures)에서 MPM의 개념과 설계 방법을 설명합니다.
+→ 참고: [MPM이란 무엇인가](/blog-post.html?slug=2026-01-28-ifrs-18-mpm-management-performance-measures) - 경영성과지표 개념과 설계
 
 ---
 
@@ -95,13 +95,25 @@ A. 영업이익뿐만 아니라 주석에 제공되는 추가 정보와 MPM(경�
 
 0to1tax는 스타트업과 중소기업을 위한 회계·세무 전문가로서, IFRS 18 전환을 지원합니다.
 
-- ✅ IFRS 18 영향 분석
-- ✅ 손익계산서 재구성
-- ✅ MPM 설계 및 공시 지원
-- ✅ 투자자 IR 자료 작성
+**제공 서비스**:
+- CoA 재정비 컨설팅
+- 25~27년 손익계산서 재작성
+- 투자자 설듵용 MPM 설계
+- 투자자 IR 자료 작성
 
-**💬 상담 문의**: [contact@0to1tax.com](mailto:contact@0to1tax.com)  
-**📞 전화**: 070-8065-3619
+**상담 문의**: contact@0to1tax.com | 070-8065-3619
+
+---
+
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 32px; border-radius: 16px; text-align: center; margin: 40px 0; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);">
+  <div style="font-size: 2.5rem; margin-bottom: 16px;">📧</div>
+  <h3 style="color: white; font-size: 24px; font-weight: 700; margin-bottom: 12px;">뉴스레터 구독하고 IFRS 18 가이드 받기</h3>
+  <p style="color: rgba(255,255,255,0.9); font-size: 15px; margin-bottom: 24px; line-height: 1.6;">매주 스타트업 세무·회계 인사이트와<br>IFRS 18 완벽 가이드 PDF를 무료로 보내드립니다</p>
+  <button onclick="openPdfModal()" style="background: white; color: #667eea; padding: 16px 40px; border: none; border-radius: 50px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'">
+    <i class="fas fa-envelope"></i>
+    뉴스레터 구독하기
+  </button>
+</div>
 
 ---
 

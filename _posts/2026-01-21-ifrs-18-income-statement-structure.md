@@ -167,6 +167,18 @@ A. 2027년 최초 적용 시 전기(2026년) 정보도 IFRS 18 기준으로 재�
 
 ---
 
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 32px; border-radius: 16px; text-align: center; margin: 40px 0; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);">
+  <div style="font-size: 2.5rem; margin-bottom: 16px;">📧</div>
+  <h3 style="color: white; font-size: 24px; font-weight: 700; margin-bottom: 12px;">뉴스레터 구독하고 IFRS 18 가이드 받기</h3>
+  <p style="color: rgba(255,255,255,0.9); font-size: 15px; margin-bottom: 24px; line-height: 1.6;">매주 스타트업 세무·회계 인사이트와<br>IFRS 18 완벽 가이드 PDF를 무료로 보내드립니다</p>
+  <button onclick="openPdfModal()" style="background: white; color: #667eea; padding: 16px 40px; border: none; border-radius: 50px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'">
+    <i class="fas fa-envelope"></i>
+    뉴스레터 구독하기
+  </button>
+</div>
+
+---
+
 ## 관련 글
 
 - [IFRS 18이 뭐길래? 2027년부터 영업이익이 달라지고 손익계산서가 바뀝니다](/blog-post.html?slug=2026-01-20-ifrs-18-operating-income-change)

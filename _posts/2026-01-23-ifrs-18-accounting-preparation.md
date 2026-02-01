@@ -38,9 +38,9 @@ IFRS 18 도입을 위해 **1) 회계사의 수기 조정**과 **2) ERP 전문 �
 #### 💡 실무에서 헷갈리는 포인트
 
 복잡한 항목들의 분류 기준:
-- 👉 [이자·배당·외환손익 분류](/blog-post.html?slug=2026-01-31-ifrs-18-interest-dividend-fx-classification)
-- 👉 [파생상품 손익 분류](/blog-post.html?slug=2026-02-02-ifrs-18-derivatives-classification)
-- 👉 [자산 처분손익 분류](/blog-post.html?slug=2026-02-03-ifrs-18-asset-disposal-classification)
+→ 참고: [이자·배당·외환손익 분류 기준](/blog-post.html?slug=2026-01-31-ifrs-18-interest-dividend-fx-classification)
+→ 참고: [파생상품 손익 분류 기준](/blog-post.html?slug=2026-02-02-ifrs-18-derivatives-classification)
+→ 참고: [자산 처분손익 분류 기준](/blog-post.html?slug=2026-02-03-ifrs-18-asset-disposal-classification)
 
 ---
 
@@ -57,7 +57,7 @@ IFRS 18 하의 영업손익에 포함된 비경상적 항목을 식별하여, Re
 | 가산: 영업권 손상 | +20억 |
 | **기존 K-IFRS 영업이익** | **100억** |
 
-👉 [K-IFRS 1118호 수정도입](/blog-post.html?slug=2026-01-22-kifrs-1118-modified-adoption)에서 주석 공시 방식을 자세히 설명합니다.
+→ 참고: [K-IFRS 1118호 수정도입](/blog-post.html?slug=2026-01-22-kifrs-1118-modified-adoption) - 주석 공시 방식
 
 ---
 
@@ -72,7 +72,7 @@ IFRS 18 하의 영업손익에 포함된 비경상적 항목을 식별하여, Re
 - Adjusted EBITDA
 - Core Earnings (핵심이익)
 
-👉 [MPM이란 무엇인가](/blog-post.html?slug=2026-01-28-ifrs-18-mpm-management-performance-measures)에서 MPM 설계 방법을 자세히 설명합니다.
+→ 참고: [MPM이란 무엇인가](/blog-post.html?slug=2026-01-28-ifrs-18-mpm-management-performance-measures) - MPM 설계 방법
 
 ---
 
@@ -85,7 +85,7 @@ IFRS 18 하의 영업손익에 포함된 비경상적 항목을 식별하여, Re
 **핵심**: 2026년에는 수기로 검증하면서 시스템을 병렬 운영하고,  
 2027년부터는 시스템 자동 집계로 전환합니다.
 
-👉 [IFRS 18 시스템 구축 가이드](/blog-post.html?slug=2026-01-24-ifrs-18-mpm-system-guide) - ERP 자동화 실전
+→ 참고: [IFRS 18 시스템 구축 가이드](/blog-post.html?slug=2026-01-24-ifrs-18-mpm-system-guide) - ERP 자동화 실전
 
 ---
 
@@ -115,20 +115,32 @@ IFRS 18 하의 영업손익에 포함된 비경상적 항목을 식별하여, Re
 
 ---
 
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 32px; border-radius: 16px; text-align: center; margin: 40px 0; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);">
+  <div style="font-size: 2.5rem; margin-bottom: 16px;">📧</div>
+  <h3 style="color: white; font-size: 24px; font-weight: 700; margin-bottom: 12px;">뉴스레터 구독하고 IFRS 18 가이드 받기</h3>
+  <p style="color: rgba(255,255,255,0.9); font-size: 15px; margin-bottom: 24px; line-height: 1.6;">매주 스타트업 세무·회계 인사이트와<br>IFRS 18 완벽 가이드 PDF를 무료로 보내드립니다</p>
+  <button onclick="openPdfModal()" style="background: white; color: #667eea; padding: 16px 40px; border: none; border-radius: 50px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'">
+    <i class="fas fa-envelope"></i>
+    뉴스레터 구독하기
+  </button>
+</div>
+
+---
+
 ## 0to1tax가 처음부터 끝까지 함께합니다
 
-**우리가 제공하는 것**:
-- 📋 CoA 재정비 컨설팅
-- 📊 25~27년 손익계산서 재작성
-- 🔄 Reconciliation 자료 작성
-- 💼 투자자 설득용 MPM 설계
-- 🔧 ERP 시스템 구현 지원 (개발자 협업)
+**제공 서비스**:
+- CoA 재정비 컨설팅
+- 25~27년 손익계산서 재작성
+- Reconciliation 자료 작성
+- 투자자 설득용 MPM 설계
+- ERP 시스템 구현 지원 (개발자 협업)
 
 **스타트업·중소기업 전문**  
 실무 중심, 합리적 비용, 빠른 실행
 
 **상담 문의**  
-📧 contact@0to1tax.com | ☎️ 070-8065-3619
+contact@0to1tax.com | 070-8065-3619
 
 - [IFRS 18이 뭐길래? 2027년부터 영업이익이 달라지고 손익계산서가 바뀝니다](/blog-post.html?slug=2026-01-20-ifrs-18-operating-income-change)
 - [IFRS 18 손익계산서 구조 변화 | 영업·투자·재무 범주로 재편되는 이유](/blog-post.html?slug=2026-01-21-ifrs-18-income-statement-structure)

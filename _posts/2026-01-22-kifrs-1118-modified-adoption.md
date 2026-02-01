@@ -87,17 +87,29 @@ K-IFRS 제1118호의 가장 중요한 포인트:
 
 ## 0to1tax가 처음부터 끝까지 함께합니다
 
-**우리가 제공하는 것**:
-- 📋 CoA 재정비 컨설팅
-- 📊 25~27년 손익계산서 재작성
-- 🔧 ERP 시스템 구현 지원
-- 💼 투자자 설득용 MPM 설계
+**제공 서비스**:
+- CoA 재정비 컨설팅
+- 25~27년 손익계산서 재작성
+- ERP 시스템 구현 지원
+- 투자자 설득용 MPM 설계
 
 **스타트업·중소기업 전문**  
 실무 중심, 합리적 비용, 빠른 실행
 
 **상담 문의**  
-📧 contact@0to1tax.com | ☎️ 070-8065-3619
+contact@0to1tax.com | 070-8065-3619
+
+---
+
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 32px; border-radius: 16px; text-align: center; margin: 40px 0; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);">
+  <div style="font-size: 2.5rem; margin-bottom: 16px;">📧</div>
+  <h3 style="color: white; font-size: 24px; font-weight: 700; margin-bottom: 12px;">뉴스레터 구독하고 IFRS 18 가이드 받기</h3>
+  <p style="color: rgba(255,255,255,0.9); font-size: 15px; margin-bottom: 24px; line-height: 1.6;">매주 스타트업 세무·회계 인사이트와<br>IFRS 18 완벽 가이드 PDF를 무료로 보내드립니다</p>
+  <button onclick="openPdfModal()" style="background: white; color: #667eea; padding: 16px 40px; border: none; border-radius: 50px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'">
+    <i class="fas fa-envelope"></i>
+    뉴스레터 구독하기
+  </button>
+</div>
 
 ---
 

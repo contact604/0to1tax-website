@@ -5,10 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="keywords" content="">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:title" content="">
     <meta property="og:description" content="">
     <meta property="og:type" content="article">
     <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" id="schemaData">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "",
+      "image": "",
+      "datePublished": "",
+      "dateModified": "",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "",
+        "logo": {
+          "@type": "ImageObject",
+          "url": ""
+        }
+      }
+    }
+    </script>
+    
     <title>0to1tax 블로그</title>
     
     <!-- Inter Font -->
@@ -226,12 +262,13 @@
         }
         
         .post-excerpt {
-            font-size: 16px;
-            line-height: 1.7;
+            font-size: 15px;
+            line-height: 1.6;
             color: var(--text-secondary);
-            padding: 20px 0;
-            border-top: 1px solid var(--border-light);
-            border-bottom: 1px solid var(--border-light);
+            margin-top: 16px;
+            padding: 0;
+            border: none;
+            max-width: 100%;
         }
         
         /* ==================== 메인 콘텐츠 레이아웃 ==================== */
@@ -1202,6 +1239,22 @@
                 category: metadata.category || '기타',
                 tags: metadata.tags || [],
                 excerpt: metadata.excerpt || '',
+                description: metadata.description || metadata.excerpt || '',
+                keywords: metadata.keywords || '',
+                og_title: metadata.og_title || metadata.title || '',
+                og_description: metadata.og_description || metadata.description || '',
+                og_image: metadata.og_image || '/og-image.jpg',
+                og_url: metadata.og_url || '',
+                canonical_url: metadata.canonical_url || '',
+                robots: metadata.robots || 'index, follow',
+                schema_type: metadata.schema_type || 'Article',
+                schema_headline: metadata.schema_headline || metadata.title || '',
+                schema_image: metadata.schema_image || '/og-image.jpg',
+                schema_date_published: metadata.schema_date_published || metadata.date || '',
+                schema_date_modified: metadata.schema_date_modified || metadata.date || '',
+                schema_author_name: metadata.schema_author_name || metadata.author || '',
+                schema_publisher_name: metadata.schema_publisher_name || 'Zero to One TAX',
+                schema_publisher_logo: metadata.schema_publisher_logo || '/0to1tax-logo-blue.svg',
                 body: body
             };
         }
@@ -1210,16 +1263,63 @@
         function renderPost(post) {
             // 메타데이터 업데이트
             document.title = `${post.title} - 0to1tax 블로그`;
-            document.querySelector('meta[name="description"]').content = post.excerpt;
-            document.querySelector('meta[property="og:title"]').content = post.title;
-            document.querySelector('meta[property="og:description"]').content = post.excerpt;
+            
+            // 기본 메타 태그
+            document.querySelector('meta[name="description"]').content = post.description || post.excerpt;
+            document.querySelector('meta[name="keywords"]').content = post.keywords;
+            document.querySelector('meta[name="robots"]').content = post.robots;
+            
+            // Canonical URL
+            const canonicalLink = document.querySelector('link[rel="canonical"]');
+            if (post.canonical_url) {
+                canonicalLink.href = post.canonical_url;
+            }
+            
+            // Open Graph 메타 태그
+            document.querySelector('meta[property="og:title"]').content = post.og_title || post.title;
+            document.querySelector('meta[property="og:description"]').content = post.og_description || post.description;
+            document.querySelector('meta[property="og:url"]').content = post.og_url || window.location.href;
+            document.querySelector('meta[property="og:image"]').content = post.og_image;
+            
+            // Twitter Card 메타 태그
+            document.querySelector('meta[name="twitter:title"]').content = post.og_title || post.title;
+            document.querySelector('meta[name="twitter:description"]').content = post.og_description || post.description;
+            document.querySelector('meta[name="twitter:image"]').content = post.og_image;
+            
+            // Schema.org JSON-LD 구조화 데이터
+            const schemaData = {
+                "@context": "https://schema.org",
+                "@type": post.schema_type,
+                "headline": post.schema_headline || post.title,
+                "image": post.schema_image,
+                "datePublished": post.schema_date_published || post.date,
+                "dateModified": post.schema_date_modified || post.date,
+                "author": {
+                    "@type": "Person",
+                    "name": post.schema_author_name || post.author
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": post.schema_publisher_name,
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": window.location.origin + post.schema_publisher_logo
+                    }
+                },
+                "description": post.description || post.excerpt
+            };
+            document.getElementById('schemaData').textContent = JSON.stringify(schemaData, null, 2);
             
             // 헤더 정보
             document.getElementById('postCategory').textContent = post.category;
             document.getElementById('postTitle').textContent = post.title;
             document.getElementById('postDate').textContent = formatDate(post.date);
             document.getElementById('postAuthor').textContent = post.author;
-            document.getElementById('postExcerpt').textContent = post.excerpt;
+            
+            // 요약글 (1~2줄 간략하게)
+            const excerptText = post.excerpt || post.description || '';
+            const shortExcerpt = excerptText.length > 120 ? excerptText.substring(0, 120) + '...' : excerptText;
+            document.getElementById('postExcerpt').textContent = shortExcerpt;
             
             // Markdown을 HTML로 변환
             const htmlContent = marked.parse(post.body);

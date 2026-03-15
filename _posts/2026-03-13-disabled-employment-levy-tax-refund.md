@@ -14,11 +14,11 @@ canonical_url: "https://0to1tax.com/blog-post.html?slug=2026-03-13-disabled-empl
 
 # 장애인고용부담금 경정청구 안내
 
-## 🎯 대법원 확정: 장애인고용부담금은 손금
+## 대법원 확정: 장애인고용부담금은 손금
 
 2026년 3월 12일, 대법원이 장애인고용부담금을 법인세법상 손금(비용)으로 인정하는 최종 판결을 내렸습니다(사건번호 2024두30809). 이로써 2018년 기획재정부의 유권해석이 뒤집히고, **약 8,000개 기업이 1조원 규모의 법인세를 환급받을 수 있는 길이 열렸습니다.**
 
-### 💡 장애인고용부담금이란?
+### 장애인고용부담금이란?
 
 장애인고용부담금은 장애인 의무고용률을 충족하지 못한 기업에 부과되는 부담금입니다.
 
@@ -29,7 +29,7 @@ canonical_url: "https://0to1tax.com/blog-post.html?slug=2026-03-13-disabled-empl
 
 ---
 
-## 📌 제도 변화 요약
+## 제도 변화 요약
 
 ### 과거 (2018년 이전)
 - 장애인고용부담금을 손금(비용)으로 인정
@@ -46,7 +46,7 @@ canonical_url: "https://0to1tax.com/blog-post.html?slug=2026-03-13-disabled-empl
 
 ---
 
-## ⏰ 경정청구 가능 기간
+## 경정청구 가능 기간
 
 **2020년 ~ 2024년 사업연도분에 대하여 세금 환급이 가능합니다.**
 
@@ -54,14 +54,14 @@ canonical_url: "https://0to1tax.com/blog-post.html?slug=2026-03-13-disabled-empl
 
 ---
 
-## 💰 환급 대상 기업
+## 환급 대상 기업
 
 - 2020~2024년 장애인고용부담금을 납부한 기업
 - 상시근로자 50인 이상 민간기업, 공공기관
 
 ---
 
-## 📋 경정청구 절차
+## 경정청구 절차
 
 ### 1. 대상 연도 확인
 **2020~2024년** 중 장애인고용부담금을 납부하고 손금불산입 세무조정한 사업연도
@@ -84,7 +84,7 @@ canonical_url: "https://0to1tax.com/blog-post.html?slug=2026-03-13-disabled-empl
 
 ---
 
-## ✅ Zero to One TAX 경정청구 지원
+## Zero to One TAX 경정청구 지원
 
 ### 제공 서비스
 - 환급 대상 여부 무료 검토
@@ -100,16 +100,16 @@ canonical_url: "https://0to1tax.com/blog-post.html?slug=2026-03-13-disabled-empl
 
 ---
 
-## 📞 문의하기
+## 문의하기
 
 **장애인고용부담금 경정청구, 지금 바로 시작하세요!**
 
 2020년분부터 순차적으로 제척기간이 도래합니다. 빠른 경정청구로 환급 기회를 놓치지 마세요.
 
 **Zero to One TAX**  
-📧 contact@0to1tax.com  
-🌐 https://0to1tax.com  
-☎️ 무료 상담 신청
+contact@0to1tax.com  
+https://0to1tax.com  
+무료 상담 신청
 
 ---
 
@@ -118,4 +118,4 @@ canonical_url: "https://0to1tax.com/blog-post.html?slug=2026-03-13-disabled-empl
 - 2019년분은 제척기간 종료로 환급 불가
 - 전문가 도움으로 정확하고 신속한 환급 진행
 
-**지금 바로 문의하세요!** 💼
+**지금 바로 문의하세요!**

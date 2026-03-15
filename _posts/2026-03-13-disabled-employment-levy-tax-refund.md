@@ -4,10 +4,10 @@ title: "장애인고용부담금 경정청구 | 대법원 확정, 1조원 환급
 date: 2026-03-13 18:00:00 +0900
 category: "세무"
 author: 0to1 TAX
-description: "대법원이 장애인고용부담금을 법인세 손금으로 인정. 2020~2024년 납부 기업 경정청구로 과납 법인세 환급 가능. 3월 31일 마감 임박."
+description: "대법원이 장애인고용부담금을 법인세 손금으로 인정. 2020~2024년 납부 기업 경정청구로 과납 법인세 환급 가능."
 keywords: "장애인고용부담금, 경정청구, 법인세 환급, 손금산입, 대법원 판결, 세무조정, 과세당국"
 og_title: "장애인고용부담금 경정청구 가이드 | 1조원 환급"
-og_description: "대법원 확정 판결로 2020~2024년 장애인고용부담금 경정청구 가능. 3월 31일 마감"
+og_description: "대법원 확정 판결로 2020~2024년 장애인고용부담금 경정청구 가능"
 og_image: "/images/blog/tax-refund.jpg"
 canonical_url: "https://0to1tax.com/blog-post.html?slug=2026-03-13-disabled-employment-levy-tax-refund"
 ---

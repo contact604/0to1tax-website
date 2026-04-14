@@ -251,7 +251,7 @@ keywords: "법인전환 절차, 법인설립 방법, 포괄양수도 계약서, 
 
 **관련 글**
 - [개인사업자 법인전환, 언제 해야 할까? 5가지 핵심 케이스 분석](/blog-post.html?slug=2026-04-15-when-to-convert-sole-proprietor-to-corporation)
-- [법인전환 4가지 유형 완벽 비교 | 포괄양수도 vs 세감법 vs 현물출자](/blog-post.html?slug=2026-04-15-corporation-conversion-types)
+- [법인전환 4가지 유형 완벽 비교 | 단순폐업 vs 포괄양수도 vs 세감면 vs 현물출자](/blog-post.html?slug=2026-04-15-corporation-conversion-types)
 
 **법인전환 상담 문의**  
 Zero to One TAX  

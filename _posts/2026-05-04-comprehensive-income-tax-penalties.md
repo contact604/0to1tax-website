@@ -24,7 +24,7 @@ keywords: "종합소득세 미신고, 무신고가산세, 납부지연가산세,
 - **신고 기간**: 6월 30일까지 연장
 - **대상**: 업종별 수입금액 기준 초과자
 
-> 📌 신고 대상 확인은 [나도 종합소득세 신고 대상일까?](/blog-post.html?slug=am-i-subject-to-comprehensive-income-tax)를 참고하세요.
+> 📌 신고 대상 확인은 [나도 종합소득세 신고 대상일까?](/blog-post.html?slug=2026-05-01-am-i-subject-to-comprehensive-income-tax)를 참고하세요.
 
 ## 미신고 시 4가지 핵심 불이익
 
@@ -196,7 +196,7 @@ keywords: "종합소득세 미신고, 무신고가산세, 납부지연가산세,
 - 국세청 통지서를 받은 경우
 - 가산세 최소화 전략 필요
 
-> 💰 절세 방법은 [종합소득세 절세 전략](/blog-post.html?slug=comprehensive-income-tax-saving-strategies)을 참고하세요.
+> 💰 절세 방법은 [종합소득세 절세 전략](/blog-post.html?slug=2026-05-03-comprehensive-income-tax-saving-strategies)을 참고하세요.
 
 ## 예외는 없습니다
 
@@ -265,6 +265,6 @@ Zero to One TAX
 🌐 https://0to1tax.com
 
 **관련 글**
-- [나도 종합소득세 신고 대상일까?](/blog-post.html?slug=am-i-subject-to-comprehensive-income-tax) - 3분 자가진단
-- [종합소득세는 어떻게 계산될까?](/blog-post.html?slug=how-to-calculate-comprehensive-income-tax) - 7단계 계산 과정
-- [종합소득세 절세 전략](/blog-post.html?slug=comprehensive-income-tax-saving-strategies) - 합법적 세금 절감 10가지
+- [나도 종합소득세 신고 대상일까?](/blog-post.html?slug=2026-05-01-am-i-subject-to-comprehensive-income-tax) - 3분 자가진단
+- [종합소득세는 어떻게 계산될까?](/blog-post.html?slug=2026-05-02-how-to-calculate-comprehensive-income-tax) - 7단계 계산 과정
+- [종합소득세 절세 전략](/blog-post.html?slug=2026-05-03-comprehensive-income-tax-saving-strategies) - 합법적 세금 절감 10가지

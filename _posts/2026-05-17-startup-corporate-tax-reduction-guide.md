@@ -1,7 +1,7 @@
 ---
-slug: "2026-05-18-startup-corporate-tax-reduction-guide"
+slug: "2026-05-17-startup-corporate-tax-reduction-guide"
 title: "2026년 법인세율 인상 시대, 스타트업 창업자를 위한 절세 종합 로드맵"
-date: "2026-05-18"
+date: "2026-05-17"
 author: "0to1tax"
 category: "세무"
 tags: ["법인세","스타트업 세무","창업중소기업 세액감면","R&D 세액공제","절세 전략"]

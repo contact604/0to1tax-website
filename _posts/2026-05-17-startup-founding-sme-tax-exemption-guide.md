@@ -1,7 +1,7 @@
 ---
-slug: "2026-05-18-startup-founding-sme-tax-exemption-guide"
+slug: "2026-05-17-startup-founding-sme-tax-exemption-guide"
 title: "2026년 창업중소기업 세액감면 완전 가이드: 스타트업 창업자가 놓치면 손해 보는 핵심 변경사항"
-date: "2026-05-18"
+date: "2026-05-17"
 author: "0to1tax"
 category: "세무"
 tags: ["창업중소기업세액감면","스타트업세무","법인세감면","청년창업","2026세법개정"]

@@ -1,7 +1,7 @@
 ---
-slug: "2026-05-18-startup-tax-audit-deferral-10years-guide"
+slug: "2026-05-17-startup-tax-audit-deferral-10years-guide"
 title: "2026년 스타트업 세무조사 유예 10년 확대 완전 가이드 — 대상 조건부터 신청 방법까지"
-date: "2026-05-18"
+date: "2026-05-17"
 author: "0to1tax"
 category: "세무"
 tags: ["세무조사유예","AI스타트업","스타트업세무","법인세","세무"]

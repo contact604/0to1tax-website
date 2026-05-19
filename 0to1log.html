@@ -349,7 +349,7 @@
         }
         
         /* 포스트 그리드 컨테이너 */
-        .posts-grid {
+        #postsList {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 24px;
@@ -616,6 +616,11 @@
                 display: block;
             }
             
+            #postsList {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
             .hero-title {
                 font-size: 36px;
             }
@@ -752,7 +757,7 @@
             <div class="posts-count">총 <span id="totalCount">0</span>개</div>
         </div>
         
-        <div id="postsList" class="posts-grid">
+        <div id="postsList">
             <!-- 포스트가 여기에 로드됩니다 -->
         </div>
         
@@ -811,9 +816,6 @@
         
         // ===== 블로그 포스트 목록 =====
         const BLOG_POSTS = [
-            '2026-05-20-startup-investment-financial-due-diligence.md'
-            '2026-05-17-startup-tax-audit-deferral-10years-guide.md'
-            '2026-05-17-startup-founding-sme-tax-exemption-guide.md',
             '2026-05-17-startup-corporate-tax-reduction-guide.md',
             '2026-05-04-comprehensive-income-tax-penalties.md',
             '2026-05-03-comprehensive-income-tax-saving-strategies.md',

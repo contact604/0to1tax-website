@@ -2808,26 +2808,29 @@
             }
 
             .hero {
-                padding: 120px 20px 60px !important;
+                padding: 80px 20px 30px !important;
                 min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
 
             .hero-title {
-                font-size: 38px !important;
+                font-size: 32px !important;
                 line-height: 1.4 !important;
                 word-break: keep-all;
-                margin-bottom: 40px !important;
+                margin-bottom: 25px !important;
                 letter-spacing: -1px;
             }
 
             /* 모바일에서 '스타트업을 위한' */
             .hero-prefix {
-                font-size: 0.7em; /* 38px의 70% = 26.6px */
+                font-size: 0.7em; /* 32px의 70% = 22.4px */
             }
 
             .headline-text {
-                font-size: 17px;
-                line-height: 1.65;
+                font-size: 15px;
+                line-height: 1.6;
                 word-break: keep-all;
                 text-align: center;
             }
@@ -2837,22 +2840,43 @@
                 top: 0;
                 left: 0;
                 right: 0;
-                padding: 20px 18px 24px;
-                gap: 10px;
-                min-height: 120px;
+                padding: 16px 16px 20px;
+                gap: 8px;
+                min-height: 100px;
             }
 
             .headline-number {
-                width: 24px;
-                height: 24px;
-                font-size: 13px;
-                border-radius: 7px;
+                width: 22px;
+                height: 22px;
+                font-size: 12px;
+                border-radius: 6px;
                 box-shadow: 0 3px 10px rgba(37, 99, 235, 0.2);
             }
 
             .headline-slider-container {
-                height: 210px;
+                height: 160px;
                 overflow: visible;
+                margin-bottom: 20px;
+            }
+            
+            .slider-dots {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                gap: 8px;
+            }
+            
+            .dot {
+                width: 10px;
+                height: 10px;
+            }
+            
+            .cta-button {
+                padding: 16px 40px;
+                font-size: 17px;
+            }
+            
+            .hero-cta-container {
+                margin-top: 10px;
             }
 
             .about-slide {

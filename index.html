@@ -3497,9 +3497,17 @@
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
         <input type="text" name="company" />
         <input type="text" name="name" />
-        <input type="tel" name="phone" />
-        <input type="email" name="email" />
-        <textarea name="message"></textarea>
+        <input type="text" name="contact" />
+        <input type="text" name="message" />
+        <input type="text" name="bot-field" />
+    </form>
+
+    <!-- Hidden form for contact-modal -->
+    <form name="contact-modal" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="company" />
+        <input type="text" name="name" />
+        <input type="text" name="contact" />
+        <input type="text" name="message" />
         <input type="text" name="bot-field" />
     </form>
 
@@ -3933,23 +3941,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">담당자명 *</label>
+                    <label class="form-label">담당자 이름 *</label>
                     <input type="text" class="form-input" name="name" required placeholder="성함을 입력해주세요">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">연락처 *</label>
-                    <input type="tel" class="form-input" name="phone" required placeholder="010-0000-0000">
+                    <label class="form-label">연락처 또는 이메일 *</label>
+                    <input type="text" class="form-input" name="contact" required placeholder="010-0000-0000 또는 example@company.com">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">이메일 *</label>
-                    <input type="email" class="form-input" name="email" required placeholder="example@company.com">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">문의 내용</label>
-                    <textarea class="form-textarea" name="message" placeholder="궁금하신 사항을 자유롭게 작성해주세요"></textarea>
+                    <label class="form-label">한 줄 문의 내용 *</label>
+                    <input type="text" class="form-input" name="message" required placeholder="궁금하신 사항을 간단히 입력해주세요">
                 </div>
 
                 <button type="submit" class="form-submit">문의하기</button>
@@ -4058,7 +4061,7 @@
                 </div>
                 
                 <div>
-                    <label style="display: block; font-size: 14px; font-weight: 600; color: #475569; margin-bottom: 8px;">담당자명 *</label>
+                    <label style="display: block; font-size: 14px; font-weight: 600; color: #475569; margin-bottom: 8px;">담당자 이름 *</label>
                     <input type="text" name="name" required placeholder="성함을 입력해주세요" style="
                         width: 100%;
                         padding: 14px 16px;
@@ -4072,8 +4075,8 @@
                 </div>
                 
                 <div>
-                    <label style="display: block; font-size: 14px; font-weight: 600; color: #475569; margin-bottom: 8px;">연락처 *</label>
-                    <input type="tel" name="phone" required placeholder="010-0000-0000" style="
+                    <label style="display: block; font-size: 14px; font-weight: 600; color: #475569; margin-bottom: 8px;">연락처 또는 이메일 *</label>
+                    <input type="text" name="contact" required placeholder="010-0000-0000 또는 example@company.com" style="
                         width: 100%;
                         padding: 14px 16px;
                         border: 2px solid #e2e8f0;
@@ -4086,8 +4089,8 @@
                 </div>
                 
                 <div>
-                    <label style="display: block; font-size: 14px; font-weight: 600; color: #475569; margin-bottom: 8px;">이메일 *</label>
-                    <input type="email" name="email" required placeholder="example@company.com" style="
+                    <label style="display: block; font-size: 14px; font-weight: 600; color: #475569; margin-bottom: 8px;">한 줄 문의 내용 *</label>
+                    <input type="text" name="message" required placeholder="궁금하신 사항을 간단히 입력해주세요" style="
                         width: 100%;
                         padding: 14px 16px;
                         border: 2px solid #e2e8f0;
@@ -4097,22 +4100,6 @@
                         outline: none;
                         box-sizing: border-box;
                     " onfocus="this.style.borderColor='#3b82f6'" onblur="this.style.borderColor='#e2e8f0'">
-                </div>
-                
-                <div>
-                    <label style="display: block; font-size: 14px; font-weight: 600; color: #475569; margin-bottom: 8px;">문의 내용</label>
-                    <textarea name="message" placeholder="궁금하신 사항을 자유롭게 작성해주세요" rows="4" style="
-                        width: 100%;
-                        padding: 14px 16px;
-                        border: 2px solid #e2e8f0;
-                        border-radius: 12px;
-                        font-size: 16px;
-                        transition: all 0.3s;
-                        outline: none;
-                        resize: vertical;
-                        font-family: inherit;
-                        box-sizing: border-box;
-                    " onfocus="this.style.borderColor='#3b82f6'" onblur="this.style.borderColor='#e2e8f0'"></textarea>
                 </div>
                 
                 <button type="submit" style="

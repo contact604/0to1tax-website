@@ -2302,6 +2302,80 @@
             color: rgba(30, 41, 59, 1);
         }
 
+        /* Blog Mini Card in Final Guidance */
+        .final-guidance-divider {
+            width: 320px;
+            height: 1px;
+            background: rgba(30, 41, 59, 0.2);
+            margin: 40px auto;
+        }
+
+        .final-guidance-blog-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .final-guidance-blog-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: rgba(30, 41, 59, 0.85);
+            margin: 0;
+        }
+
+        .final-guidance-blog-card {
+            display: block;
+            width: 320px;
+            background: rgba(37, 99, 235, 0.08);
+            border: 1px solid rgba(37, 99, 235, 0.15);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .final-guidance-blog-card:hover {
+            background: rgba(37, 99, 235, 0.12);
+            border-color: rgba(37, 99, 235, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+        }
+
+        .blog-mini-card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1e293b;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: keep-all;
+        }
+
+        .blog-mini-card-meta {
+            font-size: 13px;
+            color: rgba(30, 41, 59, 0.6);
+        }
+
+        .final-guidance-blog-link {
+            display: inline-block;
+            font-size: 14px;
+            color: rgba(30, 41, 59, 0.6);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 4px;
+        }
+
+        .final-guidance-blog-link:hover {
+            color: rgba(30, 41, 59, 1);
+        }
+
         /* FAQ in Final Guidance */
         .final-guidance-faq {
             width: 100%;
@@ -2523,6 +2597,17 @@
                 display: block;
                 height: 0;
                 margin: 0;
+                width: 100%;
+                margin: 30px auto;
+            }
+
+            .final-guidance-blog-card {
+                width: calc(100% - 32px);
+                padding: 18px 20px;
+            }
+
+            .blog-mini-card-title {
+                font-size: 16px;
             }
 
             .final-guidance-footer-row {
@@ -3445,6 +3530,9 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            z-index: 1;
+            display: block !important;
+            visibility: visible !important;
         }
 
         .final-cta-content {
@@ -3534,81 +3622,90 @@
 
         /* Divider */
         .final-cta-divider {
-            width: 320px;
+            width: 280px;
             height: 1px;
-            background: rgba(255, 255, 255, 0.2);
-            margin: 40px auto;
-            /* DEBUG */
-            border: 2px solid red !important;
-            min-height: 20px !important;
+            background: rgba(255, 255, 255, 0.25);
+            margin: 50px auto 40px;
         }
 
-        /* Blog Section */
+        /* Blog Mini Card Section */
         .final-cta-blog-section {
             display: flex !important;
             flex-direction: column;
             align-items: center;
-            gap: 16px;
-            margin-top: 0 !important;
-            /* DEBUG */
-            border: 3px solid yellow !important;
-            background: rgba(255, 0, 0, 0.3) !important;
-            padding: 20px !important;
-            min-height: 200px !important;
+            gap: 20px;
+            margin-top: 0;
+            visibility: visible !important;
+            opacity: 1 !important;
+            min-height: 100px;
         }
 
         .final-cta-blog-title {
-            font-size: 16px !important;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.85) !important;
-            margin: 0 !important;
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0 0 12px 0;
+            letter-spacing: 0.5px;
         }
 
         .final-cta-blog-card {
             display: block !important;
-            width: 320px;
-            background: rgba(255, 255, 255, 0.1) !important;
-            border-radius: 12px;
-            padding: 20px 24px;
+            width: 100%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 24px 28px;
             text-decoration: none;
             cursor: pointer;
             transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            visibility: visible !important;
+            opacity: 1 !important;
         }
 
         .final-cta-blog-card:hover {
             background: rgba(255, 255, 255, 0.18);
-            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
         }
 
         .blog-card-title {
-            font-size: 17px;
+            font-size: 18px;
             font-weight: 700;
             color: white;
-            line-height: 1.4;
-            margin-bottom: 12px;
+            line-height: 1.5;
+            margin-bottom: 10px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
+            word-break: keep-all;
         }
 
         .blog-card-meta {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.65);
+            font-weight: 500;
         }
 
         .final-cta-blog-link {
             display: inline-block;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.75);
             text-decoration: none;
-            margin-top: 20px;
+            margin-top: 8px;
             transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
         }
 
         .final-cta-blog-link:hover {
-            color: rgba(255, 255, 255, 1);
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
         }
 
         @media (max-width: 768px) {
@@ -3653,16 +3750,30 @@
             }
             
             .final-cta-divider {
-                width: 100%;
+                width: 240px;
+                margin: 40px auto 32px;
+            }
+
+            .final-cta-blog-title {
+                font-size: 16px;
             }
 
             .final-cta-blog-card {
-                width: calc(100% - 32px);
-                padding: 18px 20px;
+                width: calc(100% - 40px);
+                max-width: 100%;
+                padding: 20px 24px;
             }
 
             .blog-card-title {
                 font-size: 16px;
+            }
+
+            .blog-card-meta {
+                font-size: 13px;
+            }
+
+            .final-cta-blog-link {
+                font-size: 14px;
             }
             
             .blog-nav-button::before {
@@ -4069,9 +4180,20 @@
                     </a>
                 </div>
                 
-                <a href="/0to1log.html" class="final-guidance-link">
-                    스타트업 회계 인사이트 →
-                </a>
+                <!-- Divider -->
+                <div class="final-guidance-divider"></div>
+                
+                <!-- Blog Mini Card Section -->
+                <div class="final-guidance-blog-section">
+                    <h3 class="final-guidance-blog-title">📖 스타트업 회계 인사이트</h3>
+                    <a href="#" class="final-guidance-blog-card" id="finalGuidanceBlogCard">
+                        <div class="blog-mini-card-title">최신 글을 불러오는 중...</div>
+                        <div class="blog-mini-card-meta">2026.06 · 5분 읽기</div>
+                    </a>
+                    <a href="/0to1log.html" class="final-guidance-blog-link">
+                        전체 글 보기 →
+                    </a>
+                </div>
 
                 <!-- FAQ Section -->
                 <div class="final-guidance-faq">
@@ -4250,16 +4372,16 @@
             </div>
             
             <!-- Divider -->
-            <div class="final-cta-divider" style="border: 2px solid red !important; min-height: 20px !important; background: white !important;"></div>
+            <div class="final-cta-divider" style="display: block !important; visibility: visible !important;"></div>
             
-            <!-- Blog Section -->
-            <div class="final-cta-blog-section" style="border: 3px solid yellow !important; background: rgba(255, 0, 0, 0.3) !important; padding: 20px !important; min-height: 200px !important; display: flex !important;">
-                <h3 class="final-cta-blog-title">📖 스타트업 회계 인사이트</h3>
-                <a href="#" class="final-cta-blog-card" id="latestBlogCard">
-                    <div class="blog-card-title">최신 글을 불러오는 중...</div>
-                    <div class="blog-card-meta">2026.06 · 5분 읽기</div>
+            <!-- Blog Mini Card Section -->
+            <div class="final-cta-blog-section" style="display: flex !important; visibility: visible !important; opacity: 1 !important; background: rgba(255, 0, 0, 0.1) !important; padding: 20px !important; min-height: 200px !important;">
+                <h3 class="final-cta-blog-title" style="display: block !important; color: white !important;">📖 스타트업 회계 인사이트</h3>
+                <a href="#" class="final-cta-blog-card" id="latestBlogCard" style="display: block !important; visibility: visible !important;">
+                    <div class="blog-card-title" style="color: white !important;">최신 글을 불러오는 중...</div>
+                    <div class="blog-card-meta" style="color: rgba(255, 255, 255, 0.7) !important;">2026.06 · 5분 읽기</div>
                 </a>
-                <a href="/0to1log.html" class="final-cta-blog-link">
+                <a href="/0to1log.html" class="final-cta-blog-link" style="display: inline-block !important; color: white !important;">
                     전체 글 보기 →
                 </a>
             </div>
@@ -5175,12 +5297,17 @@
         // ============================================
 
         // ============================================
-        // Load Latest Blog Post for Final CTA Section
+        // Load Latest Blog Post for Final Guidance
         // ============================================
         async function loadLatestBlogPost() {
             console.log('🔍 loadLatestBlogPost 함수 시작!');
-            const blogSection = document.querySelector('.final-cta-blog-section');
-            console.log('📦 Blog Section 요소:', blogSection);
+            const blogCard = document.getElementById('finalGuidanceBlogCard');
+            console.log('📦 Blog Card 요소:', blogCard);
+            
+            if (!blogCard) {
+                console.error('❌ finalGuidanceBlogCard 요소를 찾을 수 없습니다!');
+                return;
+            }
             
             try {
                 console.log('🌐 /_posts/ 요청 시작...');
@@ -5222,13 +5349,12 @@
                         const readingTime = Math.max(1, Math.ceil(content.length / 400));
                         
                         // Update the card
-                        const blogCard = document.getElementById('latestBlogCard');
                         const postSlug = latestPost.href.split('/').pop().replace('.md', '');
                         const postUrl = `/blog-post.html?post=${postSlug}`;
                         
                         blogCard.href = postUrl;
-                        blogCard.querySelector('.blog-card-title').textContent = title;
-                        blogCard.querySelector('.blog-card-meta').textContent = `${formattedDate} · ${readingTime}분 읽기`;
+                        blogCard.querySelector('.blog-mini-card-title').textContent = title;
+                        blogCard.querySelector('.blog-mini-card-meta').textContent = `${formattedDate} · ${readingTime}분 읽기`;
                         console.log('✅ 블로그 카드 업데이트 완료!', { title, date: formattedDate, readingTime });
                     }
                 }

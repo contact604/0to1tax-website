@@ -4572,16 +4572,31 @@
             const totalProblems = 7;
             const checkedCount = checkedProblems.size;
             
-            // If no problems checked, directly open contact modal
+            // If no problems checked, show alert message
             if (checkedCount === 0) {
-                console.log('⚠️ No problems checked - opening contact modal directly');
-                problemSection.classList.remove('active');
-                openNewModal();
+                console.log('⚠️ No problems checked - showing alert');
+                alert('체크해주세요! 어떤 부분이 헷갈리시나요?');
                 return;
             }
             
             // Update result score
-            resultScore.textContent = `${checkedCount} / ${totalProblems}`;
+            resultScore.textContent = `${checkedCount}개를 체크하셨네요.`;
+            
+            // Update result message based on checked count
+            const resultMessageElement = document.querySelector('.result-message');
+            let message = '';
+            
+            if (checkedCount >= 1 && checkedCount <= 2) {
+                message = '지금 점검해두면 큰 문제로 커지지 않습니다.<br>0to1tax와 함께 정리해보세요.';
+            } else if (checkedCount >= 3 && checkedCount <= 5) {
+                message = '지금 함께 정리해두면, <strong style="color: #fbbf24;">시리즈 A까지</strong> 흔들리지 않습니다.<br>0to1tax가 <strong style="color: #fbbf24;">1:1로 함께</strong>합니다.';
+            } else if (checkedCount >= 6 && checkedCount <= 8) {
+                message = '지금이 정리할 시점입니다.<br>0to1tax가 <strong style="color: #fbbf24;">한 번에 정돈</strong>해드릴 수 있습니다.';
+            }
+            
+            if (resultMessageElement) {
+                resultMessageElement.innerHTML = message;
+            }
             
             // Create particles
             createParticles();

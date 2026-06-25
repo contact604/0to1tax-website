@@ -500,6 +500,23 @@
             font-weight: 800;
         }
 
+        /* Desktop/Mobile Content Toggle - Default: Desktop visible */
+        .trust-badge-mobile,
+        .hero-title-mobile,
+        .hero-description-mobile,
+        .cta-button-mobile,
+        .secondary-cta-mobile {
+            display: none;
+        }
+
+        .trust-badge-desktop,
+        .hero-title-desktop,
+        .hero-description-desktop,
+        .cta-button-desktop,
+        .secondary-cta-desktop {
+            display: inline;
+        }
+
         /* Headline Slider Box - Vertical Slide */
         .headline-slider-container {
             position: relative;
@@ -2889,8 +2906,25 @@
                 display: inline;
             }
 
+            /* Mobile Content Toggle - Show mobile, hide desktop */
+            .trust-badge-desktop,
+            .hero-title-desktop,
+            .hero-description-desktop,
+            .cta-button-desktop,
+            .secondary-cta-desktop {
+                display: none !important;
+            }
+
+            .trust-badge-mobile,
+            .hero-title-mobile,
+            .hero-description-mobile,
+            .cta-button-mobile,
+            .secondary-cta-mobile {
+                display: inline !important;
+            }
+
             .hero {
-                padding: 70px 20px 60px !important;
+                padding: 60px 20px 50px !important;
                 min-height: 100vh;
                 height: 100vh;
                 display: flex;
@@ -2899,22 +2933,22 @@
             }
 
             .trust-badge {
-                font-size: 11px;
-                padding: 6px 14px;
-                margin-bottom: 16px;
+                font-size: 13px;
+                padding: 6px 12px;
+                margin-bottom: 20px;
             }
 
             .hero-title {
-                font-size: 28px !important;
+                font-size: 24px !important;
                 line-height: 1.4 !important;
                 word-break: keep-all;
                 margin-bottom: 15px !important;
-                letter-spacing: -1px;
+                letter-spacing: -0.5px;
             }
             
             .hero-description {
-                font-size: 16px !important;
-                line-height: 1.6 !important;
+                font-size: 15px !important;
+                line-height: 1.5 !important;
                 margin-bottom: 25px !important;
                 padding: 0 10px;
             }
@@ -2985,14 +3019,29 @@
             }
             
             .secondary-cta {
-                padding: 15px 30px;
-                font-size: 15px;
+                /* 모바일에서 텍스트 링크 스타일 */
+                background: transparent;
+                border: none;
+                padding: 12px 0;
+                font-size: 14px;
+                text-decoration: none;
+                color: rgba(255, 255, 255, 0.85);
+                transition: all 0.3s ease;
+            }
+            
+            .secondary-cta:hover {
+                background: transparent;
+                border: none;
+                color: rgba(255, 255, 255, 1);
+                text-decoration: underline;
+                transform: none;
             }
             
             .hero-cta-container {
                 margin-top: 10px;
                 flex-direction: column;
                 width: 100%;
+                gap: 8px;
             }
 
             .about-slide {
@@ -3598,22 +3647,30 @@
         <div class="hero-content">
             <!-- Trust Badge -->
             <div class="trust-badge">
-                🏢 선영회계법인의 스타트업 전문 브랜드 · 1,000여 곳과 함께
+                <span class="trust-badge-desktop">🏢 선영회계법인의 스타트업 전문 브랜드 · 1,000여 곳과 함께</span>
+                <span class="trust-badge-mobile">🏢 스타트업 전문 · 1,000여 곳 함께</span>
             </div>
             
             <h1 class="hero-title">
-                <span class="highlight-startup">법인 설립</span>부터 <span class="highlight-startup">시리즈 A</span>까지,<br><span class="highlight-startup">매달</span> 함께하는 <span class="hero-service">스타트업 회계 파트너</span>
+                <span class="hero-title-desktop"><span class="highlight-startup">법인 설립</span>부터 <span class="highlight-startup">시리즈 A</span>까지,<br><span class="highlight-startup">매달</span> 함께하는 <span class="hero-service">스타트업 회계 파트너</span></span>
+                <span class="hero-title-mobile"><span class="highlight-startup">법인 설립</span>부터 <span class="highlight-startup">시리즈 A</span>까지<br><span class="highlight-startup">매달</span> 함께하는 <span class="hero-service">회계 파트너</span></span>
             </h1>
             
             <p class="hero-description">
-                <span class="price-highlight">월 13만 원부터</span>, 기장부터 투자유치 준비까지<br>
-                BIG4 출신 회계사가 1:1로 챙깁니다.
+                <span class="hero-description-desktop"><span class="price-highlight">월 13만 원부터</span>, 기장부터 투자유치 준비까지<br>BIG4 출신 회계사가 1:1로 챙깁니다.</span>
+                <span class="hero-description-mobile">💼 <span class="price-highlight">월 13만 원부터</span><br>BIG4 출신 회계사가 1:1로 케어</span>
             </p>
 
             <!-- CTA Buttons Container -->
             <div class="hero-cta-container">
-                <a href="#" class="cta-button" id="ctaButton">🔍 우리 회사 회계 진단 시작하기</a>
-                <a href="/service-pdf.html" class="secondary-cta">📄 서비스 소개서 받기</a>
+                <a href="#" class="cta-button" id="ctaButton">
+                    <span class="cta-button-desktop">🔍 우리 회사 회계 진단 시작하기</span>
+                    <span class="cta-button-mobile">🔍 회계 진단 시작하기</span>
+                </a>
+                <a href="/service-pdf.html" class="secondary-cta">
+                    <span class="secondary-cta-desktop">📄 서비스 소개서 받기</span>
+                    <span class="secondary-cta-mobile">서비스 소개서 받기 →</span>
+                </a>
             </div>
         </div>
     </section>

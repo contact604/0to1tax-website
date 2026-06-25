@@ -1466,46 +1466,13 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 30% 70%, rgba(245, 158, 11, 0.25) 0%, transparent 60%),
-                radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.25) 0%, transparent 60%);
-            animation: pulse 10s ease-in-out infinite;
+                radial-gradient(circle at 30% 70%, rgba(245, 158, 11, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 60%);
         }
 
-        /* Animated Particles */
+        /* Particles - Hidden */
         .result-particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(245, 158, 11, 0.6);
-            border-radius: 50%;
-            animation: particleFloat 8s linear infinite;
-        }
-
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) scale(1);
-                opacity: 0;
-            }
+            display: none;
         }
 
         .result-content {
@@ -1526,50 +1493,13 @@
         .result-icon {
             font-size: 100px;
             margin-bottom: 30px;
-            animation: iconBounce 1s cubic-bezier(0.4, 0.0, 0.2, 1) both;
-        }
-
-        @keyframes iconBounce {
-            0% {
-                transform: scale(0) rotate(-180deg);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.2) rotate(10deg);
-            }
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-            }
         }
 
         .result-score {
-            font-size: 140px;
-            font-weight: 900;
+            font-size: 28px;
+            font-weight: 700;
             margin-bottom: 20px;
-            background: linear-gradient(120deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            background-size: 200% auto;
-            animation: scoreAppear 0.8s cubic-bezier(0.4, 0.0, 0.2, 1), scoreShine 3s linear infinite;
-            text-shadow: 0 0 60px rgba(245, 158, 11, 0.5);
-        }
-
-        @keyframes scoreAppear {
-            0% {
-                opacity: 0;
-                transform: scale(0.3) rotateY(180deg);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) rotateY(0deg);
-            }
-        }
-
-        @keyframes scoreShine {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
+            color: white;
         }
 
         .result-label {
@@ -1579,7 +1509,6 @@
             margin-bottom: 40px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            animation: messageSlide 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) 0.2s both;
         }
 
         .result-message {
@@ -1588,24 +1517,12 @@
             margin-bottom: 50px;
             line-height: 1.5;
             letter-spacing: -1px;
-            animation: messageSlide 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) 0.4s both;
             word-break: keep-all;
             word-wrap: break-word;
         }
 
-        @keyframes messageSlide {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         .result-continue-btn {
-            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            background: #f59e0b;
             border: none;
             color: white;
             padding: 22px 60px;
@@ -1613,42 +1530,13 @@
             font-weight: 900;
             border-radius: 60px;
             cursor: pointer;
-            transition: all 0.4s;
-            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.4);
-            animation: buttonAppear 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) 0.6s both;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .result-continue-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s;
-        }
-
-        .result-continue-btn:hover::before {
-            left: 100%;
-        }
-
-        @keyframes buttonAppear {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
         }
 
         .result-continue-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(245, 158, 11, 0.5);
+            background: #ea580c;
+            box-shadow: 0 12px 28px rgba(245, 158, 11, 0.4);
         }
 
         @media (max-width: 768px) {
@@ -1680,31 +1568,66 @@
             }
 
             .result-score {
-                font-size: 100px;
+                font-size: 24px;
             }
 
             .result-icon {
-                font-size: 70px;
+                font-size: 60px;
             }
 
             .result-label {
-                font-size: 16px;
+                font-size: 15px;
                 letter-spacing: 2px;
             }
 
             .result-message {
-                font-size: 36px;
-                line-height: 1.7;
+                font-size: 28px;
+                line-height: 1.6;
+                margin-bottom: 40px;
             }
 
             .result-continue-btn {
-                padding: 18px 45px;
-                font-size: 18px;
+                padding: 16px 40px;
+                font-size: 17px;
             }
 
             .result-content {
-                padding: 60px 40px;
+                padding: 50px 30px;
                 border-radius: 20px;
+            }
+        }
+
+        /* Extra Mobile Optimization (Small phones) */
+        @media (max-width: 480px) {
+            .result-score {
+                font-size: 22px;
+                margin-bottom: 15px;
+            }
+
+            .result-icon {
+                font-size: 50px;
+            }
+
+            .result-label {
+                font-size: 14px;
+                margin-bottom: 30px;
+            }
+
+            .result-message {
+                font-size: 22px;
+                line-height: 1.5;
+                margin-bottom: 35px;
+                padding: 0 10px;
+            }
+
+            .result-continue-btn {
+                padding: 15px 35px;
+                font-size: 16px;
+            }
+
+            .result-content {
+                padding: 40px 20px;
+                min-height: auto;
             }
         }
 
@@ -3615,6 +3538,9 @@
             height: 1px;
             background: rgba(255, 255, 255, 0.2);
             margin: 40px auto;
+            /* DEBUG */
+            border: 2px solid red !important;
+            min-height: 20px !important;
         }
 
         /* Blog Section */
@@ -3624,6 +3550,11 @@
             align-items: center;
             gap: 16px;
             margin-top: 0 !important;
+            /* DEBUG */
+            border: 3px solid yellow !important;
+            background: rgba(255, 0, 0, 0.3) !important;
+            padding: 20px !important;
+            min-height: 200px !important;
         }
 
         .final-cta-blog-title {
@@ -4319,10 +4250,10 @@
             </div>
             
             <!-- Divider -->
-            <div class="final-cta-divider"></div>
+            <div class="final-cta-divider" style="border: 2px solid red !important; min-height: 20px !important; background: white !important;"></div>
             
             <!-- Blog Section -->
-            <div class="final-cta-blog-section">
+            <div class="final-cta-blog-section" style="border: 3px solid yellow !important; background: rgba(255, 0, 0, 0.3) !important; padding: 20px !important; min-height: 200px !important; display: flex !important;">
                 <h3 class="final-cta-blog-title">📖 스타트업 회계 인사이트</h3>
                 <a href="#" class="final-cta-blog-card" id="latestBlogCard">
                     <div class="blog-card-title">최신 글을 불러오는 중...</div>
@@ -4830,8 +4761,8 @@
                 resultMessageElement.innerHTML = message;
             }
             
-            // Create particles
-            createParticles();
+            // Particles disabled - static design
+            // createParticles();
             
             // Show result section
             problemSection.classList.remove('active');
@@ -5247,19 +5178,29 @@
         // Load Latest Blog Post for Final CTA Section
         // ============================================
         async function loadLatestBlogPost() {
+            console.log('🔍 loadLatestBlogPost 함수 시작!');
+            const blogSection = document.querySelector('.final-cta-blog-section');
+            console.log('📦 Blog Section 요소:', blogSection);
+            
             try {
+                console.log('🌐 /_posts/ 요청 시작...');
                 const response = await fetch('/_posts/');
+                console.log('✅ /_posts/ 응답 받음:', response.status);
                 const html = await response.text();
+                console.log('📄 HTML 길이:', html.length);
                 
                 // Parse blog posts from _posts directory
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
                 const links = Array.from(doc.querySelectorAll('a')).filter(a => a.href.endsWith('.md'));
                 
+                console.log('🔗 찾은 링크 개수:', links.length);
+                
                 if (links.length > 0) {
                     // Sort by filename (assuming YYYY-MM-DD format)
                     links.sort((a, b) => b.href.localeCompare(a.href));
                     const latestPost = links[0];
+                    console.log('📝 최신 포스트:', latestPost.href);
                     
                     // Fetch the markdown file
                     const postResponse = await fetch(latestPost.href);
@@ -5288,10 +5229,12 @@
                         blogCard.href = postUrl;
                         blogCard.querySelector('.blog-card-title').textContent = title;
                         blogCard.querySelector('.blog-card-meta').textContent = `${formattedDate} · ${readingTime}분 읽기`;
+                        console.log('✅ 블로그 카드 업데이트 완료!', { title, date: formattedDate, readingTime });
                     }
                 }
             } catch (error) {
-                console.log('블로그 글 불러오기 실패:', error);
+                console.error('❌ 블로그 글 불러오기 실패:', error);
+                console.error('에러 상세:', error.message, error.stack);
                 // Fallback: keep default text
             }
         }

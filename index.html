@@ -2343,25 +2343,40 @@
         }
 
         .final-guidance-btn.secondary {
-            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
-            color: white;
-            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+            background: transparent;
+            color: #2563eb;
+            border: 1.5px solid #2563eb;
+            box-shadow: none;
         }
 
         .final-guidance-btn.secondary:hover {
+            background: rgba(37, 99, 235, 0.05);
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
         }
 
         .final-guidance-btn.primary {
-            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            background: linear-gradient(135deg, #FF6B35 0%, #f59e0b 100%);
             color: white;
-            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
         }
 
         .final-guidance-btn.primary:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.4);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+        }
+
+        .final-guidance-link {
+            display: inline-block;
+            font-size: 14px;
+            color: rgba(30, 41, 59, 0.6);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .final-guidance-link:hover {
+            color: rgba(30, 41, 59, 1);
         }
 
         /* FAQ in Final Guidance */
@@ -3500,6 +3515,170 @@
             color: #cbd5e1;
         }
 
+        /* Final CTA Section */
+        .final-cta-section {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-cta-headline {
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.35;
+            margin-bottom: 16px;
+            word-break: keep-all;
+        }
+
+        .final-cta-trust {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 32px;
+        }
+
+        .final-cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .final-cta-primary {
+            display: inline-block;
+            width: 320px;
+            height: 56px;
+            background: #FF6B35;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            line-height: 56px;
+            transition: all 0.3s ease;
+        }
+
+        .final-cta-primary:hover {
+            background: #e55a28;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .final-cta-secondary {
+            display: inline-block;
+            width: 320px;
+            height: 56px;
+            background: transparent;
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            border: 1.5px solid white;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            line-height: 54px;
+            transition: all 0.3s ease;
+        }
+
+        .final-cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .final-cta-link {
+            display: inline-block;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .final-cta-link:hover {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        /* Divider */
+        .final-cta-divider {
+            width: 320px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 40px auto;
+        }
+
+        /* Blog Section */
+        .final-cta-blog-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .final-cta-blog-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+        }
+
+        .final-cta-blog-card {
+            display: block;
+            width: 320px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .final-cta-blog-card:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-2px);
+        }
+
+        .blog-card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .blog-card-meta {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .final-cta-blog-link {
+            display: inline-block;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .final-cta-blog-link:hover {
+            color: rgba(255, 255, 255, 1);
+        }
+
         @media (max-width: 768px) {
             .hero-cta-container {
                 flex-direction: column;
@@ -3519,6 +3698,38 @@
             .secondary-cta {
                 width: 100%;
                 padding: 16px 35px;
+                font-size: 16px;
+            }
+            
+            /* Final CTA Mobile */
+            .final-cta-section {
+                padding: 48px 20px;
+            }
+
+            .final-cta-headline {
+                font-size: 26px;
+            }
+
+            .final-cta-trust {
+                font-size: 14px;
+            }
+
+            .final-cta-primary,
+            .final-cta-secondary {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .final-cta-divider {
+                width: 100%;
+            }
+
+            .final-cta-blog-card {
+                width: calc(100% - 32px);
+                padding: 18px 20px;
+            }
+
+            .blog-card-title {
                 font-size: 16px;
             }
             
@@ -3914,37 +4125,21 @@
 
             <!-- Final Guidance Slide -->
             <div class="solution-slide final-guidance-slide" data-slide-id="final-guidance">
-                <h2 class="final-guidance-title">더 자세한 상담이<br>필요하신가요?</h2>
-                <p class="final-guidance-subtitle">선영회계법인의 스타트업 전문 브랜드</p>
-                <div class="final-guidance-logo">
-                    <img src="0to1tax-horizontal-blue.svg?v=1.8.0" alt="0to1tax">
-                </div>
+                <h2 class="final-guidance-title">법인 설립부터 시리즈 A까지,<br>0to1tax가 함께합니다.</h2>
+                <p class="final-guidance-subtitle">✨ 1,000여 곳 스타트업이 함께하고 있습니다.</p>
                 
                 <div class="final-guidance-buttons">
-                    <a href="/service-pdf.html" class="final-guidance-btn secondary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="12" y1="18" x2="12" y2="12"></line>
-                            <line x1="9" y1="15" x2="15" y2="15"></line>
-                        </svg>
-                        서비스소개서 보기
-                    </a>
                     <button class="final-guidance-btn primary" id="finalGuidanceContactBtn" onclick="openNewModal()">
-                        지금 문의하기
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px;">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
+                        🚀 무료로 우리 회사 진단받기
                     </button>
-                    <a href="/0to1log.html" class="final-guidance-btn secondary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                        </svg>
-                        블로그 보기
+                    <a href="/service-pdf.html" class="final-guidance-btn secondary">
+                        📄 서비스 자세히 보기
                     </a>
                 </div>
+                
+                <a href="/0to1log.html" class="final-guidance-link">
+                    스타트업 회계 인사이트 →
+                </a>
 
                 <!-- FAQ Section -->
                 <div class="final-guidance-faq">
@@ -4101,6 +4296,42 @@
 
         <!-- Contact Button (Always Visible) -->
         <button class="solution-contact-btn" id="solutionContactBtn" onclick="openNewModal()">문의하기</button>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta-section">
+        <div class="final-cta-content">
+            <h2 class="final-cta-headline">
+                법인 설립부터 시리즈 A까지,<br>
+                0to1tax가 함께합니다.
+            </h2>
+            <p class="final-cta-trust">
+                ✨ 1,000여 곳 스타트업이 함께하고 있습니다.
+            </p>
+            <div class="final-cta-buttons">
+                <a href="#" class="final-cta-primary" onclick="event.preventDefault(); openNewModal();">
+                    🚀 무료로 우리 회사 진단받기
+                </a>
+                <a href="/service-pdf.html" class="final-cta-secondary">
+                    📄 서비스 자세히 보기
+                </a>
+            </div>
+            
+            <!-- Divider -->
+            <div class="final-cta-divider"></div>
+            
+            <!-- Blog Section -->
+            <div class="final-cta-blog-section">
+                <h3 class="final-cta-blog-title">📖 스타트업 회계 인사이트</h3>
+                <a href="#" class="final-cta-blog-card" id="latestBlogCard">
+                    <div class="blog-card-title">최신 글을 불러오는 중...</div>
+                    <div class="blog-card-meta">2026.06 · 5분 읽기</div>
+                </a>
+                <a href="/0to1log.html" class="final-cta-blog-link">
+                    전체 글 보기 →
+                </a>
+            </div>
+        </div>
     </section>
 
     <!-- Final Info Section -->
@@ -5009,6 +5240,63 @@
                 closeMobileMenu();
             }
         });
+        // ============================================
+
+        // ============================================
+        // Load Latest Blog Post for Final CTA Section
+        // ============================================
+        async function loadLatestBlogPost() {
+            try {
+                const response = await fetch('/_posts/');
+                const html = await response.text();
+                
+                // Parse blog posts from _posts directory
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const links = Array.from(doc.querySelectorAll('a')).filter(a => a.href.endsWith('.md'));
+                
+                if (links.length > 0) {
+                    // Sort by filename (assuming YYYY-MM-DD format)
+                    links.sort((a, b) => b.href.localeCompare(a.href));
+                    const latestPost = links[0];
+                    
+                    // Fetch the markdown file
+                    const postResponse = await fetch(latestPost.href);
+                    const markdown = await postResponse.text();
+                    
+                    // Extract frontmatter
+                    const frontmatterMatch = markdown.match(/^---\n([\s\S]*?)\n---/);
+                    if (frontmatterMatch) {
+                        const frontmatter = frontmatterMatch[1];
+                        const titleMatch = frontmatter.match(/title:\s*["']?([^"'\n]+)["']?/);
+                        const dateMatch = frontmatter.match(/date:\s*(\d{4}-\d{2}-\d{2})/);
+                        
+                        const title = titleMatch ? titleMatch[1] : '최신 글';
+                        const date = dateMatch ? dateMatch[1] : '';
+                        const formattedDate = date ? date.substring(0, 7).replace('-', '.') : '2026.06';
+                        
+                        // Calculate reading time (approx 200 characters per minute for Korean)
+                        const content = markdown.replace(/^---[\s\S]*?---/, '').trim();
+                        const readingTime = Math.max(1, Math.ceil(content.length / 400));
+                        
+                        // Update the card
+                        const blogCard = document.getElementById('latestBlogCard');
+                        const postSlug = latestPost.href.split('/').pop().replace('.md', '');
+                        const postUrl = `/blog-post.html?post=${postSlug}`;
+                        
+                        blogCard.href = postUrl;
+                        blogCard.querySelector('.blog-card-title').textContent = title;
+                        blogCard.querySelector('.blog-card-meta').textContent = `${formattedDate} · ${readingTime}분 읽기`;
+                    }
+                }
+            } catch (error) {
+                console.log('블로그 글 불러오기 실패:', error);
+                // Fallback: keep default text
+            }
+        }
+        
+        // Load on page load
+        window.addEventListener('DOMContentLoaded', loadLatestBlogPost);
         // ============================================
     </script>
 </body>

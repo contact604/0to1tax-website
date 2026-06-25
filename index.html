@@ -719,6 +719,32 @@
             transform: translateY(-2px) scale(0.98);
         }
 
+        /* Secondary CTA Button */
+        .secondary-cta {
+            display: inline-block;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.95);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            padding: 16px 40px;
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 60px;
+            cursor: pointer;
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .secondary-cta:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.7);
+            transform: translateY(-3px);
+        }
+
+        .secondary-cta:active {
+            transform: translateY(-1px);
+        }
+
         /* Slider Dots - Enhanced */
         .slider-dots {
             display: flex;
@@ -2958,8 +2984,15 @@
                 line-height: 1.5;
             }
             
+            .secondary-cta {
+                padding: 15px 30px;
+                font-size: 15px;
+            }
+            
             .hero-cta-container {
                 margin-top: 10px;
+                flex-direction: column;
+                width: 100%;
             }
 
             .about-slide {
@@ -3429,6 +3462,12 @@
                 font-size: 18px;
             }
             
+            .secondary-cta {
+                width: 100%;
+                padding: 16px 35px;
+                font-size: 16px;
+            }
+            
             .blog-nav-button::before {
                 font-size: 18px;
             }
@@ -3573,7 +3612,8 @@
 
             <!-- CTA Buttons Container -->
             <div class="hero-cta-container">
-                <a href="#" class="cta-button" id="ctaButton">🚀 우리 회사에 맞는 기장료 확인하기</a>
+                <a href="#" class="cta-button" id="ctaButton">🔍 우리 회사 회계 진단 시작하기</a>
+                <a href="/service-pdf.html" class="secondary-cta">📄 서비스 소개서 받기</a>
             </div>
         </div>
     </section>
